@@ -1,0 +1,13 @@
+﻿@model IEnumerable<SelectListItem>
+           
+@{
+    ViewBag.Title = "Mobile licenses";
+    Layout = "~/Areas/Admin/Views/MobileLicense/Partial/LicensesIndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Admin/InitMobileLicensesGrid.js");
+}           
+
+@section links
+{
+    @{Html.RenderPartial("CompanyLinksWithFilter");}
+}
+

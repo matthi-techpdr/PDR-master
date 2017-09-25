@@ -1,0 +1,16 @@
+﻿@model PDR.Web.Areas.Estimator.Models.Estimates.EstimateModel
+@{
+    this.SetLayout();
+    ViewBag.Title = "View Estimate";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+}
+
+<div class="links">
+    @RenderSection("links")
+    <span class="item-number" style="-webkit-appearance: none;">View Estimate # @Model.Id</span>
+</div> 
+@{   
+    Html.ReadOnlyModeOn();
+    Html.RenderPartial("Partial/Estimate", Model);
+    Html.ReadOnlyModeOff();
+}

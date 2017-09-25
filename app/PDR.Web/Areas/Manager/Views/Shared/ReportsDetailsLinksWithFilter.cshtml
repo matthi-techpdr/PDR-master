@@ -1,0 +1,26 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Reports
+@model ReportModel
+
+<div class="links">
+    @Html.Hidden("reportId", Model.Id)
+    <a href="javascript:void(0);" class="active">@Html.DisplayFor(x => x.Title)</a>
+    <span class="gridFilter gridFilterNoMargin">
+        <label>
+            Customer:
+        </label>
+        @Html.TextBoxFor(x => x.CustomerName, new { id = "Customer", style = "width:150px;", @readonly = "readonly"  })
+    </span>
+    <span class="gridFilterDetailsTeams">
+            <label>
+            Team:
+        </label>
+        @Html.TextBoxFor(x => x.TeamName, new { id = "Team", style = "width:150px;", @readonly = "readonly"  })
+    </span>      
+
+    <label style="margin-left: 10px;">
+        From:</label>
+    <input type="text" id="from" class="date-filter" value="@Model.StartDate" readonly="readonly" autocomplete="off" />
+    <label>
+        To:</label>
+    <input type="text" id="to" class="date-filter" value="@Model.EndDate" readonly="readonly" autocomplete="off" />
+</div>

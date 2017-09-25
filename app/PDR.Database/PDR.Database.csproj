@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36265E93-7F69-4693-A024-79B326D25FD4}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PDR.Database</RootNamespace>
+    <AssemblyName>PDR.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live|AnyCPU'">
+    <OutputPath>bin\Live\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\PDR.Database.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MigSharp">
+      <HintPath>..\..\packages\MigSharp.2.0.0\lib\net40\MigSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMapAdapter, Version=1.1.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.StructureMapAdapter.1.1.0.3\lib\StructureMapAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="M111_AddStatusColumnToLogsTable111.cs" />
+    <Compile Include="M110_AddColumnsToLogsTable110.cs" />
+    <Compile Include="M109_CreateTableFormerRITechnician109.cs" />
+    <Compile Include="M108_AddColumnCanCreateEstimatesToUsersTable108.cs" />
+    <Compile Include="M106_AddColumnCreationDateToTeamEmployees_TeamsTable106.cs" />
+    <Compile Include="M105_UpdateEstimatesTable105.cs" />
+    <Compile Include="M104_CreateInsuranceCompanyTable104.cs" />
+    <Compile Include="M103_UpdateUserTable103.cs" />
+    <Compile Include="M102_UpdateUserTable102.cs" />
+    <Compile Include="M101_UpdateLogsTable101.cs" />
+    <Compile Include="M100_UpdateCustomerTable100.cs" />
+    <Compile Include="M099_UpdateCompanyTable99.cs" />
+    <Compile Include="M097_AddColumnEditedStatuses97.cs" />
+    <Compile Include="M096_AddColumnAffiliateToEstimateTable96.cs" />
+    <Compile Include="M094_CreateTableVersioniPhoneApp94.cs" />
+    <Compile Include="M087_UpdateRoTable87.cs" />
+    <Compile Include="M085_UpdateLogsTable.cs" />
+    <Compile Include="M083_UpdateLogsTable.cs" />
+    <Compile Include="M082_UpdateLicensesTable.cs" />
+    <Compile Include="M081_UpdateChosenEfforts.cs" />
+    <Compile Include="M063_UpdateCompany63.cs" />
+    <Compile Include="M054_RenameColumnInCustomersToMatrixesTable.cs" />
+    <Compile Include="M051_UpdateMatrixTable51.cs" />
+    <Compile Include="M012_CreateTablePrices12.cs" />
+    <Compile Include="M001_CreateTableHiLo1.cs" />
+    <Compile Include="M002_CreateTableCompanies2.cs" />
+    <Compile Include="M003_CreateTableUsers3.cs" />
+    <Compile Include="M004_CreateTableCars4.cs" />
+    <Compile Include="M005_CreateInsuranceTable5.cs" />
+    <Compile Include="M006_CreateTableCustomers6.cs" />
+    <Compile Include="M007_CreateUserAndCompanyReferences7.cs" />
+    <Compile Include="M008_CreateTableTeams8.cs" />
+    <Compile Include="M009_CreateTableUsersToTeams9.cs" />
+    <Compile Include="M010_CreateTableLicences10.cs" />
+    <Compile Include="M011_AddFkToUsersFromLicensees11.cs" />
+    <Compile Include="M013_CreateTableMatrices13.cs" />
+    <Compile Include="M014_CreateTableCustomLines14.cs" />
+    <Compile Include="M015_CreateTableEffortItems15.cs" />
+    <Compile Include="M016_CreateTableCarInspections16.cs" />
+    <Compile Include="M017_CreateTableChosenEffortItems17.cs" />
+    <Compile Include="M018_CreateTablePhotos18.cs" />
+    <Compile Include="M019_CreateTableEstimates19.cs" />
+    <Compile Include="M021_UpdateTableCuctomers21.cs" />
+    <Compile Include="M020_CreateAllReferencesToCompany20.cs" />
+    <Compile Include="M022_CreateTableLogs22.cs" />
+    <Compile Include="M023_UpdateCustomerTable23.cs" />
+    <Compile Include="M024_CreateTableCustomersToMatrices24.cs" />
+    <Compile Include="M025_UpdateRelationBitweenEstimateAndEnsurance25.cs" />
+    <Compile Include="M026_UpdateTablePhotos26.cs" />
+    <Compile Include="M028_AddColumnToCustomersTable28.cs" />
+    <Compile Include="M027_CreateTeamsToCustomersTable27.cs" />
+    <Compile Include="M029_AddColumnToEstimateTable29.cs" />
+    <Compile Include="M030_AddColumnsToEstimateTable30.cs" />
+    <Compile Include="M031_AddEstimateReportsTables31.cs" />
+    <Compile Include="M032_AddEmployeeReferenceToEstimateReport32.cs" />
+    <Compile Include="M033_AddCompanyReferenceToReportItemTable33.cs" />
+    <Compile Include="M034_AddRepairOrderFkToPhotosTable34.cs" />
+    <Compile Include="M035_CreateRepairOrdersTables35.cs" />
+    <Compile Include="M036_CreateRepairOrdersReportTables36.cs" />
+    <Compile Include="M037_CreateInvoicesTable37.cs" />
+    <Compile Include="M038_AddColumnToRepairOrdersTable38.cs" />
+    <Compile Include="M039_CreateInvoicesReportTable39.cs" />
+    <Compile Include="M040_AddColumnToInvoiceTable40.cs" />
+    <Compile Include="M041_AddColumnToInvoiceTable41.cs" />
+    <Compile Include="M042_AddColumnToInvoiceAndToRepairOrderTables42.cs" />
+    <Compile Include="M043_DropLogsTable43.cs" />
+    <Compile Include="M044_CreateLogsTable44.cs" />
+    <Compile Include="M046_UpdateTableCompanies46.cs" />
+    <Compile Include="M047_AddNameColumnToCustomerTable47.cs" />
+    <Compile Include="M048_AddColumnToInvoiceTable48.cs" />
+    <Compile Include="M049_AddNewColumnsToCompanyTable49.cs" />
+    <Compile Include="M050_AddClassToPhotoTable50.cs" />
+    <Compile Include="M052_UpdateMatrixTable52.cs" />
+    <Compile Include="M053_UpdateCustomersToMatrixesTable.cs" />
+    <Compile Include="M055_UpdateCompanyTable55.cs" />
+    <Compile Include="M056_AddColumnToInvoicesAndToOrdersAndToEstimatesReportTable56.cs" />
+    <Compile Include="M057_AddColumnToLicensesTable57.cs" />
+    <Compile Include="M064_AddColumnToEffortTable64.cs" />
+    <Compile Include="M059_AddColumnToCarInspectionTable59.cs" />
+    <Compile Include="M058_AddLocationsTable58.cs" />
+    <Compile Include="M060_CreateCarPartsPriceTable60.cs" />
+    <Compile Include="M061_AddForeignKeyToEffortTable061.cs" />
+    <Compile Include="M062_AddColumnToChosenEffortItemsTable62.cs" />
+    <Compile Include="M065_AddColumnToMatrixTable65.cs" />
+    <Compile Include="M066_RenameTeamsToCustomersTable66.cs" />
+    <Compile Include="M067_UpdateEstimateTable67.cs" />
+    <Compile Include="M068_CreateTeamEmployeePercentsTable68.cs" />
+    <Compile Include="M069_UpdateEstimatesTable69.cs" />
+    <Compile Include="M070_UpdateUsersTable70.cs" />
+    <Compile Include="M071_UpdateCarInspectionAndEstimatesTables71.cs" />
+    <Compile Include="M072_UpdateEstimatesTables72.cs" />
+    <Compile Include="M073_UpdateCustomersTable73.cs" />
+    <Compile Include="M074_CreateReportsTable74.cs" />
+    <Compile Include="M075_AddExtraAndQuicCosts75.cs" />
+    <Compile Include="M076_AddEmployees_EstimatesTable76.cs" />
+    <Compile Include="M077_UpdateRoTable77.cs" />
+    <Compile Include="M078_UpdateUserTable78.cs" />
+    <Compile Include="M079_AddVehicleTypeColumnToCarTable79.cs" />
+    <Compile Include="M080_UpdateEstimateTable.cs" />
+    <Compile Include="M084_AddColumnToCarInspection84.cs" />
+    <Compile Include="M086_UpdateLogsTable86.cs" />
+    <Compile Include="M088_UpdateCustomerTable88.cs" />
+    <Compile Include="M089_AddColumnsToRepairOrdersTable89.cs" />
+    <Compile Include="M090_AddColumnToRepairOrdersTable90.cs" />
+    <Compile Include="M091_UpdateCarModelsTable91.cs" />
+    <Compile Include="M092_UpdateCompanyTable92.cs" />
+    <Compile Include="M093_UpdateCompanyTable93.cs" />
+    <Compile Include="M095_UpdateRepairOrdersTable95.cs" />
+    <Compile Include="M098_AddDiscardToInvoicesTable98.cs" />
+    <Compile Include="M107_AddColumnCanEditTeamMembersToUsersTable107.cs" />
+    <Compile Include="M112_AddOldOwnerFkColumnToLogsTable112.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PDR.NHibernateProvider\PDR.NHibernateProvider.csproj">
+      <Project>{4E471CAC-A108-49AE-A4D6-155DC35712C9}</Project>
+      <Name>PDR.NHibernateProvider</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram1.cd" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets" Condition="Exists('..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

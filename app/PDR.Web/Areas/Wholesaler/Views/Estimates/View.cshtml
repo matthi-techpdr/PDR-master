@@ -1,0 +1,9 @@
+﻿@{
+    Layout = "~/Areas/Common/Views/Shared/Partial/EstimatesViewBase.cshtml";
+}
+           
+@section links
+{
+    @{Html.RenderPartial("~/Areas/Wholesaler/Views/Estimates/OperationLinks.cshtml");}
+    @Html.Hidden("basicDocument","1")
+}

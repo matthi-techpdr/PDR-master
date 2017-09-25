@@ -1,0 +1,19 @@
+﻿@using SmartArch.Core.Extensions
+@model PDR.Web.Areas.Technician.Models.RepairOrderModel
+@{
+    this.SetLayout();
+    ViewBag.Title = "Edit Repair Order";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+}
+    <div class="links">
+        @RenderSection("links")
+        <span class="item-number">@this.GetExecutingActionName().ToUpperFirstLetter() Repair Order # @Model.Id</span>
+    </div>
+@{    
+    Html.BeginForm<RepairOrdersController>(x => x.Edit(Model.Id), FormMethod.Post, new { @onsubmit = "return validateForm();" });
+    Html.ReadOnlyModeOn();
+
+    Html.RenderPartial("~/Areas/Common/Views/RepairOrders/Partial/RepairOrder.cshtml", Model);
+    Html.ReadOnlyModeOff();
+    Html.EndForm();
+}

@@ -1,0 +1,13 @@
+﻿@{
+    this.SetLayout();
+    ViewBag.Title = "New Estimate";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+
+    Html.ReadOnlyModeOffIgnoreDeep();
+    Html.BeginForm<PDR.Web.Areas.Wholesaler.Controllers.EstimatesController>(x => x.NewWholesalerEstimate(null), FormMethod.Post, new { @class = "estimateForm" });
+}
+    @RenderSection("links")
+@{
+    Html.RenderPartial("Partial/NewEstimate");
+    Html.EndForm();
+}

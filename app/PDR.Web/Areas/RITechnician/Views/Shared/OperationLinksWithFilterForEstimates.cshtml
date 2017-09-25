@@ -1,0 +1,16 @@
+﻿@using PDR.Web.Areas.Common.Models
+@model FilterModel
+
+@{Bundles.Reference("Content/js/Pages/select-link.js");}
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+<div class="links">
+    @{Html.RenderPartial("OperationLinks");}
+    @(Html.ActionLink<PDR.Web.Areas.Technician.Controllers.EstimatesController>(x => x.ArchiveEstimates(null, null, null), "View archive", new { @class = "viewArchive" }))
+    <span class="gridFilter">
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", Model.Customers, new { id = "Customers", style="width:177px;" })
+    </span>
+</div>

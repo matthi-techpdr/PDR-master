@@ -1,0 +1,20 @@
+﻿@using PDR.Web.Areas.Common.Models
+@model FilterModel
+
+@{Bundles.Reference("Content/js/Pages/select-link.js");}
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+<div class="links">
+    @{Html.RenderPartial("OperationLinks");}
+     @(Html.ActionLink<RepairOrdersController>(x => x.Finalised(null, null, null), "Finalised", new { @class = "viewArchive" }))    
+    <span class="gridFilter gridFilterFullWidth">
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", Model.Customers, new { id = "Customers", style="width:177px;" })
+@*          <label>
+            Filter by teams:
+        </label>
+        @Html.DropDownList("teams", Model.Teams, new { id = "Teams" })*@
+    </span>
+</div>

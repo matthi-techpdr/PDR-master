@@ -1,0 +1,119 @@
+﻿
+@using PDR.Web.Areas.Accountant.Models.Customer
+@model AffiliatesViewModel
+@{
+    var addressForGmap = string.Format("{0},{1},{2}", Model.State, Model.City, Model.Address1);
+}
+<script type="text/javascript">
+    $(function () {
+        var map = new GMaps({
+            div: '#map',
+            lat: 0,
+            lng: 0
+        });
+
+        GMaps.geocode({
+            address: "@addressForGmap",
+            callback: function (results, status) {
+                if (status == 'OK') {
+                    var latlng = results[0].geometry.location;
+                    map.setCenter(latlng.lat(), latlng.lng());
+                    map.addMarker({
+                        lat: latlng.lat(),
+                        lng: latlng.lng()
+                    });
+                }
+            }
+        });
+
+        new TablesRenderer(window.IsAdmin ? "admin" : "accountant").Render();
+    });
+    
+
+</script>
+<div class="customer-info">
+    <div class="sob-info">
+        <h4>
+            Customer info
+        </h4>
+        @Html.HiddenFor(x=>x.Id)
+        <p>@Html.DisplayFor(x => x.Name)</p>
+        <p>@Html.DisplayFor(x => x.Address1)</p>
+        <p>@Html.DisplayFor(x => x.Address2)</p>
+        <p>@Html.DisplayFor(x => x.City)</p>
+        <p>@Html.DisplayFor(x => x.State), @Html.DisplayFor(x => x.Zip)</p>        
+        <p class="phone">
+            Phone: @Html.DisplayFor(x => x.Phone)</p>
+        <p>
+            Fax: @Html.DisplayFor(x => x.Fax)</p>
+        <p>
+            E-mail: @Html.DisplayFor(x => x.Email)</p>
+        <p class="phone">
+            Contact Name: @Html.DisplayFor(x => x.ContactName)</p>
+        <!-- этот класс делает отступ-->
+        <p>
+            Contact Title: @Html.DisplayFor(x => x.ContactTitle)</p>
+    </div>
+    <div class="maps" id="map">
+    </div>
+    <div class="cus_info">
+        <p>
+            R&amp;R and R&amp;I rate: @Html.DisplayFor(x => x.HourlyRate)</p>
+        <p>
+            Labor tax rate: @Html.DisplayFor(x => x.LaborRate)%</p>
+        <p>
+            Part tax rate: @Html.DisplayFor(x => x.PartRate)%</p>
+    </div>
+    <div class="cus_info_in">
+        <p><span>Status: @Model.Status</span></p>
+    </div>
+    <div class="cus_info">
+        <strong>Assigned teams</strong>
+        @foreach (var name in Model.TeamsNames)
+        {
+            var title = name.Length > 30 ? name.Substring(0, 27) + "..." : name;
+            <p title="@name">@title</p>
+        }
+    </div>
+        <div class ="sums">
+        <div class ="sums_left">
+            <p>Open Estimates: @Html.DisplayFor(x => x.AmountOfOpenEstimates)</p>
+        </div>   
+        <div class ="sums_center">
+            <p>Sum of open estimates: @Html.DisplayFor(x => x.SumOfOpenEstimates)</p>
+            <p>Sum of open work orders: @Html.DisplayFor(x => x.SumOfOpenWorkOrders)</p>
+        </div>
+        <div class ="sums_right">
+            <p>Sum of paid invoices: @Html.DisplayFor(x => x.SumOfPaidInvoices)</p>
+            <p>Sum of unpaid invoices: @Html.DisplayFor(x => x.SumOfUnpaidInvoices)</p>
+        </div>
+    </div>
+
+</div>
+
+<h4>Location estimates</h4>
+
+<div class="acc-view-table accountant1">
+    <table id="estimates">
+    </table>
+    <div id="pager1">
+    </div>
+</div>
+
+<h4>Location repair orders</h4>
+
+<div class="acc-view-table accountant1">
+    <table id="repairOrders">
+    </table>
+    <div id="pager2">
+    </div>
+</div>
+
+<h4>Location invoices</h4>
+
+<div class="acc-view-table accountant1">
+    <table id="invoices">
+    </table>
+    <div id="pager3">
+    </div>
+</div>

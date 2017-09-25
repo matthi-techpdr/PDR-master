@@ -1,0 +1,22 @@
+﻿#dowloadButtton {
+position: absolute;
+border: 1px solid silver;
+line-height: 28px !important;
+border-radius: 8px !important;
+background: #bbbbbf !important;
+font-size: 20px !important;
+text-align:center;
+}
+
+#donloadLinkId 
+{
+color: black;
+display: inline-block;
+width: auto;
+height: auto;
+padding: 10px 5px;
+}
+a:hover
+{ 
+    color: white;
+}

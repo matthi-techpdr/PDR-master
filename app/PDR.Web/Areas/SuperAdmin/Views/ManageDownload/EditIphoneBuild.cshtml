@@ -1,0 +1,16 @@
+﻿@model PDR.Web.Areas.SuperAdmin.Models.IphoneAppViewModel
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "editBuildForm" }))
+{
+    @Html.HiddenFor(m => m.Id)
+      @Html.HiddenFor(m => m.LocalStoragePath)
+        @Html.HiddenFor(m => m.UrlToDownload)
+        @Html.HiddenFor(m => m.Version)
+        @Html.HiddenFor(m => m.DateUpload)
+    <div id="wrapDiv">
+        @*@Html.LabelFor(x => x.IsWorkingBild, new { @class = "statusBuild" }) *@
+        <span>Working</span>
+        @Html.CheckBoxFor(x => x.IsWorkingBild)
+        
+    </div>
+}

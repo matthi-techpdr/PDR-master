@@ -1,0 +1,20 @@
+﻿@model PDR.Web.Areas.Admin.Models.Vehicle.VehicleModel
+@*<script type="text/javascript">
+    $(function () {
+        var wcWithInsurance = "@ViewBag.WCustomersWithInsurance";
+        $('#Customer_Wholesale_CustomerId').data("checkInsuranse", wcWithInsurance.split(','));
+    });
+</script>*@
+@{
+    this.SetLayout();
+    ViewBag.Title = "New Vehicle";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+
+    Html.ReadOnlyModeOffIgnoreDeep();
+    Html.BeginForm<PDR.Web.Areas.Admin.Controllers.VehiclesController>(x => x.New(null), FormMethod.Post, new { @class="vehicleForm" });
+}
+    @RenderSection("links")
+@{   
+    Html.RenderPartial("Partial/Vehicle", Model);
+    Html.EndForm();
+}

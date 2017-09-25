@@ -1,0 +1,78 @@
+﻿<script>
+    $(function () {
+        $(".h3-wrapper").on('click', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+            e.cancelBubble = true;
+            $('.search-content').slideToggle(500);
+            var isArrowUp = $('#arrow').hasClass('arrow-up');
+            if (isArrowUp) {
+                $('#arrow').removeClass('arrow-up');
+                $('#arrow').addClass('arrow-down');
+            } else {
+                $('#arrow').removeClass('arrow-down');
+                $('#arrow').addClass('arrow-up');
+            }
+        });
+    });
+
+</script>
+<style>
+    .search-content{
+        display:none;
+    }
+</style>
+
+@{
+    Bundles.Reference("Content/css/search.css");
+    Bundles.Reference("Content/js/pages/Common/SearchFilter.js");
+    var vin = this.ViewBag.Vin ?? string.Empty;
+    var stock = this.ViewBag.Stock ?? string.Empty;
+    var custRo = this.ViewBag.CustRo ?? string.Empty;
+    var colorVin = string.IsNullOrEmpty(vin) ? string.Empty : "black";
+    var colorStock = string.IsNullOrEmpty(stock) ? string.Empty : "black";
+    var colorCustRo = string.IsNullOrEmpty(custRo) ? string.Empty : "black";
+}
+
+<input id="IsStartSearch" type="hidden" value="@ViewBag.isStartSearch"/>
+<div class="search-param-wrapper">
+	<div id="accordion">
+		<div class="h3-wrapper">
+			<h3><span id = "arrow" class="ui-icon arrow-up"></span><span>Search</span></h3>
+		</div>
+		<div class="search-content">
+			<ul>
+				<li>
+					<span>VIN</span>
+					<input id ="VIN" type="text" placeholder="Last 6 characters" value="@vin"/>
+				</li>
+				<li>
+					<span>Stock #</span>
+					<input id ="Stock" type="text" value="@stock"/>
+				</li>
+				<li>
+					<span>Cust RO</span>
+					<input id="CustRO" type="text" value="@custRo"/>
+				</li>
+				<li class="submitLi">
+				    <input id = "StartSearch" type="button" value="Start search"/>
+  					<input class="reset-button" type="button" value="Reset" />
+				</li>
+			</ul>
+		</div>	
+	</div>
+	<ul class="list-check">
+		<li>
+			<p id ="vinHad" class="@colorVin">VIN</p>
+		</li>
+		<li>
+			<p id="stockHad" class="@colorStock">Stock#</p>
+		</li>
+	    <li>
+	        <p id ="custROHad" class="@colorCustRo">Cust RO</p>
+	    </li>
+        <li class="reset-link">
+            <a href="#"></a>
+        </li>
+	</ul>
+</div>

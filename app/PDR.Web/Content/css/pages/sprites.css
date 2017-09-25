@@ -1,0 +1,145 @@
+﻿/*=================================== Car Start ======================================================*/
+.sp0-1, .sp1-1, .sp2-1, .sp3-1, .sp4-1, .sp5-1,
+.sp6-1, .sp7-1, .sp8-1, .sp9-1, .sp10-1, .sp11-1,
+.sp12-1, .sp13-1, .sp14-1, .sp15-1, .sp16-1, .sp17-1, .sp18-1{
+    background: url(/Content/css/images/part-car/csg-506ea6b5cfae2.png) no-repeat top left;
+}
+
+.sp0-2, .sp1-2, .sp2-2, .sp3-2, .sp4-2, .sp5-2,
+.sp6-2, .sp7-2, .sp8-2, .sp9-2, .sp10-2, .sp11-2,
+.sp12-2, .sp13-2, .sp14-2, .sp15-2, .sp16-2, .sp17-2, .sp18-2{
+    background: url(/Content/css/images/part-car/csg-5062ee8c0802d.png) no-repeat top left;
+}
+
+.sp0-3, .sp1-3, .sp2-3, .sp3-3, .sp4-3, .sp5-3,
+.sp6-3, .sp7-3, .sp8-3, .sp9-3, .sp10-3, .sp11-3,
+.sp12-3, .sp13-3, .sp14-3, .sp15-3, .sp16-3, .sp17-3, .sp18-3{
+    background: url(/Content/css/images/part-car/csg-5062f09a5cd80.png) no-repeat top left;
+}
+
+.sprite-1-1{ background-position: 0 0; width: 81px; height: 124px; } 
+.sprite-10-1{ background-position: 0 -125px; width: 137px; height: 68px; } 
+.sprite-11-1{ background-position: 0 -194px; width: 177px; height: 99px; } 
+.sprite-12-1{ background-position: 0 -294px; width: 86px; height: 128px; } 
+.sprite-13-1{ background-position: 0 -423px; width: 111px; height: 137px; } 
+.sprite-14-1{ background-position: 0 -561px; width: 101px; height: 134px; } 
+.sprite-15-1{ background-position: 0 -696px; width: 111px; height: 122px; } 
+.sprite-2-1{ background-position: 0 -819px; width: 109px; height: 133px; } 
+.sprite-3-1{ background-position: 0 -953px; width: 107px; height: 122px; } 
+.sprite-4-1{ background-position: 0 -1076px; width: 97px; height: 134px; } 
+.sprite-5-1{ background-position: 0 -1211px; width: 204px; height: 81px; } 
+.sprite-6-1{ background-position: 0 -1293px; width: 174px; height: 148px; } 
+.sprite-7-1{ background-position: 0 -1442px; width: 31px; height: 170px; } 
+.sprite-8-1{ background-position: 0 -1613px; width: 117px; height: 170px; } 
+.sprite-9-1{ background-position: 0 -1784px; width: 32px; height: 165px; }
+
+.sprite-1-2{ background-position: 0 0; width: 81px; height: 124px; } 
+.sprite-10-2{ background-position: 0 -174px; width: 137px; height: 68px; } 
+.sprite-11-2{ background-position: 0 -292px; width: 177px; height: 99px; } 
+.sprite-12-2{ background-position: 0 -441px; width: 86px; height: 128px; } 
+.sprite-13-2{ background-position: 0 -619px; width: 111px; height: 137px; } 
+.sprite-14-2{ background-position: 0 -806px; width: 101px; height: 134px; } 
+.sprite-15-2{ background-position: 0 -990px; width: 111px; height: 122px; } 
+.sprite-2-2{ background-position: 0 -1162px; width: 109px; height: 133px; } 
+.sprite-3-2{ background-position: 0 -1345px; width: 107px; height: 122px; } 
+.sprite-4-2{ background-position: 0 -1517px; width: 97px; height: 134px; } 
+.sprite-5-2{ background-position: 0 -1701px; width: 204px; height: 81px; } 
+.sprite-6-2{ background-position: 0 -1832px; width: 174px; height: 148px; } 
+.sprite-7-2{ background-position: -254px 0; width: 31px; height: 170px; } 
+.sprite-8-2{ background-position: -254px -220px; width: 117px; height: 170px; } 
+.sprite-9-2{ background-position: -254px -440px; width: 32px; height: 165px; } 
+
+.sprite-1-3{ background-position: 0 0; width: 81px; height: 124px; } 
+.sprite-10-3{ background-position: 0 -174px; width: 137px; height: 68px; } 
+.sprite-11-3{ background-position: 0 -292px; width: 177px; height: 99px; } 
+.sprite-12-3{ background-position: 0 -441px; width: 86px; height: 128px; } 
+.sprite-13-3{ background-position: 0 -619px; width: 111px; height: 137px; } 
+.sprite-14-3{ background-position: 0 -806px; width: 101px; height: 134px; } 
+.sprite-15-3{ background-position: 0 -990px; width: 111px; height: 122px; } 
+.sprite-2-3{ background-position: 0 -1162px; width: 109px; height: 133px; } 
+.sprite-3-3{ background-position: 0 -1345px; width: 107px; height: 122px; } 
+.sprite-4-3{ background-position: 0 -1517px; width: 97px; height: 134px; } 
+.sprite-5-3{ background-position: 0 -1701px; width: 204px; height: 81px; } 
+.sprite-6-3{ background-position: 0 -1832px; width: 174px; height: 148px; } 
+.sprite-7-3{ background-position: -254px 0; width: 31px; height: 170px; } 
+.sprite-8-3{ background-position: -254px -220px; width: 117px; height: 170px; } 
+.sprite-9-3{ background-position: -254px -440px; width: 32px; height: 165px; } 
+
+/*=================================== Car End ======================================================*/
+
+/*=================================== Truck Start ======================================================*/
+.tr0-1, .tr1-1, .tr2-1, .tr3-1, .tr4-1, .tr5-1,
+.tr6-1, .tr7-1, .tr8-1, .tr9-1,.tr10-1, .tr11-1,
+.tr12-1, .tr13-1, .tr14-1, .tr15-1, .tr16-1, .tr17-1, .tr18-1{
+    background: url(/Content/css/images/part-car/csg-50c1afc8e96ff.png) no-repeat top left;
+}
+
+.tr0-2, .tr1-2, .tr2-2, .tr3-2, .tr4-2, .tr5-2,
+.tr6-2, .tr7-2, .tr8-2, .tr9-2, .tr10-2, .tr11-2,
+.tr12-2, .tr13-2, .tr14-2, .tr15-2, .tr16-2, .tr17-2, .tr18-2{
+    background: url(/Content/css/images/part-car/csg-50c1b0cca4d39.png) no-repeat top left;
+}
+
+.tr0-3, .tr1-3, .tr2-3, .tr3-3, .tr4-3, .tr5-3,
+.tr6-3, .tr7-3, .tr8-3, .tr9-3,.tr10-3, .tr11-3,
+.tr12-3, .tr13-3, .tr14-3, .tr15-3, .tr16-3, .tr17-3, .tr18-3{
+    background: url(/Content/css/images/part-car/csg-50c1b12917bd0.png) no-repeat top left;
+}
+
+.spriteTr-1-1{ background-position: 0 0; width: 179px; height: 70px; } 
+.spriteTr-10-1{ background-position: 0 -71px; width: 44px; height: 175px; } 
+.spriteTr-11-1{ background-position: 0 -247px; width: 124px; height: 125px; } 
+.spriteTr-12-1{ background-position: 0 -373px; width: 124px; height: 100px; } 
+.spriteTr-13-1{ background-position: 0 -474px; width: 124px; height: 50px; } 
+.spriteTr-14-1{ background-position: 0 -525px; width: 89px; height: 160px; } 
+.spriteTr-15-1{ background-position: 0 -686px; width: 144px; height: 85px; } 
+.spriteTr-16-1{ background-position: 0 -772px; width: 169px; height: 62px; } 
+.spriteTr-17-1{ background-position: 0 -835px; width: 89px; height: 160px; } 
+.spriteTr-2-1{ background-position: 0 -996px; width: 94px; height: 130px; } 
+.spriteTr-3-1{ background-position: 0 -1127px; width: 161px; height: 139px; } 
+.spriteTr-4-1{ background-position: 0 -1267px; width: 94px; height: 140px; } 
+.spriteTr-5-1{ background-position: 0 -1408px; width: 124px; height: 125px; } 
+.spriteTr-6-1{ background-position: 0 -1534px; width: 124px; height: 100px; } 
+.spriteTr-7-1{ background-position: 0 -1635px; width: 124px; height: 50px; } 
+.spriteTr-8-1{ background-position: 0 -1686px; width: 44px; height: 175px; } 
+.spriteTr-9-1{ background-position: 0 -1862px; width: 134px; height: 160px; } 
+
+.spriteTr-1-2{ background-position: 0 0; width: 179px; height: 70px; } 
+.spriteTr-10-2{ background-position: 0 -71px; width: 44px; height: 175px; } 
+.spriteTr-11-2{ background-position: 0 -247px; width: 124px; height: 125px; } 
+.spriteTr-12-2{ background-position: 0 -373px; width: 124px; height: 100px; } 
+.spriteTr-13-2{ background-position: 0 -474px; width: 124px; height: 50px; } 
+.spriteTr-14-2{ background-position: 0 -525px; width: 89px; height: 160px; } 
+.spriteTr-15-2{ background-position: 0 -686px; width: 144px; height: 85px; } 
+.spriteTr-16-2{ background-position: 0 -772px; width: 169px; height: 62px; } 
+.spriteTr-17-2{ background-position: 0 -835px; width: 89px; height: 160px; } 
+.spriteTr-2-2{ background-position: 0 -996px; width: 94px; height: 130px; } 
+.spriteTr-3-2{ background-position: 0 -1127px; width: 159px; height: 140px; } 
+.spriteTr-4-2{ background-position: 0 -1268px; width: 94px; height: 140px; } 
+.spriteTr-5-2{ background-position: 0 -1409px; width: 124px; height: 125px; } 
+.spriteTr-6-2{ background-position: 0 -1535px; width: 124px; height: 100px; } 
+.spriteTr-7-2{ background-position: 0 -1636px; width: 124px; height: 50px; } 
+.spriteTr-8-2{ background-position: 0 -1687px; width: 44px; height: 175px; } 
+.spriteTr-9-2{ background-position: 0 -1863px; width: 134px; height: 160px; } 
+
+.spriteTr-1-3{ background-position: 0 0; width: 179px; height: 70px; } 
+.spriteTr-10-3{ background-position: 0 -71px; width: 44px; height: 175px; } 
+.spriteTr-11-3{ background-position: 0 -247px; width: 124px; height: 125px; } 
+.spriteTr-12-3{ background-position: 0 -373px; width: 124px; height: 100px; } 
+.spriteTr-13-3{ background-position: 0 -474px; width: 124px; height: 50px; } 
+.spriteTr-14-3{ background-position: 0 -525px; width: 89px; height: 160px; } 
+.spriteTr-15-3{ background-position: 0 -686px; width: 144px; height: 85px; } 
+.spriteTr-16-3{ background-position: 0 -772px; width: 169px; height: 62px; } 
+.spriteTr-17-3{ background-position: 0 -835px; width: 89px; height: 160px; } 
+.spriteTr-2-3{ background-position: 0 -996px; width: 94px; height: 130px; } 
+.spriteTr-3-3{ background-position: 0 -1127px; width: 169px; height: 140px; } 
+.spriteTr-4-3{ background-position: 0 -1268px; width: 94px; height: 140px; } 
+.spriteTr-5-3{ background-position: 0 -1409px; width: 124px; height: 125px; } 
+.spriteTr-6-3{ background-position: 0 -1535px; width: 124px; height: 100px; } 
+.spriteTr-7-3{ background-position: 0 -1636px; width: 124px; height: 50px; } 
+.spriteTr-8-3{ background-position: 0 -1687px; width: 44px; height: 175px; } 
+.spriteTr-9-3{ background-position: 0 -1863px; width: 134px; height: 160px; } 
+/*=================================== Truck End ======================================================*/
+
+
+

@@ -1,0 +1,32 @@
+﻿@using PDR.Web.Areas.Accountant.Models.Team
+@model TeamViewModel
+           @{
+               var title = Model.Title.Length > 40 ? Model.Title.Substring(0, 37) + "..." : Model.Title;
+           }
+<div class="info-accou" id="tabs-3">
+    <div class="fau">
+        <p>Team</p>
+        <p title="@Model.Title">@title</p>
+
+        <p style="width:270px;word-wrap : break-word !important;">Comments: @Html.DisplayFor(x=>x.Comments)</p>
+
+        <div>
+            <!-- этот див нужен, он делает отступы-->
+            <p>
+                Total open estimates: @Html.DisplayFor(x=>x.OpenEstimates)</p>
+            <p>
+                Total open repair orders: @Html.DisplayFor(x=>x.OpenRO)</p>
+            <p>
+                Total open invoices: @Html.DisplayFor(x=>x.OpenInvoices)</p>
+        </div>
+    </div>
+    <div class="ttw">
+        <strong>Team members</strong>
+        <div>
+            @foreach (var emp in Model.Employees.Where(t=>t.Selected).Select(t => t.Text))
+            {
+                <p>@emp</p>
+            }
+        </div>
+    </div>
+</div>

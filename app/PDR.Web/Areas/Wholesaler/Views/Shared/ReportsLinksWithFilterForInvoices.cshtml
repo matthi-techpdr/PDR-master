@@ -1,0 +1,20 @@
+﻿@{Bundles.Reference("Content/js/Pages/select-link.js");}
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+<div class="links">
+    @{Html.RenderPartial("ReportsLinks");}    
+    <span class="gridFilter">
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", (IEnumerable<SelectListItem>)ViewData["customers"], new { id = "Customers" })
+        
+    </span>
+        
+    <label style="margin-left: 10px;">
+        From:</label>
+    <input type="text" id="from" class="date-filter" />
+    <label>
+        To:</label>
+    <input type="text" id="to" class="date-filter" />     
+</div>

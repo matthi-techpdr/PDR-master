@@ -1,0 +1,14 @@
+﻿@{Bundles.Reference("Content/js/Pages/select-link.js");}
+
+<div class="links">
+    @{Html.RenderPartial("ReportsLinks");}    
+    <span class="gridFilter">
+    </span>
+
+    <label style="margin-left: 10px;">
+        From:</label>
+    <input type="text" id="from" class="date-filter" />
+    <label>
+        To:</label>
+    <input type="text" id="to" class="date-filter" />
+</div>

@@ -1,0 +1,483 @@
+﻿.links .inl,
+.links .inl:hover  {
+	float:left;
+	background:none !important;
+	padding:12px 0;
+	color: #444447 !important;
+}
+.links .via {
+	float:right;
+}
+.links .second-links {
+	float:left;
+	width:100%;
+	margin:10px 0 0;
+}
+.links .second-links label{
+	color: #444447 !important;
+	font-size:14px;
+}
+.links .from {
+	width:100px;
+}
+.links .to {
+	width:100px;
+}
+.accountant span {
+	float:left;
+	min-height: 1px;
+}
+.accountant .date {
+	width:70px;
+}
+.accountant .ii {
+	width:82px;
+}
+.accountant .mmy {
+    width: 130px;
+}
+.accountant .team {
+    width: 117px;
+	margin:0;
+}
+.accountant .techinician {
+    margin: 0;
+    width: 90px;
+}
+.accountant .cn {
+    margin: 0;
+    width: 105px;
+}
+.accountant .it {
+    width: 55px;
+	margin: 0;
+}
+.accountant .pt {
+    width: 53px;
+	margin: 0;
+}
+.accountant .is {
+    width: 60px;
+	margin: 0;
+}
+.accountant .pd {
+    width: 40px;
+	margin: 0;
+}
+.accountant .ts {
+    width: 80px;
+	margin: 0;
+}
+.accountant .cad2 {
+	width: 160px;
+}
+.accountant .cn2 {
+	width: 160px;
+}
+.accountant .ce2 {
+	width: 160px;
+}
+.accountant .cpn2 {
+	width: 160px;
+}
+.accountant .cas2 {
+	width: 160px;
+}
+.accountant .date1 {
+	margin:0 0 0 13px;
+	width:65px;
+}
+.accountant .name {
+	width:120px;
+	margin:0 0 0 13px;
+}
+.accountant .em {
+	width:120px;
+	margin:0 0 0 13px;
+}
+.accountant .phone {
+	width:120px;
+	margin:0 0 0 13px;
+}
+.accountant .terms {
+	width:120px;
+	margin:0 0 0 13px;
+}
+.accountant .role {
+	width:70px;
+	margin:0 0 0 13px;
+}
+.accountant .oe {
+	width:70px;
+	margin:0 0 0 13px;
+}
+.accountant .oro {
+	width:50px;
+	margin:0 0 0 13px;
+}
+.accountant .as {
+	width:70px;
+	margin:0 0 0 13px;
+}
+.assign-repair-order.accountant {
+	width:400px;
+	left: 283px;
+    top: 245px;
+}
+.assign-repair-order.accountant-add {
+	width:400px;
+	left: 283px;
+    top: 245px;
+}
+.assign-repair-order.accountant h3{
+	width: 422px;
+}
+.assign-repair-order.accountant label {
+	float:left;
+}
+.assign-repair-order.accountant span{
+	color: #555555;
+    float: left;
+    font-size: 14px;
+    margin: 8px 0;
+    width: 110px;
+}
+.assign-repair-order.accountant input {
+    border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    height: 24px;
+    padding: 3px;
+	margin:0 0 5px;
+    width: 200px;
+}
+.assign-repair-order.accountant input.acc_b {
+	background-image: linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(180,180,185)),
+		color-stop(1, rgb(197,197,200))
+	);
+	border-radius:9px;
+	border:none;
+	padding:9px;
+	height:auto;
+	color:#444447;
+	font-size:14px;
+	float:left;
+	margin:10px 4px 0 0;
+	cursor:pointer;
+	min-height:10px;
+	width:auto;
+}
+.assign-repair-order.accountant input.acc_b:hover {
+	color: #ED1C24;
+}
+.cus_info {
+	float: left;
+    margin: 20px 15px 0 0;
+    width: 200px;
+}
+.cus_info_in {
+	float: left;
+    margin: 20px 0 0;
+    width: 294px;
+}
+.cus_info p,
+.cus_info_in p {
+	color: #555555;
+    float: left;
+    font-size: 13px;
+    width: 200px;
+}
+.cus_info_in p {
+	width: 300px;
+}
+.cus_info strong{
+	color: #555555;
+    float: left;
+	margin:0 0 20px;
+    font-size: 13px;
+    width: 200px;
+}
+
+#tabs-1 .accountant1 .igd {
+	width:110px;
+}
+
+#tabs-1 .accountant1 .it {
+	width:120px;
+}
+
+#tabs-1 .accountant1 {
+	margin:0 0 10px;
+}
+#tabs-1 .accountant1 .cd {
+	width:135px;
+}
+#tabs-1 .accountant1 .roid{
+	width:90px;
+}
+#tabs-1 .accountant1 .mmy{
+	width:180px;
+}
+#tabs-1 .accountant1 .cn{
+	width:125px;
+}
+#tabs-1 .accountant1 .cost{
+	width:100px;
+}
+#tabs-1 .accountant1 .status{
+	width:100px;
+}
+.assign-repair-order.accountant-add {
+	width:800px;
+	left: 183px;
+    top: 145px;
+}
+.assign-repair-order.accountant-add h3{
+	width:821px;
+}
+.assign-repair-order.accountant-add form{
+	width:800px;
+	float:left;
+}
+.assign-repair-order.accountant-add fieldset{
+	width:400px;
+	float:left;
+	margin:0;
+}
+.assign-repair-order.accountant-add label{
+	width:400px;
+	float:left;
+}
+.assign-repair-order.accountant-add .state {
+	width:190px;
+}
+.assign-repair-order.accountant-add .state select{
+	width: 70px;
+}
+.assign-repair-order.accountant-add .dis {
+	width: 173px;
+}
+.assign-repair-order.accountant-add .dis input{
+	width: 43px !important;
+}
+.assign-repair-order.accountant-add .rrr {
+	width:190px;
+}
+.assign-repair-order.accountant-add .rrr span {
+	width:120px;
+}
+.assign-repair-order.accountant-add .rrr input{
+	width: 52px !important;
+}
+.assign-repair-order.accountant-add .zip {
+	width:190px;
+}
+.assign-repair-order.accountant-add .zip span{
+	width:27px;
+}
+.assign-repair-order.accountant-add .zip input[type=text]{
+	width: 128px;
+}
+.assign-repair-order.accountant-add span{
+	width:100px;
+	margin: 6px 0 0;
+	float:left;
+}
+.assign-repair-order.accountant-add input.ok,
+.assign-repair-order.accountant-add input.cancel{
+	margin: 0 8px 0 0;
+	float:left;
+}
+.assign-repair-order.accountant-add input[type=text],
+.assign-repair-order.accountant-add textarea{
+	border: 1px solid #D2D2D2;
+    border-radius: 4px 4px 4px 4px;
+    color: #555555;
+    font-size: 14px;
+    height: 18px;
+    margin: 0 0 8px;
+    padding: 3px;
+    width: 245px;
+	float:left;
+}
+.assign-repair-order.accountant-add textarea {
+	height:80px;
+	resize:none;
+}
+.assign-repair-order.accountant-add input[type=checkbox] {
+	float:left;
+	margin: 7px 6px 0 0;
+}
+.assign-repair-order.accountant-add .fieldset2 span{
+	width:auto;
+	margin: 6px 0 -2px;
+}
+.pma {
+	float:left;
+	margin:10px 0 0;
+}
+.assign-repair-order.accountant-add .fieldset2 .pma span{
+	float:left;
+	width:195px;
+	margin: 2px 0;
+}
+.assign-repair-order.accountant-add .fieldset2 .pma textarea {
+	width:150px;
+	padding:0;
+	overflow:hidden;
+	resize:none;
+	float:left;
+	height:100px;
+	border: 1px solid #D2D2D2;
+    border-radius: 4px 4px 4px 4px;
+    color: #555555;
+}
+.assign-repair-order.accountant-add .fieldset2 .pma a {
+	background:#C5C5C8;
+	float:left;
+	color:#444447;
+	border-radius: 4px 4px 4px 4px;
+	padding:4px 8px;
+}
+.assign-repair-order.accountant-add .fieldset2 .pma a.next {
+	margin: 21px 9px 0 11px;
+}
+.assign-repair-order.accountant-add .fieldset2 .pma a.prev {
+	margin: 56px 0 0 -34px;
+}
+.assign-repair-order.accountant-add .fieldset2 .pma1 textarea {
+	width: 348px;
+}
+.info-accou {
+	background: none repeat scroll 0 0 #F9F9FA;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px;
+    float: left;
+    padding: 31px 0 15px 20px !important;
+    position: relative;
+    width: 938px;
+    z-index: 0;
+    color: #555;
+    font-size: 13px;
+}
+.info-accou .fau {
+	width:300px;
+	float:left;
+}
+.info-accou .fau a {
+	clear:both;
+	float:left;
+	font-size:13px;
+	margin:0 0 5px;
+}
+.info-accou  p {
+	clear:both;
+    margin-top: 8px;
+}
+.info-accou  h4 {
+	color: #555555;
+    float: left;
+	font-weight:normal;
+	margin:0 0 10px;
+    font-size: 13px;
+}
+.info-accou .fau div {
+	margin:10px 0 0;
+	float:left;
+	clear:both;
+}
+.ttw {
+	width:160px;
+	float:left;
+	margin:0 50px 0 0;
+}
+.ttw strong,
+.ehu strong{
+	font-size:13px;	
+}
+.ttw div,
+.ehu div{
+	width:140px;
+	padding:0 10px;
+	overflow:hidden;
+	resize:none;
+	float:left;
+	border: 1px solid #D2D2D2;
+    border-radius: 4px 4px 4px 4px;
+    color: #555555;
+	margin:10px 0 0;
+    background: #fff;
+    overflow: auto;
+    height:190px;
+}
+.ttw div p,
+.ehu div p {
+	clear:both;
+}
+.ehu {
+	float:left;
+	width:400px;
+}
+.ehu div{
+	width:380px;
+	height:170px;
+
+}
+.accountant .cd1 {width:70px; margin:0 13px;}
+.accountant .tt1 {width:150px;}
+.accountant .te1 {width:110px;}
+.accountant .ma1 {width:110px;}
+.accountant .ts1 {width:110px;}
+.accountant .oe1 {width:140px;}
+.accountant .or1 {width:100px;}
+.accountant .oi1 {width:100px;}
+
+
+
+
+#customerInfo input[type='checkbox'] {
+    margin: 3px 3px 3px 4px;
+}
+
+
+.cus_info_in input[type='checkbox'] {
+    width: 13px !important;
+    margin: 0 3px 0 0 !important;
+    float: left;
+	border:none !important;
+	height: 16px !important;
+}
+
+#acc-ed-checkboxes {
+    margin-top: 0px !important;
+    margin-bottom: 10px;
+}
+
+#acc-ed-checkboxes > p > span
+{
+    height: 18px;
+    line-height: 21px !important;
+    font-size: 14px;
+}
+
+.info-accou {
+    margin-top: 15px;
+}
+
+#allowed 
+{
+    font-size: 14px;
+    color: #535960;
+    float: right;
+	margin: -13px 100px 0 0;
+}
+
+

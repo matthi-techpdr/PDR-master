@@ -1,0 +1,18 @@
+﻿@{
+    var layout = "~/Areas/Default/Views/Shared/_DefaultLayout.cshtml";
+    if(Request.UserAgent != null)
+    {
+        if(Request.UserAgent.ToLower().Contains("iphone"))
+        {
+            layout = "~/Areas/Default/Views/Shared/_DefaultLayoutMobile.cshtml";
+        }
+        else if(Request.UserAgent.ToLower().Contains("android")
+            && Request.UserAgent.ToLower().Contains("mobile")
+            && !Request.UserAgent.ToLower().Contains("firefox")
+            && !Request.UserAgent.ToLower().Contains("tablet"))
+        {
+            layout = "~/Areas/Default/Views/Shared/_DefaultLayoutMobile.cshtml";
+        }
+    }
+    Layout = layout;
+}

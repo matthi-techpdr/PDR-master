@@ -1,0 +1,133 @@
+﻿.ui-dialog .ui-dialog-buttonpane {
+     float:none !important;
+	 clear:both;
+}
+
+.ui-widget input,
+.ui-widget select,
+.ui-widget textarea,
+.ui-widget button {
+     font-family: Verdana,Arial,sans-serif; font-size: 15px;margin: 0 0 0 -3px;
+     overflow:hidden;
+}
+
+.ui-widget-overlay {
+    height: 100%;
+    width: 100% !important;
+}
+
+#estimate-customer ul li .selectBox-dropdown {
+    width: 52px;
+}
+
+#Locations a 
+{
+    width: 200px !important;
+}
+
+input[type='checkbox'] {
+    border: none !important;
+}
+
+.checkboxesLabel span , .checkboxesForManager span{
+    line-height: 20px !important;
+}
+
+.none {
+    filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#FFF3F3F6, EndColorStr=#FFD8D8DA, GradientType=0);
+    display: block;
+    height: 31px;
+    width: 196px;
+}
+
+.none .price {
+    display: block;
+
+    height: 31px;  
+}
+
+.none .part 
+{
+    display: block;
+    height: 31px;
+    width: 196px !important;    
+}
+.none:hover{
+    filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#FFD8D8DA, EndColorStr=#FFF3F3F6, GradientType=0);
+    border-bottom: 2px solid silver;
+    height: 29px;
+}
+
+li.active
+{
+    filter: none;
+    background: #FFF5F5F5 !important;
+    border-bottom: 2px solid silver !important;
+    height: 29px !important;
+}
+
+.tht-top h3 {
+    background: #d8d8df !important;
+}
+
+#customerForm fieldset textarea {
+    height: 135px !important;
+}
+
+#com {
+    margin-top: 19px !important;
+}
+
+#comTech #com {
+    top: -15px !important;
+}
+
+#comTech #commission {
+    top: -16px !important;
+}
+.operationIE {
+    top: -10px !important;
+    left: -3px !important;
+}
+
+.commissionIE {
+    top: -11px !important;
+    left: -10px !important;
+}
+
+#Signature,
+#IsConfirmed,
+#SupplementsApproved {
+    border-radius: 0 !important;
+}
+
+.footer a.cancel.near-save {
+    padding: 9.8px 8px 9.8px 8px !important;
+}
+
+#CarInfo_Type {
+    width: 76px !important;
+}
+
+.legend {
+    height: 40px !important;
+}
+
+#licensesInfo {
+    margin-top: 60 !important;
+    height: 220px;
+}
+
+.view-s-a p.comments textarea {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.cbox {
+    position: relative;
+    left: -4px;
+}
+
+#RiPayment label, #RiPayment span, #FieldFlatFee {
+    margin-top: 3px;
+}

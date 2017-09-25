@@ -1,0 +1,20 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Reports
+@model ReportModel
+
+@{
+    Layout = "~/Areas/Common/Views/Shared/Reports/ReportsDetailsIndexBase.cshtml";
+    ViewBag.Title = "Estimate report details";
+    Bundles.Reference("Content/js/Pages/Default/Reports/InitEstimateReportDetailsGrid.js");
+}
+           
+@section links
+{
+    @{Html.RenderPartial("~/Areas/Manager/Views/Shared/ReportsDetailsLinksWithFilter.cshtml");}
+    <input type="hidden" value="@Url.Action("SaveToPdf", "EstimateReports")" class="urlReport"/>
+}
+
+@section table
+{
+     <table id="estimateReportInfoGrid">
+     </table>    
+}

@@ -1,0 +1,13 @@
+﻿@using PDR.Web.Areas.Technician.Models.Reports
+@model IEnumerable<InvoiceReportModel>
+           
+@foreach (var estReport in Model)
+{
+    <p>
+        @(Html.ActionLink<PDR.Web.Areas.Technician.Controllers.ReportsController>(x => x.Info(estReport.Id), estReport.Title))
+
+        <a href="javascript:void();" class="deleteReport" id="@estReport.Id">
+            <img src="../../../../Content/css/images/delete-icon.png" alt=""/>
+        </a>
+    </p>
+}

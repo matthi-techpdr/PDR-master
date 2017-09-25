@@ -1,0 +1,49 @@
+﻿@using PDR.Domain.Model.Enums.LogActions
+@using PDR.Web.Areas.Accountant.Models.Log
+@model InvoiceLogViewModel 
+           @{
+               var action = string.Empty;
+               var email = string.Empty;
+           }
+<h4>Invoice ID: @Model.Id</h4>
+                <div class="log-view-table accountant1">
+					<ol>
+						<li class="header">
+							<span class="da">Date of action</span>
+							<span class="emp">Employee's name</span>
+							<span class="act">Action</span>
+							<span class="em">E-mail</span>
+						</li>
+                        @foreach(var log in Model.InvoiceLogs)
+                        { 
+                            switch (log.Key.Action)
+                            {
+                                case InvoiceLogActions.Email:
+                                action = "Send e-mail";
+                                email = log.Value;
+                                break;
+                                case InvoiceLogActions.Generate:
+                                action = "Generate";
+                                email = string.Empty;
+                                break;
+                                case InvoiceLogActions.Print:
+                                action = "Print";
+                                email = string.Empty;
+                                break;
+                            }
+
+                            <li class="header">
+							<span class="da">@log.Key.Date.ToString("MM/dd/yyyy")</span>
+							<span class="emp">@log.Key.Employee.Name</span>
+							<span class="act">@action</span>
+							<span class="em">@email</span>
+						</li>
+                        }
+                        <li>
+							<span class="cd"></span>
+							<span class="emp"></span>
+							<span class="act"></span>
+							<span class="em"></span>
+						</li>
+					</ol>
+				</div>

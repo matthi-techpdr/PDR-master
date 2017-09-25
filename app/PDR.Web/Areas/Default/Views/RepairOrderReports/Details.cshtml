@@ -1,0 +1,32 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Reports
+@model ReportModel
+@{
+    ViewBag.Title = "View repair order report";
+    Bundles.Reference("Content/js/Pages/Default/Reports/InitRoReportDeatilsGrid.js");
+}
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+<div class="links">
+    @Html.Hidden("reportId", Model.Id)
+    <a href="javascript:void();" class="active">@Html.DisplayFor(x => x.Title)</a> <span
+        class="gridFilter">
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", (IEnumerable<SelectListItem>)ViewData["customers"], new { id = "Customers" })
+    </span>
+    <label style="margin-left: 10px;">
+        From:</label>
+    <input type="text" id="from" class="date-filter" readonly="readonly" value="@ViewData["start"]" />
+    <label>
+        To:</label>
+    <input type="text" id="to" class="date-filter" readonly="readonly" value="@ViewData["end"]"  />
+</div>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="roReportInfoGrid">
+        </table>
+        <div id="pager">
+        </div>
+    </div>
+</div>

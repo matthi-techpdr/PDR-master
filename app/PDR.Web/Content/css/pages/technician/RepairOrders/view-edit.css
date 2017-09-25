@@ -1,0 +1,157 @@
+.ui-widget-content .footer {
+    margin-top: 0px;
+}
+
+.laborRates 
+{
+    height: 27px;  
+}
+
+.laborRates input 
+{
+    float: right;
+    width: 80px;
+}
+
+.laborRates label {
+    margin-top: 10px;    
+    color: #555555;
+}
+
+.ui-widget-content .footer .save,
+.ui-widget-content .footer a.cancel.near-save {
+    margin-top: 4px;
+}
+
+.ui-widget-content .footer > div {
+    margin-top: -18px;
+    width: 160px;
+    float: left;
+}
+
+/* begin Supplements */
+.repair-orders-supplements {
+    margin: 15px
+}
+
+.repair-orders-supplements li {
+    margin: 0px 5px 15px 20px;
+    float: none;
+}
+
+.repair-orders-supplements li div.remove,
+.repair-orders-supplements li div.new {
+    margin: 1px 2px;
+    cursor: pointer;
+    border: 1px solid lightGrey;
+    background: #E6E6E6;
+}
+
+.repair-orders-supplements li div {
+    margin: 2px 2px;
+    position: relative;
+    padding: 4px 0;
+    width: 16px;
+    float: left;
+    font-weight: normal;
+    color: #555;
+    padding: 3px;
+    border-radius: 8px;
+}
+
+.repair-orders-supplements li div.remove:hover,
+.repair-orders-supplements li div.new:hover {
+    background: #E25E53;
+    color: white;
+}
+
+.repair-orders-supplements li input.sum {
+    color: green;
+    margin: 0px 0px 0px 33px;
+}
+
+.repair-orders-supplements li input {
+    margin: 0px 0px 0px 15px;
+    float: left;
+    height: 24px;
+    line-height: 24px;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+    padding: 0;
+    border: 1px solid lightGrey;
+    border-radius: 3px;
+    width: 80px;
+}
+
+.repair-orders-supplements li > input.description {
+    width: 730px;
+    text-align: left;
+}
+
+/* end Supplements */
+
+/* begin Summmury */
+.repair-order-summury .main-part,
+.repair-order-summury .total-sum,
+.repair-order-summury .laborRate {    
+    margin: 20px 0px;
+}
+.repair-order-summury .main-part,
+.repair-order-summury .laborRate {
+    float: left;
+    font-family: arial;
+    font-size: 14px;
+    margin: 20px 0 20px 20px;
+}
+
+.repair-order-summury .main-part label,
+.repair-order-summury .laborRate label {
+    margin-top: -2px;
+    color: #555555;
+}
+
+.repair-order-summury .main-part input[type='text'] {
+    margin: 0px 0px 0px 0px;    
+    height: 24px;
+    line-height: 24px;
+    color: #555;
+    font-size: 14px;
+    text-align: center;
+    padding: 0;
+    border: 1px solid lightGrey;
+    border-radius: 3px;
+    width: 80px;
+}
+
+.repair-order-summury .total-sum {
+    width: 220px;
+    float: right;
+}
+
+.repair-order-summury .total-sum span {
+    color: #555;
+}
+
+.repair-order-summury .total-sum span.titleRO {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.repair-order-summury .total-sum input {
+    width: 200px;
+    text-align: left;
+    background: none;
+}
+
+.repair-order-summury .total-sum span.grandTotal {
+    color: #05A520;
+    font-size: 38px;
+    font-family: Arial;   
+}
+
+.repair-order-summury .total-sum input[disabled="disabled"] {
+    border: none;
+    padding: 1px;
+}
+/* end Summmury */

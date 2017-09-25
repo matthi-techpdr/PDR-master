@@ -1,0 +1,6 @@
+﻿ #gbox_invoicesGrid #jqgh_TotalAmount,
+ #gbox_invoicesGrid #jqgh_PaidSum 
+ {
+     position: relative;
+     top: -10px;    
+ }

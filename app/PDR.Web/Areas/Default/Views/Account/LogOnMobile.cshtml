@@ -1,0 +1,33 @@
+﻿@using PDR.Resources.Web.Area.Default
+@using PDR.Web.Areas.Default.Models
+@model LoginModel
+@{
+    ViewBag.Title = "Home";
+    Bundles.Reference("Content/css/loginMobile.css");
+    var companyEmpty = Session["company"] != null;
+
+}
+
+<div id="logoDiv">
+ @if (companyEmpty)
+ {
+     <img src="@Url.Action("RenderLogo", new {date = @DateTime.Now })" class="logo"/>
+ }
+ else
+ {
+     <img src="@Url.Action("RenderLogo", new { date = @DateTime.Now })" class="logo" /> //style="width: 80%;"
+ }
+</div>
+<div class="login">
+    @using (Html.BeginForm())
+    {
+        <h3><span class="loginTitle">@Login.LoginButton</span></h3>
+        <div>@Html.LabelFor(x => x.Login, Login.LoginPlaceholder, new { @class = "labelLogin"})
+        @Html.TextBoxFor(m => m.Login)
+        @Html.ValidationMessageFor(x => x.Login)
+        @Html.LabelFor(x => x.Password, Login.PasswordPlaceholder, new { @class = "labelLogin" })
+        @Html.TextBoxFor(m => m.Password, new { type = "password" })
+        @Html.ValidationMessageFor(x => x.Password)
+        <input type="submit" value="@Login.LoginButton" class="ok" /></div>
+    }
+</div>

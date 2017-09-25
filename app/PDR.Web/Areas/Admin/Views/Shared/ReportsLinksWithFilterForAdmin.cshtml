@@ -1,0 +1,27 @@
+﻿@{Bundles.Reference("Content/js/Pages/select-link.js");}
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+<div class="links">
+    @{Html.RenderPartial("~/Areas/Manager/Views/Shared/ReportsLinks.cshtml");}   
+    <div class="dateFilter">
+        <label style="margin-left: 10px;">
+            From:</label>
+        <input type="text" id="from" class="date-filter" autocomplete="off"/>
+        <label>
+            To:</label>
+        <input type="text" id="to" class="date-filter" autocomplete="off" />
+    </div>
+ 
+    <span class="gridFilter gridFilterNoMargin">
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", (IEnumerable<SelectListItem>)ViewData["customers"], new { id = "Customers", style = "width:177px;" })
+    </span>
+    <span class="gridFilterTeams">
+        <label>
+            Filter by teams:
+        </label>
+        @Html.DropDownList("teams", (IEnumerable<SelectListItem>)ViewData["teams"], new { id = "Teams",  style="width:177px;"})
+    </span>
+</div>

@@ -1,0 +1,45 @@
+﻿@model PDR.Web.Areas.Worker.Models.DownloadBuildViewModel
+@{
+    ViewBag.Title = "Companies";
+    Layout = "~/Areas/Default/Views/Shared/_DefaultLayout.cshtml";
+
+    Bundles.Reference("Content/js/plugins/jquery.form.js");
+    Bundles.Reference("Content/js/Pages/ValidateAjaxForm.js");
+
+    //Bundles.Reference("Content/css/admin_orders.css");
+    //Bundles.Reference("Content/css/select.css");
+    Bundles.Reference("Content/css/tabs.css");
+    Bundles.Reference("Content/css/pages/worker/workerDownload.css");
+  
+}
+<div id="tabs" class="ui-tabs">
+    <ul class="ui-tabs-nav">
+        <li class="ui-tabs-selected ui-state-active">@Html.ActionLink("Download", "Index", "Download")</li>
+        <li class="ui-state-default ui-corner-top"><a href="@(Url.RouteUrl(new { area = "Default", controller = "Account", action = "LogOut" }))">Logout</a></li>
+    </ul>
+    <div style="clear:both"></div>
+    <div id="tabs-1" class="ui-tabs-panel">
+        <div id="dowloadButtton">
+            @if (Request.UserAgent != null)
+            {
+                if (Request.UserAgent.ToLower().Contains("ipad"))
+                {
+                    if (Model.NoWorkingBuilds)
+                    {
+                        <a id="donloadLinkId" href="@Model.UrlDownload"><span style="position: relative; margin: 10px;">Download iPhone app</span></a>
+                    }
+                    else
+                    {
+                        <p style="font-size: 16px;text-align: center;position: relative; top: 10px;">Currently iPhone app</p>
+                        <p style="font-size: 16px;text-align: center;position: relative; top: 10px;">is not available for installation.</p>
+                        <p style="font-size: 16px;text-align: center;position: relative; top: 10px;">Please try again later.</p>
+                    }
+                }
+                else
+                {
+                    <p style="font-size: 18px !important;text-align: center;position: relative; padding: 10px;">Currently device is not supported</p>
+                }
+            }
+        </div>
+    </div>
+</div>

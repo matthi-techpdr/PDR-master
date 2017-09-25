@@ -1,0 +1,19 @@
+﻿#wholesale-customer input {
+    border-radius: 3px;
+    height: 24px;
+    border: 1px solid #DDD;
+    padding: 0 7px;
+    font-size: 12px;
+    float: left;
+    width: 245px;
+    color: #555;
+    margin-right: 0px;
+}
+
+#wholesale-customer button {
+    margin-top: 1px;
+}
+
+#wholesale-customer li a {
+    width: 286px !important;
+}

@@ -1,0 +1,15 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Estimates
+@using PDR.Web.Core.Helpers.Html
+@model EstimateCustomerModel
+<fieldset id="estimate-customer" class="fieldset2">
+    <label>
+        @Html.Inputs().RadioButtonFor(x => x.CustomerType, EstimateCustomerType.Retail, new { data_bind = "checked: customerType", id = "CustomerType_Retail" })
+        <a href="javascript:void(0);"><span>Retail</span></a>
+    </label>
+    <label>
+        @Html.Inputs().RadioButtonFor(x => x.CustomerType, EstimateCustomerType.Wholesale, new { data_bind = "checked: customerType", id = "CustomerType_Wholesale" })
+        <a href="javascript:void(0);"><span>Wholesale</span></a>
+    </label>
+    @{ Html.RenderPartialWithPrefixAndState("Partial/RetailCustomer", x => x.Retail); }
+    @{ Html.RenderPartialWithPrefixAndState("Partial/WholesaleCustomer", x => x.Wholesale); }
+</fieldset>

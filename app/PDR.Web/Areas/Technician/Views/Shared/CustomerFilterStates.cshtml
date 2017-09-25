@@ -1,0 +1,10 @@
+﻿@using PDR.Resources.Web.Area.Superadmin.Company
+@model IEnumerable<SelectListItem>
+           
+<div class="links">
+    <span class="gridFilter">
+        <label>@Company.FilterCaption</label>
+        @Html.DropDownList("states", Model, new { id = "UsaStates" })
+    </span>
+</div>
+

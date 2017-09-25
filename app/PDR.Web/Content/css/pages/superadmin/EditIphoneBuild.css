@@ -1,0 +1,62 @@
+﻿#wrapDiv {
+    margin: 0px 0px 50px 20px;
+}
+.statusBuild {
+    color: #555555;
+    font-size: 16px ;
+    font-weight: normal;
+    margin: 0px 10px 0px 0px;
+}
+
+#addGridButton{
+    display: none;
+}
+#reactivateGridButton {
+    display: none;
+}
+#suspendGridButton {
+    display: none;
+}
+.ui-pg-input {
+    width: 58px;
+}
+td[dir=ltr] input {
+    width: 50px !important;
+}
+
+
+#saveAccess {
+margin: 10px 0px !important;
+border: 1px solid silver;
+color: red;
+width: 120px !important;
+height: 35px !important;
+line-height: 28px !important;
+border-radius: 8px !important;
+background: #bbbbbf !important;
+font-size: 14px !important;
+}
+
+.ui-dialog-buttonset button {
+    width: 82px;
+}
+
+#sendPushNotification {
+    background: #bbbbbf !important;
+    border: 1px solid silver;
+    border-radius: 8px !important;
+    color: #555;
+    cursor: pointer;
+    float: left;
+    font-size: 14px !important;
+    height: 30px !important;
+    line-height: 28px !important;
+    margin: 5px 0  !important;
+    width: auto !important;
+}
+
+#newBuildDiv {
+    padding: 12px 0 0 20px; 
+    margin: 0 5px 0 5px;
+    float: left;
+}

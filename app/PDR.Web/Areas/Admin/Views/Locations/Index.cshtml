@@ -1,0 +1,78 @@
+﻿﻿@{
+    ViewBag.Title = "GPS Tracking";    
+}
+
+@model List<SelectListItem>
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    Bundles.Reference("Content/js/Pages/Admin/InitGpsGrid.js");
+    Bundles.Reference("Content/js/plugins/backbone/underscore.js");
+    Bundles.Reference("Content/js/plugins/backbone/backbone.js");
+    Bundles.Reference("Content/js/plugins/backbone/jquery.tmpl.js");
+    Bundles.Reference("Content/js/Pages/Admin/BackboneLocations.js");
+    
+    Bundles.Reference("Content/js/Pages/Admin/AdminMap.js");
+    Bundles.Reference("Content/js/Pages/Admin/GMarkerUnions.js");
+    ViewBag.GpsIsActive = "ui-tabs-selected ui-state-active";
+}
+<script type="text/javascript">
+    $(function () {
+        $('.timepicker').datetimepicker({
+            maxDate: new Date(),
+            onSelect: function () {
+                if ($('#form').val() != "" && $('#to').val() != "") {
+                    window.routes.fetch();
+                }
+                if ($(this).attr('id') == 'from') {
+                    $('#to').datetimepicker('option', 'minDate', $("#from").datetimepicker('getDate'));
+                }
+            }
+        });
+    })
+</script>
+<script id="last-locations-template" type="text/x-jquery-tmpl">
+    <div class="maps" id="map" style="width: 100%; height: 400px; display: inline-block"></div>
+</script>
+
+<script id="routes-template" type="text/x-jquery-tmpl">
+    <div id="legend" style="width: 208px; height: 402px; float:left; background:#ededf6;border-radius:7px;color:#555;font-size:14px;">
+    <table style="width:100%; margin: 5px;">
+    </table>
+    </div>
+    <div class="maps" id="map" style="width: 748px; height: 400px; float:left; "></div>
+</script>
+
+<script id="legend-template" type="text/x-jquery-tmpl">
+    <tr class="user" license="${license}">
+        <td style="width:87%;">${user}</td>
+        <td style="width:13%;">
+        <div style="background:${color};width:10px;height:10px;"></div>
+        </td>
+    </tr>
+</script>
+
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+<div class="links">
+    <span class="gridFilter gridFilterNoMargin">
+        <label>
+            Teams:
+        </label>
+        @Html.DropDownList("teams", Model, new { id = "Team", style = "width:141px;" })
+    </span>
+</div>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="gpsReportsGrid">
+        </table>
+        <div id="pager">
+        </div>
+        <div id="timeFilter" style=" display: none;">
+            <label>
+                From</label>
+            <input type="text" id="from" class="date-filter timepicker" style="width: 120px !important;" readonly="readonly" />
+            <label>
+                To</label>
+            <input type="text" id="to" class="date-filter timepicker" style="width: 120px !important;" readonly="readonly" /></div>
+        <div id="location" style="width: 958px;"></div>
+    </div>
+</div>

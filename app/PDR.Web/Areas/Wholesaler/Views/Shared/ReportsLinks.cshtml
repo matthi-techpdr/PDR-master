@@ -1,0 +1,10 @@
+﻿@model dynamic
+
+@{
+    var selectionTypeMarker = Model as Type;
+    Bundles.Reference("Content/js/Pages/select-link.js");
+}
+
+@*@(Html.ActionLink<PDR.Web.Areas.Wholesaler.Controllers.EstimateReportsController>(x => x.Index(), "Estimate", new { @class = selectionTypeMarker == typeof(PDR.Web.Areas.Wholesaler.Controllers.EstimateReportsController) ? "active" : string.Empty }))
+@(Html.ActionLink<PDR.Web.Areas.Wholesaler.Controllers.RepairOrderReportsController>(x => x.Index(), "Repair orders", new { @class = selectionTypeMarker == typeof(PDR.Web.Areas.Wholesaler.Controllers.RepairOrderReportsController) ? "active" : string.Empty }))*@
+@(Html.ActionLink<PDR.Web.Areas.Wholesaler.Controllers.InvoiceReportsController>(x => x.Index(), "Invoices", new { @class = selectionTypeMarker == typeof(PDR.Web.Areas.Wholesaler.Controllers.InvoiceReportsController) ? "active" : string.Empty }))

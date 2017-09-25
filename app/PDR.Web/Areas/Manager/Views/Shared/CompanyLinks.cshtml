@@ -1,0 +1,18 @@
+﻿
+@using PDR.Web.Areas.Admin.Controllers
+@model dynamic
+
+<script type="text/javascript">
+    $(function () {
+        if (window.navigator.userAgent.toLowerCase().match('chrome') != null) {
+            $('#companyForm select').next().css('width', '48px');
+        }
+    })
+</script>
+
+@{
+    var selectionTypeMarker = Model as Type;
+    Bundles.Reference("Content/js/Pages/select-link.js");
+}
+
+@(Html.ActionLink<PDR.Web.Areas.Admin.Controllers.TeamsController>(x => x.Index(), "Teams", new { @class = selectionTypeMarker == typeof(PDR.Web.Areas.Admin.Controllers.TeamsController) ? "active" : string.Empty }))

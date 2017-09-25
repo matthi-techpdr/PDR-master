@@ -1,0 +1,17 @@
+﻿@model IEnumerable<SelectListItem>
+@{
+    Layout = "~/Areas/Common/Views/Customers/IndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Estimator/InitCustomersGrid.js");
+}
+
+@section filter
+{
+
+    <script type="text/javascript">
+        $(function () {
+            window.role = "estimator";
+        });
+    </script>
+     @{Html.RenderPartial("CustomerFilterStates");}
+    <input type="hidden" value="@Url.Action("GetEmailDialog", "Estimates")" />
+}

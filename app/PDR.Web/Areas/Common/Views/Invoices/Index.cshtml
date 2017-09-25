@@ -1,0 +1,31 @@
+﻿@model IEnumerable<SelectListItem>
+@{
+    this.SetLayout();
+    ViewBag.Title = "Index";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+    Bundles.Reference("Content/js/Pages/Manager/Invoices/InitInvoicesGrid.js");    
+}
+
+@*@{Html.RenderPartial("Partial/IndexBase");}*@
+
+<div class="links">
+    @(Html.ActionLink<PDR.Web.Areas.Managerr.Controllers.EstimatesController>(x => x.Index(), "Estimates"))
+    @(Html.ActionLink<PDR.Web.Areas.Managerr.Controllers.RepairOrdersController>(x => x.Index(), "Repair orders"))
+    @(Html.ActionLink<PDR.Web.Areas.Managerr.Controllers.InvoicesController>(x => x.Index(), "Invoices", new { @class="active" }))    
+    <span class="gridFilter">
+        <label>
+            Filter by teams:
+        </label>
+        @Html.DropDownList("teams", Model, new { id = "Teams" })
+    </span>
+    <input type="checkbox" id="com"/><label id="commission"> Show commission</label>
+</div>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="invoicesGrid">
+        </table>
+        <div id="pager">
+        </div>
+        <div id="logInfo" ></div>
+    </div>
+</div>

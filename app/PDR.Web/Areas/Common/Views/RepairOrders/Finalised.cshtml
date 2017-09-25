@@ -1,0 +1,55 @@
+﻿@using PDR.Web.Areas.Common.Models
+@model FilterModel   
+      
+@{
+    this.SetLayout();
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+    ViewBag.Title = "Finalised repair orders";
+    if (ViewBag.IsRITechnician)
+    {
+        Bundles.Reference("Content/js/Pages/RITechnician/InitFinaliseGrid.js");
+    }
+    else
+    {
+        Bundles.Reference("Content/js/Pages/Common/InitFinaliseGrid.js");
+    }
+    Bundles.Reference("Content/css/pages/manager/repairorders/assigntechnicians.css");
+}
+
+@RenderSection("GridScript")
+           
+<div class="links">
+    @(Html.ActionLink<PDR.Web.Areas.Common.Controllers.RepairOrdersController>(x => x.Index(null, null, null, true), "Repair orders"))
+    @(Html.ActionLink<PDR.Web.Areas.Common.Controllers.RepairOrdersController>(x => x.Finalised(null, null, null), "Finalised", new { @class = "viewArchive active" }))
+    @if (!ViewBag.IsRITechnician)
+    {
+        Html.RenderPartial("~/Areas/Common/Views/Shared/Partial/Search.cshtml");
+        <input id ="finalisedRepairOrderUrl" type="hidden" value="@Url.Action("Finalised", "RepairOrders")"/>
+        <input id ="RepairOrderUrl" type="hidden" value="@Url.Action("Index", "RepairOrders")"/>
+    }
+    @{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+    <input id="curentUserRole" type="hidden" value="@ViewBag.currenUserRole"/>
+
+    <span class="gridFilter">
+        @if (Model.Teams.Count() > 1 && !Layout.Contains("Technician"))
+        {
+            <label>
+                Filter by teams:
+            </label>
+            @Html.DropDownList("teams", Model.Teams, new { id = "Teams", style="width:167px;" })
+        }
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", Model.Customers, new { id = "Customers", style="width:177px;" })
+    </span>
+</div>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="finalisedGrid">
+        </table>
+        <div id="pager">
+        </div>
+    </div>
+</div>
+

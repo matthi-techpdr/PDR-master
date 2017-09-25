@@ -1,0 +1,15 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Estimates
+@model EstimateWholesaleCustomerModel
+
+@{Bundles.Reference("Content/css/pages/estimator/estimates/partial/wholesale-customer.css");}
+
+<ul id="wholesale-customer" data-bind="@string.Format("visible: customerType() == '{0}'", EstimateCustomerType.Wholesale)">
+	<li>
+        @Html.LabelFor(x => x.CustomerId, "Customer", new { style="width:100px;"})
+        @Html.DropDownListFor(x => x.CustomerId, new SelectList(Model.Customers, "Value", "Text", Model.CustomerId), new { id = "Customer_Wholesale_CustomerId", @class = "combobox select-wholesale customerandMatrixRequire" })
+	</li>
+	<li data-bind="visible: ($root.carInspection().typeEstimate() != 'ExtraQuick' || window.globals.state != 'view')">
+		@Html.LabelFor(x => x.MatrixId, "Price matrix", new { style="width:100px;"})
+        @Html.DropDownListFor(x => x.MatrixId, new SelectList(Model.Matrices, "Value", "Text", Model.MatrixId), new { id = "Customer_Wholesale_MatrixId", @class = "combobox select-wholesale customerandMatrixRequire" })
+	</li>
+</ul>

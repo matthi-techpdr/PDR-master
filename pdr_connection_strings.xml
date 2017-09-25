@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<connectionStrings>
+ <!--<connectionString name="PDRConnectionString.Debug" value="Application Name=PDR_ioann;data source=LP-NETDEVELOPER\SQLEXPRESS;DataBase=PDR_Test;user id=pdruser;pwd=pdr_pas215;" />-->
+ <connectionString name="PDRConnectionString.Debug" value="Application Name=PDR_ioann;data source=WOLFE-PC\SQLEXPRESS;DataBase=PDR_Test;user id=pdruser;pwd=pdr_pas215;" />
+ <!--<connectionString name="PDRConnectionString.Debug" value="Application Name=PDR_ioann;data source=192.168.1.109;DataBase=PDR_Test;user id=pdr_user;pwd=pdr_pas215;" />-->
+  <connectionString name="PDRConnectionString.Release" value="Application Name=PDR_ioann;data source=hermes;DataBase=PDR_Test2;user id=pdruser;pwd=pdruser;" />
+  <!--<connectionString name="PDRConnectionString.Debug" value="Application Name=PDR_ioann;data source=54.235.149.165;DataBase=PDR_Test3;user id=pdr_user;pwd=pdr_pas215;" />
+  <connectionString name="PDRConnectionString.Release" value="Application Name=PDR_ioann;data source=54.235.149.165;DataBase=PDR_Test3;user id=pdr_user;pwd=pdr_pas215;" />
+  <connectionString name="PDRConnectionString.Live" value="Application Name=PDR_ioann;data source=hermes;DataBase=PDR_Test3;user id=pdruser;pwd=pdruser;" />--> 
+  <!--<connectionString name="PDRConnectionString.Debug" value="Application Name=PDR_ioann;data source=BOROVOK\SQLSERVER2008R2;DataBase=PDR_Test3;user id=pdr_user1;pwd=pdr_pass215;" />
+  <connectionString name="PDRConnectionString.Release" value="Application Name=PDR_ioann;data source=BOROVOK\SQLSERVER2008R2;DataBase=PDR_Test3;user id=pdr_user1;pwd=pdr_pass215;" />-->
+  <!--<connectionString name="PDRConnectionString.Debug" value="Application Name=PDR_ioann;data source=HERMES\SQL2008R2;DataBase=PDR_live;user id=pdr_user1;pwd=pdr_pass215;" />
+  <connectionString name="PDRConnectionString.Release" value="Application Name=PDR_ioann;data source=HERMES\SQL2008R2;DataBase=PDR_live;user id=pdr_user1;pwd=pdr_pass215;" />-->
+  <!--<connectionString name="PDRConnectionString.Debug" value="Application Name=PDR_ioann;data source=pdrmanage08.cjzkvnxhqj3c.us-east-1.rds.amazonaws.com;DataBase=pdr_test;user id=pdr_user;pwd=pdr_pas215;" />
+  <connectionString name="PDRConnectionString.Release" value="Application Name=PDR_ioann;data source=pdrmanage08.cjzkvnxhqj3c.us-east-1.rds.amazonaws.com;DataBase=pdr_test;user id=pdr_user;pwd=pdr_pas215;" />-->
+</connectionStrings>

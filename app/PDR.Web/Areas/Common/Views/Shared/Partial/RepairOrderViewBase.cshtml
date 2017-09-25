@@ -1,0 +1,18 @@
+﻿@using PDR.Web.Areas.Technician.Models
+@using SmartArch.Core.Extensions
+@model RepairOrderModel
+@{
+    this.SetLayout();
+    ViewBag.Title = "View repair order";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+}
+<div class="links">
+    @RenderSection("links")
+    <span class="item-number">@this.GetExecutingActionName().ToUpperFirstLetter() Repair Order # @Model.Id</span>
+</div>           
+@{
+    
+    Html.ReadOnlyModeOn();
+    Html.RenderPartial("~/Areas/Common/Views/RepairOrders/Partial/RepairOrder.cshtml", Model);
+    Html.ReadOnlyModeOff();
+}

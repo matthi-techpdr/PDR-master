@@ -1,0 +1,23 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Estimates
+@model object
+
+@{
+    ViewBag.Title = "Teams";
+    Layout = "~/Areas/Manager/Views/Shared/_ManagerLayout.cshtml";
+    Bundles.Reference("Content/js/Pages/Manager/InitEmployeeGrid.js");
+    ViewBag.TeamsIsActive = "ui-tabs-selected ui-state-active";
+}
+
+@Html.Partial("TeamsLinks", Model)
+
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="employeeGrid">
+        </table>
+        <div id="pager">
+        </div>
+        <div id="employeeDetails">
+        </div>
+    </div>    
+</div>
+

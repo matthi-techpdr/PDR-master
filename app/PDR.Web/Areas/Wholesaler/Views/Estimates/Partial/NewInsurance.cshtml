@@ -1,0 +1,46 @@
+﻿@using PDR.Resources.PDR.Domain.Model
+@using PDR.Web.Core.Helpers.Html
+@using PDR.Web.Areas.Estimator.Models.Estimates
+
+@{
+    Bundles.Reference("Content/css/pages/estimator/estimates/partial/insurance.css");
+    Bundles.Reference("Content/js/pages/wholesaler/estimates/partial/insurance.js");
+}
+
+@model InsuranceModel
+<fieldset id="insurance" class="fieldset3">
+    <ul>
+        <li>
+            @Html.LabelFor(x => x.InsuredName, InsuranceRes.InsuredName)
+            @Html.Inputs().TextBoxFor(x => x.InsuredName, new { style = "overflow:hidden;" })
+        </li>
+        <li>
+           @Html.LabelFor(x => x.CompanyName, InsuranceRes.CompanyName)
+           @Html.DropDownList("CompanyNames", Model.AllCompanyNames, new { @class = "combobox" })
+        </li>
+        <li>
+            @Html.LabelFor(x => x.Policy, InsuranceRes.Policy)
+            @Html.Inputs().TextBoxFor(x => x.Policy, new { style = "overflow:hidden;" })
+        </li>
+        <li>
+            @Html.LabelFor(x => x.Claim, InsuranceRes.Claim)
+            @Html.Inputs().TextBoxFor(x => x.Claim, new { style = "overflow:hidden;" })
+        </li>
+         <li>
+            @Html.LabelFor(x => x.AccidentDate, InsuranceRes.AccidentDate, new { style = "width:90px; text-align:left; margin:7px 7px 0 0;" })
+            @Html.Inputs().TextBoxFor(x => x.AccidentDate, new { style = "width:78px;", @class="fromDate" })
+        </li>
+        <li>
+            @Html.LabelFor(x => x.ClaimDate, InsuranceRes.ClaimDate, new { style = "width:81px;margin-left:8px;" })
+            @Html.Inputs().TextBoxFor(x => x.ClaimDate, new { style = "width:78px; margin:4px 0 0 0;", @class = "toDate" })
+        </li>       
+        <li>
+            @Html.LabelFor(x => x.Phone, InsuranceRes.Phone)
+            @Html.Inputs().TextBoxFor(x => x.Phone, new { style = "overflow:hidden;" })
+        </li>
+        <li>
+            @Html.LabelFor(x => x.ContactName, InsuranceRes.ContactName)
+            @Html.Inputs().TextBoxFor(x => x.ContactName, new { style = "overflow:hidden;" })
+        </li>
+    </ul>
+</fieldset>

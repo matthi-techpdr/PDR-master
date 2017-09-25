@@ -1,0 +1,133 @@
+﻿@model PDR.Web.Areas.Common.Models.SettingsViewModel
+
+@{
+    ViewBag.Title = "Settings";
+    ViewBag.SettingsIsActive = "ui-tabs-selected ui-state-active";
+    Bundles.Reference("Content/js/Pages/select-link.js");
+    Bundles.Reference("Content/js/Pages/Common/Settings.js");
+    Bundles.Reference("Content/js/pages/Common/InputMask.js");
+}
+
+<div class="links" style="margin-bottom: 16px;">
+    @(Html.ActionLink<PDR.Web.Areas.Common.Controllers.SettingsController>(x => x.Index(), "My Profile", new {@class = "active"}))
+</div>
+
+@using (Html.BeginForm("Index", "Settings", FormMethod.Post, new { id = "employeeForm" }))
+{
+    <fieldset class="popupLeftColumn">
+        @Html.HiddenFor(m => m.Id)
+        <label>
+            <span>Name</span>
+            @Html.TextBoxFor(m => m.Name)
+        </label>
+                <label>
+            <span>Signature name</span>
+            @Html.TextBoxFor(m => m.SignatureName)
+        </label>
+        <label>
+            <span>Address</span>
+            @Html.TextBoxFor(m => m.Address)
+        </label>
+                <label>
+            <span>City</span>
+            @Html.TextBoxFor(m => m.City)
+        </label>
+        <label class="a-select editState">
+            <span>State</span>  
+            @Html.DropDownList("stateUsa", Model.States)
+        </label>
+        <label class="a-select editZip">
+            <span>ZIP</span>
+            @Html.TextBoxFor(m => m.Zip, new { @class = "saeinput", style="margin-top:4.5px;" })
+            </label>
+        <label>
+            <span>Phone</span>
+            @Html.TextBoxFor(m => m.PhoneNumber)
+        </label>
+        <label>
+            <span>Email</span>
+            @Html.TextBoxFor(m => m.Email)
+        </label>
+        <label>
+            <span>Tax ID</span>
+            @Html.TextBoxFor(m => m.TaxId)
+        </label>
+         @if (Model.Role != "Accountant")
+         {
+            <label id="AttachedFile">
+                <span>Document for print</span>
+                @Html.RadioButtonFor(m => m.IsBasic, true, new { id = "IsBasic_true" })
+                <label for="IsBasic_true">Basic</label>
+                @Html.RadioButtonFor(m => m.IsBasic, false, new { id = "IsBasic_false" })
+                <label for="IsBasic_false">Detailed</label>
+            </label>
+         }
+        <br/>
+    </fieldset>
+    
+    <fieldset class="popupRightColumn">
+        <label class="a-select">
+            <span>System role</span>
+            @Html.TextBoxFor(m => m.Role, new { disabled = "disabled" })
+        </label>
+
+        <label>
+            <span>User name</span>
+            @Html.TextBoxFor(m => m.Login)
+        </label>
+        <label>
+            <span>Password</span>
+            @Html.TextBoxFor(m => m.Password)
+        </label>
+        @if (!(Model.Role == "Accountant" || Model.Role == "Estimator"))
+        {
+            <label>
+                <span>Commission</span>
+                @Html.TextBoxFor(m => m.Commission, new { disabled = "disabled" })
+            </label>
+        }
+        @if (!(Model.Role == "Accountant"))
+        {
+                <span class="checkboxesLabel">
+                    <span>Allow estimates</span>
+                    @Html.Inputs().CheckBoxFor(m => m.CanQuickEstimate, new { disabled = "disabled" })
+                    <span>Quick</span>
+                    @Html.Inputs().CheckBoxFor(m => m.CanExtraQuickEstimate, new { disabled = "disabled" })
+                    <span>Extra quick</span>
+                </span>
+        }
+         @if (!(Model.Role == "Accountant" || Model.Role == "Estimator"))
+         {
+            <label>
+                <span id="teamLabel">Teams:</span>
+                <p class="SelectItems">@(Model.EmployeeTeams != null ? Model.EmployeeTeams.Count : 0) items selected</p>
+                <div class="multiselectDivWrapper">
+                    <div class="multiselectDiv">
+                        @if (Model.EmployeeTeams != null)
+                        {
+                            foreach (var item in Model.EmployeeTeams)
+                            {
+                                <p>@item</p>
+                            }
+                        }
+                    </div>
+                </div>
+            </label>
+         }
+    </fieldset>
+    <fieldset>
+        @if (Model.Role != "Accountant")
+        {
+            <label>
+                <button style="cursor: pointer" type="button" class="ui-button ui-button-text-only" onclick="ClearMyDeviceId();">
+                    <span class="ui-button-text">Clear my device ID</span>
+                </button>
+            </label>
+        }
+        <label>
+            <button id="save" type="button" style="cursor: pointer" class="ui-button ui-button-text-only" onclick="SaveJsonModel();">
+                <span class="ui-button-text">Save</span>
+            </button>
+        </label>
+    </fieldset>
+   }

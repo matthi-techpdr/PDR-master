@@ -1,0 +1,12 @@
+﻿@model IEnumerable<SelectListItem>
+           
+@{
+    ViewBag.Title = "Vehicles";
+    Layout = "~/Areas/Admin/Views/Vehicles/Partial/VehicleIndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Admin/InitVehiclesGrid.js");
+}           
+
+@section links
+{
+    @{Html.RenderPartial("CompanyLinksForVehicles");}
+}

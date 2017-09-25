@@ -1,0 +1,39 @@
+﻿@using PDR.Domain.Model.Enums
+@using PDR.Resources.PDR.Domain.Model.Licenses
+@using PDR.Web.Areas.Admin.Models.MobileLicense
+@model LicenseViewModel
+
+<h4>License info #@Model.Id</h4>
+<table>
+    <tr>
+        <td class="lcol">@Html.LabelFor(x => x.LicenseNumber, MobileLicenseInfoRes.LicenseNumber):</td>
+        <td class="rcol">@Model.LicenseNumber</td>
+    </tr>
+    <tr>
+        <td class="lcol">@Html.LabelFor(x => x.DeviceId, MobileLicenseInfoRes.DeviceID):</td>
+        <td class="rcol">@Model.DeviceId</td>
+    </tr>  
+    <tr>
+        <td class="lcol">@Html.LabelFor(x => x.DeviceName, MobileLicenseInfoRes.DeviceName):</td>
+        <td class="rcol">@Model.DeviceName</td>
+    </tr>  
+    <tr>
+        <td class="lcol">@Html.LabelFor(x => x.DeviceType, MobileLicenseInfoRes.DeviceType):</td>
+        <td class="rcol">@Model.DeviceType</td>
+    </tr>
+    @if (Model.DeviceType == DeviceTypes.iPhone)
+     {
+         <tr>
+             <td class="lcol">@Html.LabelFor(x => x.PhoneNumber, MobileLicenseInfoRes.PhoneNumber):</td>
+             <td class="rcol">@Model.PhoneNumber</td>
+         </tr>
+     }          
+    <tr>
+        <td class="lcol">@Html.LabelFor(x => x.Employee, MobileLicenseInfoRes.Owner):</td>
+        <td class="rcol">@Model.Employee</td>
+    </tr>  
+    <tr>
+        <td class="lcol">@Html.LabelFor(x => x.GpsFrequency, MobileLicenseInfoRes.GpsFrequency):</td>
+        <td class="rcol">@Model.GpsFrequency</td>
+    </tr>                     
+</table>

@@ -1,0 +1,543 @@
+﻿@using PDR.Resources.PDR.Domain.Model
+@using PDR.Web.Areas.Estimator.Models.Estimates
+@model CarInspectionsModel          
+@{
+    Bundles.Reference("Content/css/pages/estimator/estimates/partial/retail-customer.css");
+    Bundles.Reference("Content/css/pages/estimator/estimates/partial/car-inspections.css");
+    Bundles.Reference("Content/css/pages/sprites.css");
+
+    if (this.Request.Browser.Browser == "IE")
+    {
+        Bundles.Reference("Content/js/pages/estimator/estimates/partial/retail-customer-ie-fix.js");
+    }
+    
+    var inspections = Model.CarInspections;
+    int index = 0;
+    var currentName = inspections[index].Name;
+}
+
+<div id="fieldset5">
+    <ul class="car_part" data-bind="foreach: carInspection().partsNames">            
+            <li data-bind="attr: { id: id, value: value, name: name, 'class': now() ? 'now' : already() ? 'already' : 'none' },                         
+                        click: $root.carInspection().goToParts,
+                        checked: IsSelected,
+                        visible: visibleSection"
+                        class="none">            
+            <span class="price" data-bind="text: formattedTotalParts"></span><span class="part" data-bind="text: name"></span>
+            <input type="hidden" data-bind="value: atleastOnePart" class="atleast"/>
+            <input type="hidden" data-bind="attr:{ value: totalParts, name: nameTotalOneParts}"/>
+            <input type="hidden" data-bind="value: isChanges, attr:{ name: nameIsChanges}"/>
+            <input type="hidden" data-bind="value: flagAlert, attr:{ name: nameHasAlert}"/>              
+        </li>
+    </ul>
+</div> 
+    
+<div class="car_p" data-bind="visible: vehicleType() == 'Car'">
+	<div class="f">
+        <div class="sp4-1 sprite-1-1"></div>
+        <div class="sp4-2 sprite-1-2" style="display:none"></div>
+        <div class="sp4-3 sprite-1-3" style="display:none"></div>
+	</div>
+	<div class="s">
+        <div class="sp8-1 sprite-2-1"></div>
+        <div class="sp8-2 sprite-2-2" style="display:none"></div>
+        <div class="sp8-3 sprite-2-3" style="display:none"></div>
+	</div>
+	<div class="t">
+        <div class="sp9-1 sprite-3-1"></div>
+        <div class="sp9-2 sprite-3-2" style="display:none"></div>
+        <div class="sp9-3 sprite-3-3" style="display:none"></div>
+	</div>
+	<div class="fo">
+        <div class="sp12-1 sprite-4-1"></div>
+        <div class="sp12-2 sprite-4-2" style="display:none"></div>
+        <div class="sp12-3 sprite-4-3" style="display:none"></div>
+	</div>
+	<div class="fi">
+        <div class="sp17-1 sprite-5-1"></div>
+        <div class="sp17-2 sprite-5-2" style="display:none"></div>
+        <div class="sp17-3 sprite-5-3" style="display:none"></div>
+	</div>
+	<div class="si">
+        <div class="sp0-1 sprite-6-1"></div>
+        <div class="sp0-2 sprite-6-2" style="display:none"></div>
+        <div class="sp0-3 sprite-6-3" style="display:none"></div>
+	</div>
+	<div class="se">
+        <div class="sp14-1 sprite-7-1"></div>
+        <div class="sp14-2 sprite-7-2" style="display:none"></div>
+        <div class="sp14-3 sprite-7-3" style="display:none"></div>
+	</div>
+	<div class="e">
+        <div class="sp1-1 sprite-8-1"></div>
+        <div class="sp1-2 sprite-8-2" style="display:none"></div>
+        <div class="sp1-3 sprite-8-3" style="display:none"></div>
+	</div>
+	<div class="n">
+        <div class="sp15-1 sprite-9-1"></div>
+        <div class="sp15-2 sprite-9-2" style="display:none"></div>
+        <div class="sp15-3 sprite-9-3" style="display:none"></div>
+	</div>
+	<div class="te">
+        <div class="sp2-1 sprite-10-1"></div>
+        <div class="sp2-2 sprite-10-2" style="display:none"></div>
+        <div class="sp2-3 sprite-10-3" style="display:none"></div>
+	</div>
+	<div class="el">
+        <div class="sp18-1 sprite-11-1"></div>
+        <div class="sp18-2 sprite-11-2" style="display:none"></div>
+        <div class="sp18-3 sprite-11-3" style="display:none"></div>
+	</div>
+	<div class="tw">
+        <div class="sp3-1 sprite-12-1"></div>
+        <div class="sp3-2 sprite-12-2" style="display:none"></div>
+        <div class="sp3-3 sprite-12-3" style="display:none"></div>
+	</div>
+	<div class="tt">
+        <div class="sp5-1 sprite-13-1"></div>
+        <div class="sp5-2 sprite-13-2" style="display:none"></div>
+        <div class="sp5-3 sprite-13-3" style="display:none"></div>
+	</div>
+	<div class="ft">
+        <div class="sp6-1 sprite-15-1"></div>
+        <div class="sp6-2 sprite-15-2" style="display:none"></div>
+        <div class="sp6-3 sprite-15-3" style="display:none"></div>
+	</div>
+	<div class="st">
+        <div class="sp11-1 sprite-14-1"></div>
+        <div class="sp11-2 sprite-14-2" style="display:none"></div>
+        <div class="sp11-3 sprite-14-3" style="display:none"></div>
+	</div>
+</div>
+
+<div class="car_truck"  data-bind="visible: vehicleType() == 'Truck'">
+	<div class="f">
+        <div class="tr17-1 spriteTr-1-1"></div>
+        <div class="tr17-2 spriteTr-1-2" style="display:none"></div>
+        <div class="tr17-3 spriteTr-1-3" style="display:none"></div>
+	</div>
+	<div class="s">
+        <div class="tr4-1 spriteTr-2-1"></div>
+        <div class="tr4-2 spriteTr-2-2" style="display:none"></div>
+        <div class="tr4-3 spriteTr-2-3" style="display:none"></div>
+	</div>
+	<div class="t">
+        <div class="tr0-1 spriteTr-3-1"></div>
+        <div class="tr0-2 spriteTr-3-2" style="display:none"></div>
+        <div class="tr0-3 spriteTr-3-3" style="display:none"></div>
+	</div>
+	<div class="fo">
+        <div class="tr3-1 spriteTr-4-1"></div>
+        <div class="tr3-2 spriteTr-4-2" style="display:none"></div>
+        <div class="tr3-3 spriteTr-4-3" style="display:none"></div>
+	</div>
+	<div class="fi">
+        <div class="tr8-1 spriteTr-5-1"></div>
+        <div class="tr8-2 spriteTr-5-2" style="display:none"></div>
+        <div class="tr8-3 spriteTr-5-3" style="display:none"></div>
+	</div>
+	<div class="si">
+        <div class="tr9-1 spriteTr-6-1"></div>
+        <div class="tr9-2 spriteTr-6-2" style="display:none"></div>
+        <div class="tr9-3 spriteTr-6-3" style="display:none"></div>
+	</div>
+	<div class="se">
+        <div class="tr10-1 spriteTr-7-1"></div>
+        <div class="tr10-2 spriteTr-7-2" style="display:none"></div>
+        <div class="tr10-3 spriteTr-7-3" style="display:none"></div>
+	</div>
+	<div class="e">
+        <div class="tr14-1 spriteTr-8-1"></div>
+        <div class="tr14-2 spriteTr-8-2" style="display:none"></div>
+        <div class="tr14-3 spriteTr-8-3" style="display:none"></div>
+	</div>
+	<div class="n">
+        <div class="tr1-1 spriteTr-9-1"></div>
+        <div class="tr1-2 spriteTr-9-2" style="display:none"></div>
+        <div class="tr1-3 spriteTr-9-3" style="display:none"></div>
+	</div>
+	<div class="te">
+        <div class="tr15-1 spriteTr-10-1"></div>
+        <div class="tr15-2 spriteTr-10-2" style="display:none"></div>
+        <div class="tr15-3 spriteTr-10-3" style="display:none"></div>
+	</div>
+	<div class="el">
+        <div class="tr5-1 spriteTr-11-1"></div>
+        <div class="tr5-2 spriteTr-11-2" style="display:none"></div>
+        <div class="tr5-3 spriteTr-11-3" style="display:none"></div>
+	</div>
+	<div class="tw">
+        <div class="tr6-1 spriteTr-12-1"></div>
+        <div class="tr6-2 spriteTr-12-2" style="display:none"></div>
+        <div class="tr6-3 spriteTr-12-3" style="display:none"></div>
+	</div>
+	<div class="tt">
+        <div class="tr7-1 spriteTr-13-1"></div>
+        <div class="tr7-2 spriteTr-13-2" style="display:none"></div>
+        <div class="tr7-3 spriteTr-13-3" style="display:none"></div>
+	</div>
+	<div class="ft">
+        <div class="tr2-1 spriteTr-15-1"></div>
+        <div class="tr2-2 spriteTr-15-2" style="display:none"></div>
+        <div class="tr2-3 spriteTr-15-3" style="display:none"></div>
+	</div>
+	<div class="st">
+        <div class="tr12-1 spriteTr-14-1"></div>
+        <div class="tr12-2 spriteTr-14-2" style="display:none"></div>
+        <div class="tr12-3 spriteTr-14-3" style="display:none"></div>
+	</div>
+    <div class="at">
+        <div class="tr18-1 spriteTr-16-1"></div>
+        <div class="tr18-2 spriteTr-16-2" style="display:none"></div>
+        <div class="tr18-3 spriteTr-16-3" style="display:none"></div>
+	</div>
+	<div class="bt">
+        <div class="tr11-1 spriteTr-17-1"></div>
+        <div class="tr11-2 spriteTr-17-2" style="display:none"></div>
+        <div class="tr11-3 spriteTr-17-3" style="display:none"></div>
+	</div>
+</div>
+
+<div data-bind="foreach: carInspection().parts" id="parts">
+    <ul class="right_f auto-parts" data-bind="visible: IsSelected">        
+        <li style="height: 50px;">
+            <div class="right_f_l">                
+                <input type="hidden" data-bind="attr: { value: idSection, name: nameIdSection }"/>
+                <input type="hidden" data-bind="attr: { value: valueName, name: nameName }"/>
+                
+ 
+                <div data-bind="visible: !((value == '18') || (value == '17'))">  
+                @Html.LabelFor(x => inspections.Where(y => y.Name == currentName).Single().TotalDents, CarInspectionsInfoRes.DentsAmount, new { style = "width:103px; margin: 4px 9px 0 0;" })
+                <select data-bind="options: $root.carInspection().totalDents,
+                                     value: selectedTotalDents,
+                                     optionsValue: 'value',
+                                     optionsText: 'text',
+                                     enable: !((value == '18') || (value == '17')) && !($root.carInspection().readonly()),
+                                     attr: { name: nameTotalDents},
+                                     event:{change: changeTotalDents }"
+                        style = "width: 65px; margin: 0px 12px 0 20px;" class="iPadStyle">
+                 </select>
+                <br/>    
+
+                @Html.LabelFor(x => inspections.Where(y => y.Name == currentName).Single().AverageSize, CarInspectionsInfoRes.DentsSize, new { style = "width:103px; margin: 4px 9px 0 0;" })
+                    <select data-bind="options: $root.carInspection().averageSize,
+                                   value: selectedAverageSize,
+                                   optionsText: 'text',
+                                   optionsValue: 'value',
+                                   attr:{ name: nameAverageSize, id: 'dents-size'+index},
+                                   enable: !((value == '18') || (value == '17')) && !($root.carInspection().readonly()),
+                                   event:{change: change }"
+                        style = "width: 65px; margin: 0px 12px 0 20px;" class="iPadStyle">
+                 </select>
+                 </div>     
+            </div>
+            <div class="right_f_r" style="position: relative; top: 5px;">
+                <input type="text" class="cost" value="0" data-bind="value: dentsCost,
+                                                                     valueUpdate: 'afterkeyup',
+                                                                     event:{focusout: $root.focusOut},
+                                                                      attr:{
+                                                                            name: nameDentsCost,
+                                                                            readonly: $root.carInspection().readonly() ? 'readonly' : blockDentsCost() ? 'readonly': null
+                                                                            },
+                                                                      visible: !((value == '18') || (value == '17'))"
+                                                          style="overflow: hidden;"/>
+                <span class="dollarDents symb" data-bind="visible: !((value == '18') || (value == '17'))">$</span>
+            </div>
+        </li>
+        <li style="height: 50px;">
+            <div class="right_f_l">
+                <input type="hidden" data-bind="attr:{ value: oversizedDentsId, name: nameOversizedDentsId }"/>
+                @Html.LabelFor(x => inspections.Where(y => y.Name == currentName).Single().OversizedDents, CarInspectionsInfoRes.OversizedDents, new Dictionary<string, object>{ {"data-bind", "visible: !((value == '18') || (value == '17'))"}, {"style", "width:113px; margin: 8px 0 0 0;" }})
+                <input type="text" style="width: 75px; overflow: hidden;" data-bind="value: amountOversizedDents,
+                                                                                     valueUpdate: 'afterkeyup',                                                                                     
+                                                                                     attr: {
+                                                                                            name: nameAmountOversizedDents,
+                                                                                            readonly: $root.carInspection().readonly() ? 'readonly' : blockOversizedDents() ? 'readonly' : null},
+                                                                                     visible: !((value == '18') || (value == '17'))"/>									
+            </div>
+            <div class="right_f_r">
+                <input type="text"  data-bind="value: oversizedDentsCost,
+                                               valueUpdate: 'afterkeyup',
+                                               event:{focusout: $root.focusOut},
+                                               attr: {
+                                                      name: nameOversizedDents,
+                                                      readonly: $root.carInspection().readonly() ? 'readonly' : blockOversizedDents() ? 'readonly' : null },
+                                               visible: !((value == '18') || (value == '17'))"
+                                    class="cost" value="0"  style="overflow: hidden;"/>
+                <span class="dollarOverDents symb" data-bind="visible: !((value == '18') || (value == '17'))">$</span>
+            </div>
+        </li>
+        <li style="height: 100px;">
+            <div class="right_f_l">
+                <ul class="options">
+                    <li>
+                        <input type="checkbox" data-bind="checked: OversizedRoof,
+                                                         attr: {
+                                                                name: nameOversizedRoof,
+                                                                value: OversizedRoof
+                                                                },
+                                                         enable: (name == 'Roof') && !($root.carInspection().readonly()) ? blockPercent() ? false : true : false,
+                                                         visible: name == 'Roof'"/>
+                        <span data-bind="visible: name == 'Roof'">Oversized roof</span>
+                    </li>
+                    <li>                        
+                        <input type="checkbox" data-bind="checked: Aluminium,
+                                                         attr: {
+                                                                name: nameAluminium,
+                                                                value: Aluminium 
+                                                                },
+                                                         enable: !($root.carInspection().readonly()) ? blockPercent() ? false : true : false,
+                                                         visible: !((value == '18') || (value == '17'))"/>
+                        <span data-bind="visible: !((value == '18') || (value == '17'))">Aluminium</span>  
+                    </li>
+                    <li>                        
+                        <input type="checkbox" data-bind="checked: DoubleMetal,
+                                                         attr: {
+                                                                name: nameDoubleMetal,
+                                                                value: DoubleMetal
+                                                                },
+                                                         enable: !($root.carInspection().readonly()) ? blockPercent() ? false : true : false,
+                                                         visible: !((value == '18') || (value == '17'))"/>
+                        <span data-bind="visible: !((value == '18') || (value == '17'))">Double metal</span>                            
+                    </li>                    
+                </ul>									
+            </div>
+            <div class="right_f_r">
+                <input type="text" class="cost" value="0" data-bind="value: OptionsPersent,
+                                                                     valueUpdate: 'afterkeyup',
+                                                                     attr:{ name: nameOptionsPercent },                                                                          
+                                                                     visible: !((value == '18') || (value == '17'))"
+                                                          style="position: relative; top: 25px; overflow: hidden;" readonly="readonly"/>
+                <span class="percent symb" data-bind="visible: !((value == '18') || (value == '17'))">%</span>                                            
+            </div>
+        </li>
+        <li style="height: 10px;">
+            <div class="right_f_l">
+                <ul class="options">
+                    <li>                       
+                        <input type="checkbox" data-bind="checked: CorrosionProtection,
+                                                         attr: {
+                                                                name: nameCorrosionProtection,
+                                                                value: CorrosionProtection },
+                                                         enable: !($root.carInspection().readonly()),
+                                                         visible: !((value == '18') || (value == '17'))"/>
+                         <span data-bind="visible: !((value == '18') || (value == '17'))">Corrosion protection</span>
+                    </li>
+                </ul>									
+            </div>
+            <div class="right_f_r">                
+                <input type="text" class="cost CorProtectClass" value="0" style="position: relative; top: -10px; overflow: hidden;" data-bind="value: CorrosionProtectionCost,
+                                                                                                                               valueUpdate: 'afterkeyup',
+                                                                                                                               attr:{ name: nameCorrosionProtectSum },
+                                                                                                                               visible: !((value == '18') || (value == '17'))"
+                                                                                                                               @*maxlength="3"*@
+                                                                                                                               readonly="readonly"
+                                                                                                                    />
+                <span class="dollarCor symb" data-bind="visible: !((value == '18') || (value == '17'))">$</span>                    
+            </div>
+        </li>
+        <li style="margin:0px;">@*display:none;*@
+                <ul class="legend" data-bind="visible: !((value == '7') || (value == '10') || (value == '13') || (value == '14') || (value == '15'))">
+                    <li class="legendEfforts specifiedColor"><span class="marker specified"></span><span class="legendItem">Specified</span></li>
+                    <li class="legendEfforts defaultColor"><span class="marker default"></span><span class="legendItem">Default</span></li>
+                    <li class="legendEfforts customColor"><span class="marker custom"></span><span class="legendItem">Custom</span></li>
+                </ul>
+        </li>
+        <li class="efforts" style="margin-bottom:30px; width:350px;" data-bind="style: { height: valueName == 5 || valueName == 8 
+                                                                                            ? '310px'
+                                                                                            : valueName == 6 || valueName == 9 || valueName == 1
+                                                                                              ? '270px' 
+                                                                                              : valueName == 0
+                                                                                                  ? '190px'
+                                                                                                  : valueName == 2
+                                                                                                    ? '200px'
+                                                                                                    : $root.vehicleType() == 'Truck' ? '190px': '130px'}">
+            <div class="right_f_l">
+                <ul data-bind="template: { name: 'efforts', foreach: efforts }" class="effortLine options">
+                </ul>
+            </div>
+        </li>
+        <li style="height: 50px; width:350px;margin-top:30px;">
+            <div class="right_f_r" style="width: 350px;" data-bind="visible: efforts().visibleCost">
+                <span class="effortTitle" style="width: 80px;">Total effort:</span>
+                <span class="effortHours" style="width: 80px;" data-bind="text: formattedEffortHours"></span>
+                <input class="effortCost" type="text" value="0" data-bind="value: effortsCost,
+                                                                           valueUpdate: 'afterkeyup',
+                                                                           attr: {
+                                                                                 name: nameEffortLineCost,
+                                                                                 readonly: $root.carInspection().readonly() ? 'readonly' : null }"
+                                                                style="overflow: hidden;"/>
+                <span class="dollarEffort symb">$</span>
+            </div>
+        </li>
+        <li>
+            <div class="priordamages">
+				<p data-bind="text: sectionTextPriorDamages"></p>
+				<textarea class="customDamage" maxlength="1000" style="padding-left: 3px;" data-bind="value: valuePriorDamage,
+                                                                                                      attr:{
+                                                                                                            name: namePriorDamage,
+                                                                                                            readonly: $root.carInspection().readonly() ? 'readonly' : null}">
+                </textarea>
+                <div data-bind="visible: $root.carInspection().currentQuickCost() > 0 " style="margin-top: 15px;">
+                    <p class="quickTotal">Quick estimate amount<span data-bind="text: $root.carInspection().currentQuickEstimate"></span></p>
+                    @*<ul data-bind="template: { name:'quickSections', foreach: $root.carInspection().quickSections }">
+                    </ul>*@
+                </div>
+			</div>
+            <div class="car_customline">
+                <p data-bind="text: sectionTextCustomLines"></p>        
+                <ul data-bind="template: { name: 'customLines', foreach: customLines }" class="customLines">
+                </ul>
+            </div>                    
+        </li>			
+    </ul>
+ </div>       
+
+@*<script type="text/html" id="quickSections">
+<li>
+    <p class="quickTotal">Quick estimate amount<span> - </span><span data-bind="text: name"></span> <span data-bind="text: costView"></span></p>
+</li>
+</script>*@
+     
+<script type="text/html" id="efforts">
+    <li>
+        <ul data-bind="template: { name: 'effortItems', foreach: effortItems }" class="effortItem" > 	
+        </ul>
+	</li>
+</script>
+
+<script type="text/html" id="effortItems">
+    <li class="effortClass" data-bind="attr:{'class': effortType() == 0 ? 'effortClass default' : effortType() == 1 ? 'effortClass specified' : 'effortClass customEffort' }">
+        <input type="hidden" data-bind="value: id, attr: { name: nameEffortItemId }"/>
+        <input type="hidden" data-bind="value: operations, attr: { name: nameEffortItemOperations }"/>
+        <input type="hidden" data-bind="value: hoursR_I, attr:{ name: nameEffortItemHourR_I }"/>
+        <input type="hidden" data-bind="value: hoursR_R, attr: { name: nameEffortItemHourR_R }"/>
+        <input type="hidden" data-bind="value: selectedEffortItem,  attr:{name: nameEffortItemSelected}" value="true"/>
+        <input type="hidden" data-bind="value: effortType, attr:{name: nameEffortItemType}"/>            
+        <input type="checkbox" data-bind="value: text,
+                                          attr: { name: nameEffortItemText },
+                                          enable: !($root.carInspection().readonly()),
+                                          checked: selectedEffortItem"/>
+		<span data-bind="text: text" style="width: 120px;"></span>
+        <div id="radio">
+		    <input type="radio" data-bind="click: selectedOperationRI,
+                                           value: hoursR_I,
+                                           attr:{
+                                                    id: radioIdRI,
+                                                    name: name,
+                                                    checked: operations() == 0 ? 'checked' : null,
+                                                    disabled: $root.carInspection().readonly() || !(selectedEffortItem()) ? 'disabled' : null },
+                                           visible: visibleRI" /><label data-bind="visible: visibleRI">R&amp;I</label>
+		    <input type="radio" data-bind="click: selectedOperationRR,
+                                           value: hoursR_R,
+                                           attr:{
+                                                  id: radioIdRR,
+                                                  name: name,
+                                                  checked: operations() == 1 ? 'checked' : null,
+                                                  disabled: $root.carInspection().readonly() || !(selectedEffortItem()) ? 'disabled' : null },
+                                           visible: visibleRR"/><label data-bind="visible: visibleRR">R&amp;R</label>
+	    </div>
+        <input type="text" data-bind="value: hoursInput,
+                                             valueUpdate: 'afterkeyup',
+                                             event:{focusout: $root.focusOut},
+                                             attr: {
+                                                    readonly: $root.carInspection().readonly() || !(selectedEffortItem()) ? 'readonly' : null,
+                                                    name: nameEffortItemHourManual },
+                                             style:{ marginLeft: visibleRR() ? visibleRI() ? null : '47px' :'54px' }"   
+                           style="width: 40px; margin-top: -5px;text-align:center; overflow: hidden;"/>
+        <span style="width:auto;margin-left:3px;">hrs</span>
+    </li>
+</script>
+
+<script type="text/html" id="customLines">
+    <li>
+        <input type="hidden" data-bind="value: id,
+                                        attr: { name: nameCustomLinesId() }"/>
+        <div class="new" title="Add line" data-bind="click: $parent.addCustomLine,
+                                                     visible: ($parent.currentLengthCustomLines() == index()) && !($root.carInspection().readonly())">
+             <span data-bind="attr:{'class': $root.carInspection().readonly() ? 'ui-icon-radio-on' : 'ui-icon ui-icon-plusthick' }"></span>
+        </div>
+        <div class="remove" title="Remove line" data-bind="click: $parent.removeCustomLine,
+                                                           visible: ($parent.currentLengthCustomLines() > index()) && !($root.carInspection().readonly())">
+             <span data-bind="attr:{'class': $root.carInspection().readonly() ? 'ui-icon-radio-on' : 'ui-icon ui-icon-minusthick' }"></span>
+        </div>
+        <div class="readIcon" data-bind="visible: $root.carInspection().readonly()">
+             <span data-bind="attr:{'class': $root.carInspection().readonly() ? 'ui-icon ui-icon-radio-on' : 'ui-icon ui-icon-minusthick' }"></span>
+        </div>
+ 		<input class="customLineText notEmptyField" data-bind="value: text, attr: {
+                                                                     name: nameCustomLinesText(),
+                                                                     readonly: $root.carInspection().readonly() ? 'readonly' : null}"
+                                      maxlength="100" type="text" style="width:300px; margin:4px 0 0 -112px !important;overflow: hidden;"/>                         
+		<input class="priceLine" data-bind="value: price,
+                                            //autoNumericOptions:{aSep: '', aDec: '.', mDec: 2},
+                                            valueUpdate: 'afterkeyup',
+                                            event:{focusout: $root.focusOut},                                         
+                                            attr: {
+                                                    name: nameCustomLinesPrice(),
+                                                    readonly: $root.carInspection().readonly() ? 'readonly' : null }"
+                                 type="text" value="" style="margin: 4px 0px 0px 35px; overflow: hidden;"/>
+        <span class="dollarCustLines symb">$</span>
+    </li>
+</script>
+
+<div class="all">			
+	<div class="damages">
+        <p>Additional prior damages:</p>
+		<textarea class="mainDamage" maxlength="1000" data-bind="value: $root.carInspection().priorDamages,
+                                                                 attr:{
+                                                                        name: $root.carInspection().namePriorDamages,
+                                                                        readonly: $root.carInspection().readonly() ? 'readonly' : null}"
+                                                      style="padding-left: 3px;overflow: auto;">
+        </textarea>
+        <p data-bind="visible: $root.carInspection().totalExtraQuick() > 0 " class="extraQuickTotal">Quick estimate total: <span data-bind="text: $root.carInspection().totalExtraQuickView"></span></p>
+	</div>
+	<div class="total-fields">
+		<p>Custom fields:</p>
+        <ul data-bind="template: { name: 'customCarInspectionsLines', foreach: $root.carInspection().estimateCustomLines }">
+        </ul>
+	</div>
+    <div class="total">
+        <input type="hidden" data-bind="value: $root.carInspection().maxCorProtect" class="maxCorProtect"/>
+        <input type="hidden" data-bind="value: $root.carInspection().sumAllPartsCorProtect" class="SumCorProtectParts"/>
+        <input type="hidden" data-bind="value: $root.carInspection().discount, valueUpdate: 'change'" class="discount"/>
+        <input type="hidden" data-bind="value: $root.carInspection().laborRate" class="laborRate"/>
+        <input type="hidden" data-bind="value: $root.carInspection().hourlyRate" class="hourlyRate"/>
+        <input type="hidden" data-bind="value: $root.carInspection().typeEstimate, attr:{ name: $root.carInspection().nameTypeEstimate }" class="typeEstimate"/>       
+		<span class="totalEstimate">Total estimate sum:</span><br/><span class="totalSumEstimate" data-bind="text: $root.carInspection().formattedTotalFull"></span>              
+        <input type="hidden" data-bind="attr: {
+                                               value: $root.carInspection().totalFull,
+                                               name:  $root.carInspection().nameFullTotal}"
+                             class="totalEstimateHide"/>
+        <input type="hidden" data-bind="value: totalWithoutDiscountAndLabor" class="totalWithoutDiscountAndLabor"/>
+	</div>
+</div>
+
+<script type="text/html" id="customCarInspectionsLines">
+    <li>
+        <input type="hidden" data-bind="value: id, attr:{name: nameEstimateCustomLinesId}"/>
+        <div class="new" title="Add line" data-bind="click: $root.carInspection().addEstimateCustomLine,
+                                                     visible: ($root.carInspection().currentLengthCustomEstimateLines() == index()) && !($root.carInspection().readonly())">
+             <span data-bind="attr:{'class': $root.carInspection().readonly() ? 'ui-icon ui-icon-radio-on' : 'ui-icon ui-icon-plusthick' }"></span>
+        </div>
+        <div class="remove" title="Remove line" data-bind="click: $root.carInspection().removeEstimateCustomLine,
+                                                           visible: ($root.carInspection().currentLengthCustomEstimateLines() > index()) && !($root.carInspection().readonly())">
+             <span data-bind="attr:{'class': $root.carInspection().readonly() ? 'ui-icon ui-icon-radio-on' : 'ui-icon ui-icon-minusthick' }"></span>
+        </div>
+        <div class="readIcon" data-bind="visible: $root.carInspection().readonly()">
+             <span data-bind="attr:{'class': $root.carInspection().readonly() ? 'ui-icon ui-icon-radio-on' : 'ui-icon ui-icon-minusthick' }"></span>
+        </div>
+        <input class="mainLineText notEmptyField" data-bind="value: text,
+                                               attr: {
+                                                        name: nameEstimateCustomLinesText(),
+                                                        readonly: $root.carInspection().readonly() ? 'readonly' : null }"
+                                    maxlength="100" type="text" style="width:227px; margin-left: 0px;overflow: hidden;"/>
+		<input data-bind="value: price,
+                          valueUpdate: 'afterkeyup',
+                          event:{focusout: $root.focusOut},
+                          attr: {
+                                name: nameEstimateCustomLinesPrice(),
+                                readonly: $root.carInspection().readonly() ? 'readonly' : null }"
+               type="text" value="0" class="small" style="overflow: hidden;" />
+        <span class="dollarInsCustLines symb">$</span>               
+	</li>
+</script>

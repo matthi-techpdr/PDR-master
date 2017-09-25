@@ -1,0 +1,19 @@
+﻿@model IEnumerable<SelectListItem>
+          
+@{
+    this.SetLayout();
+    ViewBag.CompanyIsActive = "ui-tabs-selected ui-state-active";
+    Bundles.Reference("Content/js/Pages/Admin/InitMobileLicensesGrid.js");
+}
+
+@RenderSection("links")
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="licensesGrid">
+        </table>
+        <div id="pager">
+        </div>
+        <div id="licensesInfo">
+        </div>
+    </div>
+</div>

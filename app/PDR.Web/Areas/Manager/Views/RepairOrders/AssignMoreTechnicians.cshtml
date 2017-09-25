@@ -1,0 +1,113 @@
+﻿@using PDR.Domain.Model.Enums
+@using PDR.Domain.Model.Users
+@model PDR.Web.Areas.Common.Models.AssignTechniciansViewModel
+@{
+    var ritechcount = Model.TeamEmployees.Where(x => x.Role == UserRoles.RITechnician).Count();
+    var isHiden = ritechcount == 0;
+    var heightRiTec = !isHiden ? 90 : 0;
+    var height = 75 + (42 * Model.TeamEmployees.Count) + heightRiTec + "px;";
+}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "assignTechniciansForm", style = "width: 250px;" }))
+{
+    <fieldset class="assignTech">
+        @Html.HiddenFor(x => x.RepairOrderId)
+        <div style="width: 280px;margin-left:40px;">
+            <label>Choose technicians to whom you want to assign chosen repair order</label>
+        </div>
+        <label>@*Current technician*@</label>
+        <ul class="technicians" style="height:@height">
+        @if (Model.Technicians.Count == 0)
+        {
+            for (var i = 0; i < Model.TeamEmployees.Count; i++ )
+            {
+                <li>
+                        <div class="new" style="display: none;">
+                            <span class="ui-icon ui-icon-plusthick"></span>
+                        </div>
+                    @if (Model.TeamEmployees.Count - 1 == i)
+                    {
+                        <div class="remove" style="display: none;">
+                            <span class="ui-icon ui-icon-minusthick" ></span>
+                        </div>
+                        @Html.TextBoxFor(x => Model.TeamEmployees[i].Name, new { @readonly = "readonly", @class = "readonlyInput", style="margin-left:44px;" })
+                    }
+                    else
+                    {   <div class="remove">
+                            <span class="ui-icon ui-icon-minusthick" ></span>
+                        </div>
+                        @Html.TextBoxFor(x => Model.TeamEmployees[i].Name, new { @readonly = "readonly", @class = "readonlyInput" })
+                    }
+                   
+                    @Html.HiddenFor(x => Model.TeamEmployees[i].Id, new { @class = "technician", Value = Model.TeamEmployees[i].Id + ":" + Model.TeamEmployees[i].Role })  
+                </li>
+            }
+        }
+        else if (Model.Technicians.Count != 0 && Model.TeamEmployees.Count != 0)
+        {
+            for (var t = 0; t < Model.TeamEmployees.Count; t++)
+            {
+                if (t < Model.TeamEmployees.Count - 1)
+                {
+                    <li>
+                        @if (Model.Technicians.Count != 0)
+                        {
+                            <div class="new" style="display: none;">
+                                <span class="ui-icon ui-icon-plusthick"></span>
+                            </div>
+                            <div class="remove">
+                                <span class="ui-icon ui-icon-minusthick" ></span>
+                            </div>
+                        }
+                   
+                        @Html.TextBoxFor(x => Model.TeamEmployees[t].Name, new { @readonly = "readonly", @class = "readonlyInput" })
+                        @Html.HiddenFor(x => Model.TeamEmployees[t].Id, new { @class = "technician", Value = Model.TeamEmployees[t].Id + ":" + Model.TeamEmployees[t].Role })
+                    </li>
+                }
+                else
+                {
+                    <li>
+                        @if (Model.Technicians.Count != 0)
+                        {
+                            <div class="new">
+                                <span class="ui-icon ui-icon-plusthick"></span>
+                            </div>
+                            <div class="remove" style="display: none;">
+                                <span class="ui-icon ui-icon-minusthick" ></span>
+                            </div>
+                        }
+                        <select class="technician" style="width:100px;">
+                            <option value="@Model.TeamEmployees[t].Id:@Model.TeamEmployees[t].Role" selected="selected">@Model.TeamEmployees[t].Name</option>
+                            @foreach (var item in Model.Technicians)
+                            {
+                                <option value="@item.Value">@item.Text</option>
+                            }
+                        </select>   
+                    </li>
+                }
+            }
+        }
+        else if (Model.Technicians.Count != 0 && Model.TeamEmployees.Count == 0)
+             {
+
+                 <li>                
+                     @if (Model.Technicians.Count > 1)
+                     {
+                         <div class="new">
+                             <span class="ui-icon ui-icon-plusthick"></span>
+                         </div>
+                         <div class="remove" style="display: none;">
+                             <span class="ui-icon ui-icon-minusthick" ></span>
+                         </div>
+                         @Html.DropDownList("TechnicianIds", Model.Technicians, new {@class = "technician", style = "width:100px;"})
+                     }
+                     else if (Model.Technicians.Count == 1)
+                          {
+                              @Html.TextBoxFor(x => x.Technicians[0].Text, new {@readonly = "readonly", @class = "readonlyInput"})
+                              @Html.HiddenFor(x => x.Technicians[0].Value, new {@class = "technician"})
+                          }                
+                 </li>
+             }
+        @Html.Partial("~/Areas/Common/Views/RepairOrders/Partial/RiPayment.cshtml", @Model.RiTechnicianModel)
+        </ul>
+    </fieldset>
+}

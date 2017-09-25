@@ -1,0 +1,29 @@
+﻿@{Bundles.Reference("Content/js/Pages/select-link.js");}
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+<div class="links">
+    <div class="OperationsButton">
+        @{Html.RenderPartial("ReportsLinks");}    
+    </div>
+    <div id="comTech">
+        <input type="checkbox" id="com" />
+        <label id="commission" >Show commission</label>
+    </div>
+
+    <div class="dataWrapper">
+        <label style="margin-left: 10px;">
+            From:</label>
+        <input type="text" id="from" class="date-filter" readonly="readonly" autocomplete="off"/>
+        <label>
+            To:</label>
+        <input type="text" id="to" class="date-filter" readonly="readonly" autocomplete="off" />
+    </div>    
+    <div>
+        <span class="gridFilter gridFilterNoMargin" >
+            <label>
+                Filter by customers:
+            </label>
+            @Html.DropDownList("customers", (IEnumerable<SelectListItem>)ViewData["customers"], new { id = "Customers", style = "width:177px;" })
+        </span>
+    </div>
+</div>

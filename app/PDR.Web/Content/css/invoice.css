@@ -1,0 +1,42 @@
+﻿#logInfo h4 {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 5px;
+    margin-left: 3px;
+}
+
+.log-view-table {
+width: 620px;
+border: 1px solid #CCC;
+border-radius: 7px;
+position: relative;
+background: #F9F9FA;
+float: left;
+font-size: 13px;
+color: #555;
+    margin-bottom: 15px; 
+}
+.header {
+    text-align: center;
+}
+
+.log-view-table li {
+border-top: 1px solid 
+#D7D7D8;
+float: left;
+padding: 7px 0;
+width: 620px;
+
+}
+
+.log-view-table a, .log-view-table span {
+    float: left;
+font-size: 13px;
+color: #555;
+}
+
+.log-view-table .da {width:100px; margin:0 13px;}
+.log-view-table .emp {width:120px; }
+.log-view-table .act {width:85px; margin:0 13px;}
+.log-view-table .em {width:90px; margin:0 13px;}
+

@@ -1,0 +1,1546 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+      D:\PDR05\packages\MSBuildTasks.1.3.0.528\lib\net20\MSBuild.Community.Tasks.dll
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{3B107D47-9BB3-4D6A-80E2-E430D6C06F45}</ProjectGuid>
+    <ProjectTypeGuids>{E53F8FEA-EAE0-44A6-8774-FFD645390401};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PDR.Web</RootNamespace>
+    <AssemblyName>PDR.Web</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+    <UseIISExpress>true</UseIISExpress>
+    <MvcProjectUpgradeChecked>true</MvcProjectUpgradeChecked>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <!--<MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>4.0</OldToolsVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <RestorePackages>true</RestorePackages>-->
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live|AnyCPU'">
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\PDR.Web.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AjaxMin, Version=4.46.4422.26284, Culture=neutral, PublicKeyToken=21ef50ce11b5d80f, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AjaxMin.4.46.4422.26284\lib\net20\AjaxMin.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=2.1.267.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\AutoMapper.2.1.267\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette, Version=1.2.1.30492, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cassette.1.2.1\lib\net40-Client\Cassette.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette.Views, Version=1.2.1.30492, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cassette.Views.1.2.1\lib\net40\Cassette.Views.dll</HintPath>
+    </Reference>
+    <Reference Include="Cassette.Web, Version=1.2.1.30492, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cassette.Web.1.2.1\lib\net40\Cassette.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Elmah">
+      <HintPath>..\..\packages\elmah.corelibrary.1.2.1\lib\Elmah.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=3.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation.Mvc">
+      <HintPath>..\..\packages\FluentValidation.MVC3.3.4.6.0\lib\Net40\FluentValidation.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="HibernatingRhinos.Profiler.Appender.v4.0">
+      <HintPath>..\..\packages\NHibernateProfiler.1.0.0.929\lib\Net40\HibernatingRhinos.Profiler.Appender.v4.0.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Ionic.Zip">
+      <HintPath>..\..\packages\DotNetZip.1.9.1.8\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="IronRuby, Version=1.1.3.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IronRuby.1.1.3\Lib\IronRuby.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IronRuby.Libraries, Version=1.1.3.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IronRuby.1.1.3\Lib\IronRuby.Libraries.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="IronRuby.Libraries.Yaml, Version=1.1.3.0, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IronRuby.1.1.3\Lib\IronRuby.Libraries.Yaml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Jurassic, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Jurassic.2.1.1\lib\Jurassic.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Dynamic">
+      <HintPath>..\..\packages\IronRuby.1.1.3\Lib\Microsoft.Dynamic.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Scripting, Version=1.1.0.20, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IronRuby.1.1.3\Lib\Microsoft.Scripting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Scripting.Metadata, Version=1.1.0.20, Culture=neutral, PublicKeyToken=7f709c5b713576e1, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\IronRuby.1.1.3\Lib\Microsoft.Scripting.Metadata.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Mvc, Version=3.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Mvc3Futures.3.0.20105.0\lib\Microsoft.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.DocumentObjectModel">
+      <HintPath>..\..\packages\PDFsharp-MigraDoc-GDI.1.32.3879.0\lib\net20\MigraDoc.DocumentObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering">
+      <HintPath>..\..\packages\PDFsharp-MigraDoc-GDI.1.32.3879.0\lib\net20\MigraDoc.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering">
+      <HintPath>..\..\packages\PDFsharp-MigraDoc-GDI.1.32.3879.0\lib\net20\MigraDoc.RtfRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib, Version=2.0.95.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\MvcContrib.2.0.95.0\lib\MvcContrib.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib.FluentHtml">
+      <HintPath>..\..\packages\MvcContrib.Mvc3.FluentHtml-ci.3.0.100.0\lib\MvcContrib.FluentHtml.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib.TestHelper">
+      <HintPath>..\..\packages\MvcContrib.Mvc3.TestHelper-ci.3.0.100.0\lib\MvcContrib.TestHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="MvcContrib.TestHelper.WatiN">
+      <HintPath>..\..\packages\MvcContrib.Mvc3.WatiN-ci.3.0.100.0\lib\MvcContrib.TestHelper.WatiN.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.6.0.5\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NHibernate.3.3.1.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog, Version=2.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="Pandora, Version=0.1.0.4, Culture=neutral, PublicKeyToken=b270b2005bfa7bcd, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Cassette.1.2.1\lib\net40-Client\Pandora.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>..\..\packages\PDFsharp-MigraDoc-GDI.1.32.3879.0\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>..\..\packages\PDFsharp-MigraDoc-GDI.1.32.3879.0\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="PushSharp.Amazon.Adm, Version=2.2.1.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PushSharp.2.2.1.0\lib\net40\PushSharp.Amazon.Adm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Android, Version=2.2.1.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PushSharp.2.2.1.0\lib\net40\PushSharp.Android.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Apple, Version=2.2.1.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PushSharp.2.2.1.0\lib\net40\PushSharp.Apple.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Blackberry, Version=2.2.1.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PushSharp.2.2.1.0\lib\net40\PushSharp.Blackberry.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Core, Version=2.2.1.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PushSharp.2.2.1.0\lib\net40\PushSharp.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.FirefoxOS, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PushSharp.2.2.1.0\lib\net40\PushSharp.FirefoxOS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Google.Chrome, Version=2.2.1.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PushSharp.2.2.1.0\lib\net40\PushSharp.Google.Chrome.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.Windows, Version=2.2.1.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PushSharp.2.2.1.0\lib\net40\PushSharp.Windows.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="PushSharp.WindowsPhone, Version=2.2.1.0, Culture=neutral, PublicKeyToken=cf74b75eab2c0170, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\PushSharp.2.2.1.0\lib\net40\PushSharp.WindowsPhone.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RestfulRouting">
+      <HintPath>..\..\packages\RestfulRouting.1.3.0\lib\RestfulRouting.dll</HintPath>
+    </Reference>
+    <Reference Include="Rhino.Mocks">
+      <HintPath>..\..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
+    </Reference>
+    <Reference Include="SassAndCoffee.Core, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SassAndCoffee.Core.2.0.2.0\lib\net40-Client\SassAndCoffee.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="SassAndCoffee.Ruby, Version=2.0.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\SassAndCoffee.Ruby.2.0.2.0\lib\net40-Client\SassAndCoffee.Ruby.dll</HintPath>
+    </Reference>
+    <Reference Include="StringNamedFormat, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\StringNamedFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMapAdapter, Version=1.1.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.StructureMapAdapter.1.1.0.3\lib\StructureMapAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SqlServerCe, Version=4.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\..\packages\SqlServerCompact.4.0.8482.1\lib\System.Data.SqlServerCe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.IO, Version=2.6.9.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.IO.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.28\lib\net40\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions, Version=2.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.28\lib\net40\System.Net.Http.Extensions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Packages\Microsoft.AspNet.WebApi.Client.4.0.30506.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives, Version=2.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.28\lib\net40\System.Net.Http.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest, Version=2.2.28.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Net.Http.2.2.28\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=2.6.9.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Activation" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Threading.Tasks, Version=2.6.9.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Microsoft.Bcl.1.1.9\lib\net40\System.Threading.Tasks.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 3\Packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Packages\Microsoft.AspNet.WebApi.Core.4.0.30506.0\lib\net40\System.Web.Http.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 4\Packages\Microsoft.AspNet.WebApi.WebHost.4.0.30506.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>bin\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 3\Packages\Microsoft.AspNet.Razor.1.0.20105.408\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 3\Packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft ASP.NET\ASP.NET MVC 3\Packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="WatiN.Core">
+      <HintPath>..\..\packages\MvcContrib.Mvc3.WatiN-ci.3.0.100.0\lib\WatiN.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivator">
+      <HintPath>..\..\packages\WebActivator.1.5\lib\net40\WebActivator.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Areas\Accountant\AccountantRoutes.cs" />
+    <Compile Include="Areas\Accountant\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Accountant\Controllers\EmployeesController.cs" />
+    <Compile Include="Areas\Accountant\Controllers\InvoicesController.cs" />
+    <Compile Include="Areas\Accountant\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Accountant\Controllers\TeamsController.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Areas\Accountant\Models\Customer\AffiliatesViewModel.cs" />
+    <Compile Include="Areas\Accountant\Models\Employee\EmployeeViewWithUserModel.cs" />
+    <Compile Include="Areas\Accountant\Models\Invoice\InvoiceJsonModelForAccountant.cs" />
+    <Compile Include="Areas\Accountant\Models\Invoice\InvoiceViewModelForAccountant.cs" />
+    <Compile Include="Areas\Accountant\Models\Invoice\PaidDialogViewModel.cs" />
+    <Compile Include="Areas\Accountant\Models\Log\InvoiceLogViewModel.cs" />
+    <Compile Include="Areas\Accountant\Validators\AffiliatesViewModelValidator.cs" />
+    <Compile Include="Areas\Accountant\Validators\EmployeeViewWithUserModelValidator.cs" />
+    <Compile Include="Areas\Accountant\Validators\EmployeeViewModelValidator.cs" />
+    <Compile Include="Areas\Accountant\Validators\PaidDialogViewModelValidator.cs" />
+    <Compile Include="Areas\Admin\Controllers\LocationController.cs" />
+    <Compile Include="Areas\Admin\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\VehiclesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EmployeesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EstimateReportsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\EstimatesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InvoiceReportsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\InvoicesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\LocationsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MatrixesController.cs" />
+    <Compile Include="Areas\Admin\Controllers\MobileLicenseController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RepairOrderReportsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\RepairOrdersController.cs" />
+    <Compile Include="Areas\Admin\Controllers\TeamsController.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleDefaultEffortItemModel.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleDefaultModel.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleDefaultSectionModel.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleJsonModel.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleEffortModel.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleInfoModel.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleModel.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleSaveResolver.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleSectionsModel.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\Vehicle\VehicleSectionModel.cs" />
+    <Compile Include="Areas\Admin\Models\GPS\LatLng.cs" />
+    <Compile Include="Areas\Admin\Models\GPS\LicenseViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\GPS\LocationGridJsonModel.cs" />
+    <Compile Include="Areas\Admin\Models\GPS\LocationJsonModel.cs" />
+    <Compile Include="Areas\Admin\Models\GPS\RouteModel.cs" />
+    <Compile Include="Areas\Admin\Models\Matrix\ColumnViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\Matrix\MatrixListModel.cs" />
+    <Compile Include="Areas\Admin\Models\Matrix\MatrixModel.cs" />
+    <Compile Include="Areas\Admin\Models\Matrix\PriceModel.cs" />
+    <Compile Include="Areas\Admin\Models\GPS\LastLocationModel.cs" />
+    <Compile Include="Areas\Admin\Models\MobileLicense\LicenseJsonModel.cs" />
+    <Compile Include="Areas\Admin\Models\MobileLicense\LicenseViewModel.cs" />
+    <Compile Include="Areas\Admin\Models\MobileLicense\MobileLicenseModel.cs" />
+    <Compile Include="Areas\Admin\Validators\CompanyInfoModelValidator.cs" />
+    <Compile Include="Areas\Admin\Validators\MatrixModelValidator.cs" />
+    <Compile Include="Areas\Admin\Validators\MobileLicenseModelValidator.cs" />
+    <Compile Include="Areas\Admin\Validators\VehicleEffortModelValidator.cs" />
+    <Compile Include="Areas\Admin\Validators\VehicleInfoModelValidator.cs" />
+    <Compile Include="Areas\Admin\Validators\VehicleSectionModelValidator.cs" />
+    <Compile Include="Areas\Common\Controllers\CustomerManagementController.cs" />
+    <Compile Include="Areas\Common\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Common\Controllers\EmployeesController.cs" />
+    <Compile Include="Areas\Common\Controllers\EstimatesController.cs" />
+    <Compile Include="Areas\Admin\AdminRoutes.cs" />
+    <Compile Include="Areas\Admin\Controllers\CompanyInfoController.cs" />
+    <Compile Include="Areas\Admin\Models\ComapnyInfo\CompanyInfoModel.cs" />
+    <Compile Include="Areas\Common\Controllers\InvoicesController.cs" />
+    <Compile Include="Areas\Common\Controllers\RepairOrdersController.cs" />
+    <Compile Include="Areas\Common\Controllers\ReportsControllers\EstimateReportsController.cs" />
+    <Compile Include="Areas\Common\Controllers\ReportsControllers\InvoiceReportsController.cs" />
+    <Compile Include="Areas\Common\Controllers\ReportsControllers\RepairOrderReportsController.cs" />
+    <Compile Include="Areas\Common\Controllers\ReportsControllers\ReportsController.cs" />
+    <Compile Include="Areas\Common\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Common\Controllers\TeamsController.cs" />
+    <Compile Include="Areas\Common\Models\AssignTechniciansViewModel.cs" />
+    <Compile Include="Areas\Common\Models\CustomersResolver.cs" />
+    <Compile Include="Areas\Common\Models\DefineParticipationViewModel.cs" />
+    <Compile Include="Areas\Common\Models\EffortsDataModel.cs" />
+    <Compile Include="Areas\Common\Models\FilterModel.cs" />
+    <Compile Include="Areas\Common\Models\InvoiceJsonModelBase.cs" />
+    <Compile Include="Areas\Common\Models\InvoiceViewModelBase.cs" />
+    <Compile Include="Areas\Common\Models\RiTechnicianModel.cs" />
+    <Compile Include="Areas\Common\Models\SaveEstimateResolver.cs" />
+    <Compile Include="Areas\Common\Models\SettingsViewModel.cs" />
+    <Compile Include="Areas\Common\Validators\SettingsViewModelValidator.cs" />
+    <Compile Include="Areas\Estimator\Controllers\EstimateReportsController.cs" />
+    <Compile Include="Areas\Accountant\Models\Customer\CustomerViewModel.cs" />
+    <Compile Include="Areas\Default\Controllers\HomeController.cs" />
+    <Compile Include="Areas\Estimator\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Estimator\Models\Affiliates\AffiliatesCustomerJsonModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Affiliates\AffiliatesCustomerViewModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\CarInfoModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\CarInspectionsInfo.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\CarInspectionsModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\ChosenEffortItemModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\CustomCarInspectionLineModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\CustomLineModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\EffortItemModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\EstimateCustomLineModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\EstimateWholesaleCustomerModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\IPhotoContainer.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\OversizedDentsLineModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\RetailCustomerModel.cs" />
+    <Compile Include="Areas\Accountant\Models\Employee\EmployeeJsonData.cs" />
+    <Compile Include="Areas\Accountant\Models\Employee\EmployeeViewModel.cs" />
+    <Compile Include="Areas\Accountant\Models\Team\TeamJsonModel.cs" />
+    <Compile Include="Areas\Accountant\Models\Team\TeamViewModel.cs" />
+    <Compile Include="Areas\Accountant\Validators\CustomerViewModelValidator.cs" />
+    <Compile Include="Areas\Accountant\Validators\TeamViewModelValidator.cs" />
+    <Compile Include="Areas\Default\Controllers\Base\PDRController.cs" />
+    <Compile Include="Areas\Estimator\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Estimator\Controllers\EstimatesController.cs" />
+    <Compile Include="Areas\Accountant\Models\Customer\CustomerJsonModel.cs" />
+    <Compile Include="Areas\Accountant\Models\Customer\CustomerEstimateJsonModel.cs" />
+    <Compile Include="Areas\Default\Controllers\ImagesController.cs" />
+    <Compile Include="Areas\Default\Controllers\PhotosController.cs" />
+    <Compile Include="Areas\Estimator\Models\Customers\WholesaleCustomerJsonModel.cs" />
+    <Compile Include="Areas\Accountant\Models\Customer\CustomersInvoiceJsonModel.cs" />
+    <Compile Include="Areas\Accountant\Models\Customer\CustomersOrderJsonModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\EstimateCustomerModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\EstimateJsonModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\EstimateViewModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\InsuranceModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Customers\WholesaleCustomerViewModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\EstimateCustomerType.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\PhotosModel.cs" />
+    <Compile Include="Areas\Estimator\EstimatorRoutes.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\SectionEffortItemViewModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\SendEmailViewModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Images\ImageInfo.cs" />
+    <Compile Include="Areas\Estimator\Models\Reports\EstimateForReportJsomModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Reports\ReportModel.cs" />
+    <Compile Include="Areas\Estimator\Validators\Estimates\CarInfoModelValidator.cs" />
+    <Compile Include="Areas\Estimator\Models\Reports\EstimatesForReportViewModel.cs" />
+    <Compile Include="Areas\Estimator\Validators\Estimates\InsuranceModelValidator.cs" />
+    <Compile Include="Areas\Estimator\Validators\Estimates\SendEmailViewModelValidator.cs" />
+    <Compile Include="Areas\Manager\Controllers\CustomersController.cs" />
+    <Content Include="Areas\Admin\Views\EstimateReports\Details.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Content\css\images\part-car\csg-50c1afc8e96ff.png" />
+    <Content Include="Content\css\images\part-car\csg-50c1b0cca4d39.png" />
+    <Content Include="Content\css\images\part-car\csg-50c1b12917bd0.png" />
+    <Content Include="Content\css\images\PDRManage_logo_v1.png" />
+    <Content Include="Content\css\images\RenderLogo.png" />
+    <Content Include="Content\css\images\reset-button-hover.png" />
+    <Content Include="Content\css\images\reset-button.png" />
+    <Content Include="Content\css\images\ui-icons.png" />
+    <Content Include="Content\css\loginMobile.css" />
+    <Content Include="Content\css\pages\admin\vehicle.css" />
+    <Content Include="Content\css\pages\superadmin\EditIphoneBuild.css" />
+    <Content Include="Content\css\pages\superadmin\manage.css" />
+    <Content Include="Content\css\pages\worker\workerDownload.css" />
+    <Content Include="Content\css\pages\worker\workerDownloadMobile.css" />
+    <Content Include="Content\css\placeholder.css" />
+    <Content Include="Content\css\search.css" />
+    <Content Include="Content\css\tabsMobile.css" />
+    <Content Include="Content\DefaultVehicle\default_vehicle.xml" />
+    <Content Include="Content\images\blank_signature.png" />
+    <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\markers\color1.png" />
+    <Content Include="Content\images\markers\color10.png" />
+    <Content Include="Content\images\markers\color2.png" />
+    <Content Include="Content\images\markers\color3.png" />
+    <Content Include="Content\images\markers\color4.png" />
+    <Content Include="Content\images\markers\color5.png" />
+    <Content Include="Content\images\markers\color6.png" />
+    <Content Include="Content\images\markers\color7.png" />
+    <Content Include="Content\images\markers\color8.png" />
+    <Content Include="Content\images\markers\color9.png" />
+    <Content Include="Content\js\jquery.cookie.js" />
+    <Content Include="Content\js\jquery.mask.min.js" />
+    <Content Include="Content\js\pages\Accountant\Customer\InitAffiliatesActivitiesGrid.js" />
+    <Content Include="Content\js\pages\Accountant\Customer\InitAffiliatesGrid.js" />
+    <Content Include="Content\js\pages\Accountant\Invoice\InitDiscardedInvoicesGrid.js" />
+    <Content Include="Content\js\pages\Admin\BackboneLocations.js" />
+    <Content Include="Content\js\pages\Admin\GMarkerUnions.js" />
+    <Content Include="Content\js\pages\Admin\InitDiscardedInvoicesGrid.js" />
+    <Content Include="Content\js\pages\Admin\InitVehiclesGrid.js" />
+    <Content Include="Content\js\pages\Admin\Vehicles\Vehicle.js" />
+    <Content Include="Content\js\pages\Common\ChangeLaborRate.js" />
+    <Content Include="Content\js\pages\Common\CookieManager.js" />
+    <Content Include="Content\js\pages\Common\EstimateCommon.js" />
+    <Content Include="Content\js\pages\Common\InitStyleFilters.js" />
+    <Content Include="Content\js\pages\Common\InvoiceCommon.js" />
+    <Content Include="Content\js\pages\Common\InputMask.js" />
+    <Content Include="Content\js\pages\Common\SearchFilter.js" />
+    <Content Include="Content\js\pages\Common\Settings.js" />
+    <Content Include="Content\js\pages\Manager\InitTeamGrid.js" />
+    <Content Include="Content\js\pages\Manager\Invoices\InitArchiveInvoicesGrid.js" />
+    <Content Include="Content\js\pages\RITechnician\InitArchiveInvoicesGrid.js" />
+    <Content Include="Content\js\pages\RITechnician\InitFinaliseGrid.js" />
+    <Content Include="Content\js\pages\RITechnician\InitInvoicesGrid.js" />
+    <Content Include="Content\js\pages\RITechnician\InitRepairOrderGrid.js" />
+    <Content Include="Content\js\pages\RITechnician\RepairOrders\supplements.js" />
+    <Content Include="Content\js\pages\Superadmin\ManageDownload\InitiPhoneAppGrid.js" />
+    <Content Include="Content\js\pages\Superadmin\ManageDownload\manageDownload.js" />
+    <Content Include="Content\js\pages\Wholesaler\Estimates\Partial\carInspections.js" />
+    <Content Include="Content\js\pages\Wholesaler\Estimates\Partial\estimate.js" />
+    <Content Include="Content\js\pages\Wholesaler\Estimates\Partial\estimateViewModel.js" />
+    <Content Include="Content\js\pages\Wholesaler\Estimates\Partial\insurance.js" />
+    <Content Include="Content\js\pages\Wholesaler\Estimates\Partial\insuranceViewModel.js" />
+    <Content Include="Content\js\pages\Wholesaler\Estimates\Partial\viewModel.js" />
+    <Content Include="Content\js\pages\Wholesaler\InitEstimatesGrid.js" />
+    <Content Include="Content\js\pages\Wholesaler\InitInvoicesGrid.js" />
+    <Content Include="Content\js\pages\Wholesaler\InitRepairOrderGrid.js" />
+    <Content Include="Content\js\pages\Wholesaler\OperationsGridFormation.js" />
+    <Content Include="Content\js\plugins\backbone\backbone.js" />
+    <Content Include="Content\js\plugins\backbone\jquery.tmpl.js" />
+    <Content Include="Content\js\plugins\backbone\underscore.js" />
+    <Content Include="Content\js\plugins\gmaps\mapiconmaker.js" />
+    <Content Include="Content\css\images\part-car\Truck\1-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\1-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\1-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\10-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\10-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\10-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\11-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\11-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\11-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\12-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\12-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\12-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\13-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\13-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\13-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\14-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\14-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\14-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\15-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\15-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\15-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\16-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\16-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\16-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\17-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\17-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\17-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\2-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\2-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\2-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\3-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\3-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\3-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\4-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\4-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\4-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\5-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\5-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\5-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\6-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\6-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\6-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\7-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\7-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\7-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\8-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\8-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\8-3.png" />
+    <Content Include="Content\css\images\part-car\Truck\9-1.png" />
+    <Content Include="Content\css\images\part-car\Truck\9-2.png" />
+    <Content Include="Content\css\images\part-car\Truck\9-3.png" />
+    <Content Include="Content\js\plugins\jquery.placeholder.js" />
+    <Content Include="Content\js\plugins\multiselect\multiselect.getnode.override.js" />
+    <Compile Include="Areas\Manager\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Manager\Controllers\TeamsController.cs" />
+    <Compile Include="Areas\RITechnician\Controllers\EstimatesController.cs" />
+    <Compile Include="Areas\RITechnician\Controllers\InvoicesController.cs" />
+    <Compile Include="Areas\RITechnician\Controllers\RepairOrdersController.cs" />
+    <Compile Include="Areas\RITechnician\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\RITechnician\RITechnicianRoutes.cs" />
+    <Compile Include="Areas\SuperAdmin\Controllers\ManageDownloadController.cs" />
+    <Compile Include="Areas\SuperAdmin\Models\IphoneAppJsonModel.cs" />
+    <Compile Include="Areas\SuperAdmin\Models\IphoneAppViewModel.cs" />
+    <Compile Include="Areas\SuperAdmin\Models\SendPushNotificationViewModel.cs" />
+    <Compile Include="Areas\SuperAdmin\Models\WorkerViewModel.cs" />
+    <Compile Include="Areas\SuperAdmin\Validators\SendPushNotificationViewModelValidator.cs" />
+    <Compile Include="Areas\Technician\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Technician\Validators\RepairOrderModelValidator.cs" />
+    <Compile Include="Areas\Wholesaler\Controllers\EstimatesController.cs" />
+    <Compile Include="Areas\Wholesaler\Controllers\InvoicesController.cs" />
+    <Compile Include="Areas\Wholesaler\Controllers\RepairOrdersController.cs" />
+    <Compile Include="Areas\Wholesaler\Controllers\SettingsController.cs" />
+    <Compile Include="Areas\Wholesaler\Managers\EstimateManager.cs" />
+    <Compile Include="Areas\Wholesaler\Managers\SaveEstimateManager.cs" />
+    <Compile Include="Areas\Wholesaler\Models\EstimateEmployeeModel.cs" />
+    <Compile Include="Areas\Wholesaler\Models\WholesaleCustomerModel.cs" />
+    <Compile Include="Areas\Wholesaler\Models\WholesalerEstimateModel.cs" />
+    <Compile Include="Areas\Worker\Controllers\DownloadController.cs" />
+    <Compile Include="Areas\Worker\Models\DownloadBuildViewModel.cs" />
+    <Compile Include="Areas\Worker\WorkerRoutes.cs" />
+    <Compile Include="Core\Attributes\TimerActionFilter.cs" />
+    <Compile Include="Core\ExpressionParameterReplacer.cs" />
+    <Compile Include="Areas\Manager\Controllers\ReportControllers\EstimateReportsController.cs" />
+    <Compile Include="Areas\Manager\Controllers\EstimatesController.cs" />
+    <Compile Include="Areas\Manager\Controllers\InvoicesController.cs" />
+    <Compile Include="Areas\Manager\Controllers\RepairOrdersController.cs" />
+    <Compile Include="Areas\Manager\Controllers\ReportControllers\InvoiceReportsController.cs" />
+    <Compile Include="Areas\Manager\Controllers\ReportControllers\RepairOrderReportsController.cs" />
+    <Compile Include="Areas\Manager\Controllers\TeamMembersController.cs" />
+    <Compile Include="Areas\Manager\ManagerRoutes.cs" />
+    <Compile Include="Areas\SuperAdmin\Validators\CompanyViewModelValidator.cs" />
+    <Compile Include="Areas\Default\DefaultRoutes.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\EstimateModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\ForEstimatePriceMatricesModel.cs" />
+    <Compile Include="Areas\Estimator\Models\Estimates\ForEstimateWholesaleCustomerModel.cs" />
+    <Compile Include="Areas\Default\Models\LoginModel.cs" />
+    <Compile Include="Areas\Default\Validators\LoginModelValidator.cs" />
+    <Compile Include="Areas\Estimator\Validators\Customers\RetailCustomerModelValidator.cs" />
+    <Compile Include="Areas\SuperAdmin\Controllers\CompaniesController.cs" />
+    <Compile Include="Areas\SuperAdmin\Models\CompanyJsonModel.cs" />
+    <Compile Include="Areas\SuperAdmin\Models\CompanyViewModel.cs" />
+    <Compile Include="Areas\SuperAdmin\SuperAdminRoutes.cs" />
+    <Compile Include="Areas\Technician\Controllers\ReportControllers\EstimateReportsController.cs" />
+    <Compile Include="Areas\Technician\Controllers\EstimatesController.cs" />
+    <Compile Include="Areas\Technician\Controllers\ReportControllers\InvoiceReportsController.cs" />
+    <Compile Include="Areas\Technician\Controllers\InvoicesController.cs" />
+    <Compile Include="Areas\Technician\Controllers\RepairOrdersController.cs" />
+    <Compile Include="Areas\Technician\Controllers\ReportControllers\RepairOrderReportsController.cs" />
+    <Compile Include="Areas\Technician\Controllers\CustomersController.cs" />
+    <Compile Include="Areas\Technician\Models\InvoiceJsonModel.cs" />
+    <Compile Include="Areas\Technician\Models\InvoiceViewModel.cs" />
+    <Compile Include="Areas\Technician\Models\ReapairOrderReportModel.cs" />
+    <Compile Include="Areas\Technician\Models\RepairOrderJsonModel.cs" />
+    <Compile Include="Areas\Technician\Models\RepairOrderModel.cs" />
+    <Compile Include="Areas\Technician\Models\RepairOrders\SupplementModel.cs" />
+    <Compile Include="Areas\Technician\Models\RepairOrderViewModel.cs" />
+    <Compile Include="Areas\Technician\Models\Reports\InvoiceForReportJsonModel.cs" />
+    <Compile Include="Areas\Technician\Models\Reports\InvoiceReportModel.cs" />
+    <Compile Include="Areas\Technician\Models\Reports\InvoiceForReportViewModel.cs" />
+    <Compile Include="Areas\Technician\TechnicianRoutes.cs" />
+    <Compile Include="Areas\Wholesaler\Controllers\ReportControllers\InvoiceReportsController.cs" />
+    <Compile Include="Areas\Wholesaler\WholesalerRoutes.cs" />
+    <Compile Include="Core\Attributes\WebApiTransactionAttribute.cs" />
+    <Compile Include="Core\Authorization\UnauthorizeHandler.cs" />
+    <Compile Include="Core\Authorization\UnauthorizeResult.cs" />
+    <Compile Include="Core\CustomViewEngine.cs" />
+    <Compile Include="Core\Formatters\CustomModelBinder.cs" />
+    <Compile Include="Core\Formatters\JsonNetResult.cs" />
+    <Compile Include="Core\Helpers\EmployeeGridHelper.cs" />
+    <Compile Include="Core\Helpers\LayoutHelper.cs" />
+    <Compile Include="Core\Helpers\LinkRouteResolver.cs" />
+    <Compile Include="Core\Helpers\PageActionFinder.cs" />
+    <Compile Include="Core\Helpers\PhotoToImageConverter.cs" />
+    <Compile Include="Core\Helpers\Validators\MustHelpers.cs" />
+    <Compile Include="Core\CustomConfigSections\PushNotificationSettings.cs" />
+    <Compile Include="Core\NLog\FileLoggers\ErrorLogger.cs" />
+    <Compile Include="Core\NLog\FileLoggers\EstimateLogger.cs" />
+    <Compile Include="Core\NLog\FileLoggers\CommonLogger.cs" />
+    <Compile Include="Core\NLog\FileLoggers\CustomerLogger.cs" />
+    <Compile Include="Core\NLog\FileLoggers\LicenseLogger.cs" />
+    <Compile Include="Core\NLog\FileLoggers\Manager\EmployeeLogger.cs" />
+    <Compile Include="Core\NLog\FileLoggers\ReportLogger.cs" />
+    <Compile Include="Core\NLog\FileLoggers\Superadmin\CompanyLogger.cs" />
+    <Compile Include="Core\NLog\FileLoggers\TeamLogger.cs" />
+    <Compile Include="Core\NLog\FileLoggers\MatrixLogger.cs" />
+    <Compile Include="Core\NLog\NLogConfigurator.cs" />
+    <Compile Include="Core\NLog\UserLayoutRenderer.cs" />
+    <Compile Include="Core\PushNotification\IphonePushNotification.cs" />
+    <Compile Include="HttpModules\UnauthorizeAjaxRequestHandler.cs" />
+    <Compile Include="WebAPI\Authorization\ApiAuthorize.cs" />
+    <Compile Include="WebAPI\EstimateController.cs" />
+    <Compile Include="WebAPI\HelpControllers\CarInspectionsController.cs" />
+    <Compile Include="WebAPI\ChangeEstimateStatusController.cs" />
+    <Compile Include="WebAPI\EstimatesController.cs" />
+    <Compile Include="WebAPI\EstimateToRepairOrderController.cs" />
+    <Compile Include="WebAPI\HelpControllers\EstimatesController.cs" />
+    <Compile Include="WebAPI\HelpControllers\LocationsController.cs" />
+    <Compile Include="WebAPI\HelpControllers\TeamsController.cs" />
+    <Compile Include="WebAPI\HelpControllers\CompanyController.cs" />
+    <Compile Include="WebAPI\HelpControllers\InvoicesController.cs">
+      <ExcludeFromStyleCop>True</ExcludeFromStyleCop>
+    </Compile>
+    <Compile Include="WebAPI\HelpControllers\PhotoUploaderController.cs" />
+    <Compile Include="WebAPI\HelpControllers\RepairOrdersController.cs" />
+    <Compile Include="WebAPI\Helper\EstimateModelToEstimateConverter.cs" />
+    <Compile Include="WebAPI\IphoneModels\AdditionalPersents.cs" />
+    <Compile Include="WebAPI\IphoneModels\AddSuplementsModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiAddEmployeeModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiAdditionalDiscountModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiAssignedEmployee.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiCarInspectionModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiCarModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiCustomerDocumentModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiCustomerModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiCustomFieldModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiChoosenEffortItemModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiDefinePercentsModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiEffortItemModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiInsuranceModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiInvoiceModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiLicenseModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiLocationModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiMatrixModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiMatrixPriceModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiOversizedDents.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiRepairOrderModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiRetailCustomerModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiRetailDiscountModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiSupplementModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiWholesaleCustomerModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiEmployeeModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiEstimateModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiTeamModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\BaseIPhoneModel.cs" />
+    <Compile Include="WebAPI\CustomersController.cs" />
+    <Compile Include="WebAPI\EstimatePdfController.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiEstimateLightModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ApiCarLightModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\CompanyListModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\CompanyModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\ErrorModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\EstimatesList.cs" />
+    <Compile Include="WebAPI\IphoneModels\EmailModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\HistoryListModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\HistoryModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\NewActivityAmountModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\OnlyIdModel.cs" />
+    <Compile Include="WebAPI\IphoneModels\PriceModel.cs" />
+    <Compile Include="WebAPI\LocationsController.cs" />
+    <Compile Include="WebAPI\MatrixesController.cs" />
+    <Compile Include="WebAPI\IphoneModels\ChangeStatusModel.cs" />
+    <Compile Include="WebAPI\QuickEstimateController.cs" />
+    <Compile Include="WebAPI\ReassignController.cs" />
+    <Compile Include="WebAPI\RetailCustomersController.cs" />
+    <Compile Include="WebAPI\VinCheckerController.cs" />
+    <Compile Include="WebAPI\WebApiRepoExtensions\WebApiRepoExtensions.cs" />
+    <Compile Include="WebAPI\WholesaleCustomersController.cs" />
+    <Content Include="Areas\Technician\Views\Customers\Index.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Content\css\accountant-grid-fix.css" />
+    <Content Include="Content\css\accountant.css" />
+    <Content Include="Content\css\buttons.css" />
+    <Content Include="Content\css\images\delete-icon.png" />
+    <Content Include="Content\css\images\logo.png" />
+    <Content Include="Content\css\images\part-car\csg-5062ee8c0802d.png" />
+    <Content Include="Content\css\images\part-car\csg-5062f09a5cd80.png" />
+    <Content Include="Content\css\images\part-car\csg-506ea6b5cfae2.png" />
+    <Content Include="Content\css\images\signature.png" />
+    <Content Include="Content\css\invoice.css" />
+    <Content Include="Content\css\iPad-styles.css" />
+    <Content Include="Content\css\license.css" />
+    <Content Include="Content\css\pages\admin\company-info.css" />
+    <Content Include="Content\css\pages\admin\tht.css" />
+    <Content Include="Content\css\pages\estimator\estimates\partial\car-inspections.css" />
+    <Content Include="Content\css\pages\estimator\estimates\partial\photo.css" />
+    <Content Include="Content\css\pages\estimator\estimates\partial\wholesale-customer.css" />
+    <Content Include="Content\css\pages\manager\repairorders\assigntechnicians.css" />
+    <Content Include="Content\css\pages\sprites.css" />
+    <Content Include="Content\css\pages\superadmin\Companies\EditCompany.css" />
+    <Content Include="Content\css\pages\technician\RepairOrders\view-edit.css" />
+    <Content Include="Content\css\timepicker.css" />
+    <Content Include="Content\images\defaultLogo.jpg" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\contentPattern.png" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\dark_rounded\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\contentPattern.png" />
+    <Content Include="Content\images\prettyPhoto\dark_square\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\dark_square\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\dark_square\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\default\default_thumb.png" />
+    <Content Include="Content\images\prettyPhoto\default\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\default\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\default\sprite_next.png" />
+    <Content Include="Content\images\prettyPhoto\default\sprite_prev.png" />
+    <Content Include="Content\images\prettyPhoto\default\sprite_x.png" />
+    <Content Include="Content\images\prettyPhoto\default\sprite_y.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternBottom.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternLeft.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternRight.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\contentPatternTop.png" />
+    <Content Include="Content\images\prettyPhoto\facebook\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\facebook\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\facebook\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\light_rounded\sprite.png" />
+    <Content Include="Content\images\prettyPhoto\light_square\btnNext.png" />
+    <Content Include="Content\images\prettyPhoto\light_square\btnPrevious.png" />
+    <Content Include="Content\images\prettyPhoto\light_square\default_thumbnail.gif" />
+    <Content Include="Content\images\prettyPhoto\light_square\loader.gif" />
+    <Content Include="Content\images\prettyPhoto\light_square\sprite.png" />
+    <Content Include="Content\js\browserplus.js" />
+    <Content Include="Content\js\detectPlugin.js" />
+    <Content Include="Content\js\html5shiv.js" />
+    <Content Include="Content\js\json2.js" />
+    <Content Include="Content\js\knockout.mapping-latest.js" />
+    <Content Include="Content\js\knockout.validation.min.v0.9.js" />
+    <Content Include="Content\js\pages\Accountant\Customer\InitCustomerActivitiesGrid.js" />
+    <Content Include="Content\js\pages\Accountant\Customer\InitCustomerGrid.js" />
+    <Content Include="Content\js\pages\Accountant\Invoice\InitArchiveInvoicesGrid.js" />
+    <Content Include="Content\js\pages\Accountant\Invoice\InitInvoicesGrid.js" />
+    <Content Include="Content\js\pages\Admin\AdminMap.js" />
+    <Content Include="Content\js\pages\Admin\CompanyInfo.js" />
+    <Content Include="Content\js\pages\Admin\InitGPSGrid.js" />
+    <Content Include="Content\js\pages\Admin\InitMobileLicensesGrid.js" />
+    <Content Include="Content\js\pages\Admin\Matrixes.js" />
+    <Content Include="Content\js\pages\Common\Estimates\InitEstimatesGrid.js" />
+    <Content Include="Content\js\pages\Common\InitFinaliseGrid.js" />
+    <Content Include="Content\js\pages\Common\RepairOrder.js" />
+    <Content Include="Content\js\pages\Default\Reports\InitEstimateReportDetailsGrid.js" />
+    <Content Include="Content\js\pages\Default\Reports\Report.js" />
+    <Content Include="Content\js\pages\Default\Reports\ReportGridGetter.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\carInspections.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\carViewModel.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\Efforts.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\estimateOld.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\estimateViewModel.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\insurance.js" />
+    <Content Include="Content\js\pages\Default\Reports\InitEstimateReportsGrid.js" />
+    <Content Include="Content\js\knockout.settings.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\insuranceViewModel.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\partsTemp.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\photo-uploader.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\photo.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\retailCustomerInfo.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\setupPrintEmail.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\viewModel.js" />
+    <Content Include="Content\js\pages\Manager\InitCustomersGrid.js" />
+    <Content Include="Content\js\pages\Manager\InitEmployeeGrid.js" />
+    <Content Include="Content\js\pages\Common\InitFinalisedWithDefPar.js" />
+    <Content Include="Content\js\pages\Manager\InitRepairOrderGrid.js" />
+    <Content Include="Content\js\pages\Manager\InitEstimatesGrid.js" />
+    <Content Include="Content\js\pages\Manager\Invoices\InitInvoicesGrid.js" />
+    <Content Include="Content\js\pages\Manager\RepairOrders\assignTechnicians.js" />
+    <Content Include="Content\js\pages\Technician\InitArchiveInvoicesGrid.js" />
+    <Content Include="Content\js\pages\Technician\InitCustomersGrid.js" />
+    <Content Include="Content\js\pages\Technician\InitEstimatesGrid.js" />
+    <Content Include="Content\js\pages\Default\Reports\InitInvoiceReportDetailsGrid.js" />
+    <Content Include="Content\js\pages\Default\Reports\InitInvoiceReportGrid.js" />
+    <Content Include="Content\js\pages\Technician\InitInvoicesGrid.js" />
+    <Content Include="Content\js\pages\Technician\InitRepairOrderGrid.js" />
+    <Content Include="Content\js\pages\Default\Reports\InitRoReportDeatilsGrid.js" />
+    <Content Include="Content\js\pages\Default\Reports\InitRoReportGrid.js" />
+    <Content Include="Content\js\pages\Technician\RepairOrders\supplements.js" />
+    <Content Include="Content\js\plugins\gmaps\gmaps.js" />
+    <Content Include="Content\js\plugins\gmaps\markerclustener.js" />
+    <Content Include="Content\js\plugins\jqgrid\grid.custom.js" />
+    <Content Include="Content\js\plugins\jquery.maskedinput-1.3.min.js" />
+    <Content Include="Content\js\plugins\jquery.multi-accordion.js" />
+    <Compile Include="Core\Formatters\JsonNetFormatter.cs" />
+    <Compile Include="Core\Formatters\JsonNetFormatterInitializer.cs" />
+    <Compile Include="Core\Helpers\ListsHelper.cs" />
+    <Compile Include="WebAPI\EmployeesController.cs" />
+    <Compile Include="WebAPI\BaseWebApiController.cs" />
+    <Content Include="Content\css\common.css" />
+    <Content Include="Content\css\ie-style.css" />
+    <Content Include="Content\css\ui.multiselect.css" />
+    <Content Include="Content\js\plugins\jquery.textchange.min.js" />
+    <Content Include="Content\js\plugins\jqueryui\jquery.ui.js" />
+    <Content Include="Content\js\plugins\jqueryui\jquery.ui.widget.js" />
+    <Content Include="Content\css\pages\estimator\estimates\partial\retail-customer.css" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\retail-customer-ie-fix.js" />
+    <Content Include="Content\js\pages\Common\Estimates\InitArchiveEstimatesGrid.js" />
+    <Content Include="Content\js\plugins\jquery.combobox.js" />
+    <Compile Include="Core\Authorization\PDRAuthorize.cs" />
+    <Compile Include="CassetteConfiguration.cs" />
+    <Compile Include="Areas\Default\Controllers\AccountController.cs" />
+    <Compile Include="Core\AutomapperInitializer.cs" />
+    <Compile Include="Core\Helpers\Html\InputsContext.cs" />
+    <Compile Include="Core\Helpers\Html\InputsExtensions.cs" />
+    <Compile Include="Core\Helpers\NewLabelExtensions.cs" />
+    <Compile Include="Core\Helpers\RadioButtonForEnumHelper.cs" />
+    <Compile Include="Core\Helpers\ValidationTooltipHelper.cs" />
+    <Compile Include="Core\Helpers\USAStatesDropdownHelper.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Core\Helpers\CustomHtmlHelper.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\admin_orders.css" />
+    <Content Include="Content\css\images\jalert\help.gif" />
+    <Content Include="Content\css\images\jalert\important.gif" />
+    <Content Include="Content\css\images\jalert\info.gif" />
+    <Content Include="Content\css\images\jalert\title.gif" />
+    <Content Include="Content\css\jquery-ui-1.8.12.custom.css" />
+    <Content Include="Content\css\images\jquery.selectBox-arrow.gif" />
+    <Content Include="Content\css\jquery.selectBox.css" />
+    <Content Include="Content\css\jquery.alerts.css" />
+    <Content Include="Content\css\select.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\js\plugins\jqueryui\jquery.ui.tooltip.js" />
+    <Content Include="Content\js\plugins\jquery.alerts.js" />
+    <Content Include="Content\js\pages\Default\Shared\setup-elements.js" />
+    <Content Include="Content\js\plugins\jqueryui\timepicker.js" />
+    <Content Include="Content\js\plugins\multiselect\ui.multiselect.locale-en.employee.js" />
+    <Content Include="Content\js\plugins\qtip\jquery.qtip.js" />
+    <Content Include="Content\js\plugins\jquery.selectBox.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\Partial\estimate.js" />
+    <Content Include="Content\js\pages\Estimator\InitCustomersGrid.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\cs.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\da.js" />
+    <Content Include="Content\js\plugins\multiselect\ui.multiselect.locale-en.team.js" />
+    <Content Include="Content\js\plugins\multiselect\ui.multiselect.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\de.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\el.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\es.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\et.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\fa.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\fi.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\fr-ca.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\fr.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\hr.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\hu.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\it.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\ja.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\ko.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\lv.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\nl.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\pl.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\pt-br.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\ro.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\ru.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\sr.js" />
+    <Content Include="Content\js\plugins\plupload\i18n\sv.js" />
+    <Content Include="Content\js\plugins\plupload\jquery.plupload.queue\css\jquery.plupload.queue.css" />
+    <Content Include="Content\js\plugins\plupload\jquery.plupload.queue\img\backgrounds.gif" />
+    <Content Include="Content\js\plugins\plupload\jquery.plupload.queue\img\buttons-disabled.png" />
+    <Content Include="Content\js\plugins\plupload\jquery.plupload.queue\img\buttons.png" />
+    <Content Include="Content\js\plugins\plupload\jquery.plupload.queue\img\delete.gif" />
+    <Content Include="Content\js\plugins\plupload\jquery.plupload.queue\img\done.gif" />
+    <Content Include="Content\js\plugins\plupload\jquery.plupload.queue\img\error.gif" />
+    <Content Include="Content\js\plugins\plupload\jquery.plupload.queue\img\throbber.gif" />
+    <Content Include="Content\js\plugins\plupload\jquery.plupload.queue\img\transp50.png" />
+    <Content Include="Content\js\plugins\plupload\jquery.plupload.queue\jquery.plupload.queue.js" />
+    <Content Include="Content\js\plugins\plupload\jquery.ui.plupload\css\jquery.ui.plupload.css" />
+    <Content Include="Content\js\plugins\plupload\jquery.ui.plupload\img\plupload-bw.png" />
+    <Content Include="Content\js\plugins\plupload\jquery.ui.plupload\img\plupload.png" />
+    <Content Include="Content\js\plugins\plupload\jquery.ui.plupload\jquery.ui.plupload.js" />
+    <Content Include="Content\js\plugins\plupload\plupload.browserplus.js" />
+    <Content Include="Content\js\plugins\plupload\plupload.flash.js" />
+    <Content Include="Content\js\plugins\plupload\plupload.flash.swf" />
+    <Content Include="Content\js\plugins\plupload\plupload.full.js" />
+    <Content Include="Content\js\plugins\plupload\plupload.gears.js" />
+    <Content Include="Content\js\plugins\plupload\plupload.html4.js" />
+    <Content Include="Content\js\plugins\plupload\plupload.html5.js" />
+    <Content Include="Content\js\plugins\plupload\plupload.js" />
+    <Content Include="Content\js\plugins\plupload\plupload.silverlight.js" />
+    <Content Include="Content\js\plugins\plupload\plupload.silverlight.xap" />
+    <Content Include="Content\js\pages\select-link.js" />
+    <Content Include="Content\themes\pdr\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\css\prettyPhoto.css" />
+    <Content Include="Content\themes\pdr\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\pdr\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\pdr\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\pdr\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\pdr\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\pdr\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\pdr\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\pdr\images\ui-icons_15cd0a_256x240.png" />
+    <Content Include="Content\themes\pdr\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\pdr\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\pdr\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\pdr\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\pdr\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\pdr\jquery-ui-1.8.20.custom.css" />
+    <Content Include="Content\css\images\bg.png" />
+    <Content Include="Content\css\images\body.png" />
+    <Content Include="Content\css\images\car.jpg" />
+    <Content Include="Content\css\images\cuselFrameRight.png" />
+    <Content Include="Content\css\images\images.jpg" />
+    <Content Include="Content\css\images\maps.jpg" />
+    <Content Include="Content\css\images\part-car\1-1.png" />
+    <Content Include="Content\css\images\part-car\1-2.png" />
+    <Content Include="Content\css\images\part-car\1-3.png" />
+    <Content Include="Content\css\images\part-car\10-1.png" />
+    <Content Include="Content\css\images\part-car\10-2.png" />
+    <Content Include="Content\css\images\part-car\10-3.png" />
+    <Content Include="Content\css\images\part-car\11-1.png" />
+    <Content Include="Content\css\images\part-car\11-2.png" />
+    <Content Include="Content\css\images\part-car\11-3.png" />
+    <Content Include="Content\css\images\part-car\12-1.png" />
+    <Content Include="Content\css\images\part-car\12-2.png" />
+    <Content Include="Content\css\images\part-car\12-3.png" />
+    <Content Include="Content\css\images\part-car\13-1.png" />
+    <Content Include="Content\css\images\part-car\13-2.png" />
+    <Content Include="Content\css\images\part-car\13-3.png" />
+    <Content Include="Content\css\images\part-car\14-1.png" />
+    <Content Include="Content\css\images\part-car\14-2.png" />
+    <Content Include="Content\css\images\part-car\14-3.png" />
+    <Content Include="Content\css\images\part-car\15-1.png" />
+    <Content Include="Content\css\images\part-car\15-2.png" />
+    <Content Include="Content\css\images\part-car\15-3.png" />
+    <Content Include="Content\css\images\part-car\2-1.png" />
+    <Content Include="Content\css\images\part-car\2-2.png" />
+    <Content Include="Content\css\images\part-car\2-3.png" />
+    <Content Include="Content\css\images\part-car\3-1.png" />
+    <Content Include="Content\css\images\part-car\3-2.png" />
+    <Content Include="Content\css\images\part-car\3-3.png" />
+    <Content Include="Content\css\images\part-car\4-1.png" />
+    <Content Include="Content\css\images\part-car\4-2.png" />
+    <Content Include="Content\css\images\part-car\4-3.png" />
+    <Content Include="Content\css\images\part-car\41.png" />
+    <Content Include="Content\css\images\part-car\5-1.png" />
+    <Content Include="Content\css\images\part-car\5-2.png" />
+    <Content Include="Content\css\images\part-car\5-3.png" />
+    <Content Include="Content\css\images\part-car\6-1.png" />
+    <Content Include="Content\css\images\part-car\6-2.png" />
+    <Content Include="Content\css\images\part-car\6-3.png" />
+    <Content Include="Content\css\images\part-car\7-1.png" />
+    <Content Include="Content\css\images\part-car\7-2.png" />
+    <Content Include="Content\css\images\part-car\7-3.png" />
+    <Content Include="Content\css\images\part-car\8-1.png" />
+    <Content Include="Content\css\images\part-car\8-2.png" />
+    <Content Include="Content\css\images\part-car\8-3.png" />
+    <Content Include="Content\css\images\part-car\9-1.png" />
+    <Content Include="Content\css\images\part-car\9-2.png" />
+    <Content Include="Content\css\images\part-car\9-3.png" />
+    <Content Include="Content\css\images\ui-bg_flat_55_994d53_40x100.png" />
+    <Content Include="Content\css\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\css\images\upload-car.png" />
+    <Content Include="Content\css\login.css" />
+    <Content Include="Content\css\tabs.css" />
+    <Content Include="Content\css\ui.jqgrid.css" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\smoothness\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_15cd0a_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\smoothness\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\smoothness\jquery-ui-1.8.20.custom.css" />
+    <Content Include="setup.htm" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\css\site.css" />
+    <Content Include="Content\js\plugins\jqgrid\jquery.jqGrid.locale-en.js" />
+    <Content Include="Content\js\jquery.js" />
+    <Content Include="Content\js\plugins\jquery.form.js" />
+    <Content Include="Content\js\plugins\jqgrid\jquery.jqGrid.js" />
+    <Content Include="Content\js\plugins\jquery.prettyPhoto.js" />
+    <Content Include="Content\js\plugins\uplodify\jquery.uploadify-3.1.js" />
+    <Content Include="Content\js\plugins\validate\jquery.validate.min.js" />
+    <Content Include="Content\js\plugins\qtip\jquery.qtip.initializer.js" />
+    <Content Include="Content\js\plugins\uplodify\jquery.uploadify-3.1.min.js" />
+    <Content Include="Content\js\plugins\uplodify\jquery.uploadify.js" />
+    <Content Include="Content\js\plugins\validate\jquery.validate.js" />
+    <Content Include="Content\js\plugins\validate\jquery.validate.unobtrusive.js" />
+    <Content Include="Content\js\knockout.js" />
+    <Content Include="Content\js\modernizr.js" />
+    <Content Include="Content\js\plugins\jqgrid\jquery.jqGrid.initializer.js" />
+    <Content Include="Content\js\pages\Common\InitEmployeeGrid.js" />
+    <Content Include="Content\js\plugins\jqgrid\jquery.jqGrid.entity.js" />
+    <Content Include="Content\js\pages\Common\InitTeamGrid.js" />
+    <Content Include="Content\js\pages\Default\Customers\ForAccountantInitCustomerGrid.js" />
+    <Content Include="Content\js\pages\Estimator\Estimates\InitEstimatesGrid.js" />
+    <Content Include="Content\js\pages\Superadmin\InitCompanyGrid.js" />
+    <Content Include="Content\js\pages\ValidateAjaxForm.js" />
+    <Content Include="Content\css\images\uploadify-cancel.png" />
+    <Content Include="Content\css\uploadify.css" />
+    <Content Include="Content\js\plugins\uplodify\uploadify.swf" />
+    <Content Include="Mappings\pdr.nh.mappings.xml" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Default\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Default\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Default\Views\Shared\Error.cshtml" />
+    <Content Include="Areas\Default\Views\Shared\_DefaultLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Default\Views\Shared\DisplayTemplates\" />
+    <Folder Include="Areas\Default\Views\Shared\EditorTemplates\" />
+    <Folder Include="Areas\SuperAdmin\Views\Shared\" />
+    <Folder Include="Areas\Technician\Views\Reports\" />
+    <Folder Include="Areas\Wholesaler\Views\Shared\Partial\" />
+    <Folder Include="Content\Builds\temp\" />
+    <Folder Include="Content\Builds\unpack\" />
+    <Folder Include="Content\css\images\uploads\" />
+    <Folder Include="WebAPI\Core\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Default\Views\Account\LogOn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PDR.Domain\PDR.Domain.csproj">
+      <Project>{74801410-F690-490C-91EA-CD94E520A465}</Project>
+      <Name>PDR.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PDR.Init\PDR.Init.csproj">
+      <Project>{7112AC6B-C406-481D-99D4-56BA796B7173}</Project>
+      <Name>PDR.Init</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PDR.Resources\PDR.Resources.csproj">
+      <Project>{5AE6DE6B-F4A6-46BC-8428-0252A8A82C21}</Project>
+      <Name>PDR.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartArch.Data.NH\SmartArch.Data.NH.csproj">
+      <Project>{14548A37-F001-4046-B919-D7DC9EFB46F7}</Project>
+      <Name>SmartArch.Data.NH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartArch.Grid\NixJqGridFramework.csproj">
+      <Project>{72E48E82-C969-4AEE-ACED-888D3FC72912}</Project>
+      <Name>NixJqGridFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartArch\SmartArch.csproj">
+      <Project>{930BE28B-5D2D-40B6-9EB7-43F8C0F89E54}</Project>
+      <Name>SmartArch %28Infrastructure\SmartArch\SmartArch%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\SuperAdmin\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\SuperAdmin\Views\Companies\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\SuperAdmin\Views\Companies\EditCompany.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\SuperAdmin\Views\Companies\ViewCompany.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Accountant\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Accountant\Views\Employees\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Common\Views\Teams\IndexBase.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Common\Views\Teams\EditTeam.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Common\Views\Teams\ViewTeam.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\Estimator\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Estimator\Views\Shared\_EstimatorLayout.cshtml" />
+    <Content Include="Areas\Estimator\Views\Estimates\Index.cshtml" />
+    <Content Include="Areas\Estimator\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Estimator\Views\Customers\CustomerDetails.cshtml" />
+    <Content Include="Areas\Accountant\Views\Shared\_AccountantLayout.cshtml" />
+    <Content Include="Areas\Common\Views\Customers\IndexBase2.cshtml" />
+    <Content Include="Areas\Common\Views\Customers\View.cshtml" />
+    <Content Include="Areas\Common\Views\Customers\Edit.cshtml" />
+    <Content Include="Areas\Estimator\Views\EstimateReports\Index.cshtml" />
+    <Content Include="Areas\Technician\Views\Shared\_TechnicianLayout.cshtml" />
+    <Content Include="Areas\Technician\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Estimator\Views\EstimateReports\Details.cshtml" />
+    <Content Include="Areas\Technician\Views\RepairOrderReports\Details.cshtml" />
+    <Content Include="Areas\Technician\Views\EstimateReports\Index.cshtml" />
+    <Content Include="Areas\Default\Views\EstimateReports\Details.cshtml" />
+    <Content Include="Areas\Default\Views\RepairOrderReports\Details.cshtml" />
+    <Content Include="Areas\Technician\Views\RepairOrderReports\Index.cshtml" />
+    <Content Include="Areas\Technician\Views\EstimateReports\Details.cshtml" />
+    <Content Include="Areas\Technician\Views\RepairOrders\Index.cshtml" />
+    <Content Include="Areas\Technician\Views\Invoices\Index.cshtml" />
+    <Content Include="Areas\Technician\Views\InvoiceReports\Index.cshtml" />
+    <Content Include="Areas\Technician\Views\InvoiceReports\Details.cshtml" />
+    <Content Include="Areas\Default\Views\InvoiceReports\Details.cshtml" />
+    <Content Include="Areas\Accountant\Views\Invoices\Index.cshtml" />
+    <Content Include="Areas\Accountant\Views\Invoices\GetDialog.cshtml" />
+    <Content Include="Areas\Common\Views\Estimates\ArchiveEstimates.cshtml" />
+    <Content Include="Areas\Accountant\Views\Invoices\LogDetails.cshtml" />
+    <Content Include="Areas\Common\Views\Estimates\GetEmailDialog.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\_AdminLayout.cshtml" />
+    <Content Include="Areas\Admin\Views\CompanyInfo\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Estimates\GetManagers.cshtml" />
+    <Content Include="Areas\Common\Views\Estimates\New.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\AutoInfo.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\AutoParts.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\CarInfo.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\Customer.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\EditEstimate.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\Estimate.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\Insurance.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\Photos.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\RetailCustomer.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\WholesaleCustomer.cshtml" />
+    <Content Include="Areas\Common\Views\Estimates\View.cshtml" />
+    <Content Include="Areas\Common\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Technician\Views\Shared\OperationLinks.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\EstimatesIndexBase.cshtml" />
+    <Content Include="Areas\Technician\Views\Estimates\Index.cshtml" />
+    <Content Include="Areas\Technician\Views\Shared\OperationLinksWithFilter.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\CompanyLinks1.cshtml">
+      <SubType>Code</SubType>
+    </Content>
+    <Content Include="Areas\Admin\Views\Matrixes\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Matrixes\MatrixList.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\OnlyEstimate.cshtml" />
+    <Content Include="Areas\Admin\Views\Matrixes\RenderMatrix.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\Partial\RepairOrder.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\Photo.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\OnlyEstimateLayout.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\Partial\OnlyRepairOrder.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\_ManagerLayout.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\OperationLinks.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\OperationLinksWithFilterTeamsForInvoices.cshtml" />
+    <Content Include="Areas\Manager\Views\Invoices\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Invoices\Partial\InvoiceIndexBase.cshtml" />
+    <Content Include="Areas\Common\Views\Invoices\ArchiveInvoices.cshtml" />
+    <Content Include="Areas\Common\Views\Invoices\GetEmailDialog.cshtml" />
+    <Content Include="Areas\Manager\Views\Estimates\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\RepairOrders\Index.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\Partial\IndexBase.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\Estimate.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\GetEmailDialog.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\View.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\OperationLinksWithFilterTeams.cshtml" />
+    <Content Include="Areas\Estimator\Views\Shared\OperationLinks.cshtml" />
+    <Content Include="Areas\Estimator\Views\Shared\OperationLinksWithFilter.cshtml" />
+    <Content Include="Areas\Accountant\Views\Shared\OperationWithFilters.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\EstimatesNewBase.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\EstimatesViewBase.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\EstimatesEditBase.cshtml" />
+    <Content Include="Areas\Common\Views\Estimates\Edit.cshtml" />
+    <Content Include="Areas\Technician\Views\Shared\OperationLinksWithFilterForInvoices.cshtml" />
+    <Content Include="Areas\Common\Views\Customers\IndexBase.cshtml" />
+    <Content Include="Areas\Manager\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Customers\CustomerDetails.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\CustomerFilterStates.cshtml" />
+    <Content Include="Areas\Technician\Views\Shared\CustomerFilterStates.cshtml" />
+    <Content Include="Areas\Estimator\Views\Shared\CustomerFilterStates.cshtml" />
+    <Content Include="Areas\Manager\Views\EstimateReports\Details.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Reports\ReportsIndexBase.cshtml" />
+    <Content Include="Areas\Manager\Views\EstimateReports\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\ReportsLinksWithFilter.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\ReportsLinks.cshtml" />
+    <Content Include="Areas\Manager\Views\RepairOrderReports\Details.cshtml" />
+    <Content Include="Areas\Manager\Views\RepairOrderReports\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\InvoiceReports\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\ReportsLinksWithFilterForInvoices.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Reports\ReportsDetailsIndexBase.cshtml" />
+    <Content Include="Areas\Manager\Views\InvoiceReports\Details.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\ReportsDetailsLinksWithFilter.cshtml" />
+    <Content Include="Areas\Technician\Views\Shared\ReportsLinks.cshtml" />
+    <Content Include="Areas\Technician\Views\Shared\ReportsLinksWithFilter.cshtml" />
+    <Content Include="Areas\Technician\Views\Shared\ReportsLinksWithFilterForInvoices.cshtml" />
+    <Content Include="Areas\Technician\Views\Shared\ReportsDetailsLinksWithFilter.cshtml" />
+    <Content Include="Areas\Estimator\Views\Shared\ReportsLinksWithFilter.cshtml" />
+    <Content Include="Areas\Estimator\Views\Shared\ReportsDetailsLinksWithFilter.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\Partial\Supplement.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\AutoParts1.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Shared\_WholesalerLayout.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Shared\ReportsLinks.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Shared\ReportsLinksWithFilter.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Shared\ReportsLinksWithFilterForInvoices.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\InvoiceReports\Details.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\InvoiceReports\Index.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\RepairOrderReports\Details.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\RepairOrderReports\Index.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\EstimateReports\Details.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\EstimateReports\Index.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Shared\ReportsDetailsLinksWithFilter.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\CompanyLinks.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\CompanyLinksWithFilter.cshtml" />
+    <Content Include="Areas\Admin\Views\MobileLicense\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\MobileLicense\Partial\LicensesIndexBase.cshtml" />
+    <Content Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Admin\Views\MobileLicense\MobileLicenseDialog.cshtml" />
+    <Content Include="Areas\Admin\Views\MobileLicense\ViewLicense.cshtml" />
+    <Content Include="Areas\Common\Views\Customers\GetEmailDialog.cshtml" />
+    <Content Include="Areas\Manager\Views\TeamMembers\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\TeamMembers\TeamsLinks.cshtml" />
+    <Content Include="Areas\Manager\Views\TeamMembers\View.cshtml" />
+    <Content Include="Areas\SuperAdmin\Views\Companies\GetEmailDialog.cshtml" />
+    <Content Include="Areas\Admin\Views\Locations\Index.cshtml" />
+    <Content Include="Areas\Accountant\Views\Teams\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Employees\EditEmployee.cshtml" />
+    <Content Include="Areas\Common\Views\Employees\GetManagers.cshtml" />
+    <Content Include="Areas\Common\Views\Employees\IndexBase.cshtml" />
+    <Content Include="Areas\Common\Views\Employees\ViewEmployee.cshtml" />
+    <Content Include="Areas\Admin\Views\Employees\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Teams\Index.cshtml" />
+    <Content Include="Areas\Accountant\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Customers\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\EstimateReports\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\RepairOrderReports\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\RepairOrderReports\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\InvoiceReports\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\InvoiceReports\Details.cshtml" />
+    <Content Include="Areas\Accountant\Views\Customers\GetEmailDialog.cshtml" />
+    <Content Include="Areas\Admin\Views\Estimates\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Estimates\New.cshtml" />
+    <Content Include="Areas\Admin\Views\RepairOrders\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Invoices\Index.cshtml" />
+    <Content Include="Areas\Estimator\Views\Estimates\New.cshtml" />
+    <Content Include="Areas\Estimator\Views\Estimates\View.cshtml" />
+    <Content Include="Areas\Estimator\Views\Estimates\Edit.cshtml" />
+    <Content Include="Areas\Manager\Views\RepairOrders\AssignMoreTechnicians.cshtml" />
+    <Content Include="Areas\Manager\Views\RepairOrders\DefineParticipation.cshtml" />
+    <Content Include="Areas\Admin\Views\RepairOrders\AssignMoreTechnicians.cshtml" />
+    <Content Include="Areas\Admin\Views\RepairOrders\DefineParticipation.cshtml" />
+    <Content Include="Areas\Technician\Views\Shared\OperationLinksWithFilterForEstimates.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\OperationLinksWithFilterTeamsForEstimate.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\Finalised.cshtml" />
+    <Content Include="Areas\Manager\Views\RepairOrders\Finalised.cshtml" />
+    <Content Include="Areas\Admin\Views\RepairOrders\Finalised.cshtml" />
+    <Content Include="Areas\Technician\Views\RepairOrders\Finalised.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Partial\VehicleIndexBase.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\CompanyLinksForVehicles.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Partial\VehicleNewBase.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Partial\Vehicle.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Partial\OnlyVehicle.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Partial\VehicleInfo.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Partial\VehicleSections.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\New.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\OperationLinks.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\View.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Partial\VehiclesViewBase.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Partial\VehiclesEditBase.cshtml" />
+    <Content Include="Areas\Admin\Views\Vehicles\Duplicate.cshtml" />
+    <Content Include="Areas\Worker\Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Areas\Worker\Views\Shared\Index.cshtml" />
+    <Content Include="Areas\SuperAdmin\Views\ManageDownload\Index.cshtml" />
+    <Content Include="Areas\SuperAdmin\Views\ManageDownload\EditIphoneBuild.cshtml" />
+    <Content Include="Areas\Technician\Views\RepairOrders\AssignMoreTechnicians.cshtml" />
+    <Content Include="Areas\Default\Views\Account\LogOnMobile.cshtml" />
+    <Content Include="Areas\Default\Views\Shared\_DefaultLayoutMobile.cshtml" />
+    <Content Include="Areas\Worker\Views\Shared\IndexMobile.cshtml" />
+    <Content Include="Areas\SuperAdmin\Views\ManageDownload\GetpPushNotificationDialog.cshtml" />
+    <Content Include="Areas\RITechnician\Views\Invoices\Index.cshtml" />
+    <Content Include="Areas\RITechnician\Views\RepairOrders\AssignMoreTechnicians.cshtml" />
+    <Content Include="Areas\RITechnician\Views\RepairOrders\Finalised.cshtml" />
+    <Content Include="Areas\RITechnician\Views\RepairOrders\Index.cshtml" />
+    <Content Include="Areas\RITechnician\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\Partial\RiPayment.cshtml" />
+    <Content Include="Areas\Common\Views\Customers\Customerlinks.cshtml" />
+    <Content Include="Areas\Admin\Views\Location\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Customers\IndexBase2Affiliates.cshtml" />
+    <Content Include="Areas\Admin\Views\Location\EditAffiliates.cshtml" />
+    <Content Include="Areas\Admin\Views\Location\AffiliateView.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\Search.cshtml" />
+    <Content Include="Areas\RITechnician\Views\Shared\OperationLinksWithFilter.cshtml" />
+    <Content Include="Areas\RITechnician\Views\Shared\OperationLinks.cshtml" />
+    <Content Include="Areas\RITechnician\Views\Shared\_RITechnicianLayout.cshtml" />
+    <Content Include="Areas\RITechnician\Views\Shared\OperationLinksWithFilterForEstimates.cshtml" />
+    <Content Include="Areas\RITechnician\Views\Shared\OperationLinksWithFilterForInvoices.cshtml" />
+    <Content Include="Areas\Admin\Views\Shared\ReportsLinksWithFilterForAdmin.cshtml" />
+    <Content Include="Areas\Common\Views\Estimates\GetHistory.cshtml" />
+    <Content Include="Areas\Common\Views\RepairOrders\GetHistory.cshtml" />
+    <Content Include="Areas\Common\Views\Invoices\GetHistory.cshtml" />
+    <Content Include="Areas\Common\Views\Settings\Index.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\Reports\ReportsDetailsIndexBase.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\Reports\ReportsIndexBase.cshtml" />
+    <Content Include="Areas\Common\Views\Invoices\DiscardedInvoices.cshtml" />
+    <Content Include="Areas\Admin\Views\Location\GetEmailDialog.cshtml" />
+    <Content Include="Areas\Manager\Views\Shared\CompanyLinks.cshtml" />
+    <Content Include="Areas\Manager\Views\Teams\Index.cshtml" />
+    <Content Include="Areas\Manager\Views\Teams\EditTeam.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\Index.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Invoices\Index.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\RepairOrders\Index.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Shared\OperationLinksWithSearch.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\GetEmailDialog.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\RepairOrders\GetEmailDialog.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Invoices\GetEmailDialog.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\View.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\OperationLinks.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\RepairOrders\View.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\RepairOrderViewBase.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Shared\OperationLinks.cshtml" />
+    <Content Include="Areas\RITechnician\Views\RepairOrders\View.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\RepairOrders\OperationLinks.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\New.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\Partial\NewOnlyEstimateLayout.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\Partial\Employee.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\Partial\NewInsurance.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\Partial\NewOnlyEstimate.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\Partial\NewEstimate.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\Partial\EstimatesNewBase.cshtml" />
+    <Content Include="Areas\Wholesaler\Views\Estimates\Partial\Assignment.cshtml" />
+    <Content Include="Areas\Common\Views\Shared\Partial\RepairOrderEditBase.cshtml" />
+    <Content Include="Areas\Default\Views\Shared\_Layout.cshtml" />
+    <None Include="ClassDiagram1.cd" />
+    <None Include="Content\Builds\PDRManage.plist">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Content\certificates\APNS_HTPDR.p12" />
+    <None Include="Content\certificates\aps_development.cer" />
+    <None Include="Content\certificates\aps_production.cer" />
+    <None Include="Content\certificates\dev_cert.p12" />
+    <None Include="Content\certificates\finalhtpdrPushDevelopment.pem" />
+    <None Include="Content\certificates\finalhtpdrPushProduction.pem" />
+    <None Include="Content\certificates\htpdr_apns_dev.p12" />
+    <None Include="Content\certificates\htpdr_push_production.p12" />
+    <None Include="Content\certificates\Production Push Notification Certificate.p12" />
+    <None Include="Content\certificates\Push info.rtf" />
+    <None Include="Content\DefaultMatrix\Default.xls" />
+    <None Include="Content\invoice.xlsx" />
+    <None Include="Content\VP-Com-Product Guide-version 2011-7 %282%29.pdf" />
+    <Content Include="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
+    </Content>
+    <None Include="NLog.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <!--<Import Project="$(MSBuildExtensionsPath32)\MSBuildCommunityTasks\MSBuild.Community.Tasks.Targets" />-->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.-->
+  <Target Name="GetConnectionString">
+    <XmlRead Prefix="n" Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0" XPath="//connectionStrings/connectionString[@name='PDRConnectionString.$(Configuration)']/@value" XmlFileName="$(SolutionDir)/pdr_connection_strings.xml">
+      <Output TaskParameter="Value" PropertyName="connectionString" />
+    </XmlRead>
+  </Target>
+  <Target Name="UpdateConnectionString" DependsOnTargets="GetConnectionString">
+    <XmlUpdate Prefix="n" Namespace="http://schemas.microsoft.com/.NetConfiguration/v2.0" XmlFileName="$(ProjectDir)/Web.config" Xpath="//configuration/connectionStrings/add[@name='PDRConnectionString']/@connectionString" Value="$(connectionString)" />
+  </Target>
+  <Target Name="BeforeBuild" DependsOnTargets="UpdateConnectionString">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>False</AutoAssignPort>
+          <DevelopmentServerPort>50253</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:50253/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:50253/</IISAppRootUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <PropertyGroup>
+    <PostBuildEvent>
+      if not exist "$(TargetDir)x86" md "$(TargetDir)x86"
+      xcopy /s /y "$(SolutionDir)packages\SqlServerCompact.4.0.8482.1\NativeBinaries\x86\*.*" "$(TargetDir)x86"
+      if not exist "$(TargetDir)amd64" md "$(TargetDir)amd64"
+      xcopy /s /y "$(SolutionDir)packages\SqlServerCompact.4.0.8482.1\NativeBinaries\amd64\*.*" "$(TargetDir)amd64"
+    </PostBuildEvent>
+  </PropertyGroup>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <Import Project="..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets" Condition="Exists('..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\MSBuildTasks.1.5.0.235\build\MSBuildTasks.targets'))" />
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+</Project>

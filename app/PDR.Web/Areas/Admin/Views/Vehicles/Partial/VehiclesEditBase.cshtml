@@ -1,0 +1,24 @@
+﻿@model PDR.Web.Areas.Admin.Models.Vehicle.VehicleModel
+<script type="text/javascript">
+</script>
+@{
+    this.SetLayout();
+    ViewBag.Title = "Edit Vehicle";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+    //Html.ReadOnlyModeOffIgnoreDeep();
+    var id = Convert.ToInt64(Model.Info.Id);
+    Html.BeginForm<PDR.Web.Areas.Admin.Controllers.VehiclesController>(x => x.Edit(id), FormMethod.Post, new { @class = "vehicleForm"});
+}
+<div class="links">
+    @RenderSection("links")
+    @{
+        string text = Model.Info.Make.ToLower() == "DefaultCar".ToLower()
+                          ? "(" + @Model.Info.Make + ")"
+                          : "(" + @Model.Info.Make + " " + @Model.Info.Model + " " + @Model.Info.YearFrom + " - " + @Model.Info.YearTo + ")";
+    }
+    <span class="item-number">Edit Vehicle # @Model.Info.Id @text</span>
+</div>
+@{   
+    Html.RenderPartial("Partial/Vehicle", Model);
+    Html.EndForm();
+}

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{930BE28B-5D2D-40B6-9EB7-43F8C0F89E54}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SmartArch</RootNamespace>
+    <AssemblyName>SmartArch</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live|AnyCPU'">
+    <OutputPath>bin\Live\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\SmartArch.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Fasterflect">
+      <HintPath>..\..\packages\fasterflect.2.1.0\lib\net40\Fasterflect.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=3.4.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\FluentValidation.3.4.6.0\lib\Net40\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="StringNamedFormat">
+      <HintPath>..\..\lib\StringNamedFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMapAdapter, Version=1.1.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.StructureMapAdapter.1.1.0.3\lib\StructureMapAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\System.Web.Mvc.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\Domain\Base\BaseEntity.cs" />
+    <Compile Include="Core\Extensions\StringExtensions.cs" />
+    <Compile Include="Core\Helpers\AnonymousToExpandoConverter.cs" />
+    <Compile Include="Core\Helpers\AssemblyVersionHelper.cs" />
+    <Compile Include="Core\Helpers\ObjectDictionaryConvertors\DictionaryToObjectConverter.cs" />
+    <Compile Include="Core\Helpers\ObjectDictionaryConvertors\DynamicDictionary.cs" />
+    <Compile Include="Core\Helpers\ObjectDictionaryConvertors\ObjectToDictionaryConverter.cs" />
+    <Compile Include="Data\Fetching\EagerFetch.cs" />
+    <Compile Include="Data\Fetching\IFetchingProvider.cs" />
+    <Compile Include="Data\Fetching\IFetchRequest.cs" />
+    <Compile Include="Data\Specification\IQuerySpecification.cs" />
+    <Compile Include="Data\Specification\ISingleSpecification.cs" />
+    <Compile Include="Data\Specification\Finder.cs" />
+    <Compile Include="Data\Specification\IFinder.cs" />
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\IRepositoryFactory.cs" />
+    <Compile Include="Data\Specification\ISpecification.cs" />
+    <Compile Include="Data\ITransactionManager.cs" />
+    <Compile Include="Core\Helpers\EntityLocalization\EntityLocalizationEngine.cs" />
+    <Compile Include="Core\Helpers\EntityLocalization\EntityLocalizationHelper.cs" />
+    <Compile Include="Core\Helpers\EntityLocalization\IEntityLocalizationEngine.cs" />
+    <Compile Include="Core\Helpers\Reflector.cs" />
+    <Compile Include="Core\Helpers\SystemTime.cs" />
+    <Compile Include="Core\Validators\Extensions\DateTimeExtensions.cs" />
+    <Compile Include="Core\Validators\Extensions\MatchExtensions.cs" />
+    <Compile Include="Data\MemoryRepository.cs" />
+    <Compile Include="Data\Proxy\IProxyAnalyzer.cs" />
+    <Compile Include="Data\Proxy\ProxyExtensions.cs" />
+    <Compile Include="Data\RepositoryBase.cs" />
+    <Compile Include="Data\RepositoryExtensions.cs" />
+    <Compile Include="Data\RepositoryFactory.cs" />
+    <Compile Include="Data\Specification\QuerySpecification.cs" />
+    <Compile Include="Web\Attributes\TransactionAttribute.cs" />
+    <Compile Include="Web\Helpers\Html\RenderPartialWithPrefix.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Web\Helpers\MimeType.cs" />
+    <Compile Include="Web\Helpers\ModelStateErrorFilter.cs" />
+    <Compile Include="Web\Membership\AuthenticationService.cs" />
+    <Compile Include="Web\Membership\CookieUserDataService.cs" />
+    <Compile Include="Web\Membership\IAuthenticationService.cs" />
+    <Compile Include="Web\Membership\ICookieUserDataService.cs" />
+    <Compile Include="Web\Membership\IMembershipUser.cs" />
+    <Compile Include="Web\Membership\UserDataCookieGetter.cs" />
+    <Compile Include="Web\Membership\UserPermissionsCookieEngine.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

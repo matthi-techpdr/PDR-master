@@ -1,0 +1,15 @@
+﻿@model IEnumerable<SelectListItem>
+
+@{Bundles.Reference("Content/js/Pages/select-link.js");}
+
+<div class="links" style="margin-bottom: 16px;">
+    @{Html.RenderPartial("CompanyLinks");}
+    
+    <span class="gridFilter gridFilterNoMargin">
+        <label>
+            Filter by status:
+        </label>
+        @Html.DropDownList("statuses", Model, new { id = "Status" })
+        <span style="font-size: 14px;color:Red; position: absolute; top: 160px; right: 103px;"><span class="activeLicense">@ViewData["activeLicense"]</span> of <span class="allowedLicense">@ViewData["allowedLicense"]</span> allowed</span>
+    </span>
+</div>

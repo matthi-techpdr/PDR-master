@@ -1,0 +1,181 @@
+﻿#tabsSections {
+    margin-left: 50px;
+}
+
+#vehicleSections {
+    width: 915px !important;
+}
+.ui-tabs-vertical
+{
+     width: 49.2em;
+}
+.ui-tabs-vertical .ui-tabs-nav {
+     padding: .2em .1em .2em .2em;
+     float: left;
+     width: 12em;
+}
+.ui-tabs-vertical .ui-tabs-nav li {
+    clear: left;
+    width: 100%;
+    border-bottom-width: 1px !important;
+    border-right-width: 0 !important;
+    margin: 0 -1px .2em 0;
+}
+.ui-tabs-vertical .ui-tabs-nav li a {
+    display:block;
+    padding-left: 10px;
+}
+.ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active {
+    padding-bottom: 0;
+    padding-right: .1em;
+    border-right-width: 1px;
+    border-right-width: 1px;
+}
+.ui-tabs-vertical .ui-tabs-panel {
+    padding: 1em;
+    float: right;
+    width: 30em;
+}
+
+.ui-tabs-disabled {
+    display: none; /* disabled tabs don't show up */
+}
+
+.tabsVehicle {
+    height: 468px;
+    margin: 0 0 0 -1px !important;   
+}
+
+.operationR,
+.priceVehicle {
+    width: 5em;
+    float: none !important;
+    overflow: hidden; 
+    text-align: center;  
+}
+
+.effortVehicle {
+    color: #555555;
+    display: inline-block;
+    width: 30px;
+}
+
+.fontVehicle {
+    font-size: 14px;
+    font-family: Arial;
+    line-height: 26px;
+}
+.sectionVehicle {
+
+}
+
+.lineEffortVehicle {
+    float: none !important;
+    width: 480px;
+    height: 24px;
+}
+
+.operation {
+    width: 160px;
+    display: block;
+    float: left;
+}
+
+.priceOperation {
+    width: 300px;
+}
+
+.priceLabel {
+    margin: 0 82px 0 0 !important;
+}
+
+.hideTab {
+    display: none !important;
+}
+
+.buttonForCombobox {
+    position: relative!important;
+    border-radius: 0 !important;
+    right: 17px !important;
+}
+#vehicleSections {
+    border: none !important;
+}
+
+.symbdollar {
+    position: relative;
+    right: 125px;
+    font-size: 14px;
+    color: #555555;
+}
+.effortVehicle.fontVehicle.operation {
+	width:130px;
+}
+#vehicleSections li.effort {
+	border: 1px solid silver;
+	border-radius: 3px 3px 3px 3px;
+    height: 36px !important;
+    margin-bottom: 2px !important;
+    padding: 10px 0 0 10px;
+    position: relative;
+	width:470px;
+}
+.vehicleForm .tabsVehicle {
+	border:none !important;
+}
+#vehicleSections .tabsVehicle {
+	height:auto;
+}
+#tabsSections .ui-tabs-nav li {
+    background-image: linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+    background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(216,216,218)),
+		color-stop(1, rgb(243,243,246))
+	);
+	    filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#FFF3F3F6, EndColorStr=#FFD8D8DA, GradientType=0);
+    display: block;
+    height: 31px;
+    line-height: 31px;
+    width: 196px;
+	float:left !important;
+}
+#vehicleSections .ui-tabs-nav li:hover {
+    background-image: linear-gradient(bottom, rgb(243,243,246) 100%, rgb(216,216,218) 0%);
+	background-image: -o-linear-gradient(bottom, rgb(243,243,246) 100%, rgb(216,216,218) 0%);
+	background-image: -moz-linear-gradient(bottom, rgb(243,243,246) 100%, rgb(216,216,218) 0%);
+	background-image: -webkit-linear-gradient(bottom, rgb(243,243,246) 100%, rgb(216,216,218) 0%);
+	background-image: -ms-linear-gradient(bottom, rgb(243,243,246) 100%, rgb(216,216,218) 0%);
+    background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(1, rgb(216,216,218)),
+		color-stop(0, rgb(243,243,246))
+	);
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#FFD8D8DA, EndColorStr=#FFF3F3F6, GradientType=0);
+    border-bottom: 2px solid silver;
+    height: 30px;
+	line-height: 30px;
+}
+#vehicleSections .ui-tabs-nav li.ui-state-active {
+    background: none;
+    border-bottom: 2px solid silver;
+    height: 30px;
+	border-radius:0;
+	line-height: 30px;
+	filter:none;
+}
+#tabs #vehicleSections .ui-tabs-nav li a{
+	line-height: 30px;
+}
+#tabs #vehicleSections .ui-tabs-nav li.ui-state-active a{
+    background: none !important;
+	color:#000 !important;
+}

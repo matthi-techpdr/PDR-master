@@ -1,0 +1,36 @@
+﻿@model PDR.Web.Areas.Worker.Models.DownloadBuildViewModel
+@{
+    ViewBag.Title = "Companies";
+    Layout = "~/Areas/Default/Views/Shared/_DefaultLayoutMobile.cshtml";
+    Bundles.Reference("Content/css/tabsMobile.css");
+    Bundles.Reference("Content/css/pages/worker/workerDownloadMobile.css");
+}
+
+<div id="wrapDiv">
+    <div id="logOutDiv">
+          <a id="logOutLink" href="@(Url.RouteUrl(new { area = "Default", controller = "Account", action = "LogOut", token = Model.TokenLogOut }))"><span style="position: relative;top: 10px;">Logout</span></a>
+    </div>
+    <div id="dowloadButttonMobile">
+        @if (Request.UserAgent != null)
+        {
+            if (Request.UserAgent.ToLower().Contains("iphone"))
+            {
+                if (Model.NoWorkingBuilds)
+                {
+                    <a id="donloadLinkIdMobile" href="@Model.UrlDownload"><span style="position: relative; top: 30px;">Download iPhone app</span></a>
+                }
+                else
+                {
+                    <p style="font-size: 16px; text-align: center; position: relative; top: 10px;">Currently iPhone app</p>
+                    <p style="font-size: 16px; text-align: center; position: relative; top: 10px;">is not available for installation.</p>
+                    <p style="font-size: 16px; text-align: center; position: relative; top: 10px;">Please try again later.</p>
+                }
+            }
+            else
+            {
+                <p style="font-size: 24px !important;text-align: center;position: relative; top: 20px;">Currently device</p>
+                <p style="font-size: 24px !important;text-align: center;position: relative; top: 20px;">is not supported</p>
+            }
+        }
+   </div> 
+</div>

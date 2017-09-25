@@ -1,0 +1,12 @@
+﻿@using PDR.Web.Areas.Common.Models
+@model FilterModel
+
+@{
+    Layout = "~/Areas/Common/Views/Shared/Partial/EstimatesIndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Estimator/Estimates/InitEstimatesGrid.js");
+}
+           
+@section links
+{
+    @{Html.RenderPartial("OperationLinksWithFilter");}
+}

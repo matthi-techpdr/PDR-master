@@ -1,0 +1,55 @@
+﻿
+@using PDR.Web.Areas.Common.Models
+@using InvoicesController = PDR.Web.Areas.Common.Controllers.InvoicesController 
+@model FilterModel
+@{
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+    ViewBag.Title = "Index";
+    if (ViewBag.IsRITechnician)
+    {
+        Bundles.Reference("Content/js/Pages/RITechnician/InitArchiveInvoicesGrid.js");
+    }
+    else
+    {
+        Bundles.Reference(Layout.Contains("Technician") ? "Content/js/Pages/Technician/InitArchiveInvoicesGrid.js" : "Content/js/Pages/Manager/Invoices/InitArchiveInvoicesGrid.js");
+    }
+}
+<div class="links">
+    @(Html.ActionLink<InvoicesController>(x => x.Index(null, null, null, true), "Invoices"))
+    @if(ViewBag.currenUserRole == "Admin")
+    {
+        @(Html.ActionLink<InvoicesController>(x => x.DiscardedInvoices(null, null, null), "Discarded"))
+    }
+    <a href="javascript:void(0);" class="active viewArchive">View archive</a>
+    @if (!ViewBag.IsRITechnician)
+    {
+        Html.RenderPartial("~/Areas/Common/Views/Shared/Partial/Search.cshtml");
+        <input id ="ArchiveInvoiceUrl" type="hidden" value="@Url.Action("ArchiveInvoices", "Invoices")"/>
+        <input id ="InvoiceUrl" type="hidden" value="@Url.Action("Index", "Invoices")"/>
+    }
+    <input id="curentUserRole" type="hidden" value="@ViewBag.currenUserRole"/>
+    @{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+    <span class="gridFilter">
+        @if (Model.Teams.Count()>1 && !Layout.Contains("Technician"))
+        {
+            <label>
+                Filter by teams:
+            </label>
+            @Html.DropDownList("teams", Model.Teams, new { id = "Teams", style="width:141px;" })
+        }
+            <label>
+                Filter by customers:
+            </label>
+            @Html.DropDownList("customers", Model.Customers, new { id = "Customers", style="width:177px;" })
+    </span>
+</div>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="archiveInvoicesGrid">
+        </table>
+        <div id="pager">
+        </div>
+    </div>
+</div>
+

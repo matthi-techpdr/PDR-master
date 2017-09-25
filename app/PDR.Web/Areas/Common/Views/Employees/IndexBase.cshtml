@@ -1,0 +1,33 @@
+﻿
+@model IEnumerable<SelectListItem>
+@{
+    Bundles.Reference("Content/js/Pages/Common/InitEmployeeGrid.js");
+}
+ <div class="links">
+ @if (!ViewBag.IsAdmin)
+ {
+     <a href="#" class="active">Employees</a>
+     @(Html.ActionLink<TeamsController>(x => x.Index(), "Teams"))
+ }
+     <span class="gridFilter">
+         <label>
+             Filter by roles:</label>
+         @Html.DropDownList("roles", Model, new { id = "Roles" })
+     </span>
+ </div>
+
+<div id="tabs-1" class="ui-tabs-panel">
+ <div id="allowed" style="color:red;">
+ You have <span id="activeEmp"></span> active employees from @this.ViewBag.Allowed allowed.
+ </div>
+    <div class="repair-orders-content" style="margin-top: 5px;">
+        <div class="repair-orders-content">
+            <table id="employeeGrid">
+            </table>
+            <div id="pager">
+            </div>
+            <div id="employeeInfo">
+            </div>
+        </div>
+    </div>
+</div>

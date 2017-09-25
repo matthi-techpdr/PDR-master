@@ -1,0 +1,57 @@
+﻿label.above {
+    margin-bottom: 0 !important;
+}
+
+label.above span {
+    width: auto !important;
+}
+
+label.above input[type='text'] {
+    width: 310px !important;
+}
+
+fieldset#logoSection {
+    float: left;
+    width:400px;
+}
+
+#logoSection label {
+    width: 400px !important;
+}
+
+#logoSection label>span {
+    width: 50px !important;
+    margin: 10px 0 0 !important;
+}
+
+#upload
+{
+    margin: 5px 0px;
+    border: 1px solid silver;
+    color:#555;
+	width:90px !important;
+	height:30px !important;	
+	line-height:18px !important;	
+	border-radius:8px !important;
+	background:#bbbbbf !important;
+	font-size:14px !important;
+}
+
+#save
+{
+    margin: 10px 0px !important;
+    border: 1px solid silver;
+    color:red;
+	width:120px !important;
+	height:35px !important;	
+	line-height:28px !important;	
+	border-radius:8px !important;
+	background:#bbbbbf !important;
+	font-size:14px !important;    
+}
+
+label.m {
+    color: rgb(253, 82, 0);
+    font-size:14px !important;
+    float: none !important;
+}

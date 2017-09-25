@@ -1,0 +1,275 @@
+﻿input::-webkit-input-placeholder, isindex::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color: white;
+}
+
+.iPadStyle {
+    width: 80px !important;
+    position: relative;
+    right: 20px;
+    top: -2px;
+    margin-bottom: 3px !important;
+}
+
+td[dir=ltr] {
+    width: 55px;
+}
+
+.assignTech .technicians li div.wrapperBlock,
+.technician {
+    width: 200px !important;    
+}
+
+.technician {
+    position: relative;
+    top: -5px;
+    height: 28px !important;
+}
+
+span.totalDentsSel {
+    right: 147px;
+    top: 28px;
+}
+span.averageSel {
+    right: 147px;
+    top: 58px;
+}
+select {
+    -webkit-appearance: none;
+    border-radius: 4px;
+    border: 1px solid lightgray;
+    margin-top: 0px !important;
+    height: 26px;
+    font-size: 12px !important;
+    padding-left: 5px;
+    outline: none !important;
+    background-color: white;
+    
+}
+
+.wrapperBlock span.selectBox-arrow {
+    height: 19px;
+    width: 24px !important;
+    float: right;
+    margin: 5px;
+    background: transparent url('/_cassette/file/Content/css/images/cuselFrameRight_652ebdfa9deb90de83711778f7e966c3bbf82430.png') no-repeat center center;
+    border: none !important;
+    display: block !important;
+    position: absolute;    
+}
+
+#Statuses {
+    width: 120px;
+}
+
+.gridFilter label {
+    float: none;
+}
+
+.ui-pg-selbox {
+    width: 47px !important;
+    height: 28px !important;
+    right: 305px !important;
+    position: relative !important;
+    top: 5px !important;
+}
+
+td#last {
+    margin: 0 6px 0 0 !important;
+}
+
+#UsaStates {
+    width: 85px !important;
+}
+
+#Roles{
+    width: 110px;
+}
+
+#Teams {
+    width: 180px !important;
+}
+
+
+#employeeForm #Role {
+    width: 208px !important;
+    height: 28px;
+    border: 1px solid silver;
+}
+
+#stateUsa {
+    width: 60px;
+    position: relative;
+    top: 3px;
+    height: 28px;
+    border: 1px solid silver;
+}
+
+#Customers,
+#UsaStates,
+#Statuses,
+#Teams,
+#Roles,
+#Team {
+    height: 28px !important;
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+#Customers {
+    width: 177px !important;
+}
+
+#Signature,
+#SupplementsApproved,
+#IsConfirmed {
+    border-radius: 5px !important;
+    -webkit-appearance: checkbox;
+    border: 1px solid black;    
+}
+
+#CarInfo_State,
+#EstimateModel_CarInfo_State,
+#Customer_Retail_State,
+#EstimateModel_Customer_Retail_State {
+    width: 55px !important;
+    margin: 0px !important;
+}
+
+#CarInfo_Type {
+    width: 86px !important;
+}
+
+#Insurance_CompanyNames,
+#EstimateModel_Insurance_CompanyNames {
+    width: 260px !important;
+}
+
+input[type="submit"] {
+    -webkit-appearance: none;
+}
+
+.ui-autocomplete-input {
+    border-radius: 3px !important;
+}
+
+#licenseForm select {
+    border-radius: 5px !important;
+    border: 1px solid silver !important;
+    width: 207px !important;
+    height: 28px !important;
+}
+
+#managers{
+    width: 250px !important;
+    margin-left: 75px !important;
+}
+
+#companyForm {
+    margin-top: 10px;
+}
+
+#companyForm #State {
+    width: 57px;
+    position: relative;
+    top: 1px;
+    height: 28px;
+    border: 1px solid silver;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+#Owners {
+    margin-left: 32px;
+}
+
+#DeviceType {
+    margin-left: 38px;
+}
+
+#GpsFrequencies {
+    margin-left: 16px;
+}
+
+#Status {
+    width: 105px;
+    height: 28px;
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+.ui-multiselect .count {
+    padding: 10px 0 10px 10px;
+}
+
+.connected-list {
+    height: 170px !important;
+}
+
+.ui-multiselect .remove-all {
+    margin-right: 5px;
+    padding: 5px 0 5px 5px;
+}
+
+.links {
+    float: none;
+}
+
+#customerForm {
+    height: 770px !important;
+}
+
+#customerForm fieldset textarea {
+    width: 528px !important;
+}
+
+#customerForm #stateUsa {
+    top: 1px;
+}
+
+.tht-top {
+    margin-top: 55px !important;
+}
+
+.teamActivity {
+    top: 5px;
+}
+
+#team, #Team {
+    width: 180px !important;
+    border: 1px solid silver;    
+}
+
+.images > div span {
+    background-image: url(/content/themes/pdr/images/ui-icons_222222_256x240.png) !important;
+}
+
+#CarMake {
+    width: 250px !important;
+}
+
+#Info_VehicleType {
+    height: 29px;
+}
+#Info_YearFrom, #Info_YearTo {
+    height: 27px !important;
+}
+
+.buttonForCombobox1 {
+    position: absolute !important;
+    top: 48px;
+    left: 490px;
+    width: 16px !important;
+    height: 16px !important;
+    background: #fff !important;
+    border: none;
+    border-radius: 0 !important;
+}
+
+.buttonForCombobox1.ui-state-hover {
+    background: #fff !important;
+}
+.buttonForCombobox1 .ui-icon {
+    background: url("images/cuselFrameRight.png") no-repeat scroll center center transparent !important;
+    left: 37%;
+    margin-top: -7px;
+}

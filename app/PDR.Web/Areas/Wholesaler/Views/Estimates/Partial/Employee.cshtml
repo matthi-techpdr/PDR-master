@@ -1,0 +1,4 @@
+﻿@model PDR.Web.Areas.Wholesaler.Models.EstimateEmployeeModel
+
+ @Html.LabelFor(x => x.EmployeeId, "Assign Estimate To:", new { style = "width:150px;" })
+ @Html.DropDownListFor(x => x.EmployeeId, new SelectList(Model.Employees, "Value", "Text", Model.EmployeeId), new { id = "EmployeeId", @class = "combobox select-employee employeeAndMatrixRequire" })

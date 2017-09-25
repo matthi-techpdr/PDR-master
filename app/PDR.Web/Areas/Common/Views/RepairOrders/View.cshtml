@@ -1,0 +1,8 @@
+﻿@{
+    Layout = "~/Areas/Common/Views/Shared/Partial/RepairOrderViewBase.cshtml";
+}
+           
+@section links
+{
+   @{ Html.RenderPartial("~/Areas/Manager/Views/Shared/OperationLinks.cshtml", typeof(RepairOrdersController)); }
+}

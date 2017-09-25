@@ -1,0 +1,12 @@
+﻿@model IEnumerable<SelectListItem>
+@{
+    ViewBag.CompanyIsActive = "ui-tabs-selected ui-state-active";
+    ViewBag.Title = "Employees";
+    Layout = "~/Areas/Accountant/Views/Shared/_AccountantLayout.cshtml";
+ }
+<script type="text/javascript">
+    $(function () {
+        window.IsAccountant = true;
+    })
+</script>
+@Html.Partial("~/Areas/Common/Views/Employees/IndexBase.cshtml")

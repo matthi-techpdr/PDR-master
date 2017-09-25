@@ -1,0 +1,26 @@
+﻿@using Microsoft.Web.Mvc.Controls
+@using PDR.Web.Areas.Common.Models
+@model FilterModel
+
+@{Bundles.Reference("Content/js/Pages/select-link.js");}
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+<div class="links">
+    @{Html.RenderPartial("~/Areas/Manager/Views/Shared/OperationLinks.cshtml");}
+    @(Html.ActionLink<PDR.Web.Areas.Estimator.Controllers.EstimatesController>(x => x.ArchiveEstimates(null, null, null), "View archive", new { @class = "viewArchive linkWithFilter" }))
+    @{Html.RenderPartial("~/Areas/Common/Views/Shared/Partial/Search.cshtml");}
+    <input id ="arhiveEstimateUrl" type="hidden" value="@Url.Action("ArchiveEstimates", "Estimates")"/>
+    <input id ="EstimateUrl" type="hidden" value="@Url.Action("Index", "Estimates")"/>
+
+    <span class="gridFilter">
+        <label>
+            Filter by teams:
+        </label>
+        @Html.DropDownList("teams", Model.Teams, new { id = "Teams", style="width:141px;" })
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", Model.Customers, new { id = "Customers", style="width:177px;"  })
+    </span>
+</div>
+

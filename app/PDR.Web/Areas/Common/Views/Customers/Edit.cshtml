@@ -1,0 +1,142 @@
+﻿
+@using PDR.Domain.Model.Enums
+@using PDR.Web.Areas.Accountant.Models.Customer
+@model CustomerViewModel
+@{
+    var emails = (string)ViewData["customersEmails"];
+}
+<script src="@Url.Content("~/Content/js/pages/Common/InputMask.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        var logins = "@emails";
+
+        window.afterDialogSetup = function () {
+            $('#Email').data("emails", logins.split(','));
+            $('#Email').addClass('uniqueEmail');
+            PhoneMask("#Phone");
+        };
+    });
+</script>
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "customerForm" }))
+{
+    <fieldset class="popupLeftColumn">
+        @Html.HiddenFor(m => m.Id)
+        <label>
+            <span>Name</span>
+            @Html.TextBoxFor(m => m.Name)
+        </label>
+        <label>
+            <span>Address1</span>
+            @Html.TextBoxFor(m => m.Address1)
+        </label>
+        <label>
+            <span>Address2</span>
+            @Html.TextBoxFor(m => m.Address2)
+        </label>
+        <label>
+            <span>City</span>
+            @Html.TextBoxFor(m => m.City)
+        </label>
+        <label class="a-select editState">
+            <span>State</span>
+            @Html.DropDownList("stateUsa", Model.States)
+        </label>
+        <label class="a-select editZip">
+            <span>ZIP</span>
+            @Html.TextBoxFor(m => m.Zip, new { @class = "saeinput" })
+        </label>
+        <label>
+            <span>Phone</span>
+            @Html.TextBoxFor(m => m.Phone)
+        </label>
+        <label>
+            <span>Fax</span>
+            @Html.TextBoxFor(m => m.Fax)
+        </label>
+        <label>
+            <span>Contact name</span>
+            @Html.TextBoxFor(m => m.ContactName)
+        </label>
+        <label>
+            <span>Contact title</span>
+            @Html.TextBoxFor(m => m.ContactTitle)
+        </label>
+        <label>
+            <span>E-mail 1</span>
+            @Html.TextBoxFor(m => m.Email)
+        </label>
+                <label>
+            <span>E-mail 2</span>
+            @Html.TextBoxFor(m => m.Email2)
+        </label>
+        <label>
+            <span>E-mail 3</span>
+            @Html.TextBoxFor(m => m.Email3)
+        </label>
+        <label>
+            <span>E-mail 4</span>
+            @Html.TextBoxFor(m => m.Email4)
+        </label>
+        <label>
+            <span>Password</span>
+            @Html.TextBoxFor(m => m.Password)
+        </label>
+        <label>
+            <span>Discount</span>
+            @Html.TextBoxFor(m => m.Discount, new { maxlength = 2 })
+        </label>
+        <label>
+            <span>Labor tax rate</span>
+            @Html.TextBoxFor(m => m.LaborRate)
+        </label>
+        <label>
+            <span>Part tax rate</span>
+            @Html.TextBoxFor(m => m.PartRate)
+        </label>
+        <label>
+            <span>Hourly rate</span>
+            @Html.TextBoxFor(m => m.HourlyRate)
+        </label>
+    </fieldset>
+    <fieldset class="popupRightColumn">
+        <div class="cus_info_in" id="acc-ed-checkboxes">
+            <p>
+                @Html.CheckBoxFor(m => m.Insurance)
+                <span>Necessary insurance info</span>
+            </p>
+            <p>
+                @Html.CheckBoxFor(m => m.EstimateSignature)
+                <span>Necessary signature for estimates</span>
+            </p>
+            <p>
+                @Html.CheckBoxFor(m => m.OrderSignature)
+                <span>Necessary signature for RO approval</span>
+            </p>
+            <p>
+                @Html.CheckBoxFor(m => m.WorkByThemselve)
+                <span>Customer perform R&amp;I R&amp;R by themselves</span>
+            </p>
+            @if (ViewBag.CurrentUser.Role == UserRoles.Admin)
+            {
+                <p>
+                    @Html.CheckBoxFor(m => m.CanCreateEstimates)
+                    <span>@Html.LabelFor(m => m.CanCreateEstimates)</span>
+                </p>
+            }
+        </div>
+        <div class="multiselectDiv">
+            <span class="multiselectTitle">Matrices</span>
+            @Html.DropDownList("MatricesIds", Model.MatricesList, new { @class = "multiselect", multiple = "multiple", id = "MatricesList" })
+        </div>
+        <div class="multiselectDiv">
+            <span class="multiselectTitle">Teams</span>
+            @Html.DropDownList("TeamsIds", Model.TeamsList, new { @class = "multiselect", multiple = "multiple", id = "TeamsList" })
+        </div>
+        <label style="margin: 0;">
+            <span style="margin: 0;">Comments</span>
+        </label>
+        <label>
+            @Html.TextAreaFor(m => m.Comment)
+        </label>
+    </fieldset>
+}

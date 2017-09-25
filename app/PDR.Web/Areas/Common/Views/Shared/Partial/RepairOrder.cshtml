@@ -1,0 +1,378 @@
+﻿@using PDR.Domain.Model.Enums
+@using PDR.Web.Areas.Technician.Models
+@using SmartArch.Core.Helpers
+@model RepairOrderModel
+@{
+    this.ViewBag.RepairOrderModel = Model;
+    Bundles.Reference("Content/css/pages/technician/RepairOrders/view-edit.css");
+    Bundles.AddPageData("globals", new { supplements = Model.SupplementModels });
+}
+@{
+    var emailUrl = Html.BuildUrlFromExpression<RepairOrdersController>(x => x.GetEmailDialog(Model.Id.ToString(), false));
+    var printUrl = Html.BuildUrlFromExpression<RepairOrdersController>(x => x.Print(Model.Id.ToString(), false));
+    var setapprove = Html.BuildUrlFromExpression<RepairOrdersController>(x => x.SetApprovedStatus(Model.Id));
+}
+<input type="hidden" value="@emailUrl" class="emailUrl"/>
+<input type="hidden" value="@printUrl" class="printUrl"/>
+<input type="hidden" value="@ViewBag.Id" class="hidden"/>
+<input type="hidden" value="@ViewBag.Title" class="title"/>
+<input type="hidden" value="@Model.Statuses.ToString()" class="statusRO" name="Statuses"/>
+<input type="hidden" value="@setapprove" class="setApprove"/>
+<script type="text/javascript">
+    window.globals.UrlGetDentsCost = '@Url.Action("GetDentsCost", "Estimates")';
+    window.globals.UrlGetEffortHours = '@Url.Action("GetEffortHours", "Estimates")';
+    window.globals.UrlGetWholesaleCustomerData = '@Url.Action("GetWholesaleCustomerData", "Estimates")';
+    window.globals.isReadOnlyMode = @Html.IsReadOnlyMode().ToString().ToLower();
+    var wcWithInsurance = "@ViewBag.WCustomersWithInsurance";
+    $('#Customer_Wholesale_CustomerId').data("checkInsurance", wcWithInsurance.split(','));
+    
+    window.globals.state = '@ViewBag.State';
+    window.globals.hourlyRate = '@ViewBag.HourlyRate';
+    window.globals.maxCorProtect = '@ViewBag.MaxCorProtect';
+    window.globals.laborRate = '@ViewBag.LaborRate';
+    window.globals.discount = '@ViewBag.Discount';
+    window.globals.limit = '@ViewBag.LimitForBodyPart';
+    window.globals.currentAluminium = '@ViewBag.Aluminium';
+    window.globals.currentDoubleMetall = '@ViewBag.DoubleMetall';
+    window.globals.currentOversizedRoof = '@ViewBag.OversizedRoof';
+    window.globals.currentOversizedDents = '@ViewBag.OversizedDents';
+    window.globals.currentCorProtect = '@ViewBag.CorProtectPart';
+    window.globals.currentMaxPercent = '@ViewBag.Maximum';
+    window.globals.currentMatrix = '@ViewBag.Matrix';
+    window.globals.currentWholesaleCustomer = '@ViewBag.WholesaleCustomer';
+    window.globals.newHourlyRate = '@ViewBag.NewHourlyRate';
+    window.globals.currentHourlyRate = '@ViewBag.CurrentHourlyRate';
+    window.globals.isNewHourlyRate = '@ViewBag.IsNewHourlyRate';
+    window.globals.effortHours = '@ViewBag.EffortHours';
+    
+    window.globals.defaultMatrix = '@ViewBag.DefaultMatrix';
+    window.globals.defaultHourlyRate = '@ViewBag.DefaultHourlyRate';    
+    window.globals.defaultMaxCorProtect = '@ViewBag.DefaultMaxCorProtect';
+    window.globals.defaultLimit = '@ViewBag.DefaultLimit';
+    window.globals.defaultAluminium = '@ViewBag.DefaultAluminium';
+    window.globals.defaultDoubleMetall = '@ViewBag.DefaultDoubleMetall';
+    window.globals.defaultOversizedRoof = '@ViewBag.DefaultOversizedRoof';
+    window.globals.defaultOversizedDents = '@ViewBag.DefaultOversizedDents';
+    window.globals.defaultCorProtect = '@ViewBag.DefaultCorProtectPart';
+    window.globals.defaultMaxPercent = '@ViewBag.DefaultMaxPercentPart';
+    window.globals.defaultCar = '@ViewBag.DefaultCar';
+    
+    window.globals.order = '@ViewBag.Order';
+    window.globals.stateOrder = '@ViewBag.StateOrder';
+    window.globals.hasInsurance = '@ViewBag.HasInsurance';
+    //window.globals.workByThemselve = '@ViewBag.WorkByThemselve';
+    
+    window.globals.estimateType = '@Model.EstimateModel.Type';
+    window.globals.EditableStatus = '@Model.EditedStatus.ToString()';
+
+    var viewOnly = $('#viewOnly').length;
+   
+    function CheckStatus() {
+        var status = $('.statusRO').val();
+        var editableStatus = window.globals.EditableStatus;
+        if(status != "Open" && editableStatus != 'Editable') {
+            jAlert("You can not edit '" + status + "' repair order", "Warning!");
+            return false;
+        }
+        if($('a').hasClass('edit'))
+        {
+            var url = $('.edit').attr('href');
+            window.location.assign(url);
+        }
+        return true;
+    }
+    
+    function statusOpenBind() {
+        if (viewOnly) {
+            return;
+        }
+        $('#IsConfirmed').bind('click', function() {
+            var status = $('.statusRO').val();
+            var $isConfirmed = $('#IsConfirmed');
+            
+            if(status == 'Open') {
+                $('.statusRO').val('Completed');
+            }
+            else {
+                $('.statusRO').val('Open');
+            }
+            
+            $isConfirmed.attr('value', $isConfirmed.prop('checked'));
+        });
+
+        $('#SupplementsApproved').bind('click', function() {
+            var status = $('.statusRO').val();
+            var $isConfirmed = $('#IsConfirmed');
+            var $sup = $('#SupplementsApproved');
+            
+            if(status == "Open" ) {
+                $isConfirmed.attr('checked', true);
+                $isConfirmed.attr('value', $isConfirmed.prop('checked'));
+                $sup.attr('value',$sup.prop('checked'));
+                $isConfirmed.attr('disabled', true);
+                $('.statusRO').val('Approved'); 
+            }
+            else if(status == "Completed") {
+                $sup.attr('value',$sup.prop('checked'));
+                $isConfirmed.attr('disabled', true);
+                $('.statusRO').val('Approved');
+            }
+            else {
+                var isConfirmed = $('#IsConfirmed').prop('checked');
+                $isConfirmed.attr('value', isConfirmed);
+                $isConfirmed.attr('disabled', false);
+                $sup.attr('checked', false);
+                $sup.attr('value',$sup.prop('checked'));
+                
+                if(isConfirmed) {
+                    $('.statusRO').val('Completed');
+                }
+                else {
+                    $('.statusRO').val('Open');
+                }
+            }
+        });
+    }
+    
+    function statusCompletedBind() {
+        if (viewOnly) {
+            return;
+        }
+        $('#SupplementsApproved').bind('click', function() {
+            var $sup = $('#SupplementsApproved');
+            var val = $sup.prop('checked');
+            var url = $('.setApprove').val();
+            if(val) {
+                jConfirm("Do you want to confirm the repair order?", "Warning!", function(t) {
+                    if(t) {
+                        $.ajax({
+                            type: 'GET',
+                            cache: false,
+                            url: url,
+                            success: function () {
+                                jAlert("Success", "", function() {
+                                    $('.statusRO').val('Approved');
+                                    $sup.attr('disabled', true);
+                                });
+                            }
+                        });
+                    }
+                    else {
+                        $('.statusRO').val('Completed');
+                    }
+                });
+            }
+            else{
+                $('.statusRO').val('Completed');
+            }
+            $sup.val(val);
+        });
+    }
+
+    function  prepareCheckBoxes() {
+        if (viewOnly) {
+            $('#IsConfirmed').attr('disabled','disabled');
+            $('#SupplementsApproved').attr('disabled','disabled');
+        }
+    }
+
+    $(document).ready(function() {
+        var statusesStart = '@Model.Statuses.ToString()';
+        viewModel.vehicleType('@Model.EstimateModel.CarInfo.Type');
+        viewModel.hasOrderSignature('@ViewBag.HasOrderSignature');
+        viewModel.orderSum(@Model.RepairOrderSumWithoutDiscountAndTax);
+        viewModel.amountEstimatePhoto( @Model.EstimateModel.StoredPhotos.Count );
+        viewModel.amountStoredPhoto( @Model.StoredPhotos.Count );
+        viewModel.additionalDiscount( @Model.AdditionalDiscount );
+        viewModel.discountRetail( @Model.RetailDiscount );
+        viewModel.effortSum(@Model.LaborSum);
+        viewModel.workByThemselve( @Model.WorkByThemselve.ToString().ToLower() );
+        viewModel.isNewHourlyRate( @Model.IsNewHourlyRate.ToString().ToLower() );
+        viewModel.SupplementsSum(@Model.SupplementsSum);
+        viewModel.EstSubtotal(@Model.EstimateModel.Subtotal);
+
+        $('.save').focus();
+        
+        $('.save').bind('focusout', function() {
+            $(this).css("color", "#444447");
+            $('.save').hover(
+                function() {
+                    $(this).css("color", "white");
+                },
+                function() {
+                    $(this).css("color", "#444447");
+                });
+        });
+
+        if(statusesStart == 'Open') {
+            statusOpenBind();
+        }
+        else if(statusesStart == 'Completed') {
+            statusCompletedBind();
+        }
+        else if(statusesStart == 'Approved') {
+            
+        }
+        prepareCheckBoxes()
+
+
+    });
+    
+     function validateForm() {
+         var changeLaborRate = $('.IsNewHourlyRate').is(':checked');
+         if (changeLaborRate) {
+             var newLaborRate = $('#NewHourlyRate').val();
+             if (newLaborRate.length == 0) {
+                 jAlert('Enter value for "New labor rate" or un-check "Change labor rate" check-box', 'Error');
+                 return false;
+             } 
+         }
+         return true;
+     };
+</script>
+
+@{Html.RenderPartialWithPrefixAndState("Partial/OnlyRepairOrder", Model.EstimateModel, Reflector.Property<RepairOrderModel>(x => x.EstimateModel).Name);}
+<div class="footer">
+    @if (RepairOrdersController.IsEdit || ViewBag.IsRITechnician)
+    {
+        if (!ViewBag.IsRITechnician)
+        {
+            <input type="submit" class="save" value="Save Repair Order" style="width: 160px;"/>
+        }
+        <a href="@Url.Action("Index", "RepairOrders")" class="cancel near-save">Cancel</a>
+    }
+    else
+    {
+        if (ViewBag.CurrentUserRole != UserRoles.Wholesaler)
+        {
+            if (Model.EditedStatus == EditedStatuses.Editable)
+            {
+                var editUrl = @Url.Action("Edit", "RepairOrders", new {id = Model.Id});
+                <a href="@editUrl" id ="addSupplements" class="save edit" onclick=" CheckStatus();return false; ">Add Discount / Change Labor Rate</a>
+                var editEstUrl = @Url.Action("Edit", "Estimates", new {id = Model.EstimateId});
+                <a href="@editEstUrl" class="save edit">Edit</a>
+            }
+            else
+            {
+                var editUrl = @Url.Action("Edit", "RepairOrders", new {id = Model.Id});
+                <a href="@editUrl" id ="addSupplements" class="save edit" onclick=" CheckStatus();return false; ">Add Discount / Change Labor Rate</a>
+            }
+        }
+    }
+
+    @if (RepairOrdersController.IsEdit)
+    {
+        Html.ReadOnlyModeOffIgnoreDeep();
+    }
+    
+    @if (!ViewBag.IsRITechnician)
+    {
+        <div>
+              @if (RepairOrdersController.IsEdit)
+              {
+                  if (!Model.SupplementsApproved)
+                  {
+                    <label data-bind="attr:{style: hasOrderSignature() == 'False' ? 'margin: 30px 0 0 15px;' : 'margin: 15px 0 0 15px;'}">           
+                        @if (Model.Statuses == RepairOrderStatuses.Completed)
+                        {
+                            <input type="checkbox" id="IsConfirmed" name="IsConfirmed" checked="checked" value="true"/>
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="IsConfirmed" name="IsConfirmed" value=""/>
+                        }           
+                        <span>Repairs Completed</span>
+                    </label>
+                  }
+                <label data-bind="visible: hasOrderSignature() == 'True'">
+                @if (Model.Statuses == RepairOrderStatuses.Approved)
+                {
+                    <input type="checkbox" id="SupplementsApproved" name="SupplementsApproved" checked="checked" value="true" disabled="disabled"/>
+                }
+                else
+                {
+                    if (Model.SupplementsApproved)
+                    {
+                        <input type="checkbox" id="SupplementsApproved" name="SupplementsApproved" checked="checked" value="true"/>
+                    }
+                    else
+                    {
+                        <input type="checkbox" id="SupplementsApproved" name="SupplementsApproved" value=""/>
+                    }
+                }
+                    <span>Repairs Accepted</span>
+                </label>
+              }
+              else
+              {
+                  if (!Model.SupplementsApproved)
+                  {
+                    <label data-bind="attr:{style: hasOrderSignature() == 'False' ? 'margin: 30px 0 0 15px;' : 'margin: 15px 0 0 15px;'}">
+                         @if (Model.Statuses == RepairOrderStatuses.Completed)
+                         {
+                             <input type="checkbox" id="IsConfirmed" name="IsConfirmed" checked="checked" disabled="disabled" value="true"/>
+                         }
+                         else
+                         {
+                            <input type="checkbox" id="IsConfirmed" name="IsConfirmed" disabled="disabled" value=""/>
+                         }
+                    <span>Repairs Completed</span>
+                    </label>
+                  }
+
+                  switch (Model.Statuses)
+                  {
+                      case RepairOrderStatuses.Finalised:
+                      case RepairOrderStatuses.Approved:
+                       <label data-bind="attr:{style: hasOrderSignature() == 'False' ? 'margin: 15px 0 0 15px;' : 'margin: 30px 0 0 15px;'}, visible: hasOrderSignature() == 'True'">
+                            <input type="checkbox" id="SupplementsApproved" name="SupplementsApproved" checked="checked" disabled="disabled" value="true"/>
+                            <span>Repairs Accepted</span>
+                        </label>
+                          break;
+                      case RepairOrderStatuses.Completed:
+                        <label data-bind="visible: hasOrderSignature() == 'True'">
+                        @if (Model.SupplementsApproved)
+                        {
+                             <input type="checkbox" id="SupplementsApproved" name="SupplementsApproved" checked="checked" value="true"/>                        
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="SupplementsApproved" name="SupplementsApproved" value=""/>
+                        }
+                        <span>Repairs Accepted</span>
+                        </label>
+                        break;
+                      default:
+                        <label data-bind="visible: hasOrderSignature() == 'True'">
+                        @if (Model.SupplementsApproved)
+                        {                        
+                            <input type="checkbox" id="SupplementsApproved" name="SupplementsApproved" checked="checked" disabled="disabled" value="true"/>                        
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="SupplementsApproved" name="SupplementsApproved" disabled="disabled" value=""/>
+                        }
+                        <span>Repairs Accepted</span>
+                        </label>
+                        break;
+                  }
+              }  
+        
+        </div>
+              if (RepairOrdersController.IsEdit)
+              {
+                  Html.ReadOnlyModeOn();
+                  Html.ReadOnlyModeOff();
+              }
+    }
+    
+    @if (!RepairOrdersController.IsEdit)
+    {
+        if (!ViewBag.IsRITechnician)
+        {
+            <a href="javascript:void(0);" class="email">E-mail</a>
+            <a href="javascript:void(0);" class="print">Print</a>
+        }
+    }
+</div>
+

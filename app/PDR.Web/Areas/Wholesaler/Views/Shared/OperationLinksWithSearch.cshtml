@@ -1,0 +1,7 @@
+﻿@{Bundles.Reference("Content/js/Pages/select-link.js");}
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+<div class="links">
+      @{Html.RenderPartial("~/Areas/Wholesaler/Views/Shared/OperationLinks.cshtml");}
+      @{Html.RenderPartial("~/Areas/Common/Views/Shared/Partial/Search.cshtml");}
+    <input id ="EstimateUrl" type="hidden" value="@Url.Action("Index", "Estimates")"/>
+</div>

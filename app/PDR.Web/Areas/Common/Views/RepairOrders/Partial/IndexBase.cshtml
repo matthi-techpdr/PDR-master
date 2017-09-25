@@ -1,0 +1,18 @@
+﻿@using PDR.Web.Areas.Common.Models
+@model FilterModel
+@{
+    this.SetLayout();
+    ViewBag.Title = "RepairOrders";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+}
+ 
+@RenderSection("links")
+
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="repairOrdersGrid">
+        </table>
+        <div id="pager">
+        </div>
+    </div>
+</div>

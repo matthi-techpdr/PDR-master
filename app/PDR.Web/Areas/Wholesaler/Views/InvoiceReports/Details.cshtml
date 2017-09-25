@@ -1,0 +1,21 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Reports
+@model ReportModel
+
+@{
+    ViewBag.ReportsIsActive = "ui-tabs-selected ui-state-active";
+    ViewBag.Title = "Invoice report details";
+    Layout = "~/Areas/Common/Views/Shared/Reports/ReportsDetailsIndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Default/Reports/InitInvoiceReportDetailsGrid.js");
+}
+           
+@section links
+{
+    @{Html.RenderPartial("ReportsDetailsLinksWithFilter");}
+    <input type="hidden" value="@Url.Action("SaveToPdf", "InvoiceReports")" class="urlReport"/>
+}
+
+@section table
+{
+      <table id="invoiceReportInfoGrid">
+      </table>
+}

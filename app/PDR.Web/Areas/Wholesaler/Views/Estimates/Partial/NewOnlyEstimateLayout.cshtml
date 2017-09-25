@@ -1,0 +1,44 @@
+﻿@model PDR.Web.Areas.Wholesaler.Models.WholesalerEstimateModel
+@{
+    Bundles.Reference("Content/js/pages/wholesaler/estimates/partial/viewModel.js");
+    Bundles.Reference("Content/js/pages/wholesaler/estimates/partial/estimate.js");
+    Bundles.AddPageData("globals", new { inspection = Model.CarInspectionsModel });
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/Efforts.js");
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/partsTemp.js");
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/carViewModel.js");
+    Bundles.Reference("Content/js/pages/wholesaler/estimates/partial/insuranceViewModel.js");
+    Bundles.Reference("Content/js/pages/wholesaler/estimates/partial/carInspections.js");
+    Bundles.Reference("Content/js/pages/wholesaler/estimates/partial/estimateViewModel.js");
+}
+
+<div id="accordion">
+    <h3><a href="#">Customer Info - @ViewBag.CurrentUser.Name</a></h3>
+    <div>
+        <fieldset class="fieldset1">
+            <p>Assignment</p>								
+        </fieldset>
+        <fieldset class="fieldset11">
+            <p>Insurance</p>								
+        </fieldset>
+        @{ Html.RenderPartial("Partial/Assignment"); }
+        @{ Html.RenderPartialWithPrefixAndState("Partial/NewInsurance", x => x.Insurance); }
+    </div>
+    <h3><a href="#">Vehicle Info<span data-bind="text: carName"></span></a></h3>
+    <div>
+        @{ Html.RenderPartialWithPrefixAndState("Partial/CarInfo", x => x.CarInfo); }
+    </div>
+    <h3><a href="#">Vehicle Repair Estimate<span data-bind="text: totalView"></span></a></h3>
+    <div>
+        @{ Html.RenderPartialWithPrefixAndState("Partial/AutoParts1", x => x.CarInspectionsModel); }
+        @RenderSection("supplements", required: false)
+    </div>
+
+    <h3><a href="#">Vehicle Photo<span data-bind="text: amountPhotoView"></span></a></h3>
+    <div>
+        <div id="container">
+            @RenderSection("photos")
+        </div>
+    </div>
+</div>
+<input type="hidden" value="@ViewBag.DefaultMatrix" id="matrixId"/>
+@Html.HiddenFor(x => x.IsExistVin, new { id = "IsExistVin" })

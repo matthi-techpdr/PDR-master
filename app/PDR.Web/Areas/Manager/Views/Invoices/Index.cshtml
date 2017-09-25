@@ -1,0 +1,13 @@
+﻿
+@using PDR.Web.Areas.Common.Models
+@model FilterModel
+           
+@{
+    Layout = "~/Areas/Common/Views/Invoices/Partial/InvoiceIndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Manager/Invoices/InitInvoicesGrid.js");
+}           
+
+@section links
+{
+    @{Html.RenderPartial("OperationLinksWithFilterTeamsForInvoices");}
+}

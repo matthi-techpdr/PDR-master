@@ -1,0 +1,66 @@
+﻿@model PDR.Web.Areas.Estimator.Models.Estimates.EstimateModel
+@{
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/setupPrintEmail.js");
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/viewModel.js");
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/estimate.js");
+    Bundles.AddPageData("globals", new { customerType = Model.Customer.CustomerType.ToString() });
+    Bundles.AddPageData("globals", new { inspection = Model.CarInspectionsModel });
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/Efforts.js");
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/retailCustomerInfo.js");
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/partsTemp.js");
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/carViewModel.js");
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/insuranceViewModel.js");
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/carInspections.js");
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/estimateViewModel.js");
+    Bundles.Reference("Content/js/Pages/Accountant/Customer/InitCustomerGrid.js");
+}
+@*@{
+        var emails = (string)TempData["customersEmails"];
+    }
+<script type="text/javascript">
+        alert("Hello2");
+        $(function () {
+            alert('Hello1');
+            var logins = "@emails";
+            alert('Hello');
+            //window.afterDialogSetup = function () {
+                $('#Customer_Retail_Email').data("emails", logins.split(','));
+                $('#Customer_Retail_Email').addClass('uniqueEmail');
+                //PhoneMask("#Phone");
+            //};
+        });
+    </script>*@
+
+<div id="accordion">
+    <h3><a href="#">Customer Info<span data-bind="text: customerName"></span></a></h3>
+    <div>
+        <fieldset class="fieldset1">
+            <p>Customer</p>								
+        </fieldset>
+        <fieldset class="fieldset11">
+            <p>Insurance</p>								
+        </fieldset>
+        @{ Html.RenderPartialWithPrefixAndState("Partial/Customer", x => x.Customer); }
+        @{ Html.RenderPartialWithPrefixAndState("Partial/Insurance", x => x.Insurance); }
+    </div>
+    <h3><a href="#">Vehicle Info<span data-bind="text: carName"></span></a></h3>
+    <div>
+        @{ Html.RenderPartialWithPrefixAndState("Partial/CarInfo", x => x.CarInfo); }
+    </div>
+    <h3><a href="#">Vehicle Repair Estimate<span data-bind="text: totalView"></span></a></h3>
+    <div>
+        @{ Html.RenderPartialWithPrefixAndState("Partial/AutoParts1", x => x.CarInspectionsModel); }
+        @*@{ Html.RenderPartial("Partial/AutoParts");}*@
+
+        @RenderSection("supplements", required: false)
+    </div>
+
+    <h3><a href="#">Vehicle Photo<span data-bind="text: amountPhotoView"></span></a></h3>
+    <div>
+        <div id="container">
+            @RenderSection("photos")
+        </div>
+    </div>
+</div>
+<input type="hidden" value="@ViewBag.DefaultMatrix" id="matrixId"/>
+@Html.HiddenFor(x => x.IsExistVin, new { id = "IsExistVin" })

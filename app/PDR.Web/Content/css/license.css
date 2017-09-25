@@ -1,0 +1,41 @@
+﻿#licensesInfo h4
+{
+    font-size: 13px;
+    color: #555;
+    margin-left: 10px;
+    
+}
+#licensesInfo table
+{
+    width: 382px;
+    border: 1px solid #CCC;
+    border-radius: 7px;
+    position: relative;
+    background: #F9F9FA;
+    float: left;
+    font-size: 13px;
+    color: #555;
+    margin: 5px 0; 
+}
+
+#licensesInfo table tr
+{
+    margin: 5px 0 5px 0;
+    height: 20px;
+}
+
+#licensesInfo table td
+{
+    margin: 5px 0 5px 10px;
+    float: left;
+    width: 100px;
+}
+
+#licensesInfo table td.lcol {
+    margin-left: 15px;
+    width: 100px;
+}
+
+#licensesInfo table td.rcol {    
+    width: 140px;
+}

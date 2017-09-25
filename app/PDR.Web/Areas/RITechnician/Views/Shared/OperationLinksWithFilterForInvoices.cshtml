@@ -1,0 +1,25 @@
+﻿@using PDR.Web.Areas.Common.Models
+@model FilterModel
+
+@{Bundles.Reference("Content/js/Pages/select-link.js");}
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+<div class="links">
+    @{Html.RenderPartial("OperationLinks");}
+    @(Html.ActionLink<PDR.Web.Areas.Technician.Controllers.InvoicesController>(x => x.ArchiveInvoices(null, null, null), "View archive", new { @class = "viewArchive" })) 
+    <div id="comTech" class="comTechClear">
+        <input type="checkbox" id="com" style="left:15px;top:1px;"/>
+        <label id="commission" style="top:-1px;left:20px;"> Show commission</label>
+    </div>
+  
+    <span class="gridFilter gridFilterFullWidth" style="margin-top: 12px;">
+        <label>
+            Statuses:
+        </label>
+        @Html.DropDownList("statuses", (IEnumerable<SelectListItem>)ViewData["statuses"], new { id = "Statuses" })
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", Model.Customers, new { id = "Customers", style = "width:177px;" })
+    </span>
+</div>

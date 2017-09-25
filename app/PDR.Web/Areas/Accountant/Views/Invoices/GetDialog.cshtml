@@ -1,0 +1,24 @@
+﻿@model PDR.Web.Areas.Accountant.Models.Invoice.PaidDialogViewModel
+           
+@using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "paidInvoiceForm "+@Model.InvoiceId }))
+{
+    <fieldset>
+        <input type="hidden" value="@Model.InvoiceId" name="id"/>
+        <label>
+            <p>@Html.DisplayTextFor(m => m.InvoiceMessage)</p>
+        </label>
+        <br/>
+        <label>
+            <span>Payment Flat Fee date:</span>
+            @Html.TextBoxFor(m => m.GetDate, new { id = "PaymentFlatFeeDate_"+@Model.InvoiceId, @readonly = "readonly" })
+            @Html.ValidationMessageFor(m => m.PaymentDate)
+        </label>
+        <br/>
+        <label>
+            <span>Paid total:</span>        
+            @Html.TextBoxFor(m => m.PaidSum, new { id = "PaidSum_"+@Model.InvoiceId })
+            @Html.ValidationMessageFor(m => m.PaidSum)
+        </label>
+    </fieldset>
+}
+

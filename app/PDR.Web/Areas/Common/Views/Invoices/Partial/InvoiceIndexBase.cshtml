@@ -1,0 +1,22 @@
+﻿@using System
+@using PDR.Web.Areas.Common.Models
+@model FilterModel
+@{
+    this.SetLayout();
+    ViewBag.Title = "Invoices";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+}
+@RenderSection("links")
+<script type="text/javascript">
+    window.currentUserRole = '@(Model != null ? Model.CurrentEmployee.Role.ToString() : String.Empty)';
+</script>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="invoicesGrid">
+        </table>
+        <div id="pager">
+        </div>
+        <div id="logInfo">
+        </div>
+    </div>
+</div>

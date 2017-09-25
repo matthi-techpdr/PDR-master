@@ -1,0 +1,53 @@
+﻿@using PDR.Resources.PDR.Domain.Model.Licenses
+@model PDR.Web.Areas.Admin.Models.MobileLicense.MobileLicenseModel
+<script src="@Url.Content("~/Content/js/pages/Common/InputMask.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        window.afterDialogSetup = function () {
+            PhoneMask("#PhoneNumber");
+        };
+    });
+</script>
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "licenseForm" }))
+{
+    <fieldset>            
+            @*<p>  
+            @Html.LabelFor(x => x.LicenseNumber, MobileLicenseInfoRes.LicenseNumber)
+            @Html.TextBoxFor(m => m.LicenseNumber)
+            @Html.ValidationMessageFor(m => m.LicenseNumber)
+            </p>
+            <p>
+            @Html.LabelFor(x => x.DeviceId, MobileLicenseInfoRes.DeviceID)
+            @Html.TextBoxFor(m => m.DeviceId)
+            @Html.ValidationMessageFor(m => m.DeviceId)
+            </p>*@
+            <p>
+            @Html.LabelFor(x => x.DeviceName, MobileLicenseInfoRes.DeviceName)           
+            @Html.TextBoxFor(m => m.DeviceName)
+            @Html.ValidationMessageFor(m => m.DeviceName)
+            </p>
+            <p>
+            @Html.LabelFor(x => x.DeviceType, MobileLicenseInfoRes.DeviceType)           
+            @Html.Inputs().DropDownForEnum(m => m.DeviceType, new { @class = "deviceType", style = "width:200px;" })
+            </p>
+            <p>
+            @Html.LabelFor(x => x.PhoneNumber, MobileLicenseInfoRes.PhoneNumber)           
+            @Html.TextBoxFor(m => m.PhoneNumber)
+            @Html.ValidationMessageFor(m => m.PhoneNumber)
+            </p>
+            <p>
+            @Html.LabelFor(x => x.Employee, MobileLicenseInfoRes.Owner)   
+            @(Model.Edit
+                ? Html.TextBoxFor(m => m.EmployeeName, new {@readonly = "readonly"})
+                : Html.DropDownList("Owners", Model.Employees, new {style = "width:200px;", @class="isChoose"}))
+            @Html.HiddenFor(x => x.Employee)
+            </p>
+            <p>
+            @Html.LabelFor(x => x.GpsFrequency, MobileLicenseInfoRes.GpsFrequency)             
+            @Html.DropDownList("GpsFrequencies", Model.GpsReportFrequencies, new { style = "width:200px;" })
+            </p>
+            @Html.HiddenFor(x => x.Id)
+            @Html.HiddenFor(x => x.Edit)
+   </fieldset>
+    
+}

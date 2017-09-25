@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Areas/Common/Views/Shared/Partial/EstimatesIndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Wholesaler/InitEstimatesGrid.js");
+}           
+
+@section links
+{
+    @{Html.RenderPartial("~/Areas/Wholesaler/Views/Shared/OperationLinksWithSearch.cshtml");}
+    @Html.Hidden("withoutExtraButtons","1")
+    @Html.Hidden("withoutArchive", "1")
+}

@@ -1,0 +1,11 @@
+﻿@using EstimateReportsController = PDR.Web.Areas.Technician.Controllers.EstimateReportsController
+@model dynamic
+
+@{
+    var selectionTypeMarker = Model as Type;
+    Bundles.Reference("Content/js/Pages/select-link.js");
+}
+
+@(Html.ActionLink<EstimateReportsController>(x => x.Index(), "Estimate", new { @class = selectionTypeMarker == typeof(EstimateReportsController) ? "active" : string.Empty }))
+@(Html.ActionLink<RepairOrderReportsController>(x => x.Index(), "Repair orders", new { @class = selectionTypeMarker == typeof(RepairOrderReportsController) ? "active" : string.Empty }))
+@(Html.ActionLink<InvoiceReportsController>(x => x.Index(), "Invoices", new { @class = selectionTypeMarker == typeof(InvoiceReportsController) ? "active" : string.Empty }))

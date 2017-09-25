@@ -1,0 +1,523 @@
+<?xml version="1.0"?>
+<VehicleDefaultModel xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <Id>0</Id>
+  <Make>DefaultCar</Make>
+  <Model>DefaultCar</Model>
+  <YearFrom>1756</YearFrom>
+  <YearTo>1756</YearTo>
+  <Type>Car</Type>
+  <CarParts>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>Hood</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Hood</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Insulator</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Emblem</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Cowl</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Labels</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I xsi:nil="true" />
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>Roof</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Luggage Rack</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Headliner</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Sunroof Frame</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Antenna</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>High Mount Lamp</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Back Glass</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>L Roof Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>R Roof Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>DeckLid</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Trunk Lid</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Trim</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Spoiler</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Handle</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Bumper Cover</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Emblems</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I xsi:nil="true" />
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>RtRoofRail</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems />
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>LtRoofRail</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems />
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>LQuarter</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Rear Lamp</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Glass</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Stripe</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I xsi:nil="true" />
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>LRDoor</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Belt Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Upper Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Applique Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Handle</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Door Trim</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Bodyside Molding</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Stripe</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>LFDoor</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Belt Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Upper Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Applique Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Mirrors</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Handle</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Door Trim</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Bodyside Molding</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Mirror Glass</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Stripe</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>RFender</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Front Lamp</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Stripe</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I xsi:nil="true" />
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>LFender</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Front Lamp</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Stripe</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I xsi:nil="true" />
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>RFDoor</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Belt Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Upper Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Applique Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Mirrors</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Handle</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Door Trim</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Bodyside Molding</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Mirror Glass</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Stripe</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>RRDoor</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Belt Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Upper Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Applique Molding</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Handle</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Door Trim</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Bodyside Molding</Name>
+          <HoursR_R xsi:nil="true" />
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Stripe</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>RQuarter</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Rear Lamp</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Glass</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Stripe</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I xsi:nil="true" />
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>MetalSunroof</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems />
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>FrontBumper</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Front Bumper</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>RearBumper</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Rear Bumper</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>RCabCorner</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems />
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>LCabCorner</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems />
+    </VehicleDefaultSectionModel>
+    <VehicleDefaultSectionModel>
+      <Id>0</Id>
+      <Name>Other</Name>
+      <NewSectionPrice>0</NewSectionPrice>
+      <EffortItems>
+        <VehicleDefaultEffortItemModel>
+          <Id>0</Id>
+          <Name>Cowl</Name>
+          <HoursR_R>0</HoursR_R>
+          <HoursR_I>0</HoursR_I>
+        </VehicleDefaultEffortItemModel>
+      </EffortItems>
+    </VehicleDefaultSectionModel>
+  </CarParts>
+</VehicleDefaultModel>

@@ -1,0 +1,17 @@
+﻿@model IEnumerable<SelectListItem>
+          
+@{
+    this.SetLayout();
+    ViewBag.CompanyIsActive = "ui-tabs-selected ui-state-active";
+    Bundles.Reference("Content/js/Pages/Admin/InitVehiclesGrid.js");
+}
+
+@RenderSection("links")
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="vehiclesGrid">
+        </table>
+        <div id="pager">
+        </div>
+    </div>
+</div>

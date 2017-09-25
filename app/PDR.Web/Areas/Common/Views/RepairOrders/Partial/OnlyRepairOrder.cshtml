@@ -1,0 +1,185 @@
+﻿@using MvcContrib.UI.InputBuilder.Views
+@using PDR.Web.Areas.Estimator.Models.Estimates
+@using PDR.Web.Areas.Technician.Models
+@using PDR.Web.Areas.Technician.Models.RepairOrders
+@using SmartArch.Core.Helpers
+@model EstimateModel
+           
+@{
+    Layout = "~/Areas/Common/Views/Shared/Partial/OnlyEstimateLayout.cshtml";
+    var repairOrderModel = RepairOrdersController.Model;
+
+    if (Html.IsReadOnlyMode())
+    {
+        Bundles.Reference("Content/js/pages/technician/RepairOrders/supplements.js");
+    }
+}
+
+@section photos
+{
+    @{
+        var isEditMode = !Html.IsReadOnlyMode();
+
+        Bundles.Reference("Content/css/prettyPhoto.css");
+        Bundles.Reference("Content/css/pages/estimator/estimates/partial/photo.css");
+
+        Bundles.Reference("Content/js/pages/estimator/estimates/partial/photo.js");
+        Bundles.Reference("Content/js/pages/common/changeLaborRate.js");
+        if (isEditMode)
+        {
+            Bundles.Reference("Content/js/pages/estimator/estimates/partial/photo-uploader.js");
+        }
+    }
+    <p class="images-header">Estimates photo:</p>
+    <div id="estimate-files" class="images gallery">
+        @{ string collectionName = Reflector.Property<IPhotoContainer>(x => x.StoredPhotos).Name; }
+        @for (int i = 0; i < repairOrderModel.EstimateModel.StoredPhotos.Count(); i++)
+        {
+            var model = new { Index = i, Image = repairOrderModel.EstimateModel.StoredPhotos[i], IsEditMode = false, CollectionName = collectionName }.ToExpando();
+            var prefix = Reflector.Property<RepairOrderModel>(x => x.EstimateModel).Name;
+            Html.RenderPartialWithPrefixAndState("Partial/Photo", model, prefix);
+        }
+    </div>
+    @if (RepairOrdersController.IsEdit)
+    {
+        Html.ReadOnlyModeOffIgnoreDeep();
+    }
+    <p class="images-header additional">Additional photos:</p>
+    <div class="images-container">
+        @{Html.RenderPartial("Partial/Photos", repairOrderModel);}
+    </div>
+    @if (RepairOrdersController.IsEdit)
+    {
+        Html.ReadOnlyModeOnIgnoreDeep();
+    }
+}
+
+@section supplements
+{
+    @{ var generalReadOnly = Html.IsReadOnlyMode(); }
+    
+    @if (RepairOrdersController.IsEdit)
+    {
+        Html.ReadOnlyModeOffIgnoreDeep();
+    }
+
+    <script type="text/javascript">
+        @{
+            // get template for item from partial view
+            var viewData = new ViewDataDictionary(this.ViewData) { { "index", 0 } };
+            viewData.TemplateInfo.HtmlFieldPrefix = string.Empty;
+            var partial = Html.Partial("Partial/Supplement", new RepairOrderModel { SupplementModels = { new SupplementModel() } }, new ViewDataDictionary(this.ViewData) { { "index", 0 } }).ToHtmlString();
+            // remove CR and LF
+            var template = partial.Replace("\r", string.Empty).Replace("\n", string.Empty).Trim();
+        }
+        window.repairOrderSupplementTemplate = '@Html.Raw(template)';
+    </script>
+
+    <div class="all">
+        <ul class="repair-orders-supplements">
+            @for (int index = 0; index < repairOrderModel.SupplementModels.Count; index++)
+            {
+                viewData["index"] = index;
+                Html.RenderPartial("Partial/Supplement", repairOrderModel, viewData);
+            }
+
+            @if (RepairOrdersController.IsEdit)
+            {
+                <li>
+                    <div class="new" title="Add supplement">
+                        <span class="ui-icon ui-icon-plusthick"></span>
+                    </div>
+                    <input type="hidden" value="@repairOrderModel.SupplementModels.Count" class="indexSupplements"/>
+                    <input id="NewDescription" name="BaseDescription" class="description notEmptyFieldSupplement maxLengthDescription" type="text"/>
+                    <span class="dollarSupplements symb">$</span>
+                    <input id="NewSum" name="BaseSum" class="sum changeSum" type="text"/>
+                </li>
+            }
+        </ul>
+    </div>
+    <div class="all repair-order-summury">
+        <div class="main-part">
+            <ul>
+                <li style="margin-bottom:25px;">
+                    @if (RepairOrdersController.IsEdit)
+                    {
+                        <input type="checkbox" class="WorkByThemselve" data-bind="checked: workByThemselve, visible: customerType() != 'Retail'" name="WorkByThemselve"/>
+                    }
+                    else
+                    {
+                        <input type="checkbox" class="WorkByThemselve" data-bind="checked: workByThemselve, visible: customerType() != 'Retail'" disabled="disabled" name="WorkByThemselve"/>
+                    }
+                    <label data-bind="visible: customerType() != 'Retail'">Customer perform R&amp;I R&amp;R by themselves</label>
+                </li>
+                <li style="margin-bottom:10px;">
+                    <label data-bind="visible: customerType() == 'Retail'" style="margin-right: 49px;">Discount retail customer:</label>
+                    @if (RepairOrdersController.IsEdit)
+                    {
+                        @Html.TextBox("RetailDiscount", repairOrderModel.RetailDiscount, new { data_bind = "value: discountRetail, valueUpdate: 'afterkeyup', visible: customerType() == 'Retail'", @class = "LessThen" });
+                    }
+                    else
+                    {
+                        @Html.TextBox("RetailDiscount", repairOrderModel.RetailDiscount, new { data_bind = "value: discountRetail, valueUpdate: 'afterkeyup', visible: customerType() == 'Retail'", @readonly = "readonly", @class = "LessThen" });
+                    }
+                    <span data-bind="visible: customerType() == 'Retail'">%</span>                
+                </li>
+                <li>
+                    <label style="margin-right: 70px;">Additional discount:</label>
+                    <span>$</span>
+                    @if (RepairOrdersController.IsEdit)
+                    {
+                        @Html.TextBox("AdditionalDiscount", repairOrderModel.AdditionalDiscount, new { data_bind = "value: additionalDiscount, valueUpdate: 'afterkeyup'", @class = "AddDiscountCannotMoreThenSumRO" });
+                    }
+                    else
+                    {
+                        @Html.TextBox("AdditionalDiscount", repairOrderModel.AdditionalDiscount, new { data_bind = "value: additionalDiscount, valueUpdate: 'afterkeyup'", @readonly = "readonly", @class = "AddDiscountCannotMoreThenSumRO" });
+                    }            
+                </li>
+            </ul>
+        </div>
+        @if (RepairOrdersController.IsEdit)
+        {
+            
+            var isNewLaborRate = repairOrderModel.NewHourlyRate != null;
+            var visible = "display: " + (isNewLaborRate ? "list-item" : "none");
+            var check = isNewLaborRate ? "checked=\"checked\"" : "";
+            <input id = 'pageIsAlreadyLoaded' type="hidden" value="false"/>
+
+            <div class="laborRate">
+                <ul>
+                    <li>
+                        <input type="checkbox" class="IsNewHourlyRate" data-bind="checked: isNewHourlyRate" name="IsNewHourlyRate"/>
+
+                        @*                        <input type="checkbox" class="changeLaborRate" name="changeLaborRate" @check/> *@  
+                        <label>Change labor rate</label>
+                    </li>
+                    <li class="laborRates" style="@visible">
+                        <label>Current labor rate:</label>
+                        @Html.TextBox("CurrentHourlyRate", repairOrderModel.CurrentHourlyRate, new { data_bind = "value: currentHourlyRate, valueUpdate: 'afterkeyup'", @readonly = "readonly", @class = "LessThen", disabled = "disabled" })
+                    </li>
+                    <li class="laborRates" style="@visible">
+                        <label>New labor rate:</label>
+                        @Html.TextBox("NewHourlyRate", repairOrderModel.NewHourlyRate, new { data_bind = "value: newHourlyRate, valueUpdate: 'afterkeyup'", @class = "LessThen" })
+                    </li>
+                </ul>
+            </div>
+        }
+        <div class="total-sum">
+            <span class="titleRO">Total repair order sum:</span>
+            @Html.Hidden(Reflector.Property<RepairOrderModel>(x => x.GrandTotal).Name, repairOrderModel.GrandTotal, new { disabled = "disabled" })    
+            <span data-bind="text: grandTotalView" class="grandTotal"></span>        
+        </div>
+    </div>
+    
+    @if (RepairOrdersController.IsEdit)
+    {
+        if (generalReadOnly)
+        {
+            Html.ReadOnlyModeOn();
+        }
+        else
+        {
+            Html.ReadOnlyModeOff();
+        }
+    }
+         }

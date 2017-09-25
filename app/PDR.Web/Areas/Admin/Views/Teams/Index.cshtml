@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.Title = "Teams";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    ViewBag.CompanyIsActive = "ui-tabs-selected ui-state-active";
+}
+
+<div class="links">
+    @{Html.RenderPartial("CompanyLinks");}
+</div>
+
+@Html.Partial("~/Areas/Common/Views/Teams/IndexBase.cshtml")

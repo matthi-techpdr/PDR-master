@@ -1,0 +1,75 @@
+﻿@using PDR.Web.Areas.Admin.Models.Vehicle
+@model VehicleSectionsModel
+
+<fieldset id="vehicleSections" class="fieldset4">
+    <div id="tabsSections">
+        <ul>  @*style="border:1px solid #666666"*@
+        @for (var i = 0; i < Model.Sections.Count; i++)
+        {
+            var count = i + 1;
+            <li class="tabsSections-@count"><a href="#tabsSections-@count" class="sectionVehicle fontVehicle">@Model.Sections[i].FullName</a></li>
+        }
+        </ul>
+        @for (var i = 0; i < Model.Sections.Count; i++)
+        {
+            var section = Model.Sections[i];
+            var count = i + 1;
+            <div id="tabsSections-@count" class="tabsVehicle">
+                <ul style="width: 400px; margin-left:30px;">
+                <li class="lineEffortVehicle" style="height: 40px;"><span>@Model.Sections[i].FullName</span></li>
+                <li class="lineEffortVehicle" style="height: 80px;">
+                    @Html.HiddenFor(x => x.Sections[i].Id)
+                    @Html.HiddenFor(x => x.Sections[i].Name)
+                    <span class="operation priceOperation">
+                        @Html.LabelFor(x => x.Sections[i].Price, "New section price", new{@class="fontVehicle priceLabel"})
+                        @Html.Inputs().TextBoxFor(x => x.Sections[i].Price, new { @class = "priceVehicle" })
+                    </span>
+                    <span class="symbdollar">$</span>
+                </li>
+                @for(var y = 0; y < section.EffortItems.Count; y++)
+                {
+                    var effort = section.EffortItems[y];
+                    
+                    <li class="lineEffortVehicle effort">
+                        @Html.HiddenFor(x => x.Sections[i].EffortItems[y].Id)
+                        <span class="effortVehicle fontVehicle operation">@effort.Name</span>
+                        @Html.HiddenFor(x => x.Sections[i].EffortItems[y].Name)
+                        @Html.HiddenFor(x => x.Sections[i].EffortItems[y].HasR_I)
+                        @Html.HiddenFor(x => x.Sections[i].EffortItems[y].HasR_R)
+                        <span class="operation">
+                            @if (effort.HasR_I)
+                            {
+                                <span class="effortVehicle fontVehicle">R&amp;I</span>
+                                @Html.Inputs().TextBoxFor(x => x.Sections[i].EffortItems[y].HoursR_I, new { @class = "operationR" })
+                                <span class="effortVehicle fontVehicle">hrs</span>
+                            }
+                        </span>
+                        @if (effort.HasR_I)
+                        {
+                        <span class="operation">
+                            @if (effort.HasR_R)
+                            {
+                                <span class="effortVehicle fontVehicle">R&amp;R</span>
+                                @Html.Inputs().TextBoxFor(x => x.Sections[i].EffortItems[y].HoursR_R, new { @class = "operationR" })
+                                <span class="effortVehicle fontVehicle">hrs</span>
+                            }
+                        </span>
+                        }
+                        else
+                        {
+                           <span class="operation" style="margin-left:160px;">
+                            @if (effort.HasR_R)
+                            {
+                                <span class="effortVehicle fontVehicle">R&amp;R</span>
+                                @Html.Inputs().TextBoxFor(x => x.Sections[i].EffortItems[y].HoursR_R, new { @class = "operationR" })
+                                <span class="effortVehicle fontVehicle">hrs</span>
+                            }
+                        </span> 
+                        }
+                    </li>
+                }
+                </ul>
+            </div>
+        }        
+    </div>
+</fieldset>

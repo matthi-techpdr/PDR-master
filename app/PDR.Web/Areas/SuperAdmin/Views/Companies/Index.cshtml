@@ -1,0 +1,46 @@
+﻿@using PDR.Resources.Web.Area.Superadmin.Company
+@model IEnumerable<SelectListItem>
+<script type="text/javascript">
+    var companyNameColumnTitle = '@Company.CompanyName';
+    var phoneColumnTitle = '@Company.Phone';
+    var emailColumnTitle = '@Company.Email';
+    var stateColumnTitle = '@Company.State';
+    var dateColumnTitle = '@Company.Date';
+    var addressColumnTitle = '@Company.Address';
+</script>
+@{
+    ViewBag.Title = "Companies";
+    Layout = "~/Areas/Default/Views/Shared/_DefaultLayout.cshtml";
+    
+    Bundles.Reference("Content/js/plugins/jquery.form.js");
+    Bundles.Reference("Content/js/plugins/jqgrid/jquery.jqGrid.entity.js");
+    Bundles.Reference("Content/js/plugins/jqgrid/jquery.jqGrid.initializer.js");
+    Bundles.Reference("Content/js/Pages/Superadmin/InitCompanyGrid.js");
+    Bundles.Reference("Content/js/Pages/ValidateAjaxForm.js");
+    
+    Bundles.Reference("Content/css/admin_orders.css");
+    Bundles.Reference("Content/css/select.css");
+    Bundles.Reference("Content/css/tabs.css");
+    Bundles.Reference("Content/css/pages/superadmin/companies/EditCompany.css");
+}
+<div id="tabs" class="ui-tabs">
+    <ul class="ui-tabs-nav">
+        <li class="ui-tabs-selected ui-state-active">@Html.ActionLink("Companies", "Index", "Companies")</li>
+        <li class="ui-state-default ui-corner-top">@Html.ActionLink("ManageDownload", "Index", "ManageDownload")</li>
+        <li class="ui-state-default ui-corner-top"><a href="@(Url.RouteUrl(new { area = "Default", controller = "Account", action = "LogOut" }))">Logout</a></li>
+    </ul>
+    <div id="tabs-1" class="ui-tabs-panel">
+        <div class="repair-orders-content">
+            <span class="gridFilter">
+                <label>@Company.FilterCaption</label>
+                @Html.DropDownList("states", Model, new { id = "UsaStates" })
+            </span>
+            <table id="companyGrid">
+            </table>
+            <div id="pager">
+            </div>
+        </div>
+        <div id="companyInfo">
+        </div>
+    </div>
+</div>

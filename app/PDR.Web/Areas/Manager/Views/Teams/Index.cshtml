@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "Teams";
+    Layout = "~/Areas/Manager/Views/Shared/_ManagerLayout.cshtml";
+    ViewBag.CompanyIsActive = "ui-tabs-selected ui-state-active";
+}
+
+<div class="links">
+    @{Html.RenderPartial("CompanyLinks");}
+</div>
+
+@*@Html.Partial("~/Areas/Common/Views/Teams/IndexBase.cshtml")*@
+
+@{
+    Bundles.Reference("Content/js/Pages/Manager/InitTeamGrid.js");
+}  
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="teamGrid">
+        </table>
+        <div id="pager">
+        </div>
+        <div id="teamInfo">
+        </div>
+    </div>
+</div>

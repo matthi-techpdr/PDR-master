@@ -1,0 +1,9 @@
+﻿@model dynamic
+
+@{
+    var selectionTypeMarker = Model as Type;
+    Bundles.Reference("Content/js/Pages/select-link.js");
+}
+
+@(Html.ActionLink<PDR.Web.Areas.Admin.Controllers.VehiclesController>(x => x.Index(), "Vehilces", new { @class = selectionTypeMarker == typeof(PDR.Web.Areas.Estimator.Controllers.EstimatesController) ? "active" : string.Empty }))
+@(Html.ActionLink<PDR.Web.Areas.Admin.Controllers.VehiclesController>(x => x.New(), "Add Vehicle", new { @class = selectionTypeMarker == typeof(PDR.Web.Areas.Estimator.Controllers.EstimatesController) ? "active" : string.Empty }))

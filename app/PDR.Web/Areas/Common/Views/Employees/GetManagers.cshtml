@@ -1,0 +1,9 @@
+﻿@model IEnumerable<SelectListItem>
+        
+@Html.Hidden("empId", this.ViewData["empId"])   
+<div style="text-align: center;">
+    <p style="margin-bottom:15px;font-size:14px;color:#555; ">        
+        Re-assign employee's activities to:</p>
+        @Html.DropDownList("managers", Model,new{style="width:85%;"})
+</div>
+

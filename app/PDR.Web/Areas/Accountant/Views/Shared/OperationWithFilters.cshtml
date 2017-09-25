@@ -1,0 +1,43 @@
+﻿@model IEnumerable<SelectListItem>
+@using InvoicesController = PDR.Web.Areas.Accountant.Controllers.InvoicesController
+ 
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+<div class="links linksAccountant">
+    @(Html.ActionLink<InvoicesController>(x => x.Index(null, null, null, true), "Invoices"))
+    @(Html.ActionLink<InvoicesController>(x => x.DiscardedInvoices(null, null, null), "Discarded"))
+    <div id="comTech" class="comTechMargin">
+        <input type="checkbox" id="com" class="operationIE" />
+        <label id="commission" class="commissionIE" >Show commission</label>    
+    </div>
+
+    @{Html.RenderPartial("~/Areas/Common/Views/Shared/Partial/Search.cshtml");}
+    <div class="dateFilterAccountant">
+        <label style="margin-left: 10px;">
+            From:</label>
+        <input type="text" id="from" class="date-filter" autocomplete="off" />
+        <label>
+            To:</label>
+        <input type="text" id="to" class="date-filter" autocomplete="off"/>
+        <br/>
+       <span class="gridFilter filterStatusAccountant">
+            <label>
+                Status:
+            </label>
+            @Html.DropDownList("status", (IEnumerable<SelectListItem>)ViewData["statuses"], new { id = "Statuses", style="width:100px;" })
+        </span>
+    </div>
+    <span class="gridFilter filterAccountant">
+        <label>
+            Customer:
+        </label>
+        @Html.DropDownList("customers", (IEnumerable<SelectListItem>)ViewData["customers"], new { id = "Customers", style="width:177px;" })
+    </span>
+    <span class="gridFilter gridFilterTeamsAccountant">
+        <label style="text-align: right; width: 110px;">
+            Team:
+        </label>
+        @Html.DropDownList("teams", (IEnumerable<SelectListItem>)ViewData["teams"], new { id = "Teams", style="width:177px;" })
+    </span>
+  
+
+</div>

@@ -1,0 +1,22 @@
+﻿@model dynamic
+           
+@{
+    var img = Model.Image;
+    var index = Model.Index;
+    var isEditMode = Model.IsEditMode;
+    
+    var onclickHandler = isEditMode ? "onclick=removeImage(this);" : string.Empty;
+    var viewModeCss = isEditMode ? string.Empty : "pdr-delete-hide";
+    var prefix = string.IsNullOrEmpty(this.ViewContext.ViewData.TemplateInfo.HtmlFieldPrefix) ? string.Empty : this.ViewContext.ViewData.TemplateInfo.HtmlFieldPrefix + ".";
+    string collectionName = prefix + Model.CollectionName;
+}
+
+<div file-id="@img.Id">
+    <a href="@img.FullSizeUrl" rel="prettyPhoto"><img src="@img.ThumbnailUrl" width="60" height="60" /></a>
+    <span class="ui-icon ui-icon-trash @viewModeCss" @onclickHandler></span>
+    <input type="hidden" name="@(collectionName)[@index].Id" value="@img.Id" />
+    <input type="hidden" name="@(collectionName)[@index].FullSizeUrl" value="@img.FullSizeUrl" />
+    <input type="hidden" name="@(collectionName)[@index].ThumbnailUrl" value="@img.ThumbnailUrl" />
+    <input type="hidden" name="@(collectionName)[@index].ContentType" value="@img.ContentType" />
+</div>
+

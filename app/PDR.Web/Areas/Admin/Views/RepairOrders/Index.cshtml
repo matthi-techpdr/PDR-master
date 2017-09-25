@@ -1,0 +1,16 @@
+﻿@using PDR.Web.Areas.Common.Models
+@model FilterModel
+           
+@{
+    Layout = "~/Areas/Common/Views/RepairOrders/Partial/IndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Manager/InitRepairOrderGrid.js");
+    Bundles.Reference("Content/js/pages/manager/RepairOrders/assignTechnicians.js");
+    Bundles.Reference("Content/css/pages/manager/repairorders/assigntechnicians.css");
+}
+       
+@section links
+{
+    @{Html.RenderPartial("~/Areas/Manager/Views/Shared/OperationLinksWithFilterTeams.cshtml");}
+
+    <input type="hidden" value="@Url.Action("DefineParticipation", "RepairOrders")" class="defineParticipation"/>
+}

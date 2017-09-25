@@ -1,0 +1,51 @@
+﻿@using PDR.Web.Areas.Admin.Models.Vehicle
+@model VehicleInfoModel
+
+<fieldset id="carinfo" class="fieldset4 vechicleInfo">
+    @if (Model.Make.ToLower() == "DefaultCar".ToLower())
+    {
+        Html.ReadOnlyModeOn();
+        Bundles.AddPageData("globals", new { isReadOnlyMode = @Html.IsReadOnlyMode().ToString().ToLower() });
+    }
+    else
+    {
+        Bundles.AddPageData("globals", new { isReadOnlyMode = @Html.IsReadOnlyMode().ToString().ToLower() });
+    }
+    @Html.HiddenFor(x => x.Id)
+    <ul>
+	    <li style="width:140px;">
+            @Html.LabelFor(model => model.YearFrom, "From", new { style = "width:42px;" })
+            @(Model.Make.ToLower() == "DefaultCar".ToLower()
+                ? Html.Inputs().TextBoxFor(x => x.YearFrom, new {maxlength = 4, style = "height: 26px;margin: 0pt 5px 0pt 0pt; width: 60px;overflow:hidden;text-align:center;color:white;"})
+                : Html.Inputs().TextBoxFor(x => x.YearFrom, new { maxlength = 4, style = "height: 26px;margin: 0pt 5px 0pt 0pt; width: 60px;overflow:hidden;text-align:center;", @class = "isNotGretterCurrentYear" }))
+            <span style="font-size: 10px; color: #E25E53; position: absolute; top:70px; left:90px;">included</span>
+        </li>
+	    <li style="width:120px;">
+            @Html.LabelFor(x => x.YearTo, "To", new { style = "width:22px;" })
+            @(Model.Make.ToLower() == "DefaultCar".ToLower()
+                ? @Html.Inputs().TextBoxFor(x => x.YearTo, new { maxlength = 4, style = "height: 26px;margin: 0pt 5px 0pt 0pt; width: 60px;overflow:hidden;text-align:center;color:white;" })
+                : @Html.Inputs().TextBoxFor(x => x.YearTo, new { maxlength = 4, style = "height: 26px;margin: 0pt 5px 0pt 0pt; width: 60px;overflow:hidden;text-align:center;", @class = "yearToNotMustGretterThenYearFrom" }))
+            <span style="font-size: 10px; color: #E25E53; position: absolute; top:70px; left:210px;">included</span>
+        </li>
+        <li style="width:230px;">
+            @Html.LabelFor(x => x.Make, "Make", new { style = "width:42px;" })
+            @Html.DropDownList("Makes", Model.AllMakeNames, new { @class = "combobox", style = "margin: 0pt 5px 0pt 0pt; width: 150px;overflow:hidden;" })
+            @*@Html.Inputs().TextBoxFor(x => x.Make, new { style = "margin: 0pt 5px 0pt 0pt; width: 150px;overflow:hidden;" })*@
+	    </li>
+	    <li style="width:245px;">
+            @Html.LabelFor(x => x.Model, "Model", new { style = "width:46px;" })
+            @Html.Inputs().TextBoxFor(x => x.Model, new { style = "height: 26px;margin: 0pt 5px 0pt 0pt; width: 160px;overflow:hidden;" })
+	    </li>
+        <li style="width:180px;height:26px;">
+            @Html.LabelFor(x => x.Model, "VehicleType", new { style = "width:82px;" })
+            @(Html.IsReadOnlyMode()
+                ? Html.DropDownList("VehicleType", Model.VehicleTypes, new { style = "width: 72px; margin: 0 0px 0 0;", disabled = "disabled" })
+                : Html.DropDownList("VehicleType", Model.VehicleTypes, new { style = "width: 72px; margin: 0 0px 0 0;" }))
+	    </li>		
+    </ul>
+    <input type="hidden" id="urlUniqueVehicle" value="@Url.Action("UniqueVehicle", "Vehicles")"/>
+    @if (Model.Make.ToLower() == "DefaultCar".ToLower())
+    {
+        Html.ReadOnlyModeOff();
+    }
+</fieldset>

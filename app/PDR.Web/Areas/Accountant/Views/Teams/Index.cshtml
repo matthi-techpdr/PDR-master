@@ -1,0 +1,11 @@
+﻿@{
+    ViewBag.CompanyIsActive = "ui-tabs-selected ui-state-active";
+    ViewBag.Title = "Teams";
+    Layout = "~/Areas/Accountant/Views/Shared/_AccountantLayout.cshtml";
+}
+<div class="links">
+@(Html.ActionLink<EmployeesController>(x => x.Index(), "Employees"))
+<a href="#" class="active">Teams</a>
+</div>
+
+@Html.Partial("~/Areas/Common/Views/Teams/IndexBase.cshtml")

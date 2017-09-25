@@ -1,0 +1,92 @@
+﻿
+@using PDR.Web.Areas.Accountant.Models.Customer
+@model AffiliatesViewModel
+@{ 
+    var emails = (string)ViewData["customersEmails"];
+}
+<script src="@Url.Content("~/Content/js/pages/Common/InputMask.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    $(function () {
+        var logins = "@emails";
+
+        window.afterDialogSetup = function () {
+            $('#Email').data("emails", logins.split(','));
+            $('#Email').addClass('uniqueEmail');
+            PhoneMask("#Phone");
+        };
+    });
+</script>
+@using (Html.BeginForm("CreateAffiliates", "Location", FormMethod.Post, new { id = "customerForm"}))
+{
+    <fieldset class="popupLeftColumn">
+        @Html.HiddenFor(m => m.Id)
+        <label>
+            <span>Name</span>
+            @Html.TextBoxFor(m => m.Name)
+        </label>
+        <label>
+            <span>Address1</span>
+            @Html.TextBoxFor(m => m.Address1)
+        </label>
+        <label>
+            <span>Address2</span>
+            @Html.TextBoxFor(m => m.Address2)
+        </label>
+        <label>
+            <span>City</span>
+            @Html.TextBoxFor(m => m.City)
+        </label>
+        <label class="a-select editState">
+            <span>State</span>
+            @Html.DropDownList("stateUsa", Model.States)
+        </label>
+        <label class="a-select editZip">
+            <span>ZIP</span>
+            @Html.TextBoxFor(m => m.Zip, new { @class = "saeinput" })
+        </label>
+        <label>
+            <span>Phone</span>
+            @Html.TextBoxFor(m => m.Phone)
+        </label>
+        <label>
+            <span>Fax</span>
+            @Html.TextBoxFor(m => m.Fax)
+        </label>
+        <label>
+            <span>Contact name</span>
+            @Html.TextBoxFor(m => m.ContactName)
+        </label>
+        <label>
+            <span>Contact title</span>
+            @Html.TextBoxFor(m => m.ContactTitle)
+        </label>
+        <label>
+            <span>E-mail</span>
+            @Html.TextBoxFor(m => m.Email)
+        </label>
+        <label>
+            <span>Labor tax rate</span>
+            @Html.TextBoxFor(m => m.LaborRate)
+        </label>
+        <label>
+            <span>Part tax rate</span>
+            @Html.TextBoxFor(m => m.PartRate)
+        </label>
+        <label>
+            <span>Hourly rate</span>
+            @Html.TextBoxFor(m => m.HourlyRate)
+        </label>
+    </fieldset>
+    <fieldset id = "popupRightColumnAffiliates" class="popupRightColumn">
+        <div class="multiselectDiv">
+            <span class="multiselectTitle">Teams</span>
+            @Html.DropDownList("TeamsIds", Model.TeamsList, new { @class = "multiselect", multiple = "multiple", id = "TeamsList" })
+        </div>
+        <label style="margin: 0;">
+            <span style="margin: 0;">Comments</span>
+        </label>
+        <label>
+            @Html.TextAreaFor(m => m.Comment)
+        </label>
+    </fieldset>
+}

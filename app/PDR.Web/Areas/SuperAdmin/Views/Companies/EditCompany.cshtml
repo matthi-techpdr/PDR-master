@@ -1,0 +1,82 @@
+﻿@using PDR.Resources.Web.Area.Superadmin.Company
+@using PDR.Web.Areas.SuperAdmin.Models
+@model CompanyViewModel
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "companyForm" }))
+{
+    @Html.HiddenFor(m => m.Id)
+
+    <fieldset class="popupLeftColumn">
+        <label>
+            <span>@Company.CompanyName</span>
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </label>
+        <label>
+            <span>@Company.Address1</span>
+            @Html.TextBoxFor(m => m.Address1)
+            @Html.ValidationMessageFor(m => m.Address1)
+        </label>
+        <label>
+            <span>@Company.Address2</span>
+            @Html.TextBoxFor(m => m.Address2)
+            @Html.ValidationMessageFor(m => m.Address2)
+        </label>
+        <label class="a-select editState company-state">
+            <span>@Company.State</span>
+            @Html.DropDownListFor(m => m.State, Model.States)
+        </label>
+        <label class="company-city">
+            <span>@Company.City</span>
+            @Html.TextBoxFor(m => m.City)
+            @Html.ValidationMessageFor(m => m.City)
+        </label>
+        <label class="a-select editZip company-zip">
+            <span>@Company.ZIP</span>
+            @Html.TextBoxFor(m => m.Zip, new { @class = "saeinput" })
+            @Html.ValidationMessageFor(m => m.Zip)</label>
+        <label>
+            <span>@Company.ContactPerson</span>
+            @Html.TextBoxFor(m => m.AdminName)
+            @Html.ValidationMessageFor(m => m.AdminName)
+        </label>
+        <label>
+            <span>@Company.Phone</span>
+            @Html.TextBoxFor(m => m.PhoneNumber)
+            @Html.ValidationMessageFor(m => m.PhoneNumber)
+        </label>
+        <label>
+            <span>@Company.Email</span>
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)</label>
+        <label>
+            <span>@Company.Url</span>
+            @Html.TextBoxFor(m => m.Url)
+            @Html.ValidationMessageFor(m => m.Url)
+        </label>
+    </fieldset>
+    
+    <fieldset class="popupRightColumn">
+        <label>
+            <span>@Company.AdminUsername</span>
+            @Html.TextBoxFor(m => m.AdminLogin)
+            @Html.ValidationMessageFor(m => m.AdminLogin)</label>
+        <label class="withLongName">
+            <span>@Company.MobileLicensesNumber</span>
+            @Html.TextBoxFor(m => m.MobileLicensesNumber)
+            @Html.ValidationMessageFor(m => m.MobileLicensesNumber)
+        </label>
+        <label class="withLongName">
+            <span>@Company.ActiveEmployeesNumber</span>
+            @Html.TextBoxFor(m => m.ActiveUsersNumber)
+            @Html.ValidationMessageFor(m => m.ActiveUsersNumber)
+        </label>
+        <label class="company-comments">
+            <span>@Company.Comments</span>
+            @Html.TextAreaFor(m => m.Comment)
+            @Html.ValidationMessageFor(m => m.Comment)</label>
+    </fieldset>
+    
+    <script type="text/javascript">
+           QtipInitializer.errorsCount = @ViewData.ModelState.Select(e => e.Value.Errors.Count()).Sum();
+    </script>
+}

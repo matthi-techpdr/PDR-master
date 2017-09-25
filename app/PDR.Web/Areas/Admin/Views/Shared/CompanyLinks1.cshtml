@@ -1,0 +1,12 @@
+﻿@using PDR.Web.Areas.Admin.Controllers
+@model int
+
+<div class="links" style="margin-bottom: 16px;">
+    <a href="#">Employees</a>
+     <a href="#">Teams</a>
+      <a href="#">Mobile Licenses</a>
+    @(Html.ActionLink<MatrixesController>(x => x.Index(), "Price Matrixes"))
+    <a href="#">Cars</a>
+    @(Html.ActionLink<CompanyInfoController>(x => x.Index(), "Company Info"))
+</div>
+ 

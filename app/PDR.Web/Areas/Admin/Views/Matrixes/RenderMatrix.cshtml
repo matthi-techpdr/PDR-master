@@ -1,0 +1,105 @@
+﻿
+@using PDR.Domain.Model.Enums
+@using PDR.Web.Areas.Admin.Models.Matrix
+@using System.Linq
+@model MatrixModel
+<script type="text/javascript">
+    $(function () {
+        InitUploader();
+    })
+</script>
+@{
+    var titleList = new string[10]
+                   {
+                       "Very light [1..5]",
+                       "light [6..15]",
+                       "moderate [16..30]",
+                       "Medium [31..50]",
+                       "Heavy [51..75]",
+                       "Severe [76..100]",
+                       "Extreme [101..150]",
+                       "limit [151..200]",
+                       "ceiling [201..250]",
+                       "max [251..300]"
+                   };
+    var i = 0;
+    var bodyParts = Enum.GetValues(typeof(PartOfBody)).Cast<int>().Except(new[]{17,18}).Select(x => ((PartOfBody)x).ToString());
+}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "m_form" }))
+{
+@Html.HiddenFor(x => x.Id)
+<div class="matrix-head">
+    <label>Name</label>@Html.TextBoxFor(x => x.Name)
+    <label>
+        Description</label>@Html.TextBoxFor(x => x.Description, new { style = "width:495px;" })
+</div>
+<div class="dt_d">
+    <span class="title_d">@Html.DisplayFor(x => x.Name)</span> <span class="as"></span>
+    @foreach (var part in bodyParts)
+    {
+        <span>@part</span>
+    }
+</div>
+foreach (var c in Model.Columns)
+{
+    string zebraClass = i % 2 == 0 ? "dt_d otr" : "dt_d otr o_c";
+    <div class="@zebraClass">
+        <span class="title_d">@titleList[i]</span> <span class="title_dd_t"><span>Dime</span>
+            <span>nkl</span> <span>Qtr</span><span class="last">Half</span></span>
+        @foreach (var r in c.Prices)
+        {
+            <span>
+                @foreach (var p in r)
+                {
+                    if (r.Last().Key == p.Key)
+                    {
+                    <span pid="@p.Key" class="last m_price" >
+                         <input data-val="true" data-val-number="The field must be a number." data-val-required="Cost should not be empty." class="valid" type="text" value="@p.Value" /></span>
+                    }
+                    else
+                    {
+                    <span pid="@p.Key" class="m_price" >
+                        <input data-val="true" data-val-number="The field must be a number." data-val-required="Cost should not be empty." class="valid" type="text" value="@p.Value"/></span>
+                    }
+                }
+            </span>
+        }</div>
+        i++;
+        if (i == 5)
+        {
+    <div class="dt_d">
+        <span class="title_d"></span><span class="as"></span>
+        @foreach (var part in bodyParts)
+        {
+            <span>@part</span>
+        }
+    </div> 
+        }
+}
+
+
+
+<div class="repair-orders-button">
+    <div class="buttons-main">
+        <a href="javascript:void(0);" id="import" style="background: #C1C1C4;">Import from XLS</a> <a href="# " style="background: #C1C1C4;"
+            onclick="SaveMatrix();">Save</a> <a href="#" onclick="CloseMatrix();" style="background: #C1C1C4;">
+                Cancel</a>
+    </div>
+    <div class="u-ccoore-block">
+        <div class="block-m-l">
+            <p>Up-change:</p>
+            <span class="block-m-l-tt">Aluminum panel</span>@Html.TextBoxFor(x => x.AluminumPanel)<span>%</span>
+            <span class="block-m-l-tt">SUV(oversized roof)</span>@Html.TextBoxFor(x => x.Suv)<span>%</span>
+            <span class="block-m-l-tt">Double layered panels</span>@Html.TextBoxFor(x => x.DoubleLayeredPanels)<span>%</span>
+            <span class="block-m-l-tt">Maximum</span>@Html.TextBoxFor(x => x.Max)<span>%</span>
+        </div>
+        <div class="block-m-r">
+            <p>
+                Corrosion protection:</p>
+            <span class="block-m-l-tt">Per body part</span><span>$</span>@Html.TextBoxFor(x => x.PerBodyPart)
+            <span class="block-m-l-tt">Per whole car</span><span>$</span>@Html.TextBoxFor(x => x.PerWholeCar)
+            <span class="block-m-l-tt">Oversized dents</span><span>$</span>@Html.TextBoxFor(x => x.OversizedDents)
+        </div>
+    </div>
+</div>
+}

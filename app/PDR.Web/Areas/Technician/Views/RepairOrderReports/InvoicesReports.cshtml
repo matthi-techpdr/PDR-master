@@ -1,0 +1,49 @@
+﻿@using ReportsController = PDR.Web.Areas.Technician.Controllers.ReportsController
+@model IList<SelectListItem>
+@{
+    ViewBag.ReportsIsActive = "ui-tabs-selected ui-state-active";
+    ViewBag.Title = "Reports";
+    Bundles.Reference("Content/js/Pages/Technician/InitInvoiceReportsGrid.js");
+    Layout = "~/Areas/Technician/Views/Shared/_TechnicianLayout.cshtml";
+}
+
+<div class="links">
+    @(Html.ActionLink<ReportsController>(x => x.EstimatesReports(), "Estimates")) 
+    @(Html.ActionLink<ReportsController>(x => x.Index(), "Repair orders"))
+    <a href="javascript:void();" class="active">Invoices</a>
+    <span class="gridFilter">
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", Model, new { id = "Customers" })
+    </span>
+    <input type="checkbox" id="com"/><label id="commission"> Show commission</label>
+    <label style="margin-left: 10px;">
+        From:</label>
+    <input type="text" id="from" class="date-filter" />
+    <label>
+        To:</label>
+    <input type="text" id="to" class="date-filter" />
+</div>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="invoiceReportsGrid">
+        </table>
+        <div id="pager">
+        </div>
+        <div id="savedReports">
+            <label>
+                Report title:
+            </label>
+            @Html.TextBox("ReportTitle")
+            <div id="accordione">
+                <h3>
+                    <a href="javascript:void();">List of saved reports</a></h3>
+                <div>
+                    @{ Html.RenderAction("GetSavedInvoiceReports", "Reports"); }                       
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "~/Areas/Common/Views/Invoices/Partial/InvoiceIndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Wholesaler/InitInvoicesGrid.js");
+    Bundles.Reference("Content/js/Pages/Wholesaler/OperationsGridFormation.js");
+}         
+
+@section links
+{
+    @{Html.RenderPartial("~/Areas/Wholesaler/Views/Shared/OperationLinksWithSearch.cshtml");}
+}

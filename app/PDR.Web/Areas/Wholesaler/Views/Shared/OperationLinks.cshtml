@@ -1,0 +1,13 @@
+﻿@using PDR.Domain.Wrappers
+@model dynamic
+    @{
+        var selectionTypeMarker = Model as Type;
+        Bundles.Reference("Content/js/Pages/select-link.js");
+    }
+    @(Html.ActionLink<PDR.Web.Areas.Wholesaler.Controllers.EstimatesController>(x => x.Index(null, null, null, false), "Estimates", new { @class = (selectionTypeMarker == typeof(PDR.Web.Areas.Manager.Controllers.EstimatesController) ? "active" : string.Empty) + "linkWithFilter" }))
+    @(Html.ActionLink<PDR.Web.Areas.Wholesaler.Controllers.RepairOrdersController>(x => x.Index(null, null, null, false), "Repair orders", new { @class = (selectionTypeMarker == typeof(PDR.Web.Areas.Manager.Controllers.RepairOrdersController) ? "active" : string.Empty) + "linkWithFilter" }))
+    @(Html.ActionLink<PDR.Web.Areas.Wholesaler.Controllers.InvoicesController>(x => x.Index(null, null, null, false), "Invoices", new { @class = selectionTypeMarker == typeof(PDR.Web.Areas.Manager.Controllers.InvoicesController) ? "active" : string.Empty + "linkWithFilter" }))
+    @if (WholesalerTabWrapper.IsAddEstimateTabAvaliable)
+    {
+        @(Html.ActionLink<PDR.Web.Areas.Wholesaler.Controllers.EstimatesController>(x => x.New(), "Add Estimate", new { @class = "addEstimate" }))
+    }

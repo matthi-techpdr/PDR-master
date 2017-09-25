@@ -1,0 +1,24 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Reports
+@model ReportModel
+@{
+    this.SetLayout();
+    ViewBag.ReportsIsActive = "ui-tabs-selected ui-state-active";
+}
+
+@{
+    var str = Model.TeamId.HasValue ? Model.TeamId.Value.ToString() : @"All teams";
+}
+
+@RenderSection("links")
+@Html.HiddenFor(x=>x.Commission)
+@Html.HiddenFor(x=>x.Id)
+@Html.HiddenFor(x=>x.CustomerId, new { id = "Customers" })
+<input type="hidden" id="CurrentTeams" value="@str"/>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        @RenderSection("table")
+        <div id="pager">
+        </div>
+    </div>
+</div>
+

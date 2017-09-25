@@ -1,0 +1,74 @@
+﻿@using PDR.Resources.PDR.Domain.Model
+@using PDR.Web.Core.Helpers.Html
+@using PDR.Web.Areas.Estimator.Models.Estimates
+@model CarInfoModel
+@{
+    Bundles.Reference("Content/css/pages/estimator/estimates/partial/retail-customer.css");
+    if (this.Request.Browser.Browser == "IE")
+    {
+        Bundles.Reference("Content/js/pages/estimator/estimates/partial/retail-customer-ie-fix.js");
+    }
+}
+
+<fieldset id="carinfo" class="fieldset4">
+    <ul>
+        @if (Model.Id.HasValue)
+        {
+            @Html.HiddenFor(x => x.Id, new { @class = "carId" })
+        }
+        <li style="width:240px;">
+            @Html.LabelFor(model => model.VIN, CarInfoRes.VinCode, new { style = "width:39px;" })
+            @Html.Inputs().TextBoxFor(x => x.VIN, new { @class = "estimate-car-info-vin", maxlength = 17, style = "margin: 0pt 12px 0pt 0pt; width: 160px;overflow:hidden;", data_bind = "value:$root.carInfo().vin, valueUpdate: 'afterkeyup'" })
+        </li>
+        <li style="width:150px;">
+            @Html.LabelFor(x => x.Year, CarInfoRes.Year, new { style = "width:42px;" })
+            @Html.Inputs().TextBoxFor(x => x.Year, new { @class = "estimate-car-info-year isNotGretterCurrentYear", style = "margin: 0pt 12px 0pt 0pt; width: 70px;overflow:hidden;", data_bind = "value:$root.carInfo().year, valueUpdate: 'afterkeyup'" })
+        </li>
+        <li style="width:250px;">
+            @Html.LabelFor(x => x.Make, CarInfoRes.Make, new { style = "width:42px;" })
+            @Html.Inputs().TextBoxFor(x => x.Make, new { @class = "estimate-car-info-make", style = "margin: 0pt 12px 0pt 0pt; width: 170px;overflow:hidden;", data_bind = "value:$root.carInfo().make, valueUpdate: 'afterkeyup'" })
+        </li>
+        <li style="width:275px;">
+            @Html.LabelFor(x => x.Model, CarInfoRes.Model, new { style = "width:46px;" })
+            @Html.Inputs().TextBoxFor(x => x.Model, new { @class = "estimate-car-info-model", style = "margin: 0pt 12px 0pt 0pt; width: 190px;overflow:hidden;", data_bind = "value:$root.carInfo().model, valueUpdate: 'afterkeyup'" })
+        </li>        							
+        <li style="width:240px;">
+            @Html.LabelFor(x => x.Trim, CarInfoRes.Trim, new { style = "width:39px;" })
+            @Html.Inputs().TextBoxFor(x => x.Trim, new { style = "margin: 0pt 12px 0pt 0pt; width:160px;overflow:hidden;" })
+        </li>
+        <li style="width:150px;height:26px;">
+            @Html.LabelFor(x => x.Model, CarInfoRes.Type, new { style = "width:42px;" })
+            @(Html.IsReadOnlyMode()
+                  ? Html.DropDownList("Type", Model.VehicleTypes, new { style = "width: 72px; margin: 0 0px 0 0;", disabled = "disabled" })
+                  : Html.DropDownList("Type", Model.VehicleTypes, new Dictionary<string, object>{ {"style", "width: 72px; margin: 0 0px 0 0;"}, {"data-bind", "value: vehicleType"} }))
+        </li>		
+        <li style="width:250px;">
+            @Html.LabelFor(x => x.Mileage, CarInfoRes.Mileage, new { style = "width:42px;" })
+            @Html.Inputs().TextBoxFor(x => x.Mileage, new { style = "margin: 0pt 12px 0pt 0pt; width: 170px;overflow:hidden;" })
+        </li>        						
+        <li style="width:275px;">
+            @Html.LabelFor(x => x.Color, CarInfoRes.Color, new { style = "width:46px;" })
+            @Html.Inputs().TextBoxFor(x => x.Color, new { style = "margin: 0pt 12px 0pt 0pt; width: 190px;overflow:hidden;" })
+        </li>
+        <li style="width:240px;">
+            @Html.LabelFor(x => x.LicensePlate, CarInfoRes.LicensePlate, new { style = "width:100px;" })
+            @Html.Inputs().TextBoxFor(x => x.LicensePlate, new { style = "width: 99px; margin:0;overflow:hidden;" })
+        </li>
+        <li style="width:128px;height:26px;">
+            @Html.LabelFor(x => x.State, CarInfoRes.State, new { @class = "state", style = "width:42px;"  })
+            @(Html.IsReadOnlyMode()
+                  ? Html.DropDownList("State", Model.States, new { style = "width: 44px; margin: 0 16px 0 0;", disabled = "disabled" })
+                  : Html.DropDownList("State", Model.States, new { style = "width: 44px; margin: 0 16px 0 0;" }))
+        </li>
+        <li style="width:272px;">
+            @Html.LabelFor(x => x.CustRO, CarInfoRes.CustRO, new { style = "width: 64px;" })
+            @Html.Inputs().TextBoxFor(x => x.CustRO, new { style = "width: 170px; margin:0 10px 0 0;overflow:hidden;" })
+        </li>
+        <li style="width:275px;">
+            @Html.LabelFor(x => x.Stock, CarInfoRes.Stock, new { style = "width: 58px;" })
+            @Html.Inputs().TextBoxFor(x => x.Stock, new { @class = "bigi1", style = "width: 178px;overflow:hidden;" })
+        </li>
+    </ul>
+</fieldset>
+<input type="hidden" id="url1" value="@Url.Action("GetVINDecode", "Estimates")"/>
+

@@ -1,0 +1,79 @@
+﻿#filelist {
+    clear: both;
+}
+    
+.file > span {
+    display: inline-block;
+}
+    
+.file p {
+    margin: 2px;
+    position: relative;
+    padding: 4px 0;
+    cursor: pointer;
+    list-style: none;
+    display: inline-block;
+    border: 1px solid lightGrey;
+    background-color: buttonface;
+    font-weight: normal;
+    color: #555;
+}
+    
+.file-info
+{
+    border: 1px solid #DDD;
+    padding: 4px 6px;
+    margin-top: 4px;
+    border-radius: 3px;
+    color: #555;
+    font-size: 14px;
+    width: 400px;
+    cursor: default;
+    color: #555;
+}
+    
+.images > div {
+    float: left;
+}
+    
+.images span.ui-icon {
+    display: block;
+    float: left;
+    margin-bottom: 45px;
+    cursor: pointer;
+    background-image: none;
+}
+
+.images span.pdr-delete-hide,
+.images > div:hover span.pdr-delete-hide {
+    cursor: default;
+    background-image: none;
+}
+    
+.images > div:hover span {
+    background-image: url(/content/themes/pdr/images/ui-icons_222222_256x240.png);
+}
+
+.images a
+{
+    display: block;
+    float: left;
+}
+
+p.images-header {
+    color: #555;
+    font-size: 18px;
+}
+
+p.images-header.additional {
+    clear: both;
+}
+
+.photo-uploader-message {
+font-size: 18px;
+color: #E25E53;
+}
+
+.file .ui-icon-trash {
+    cursor: pointer !important;
+}

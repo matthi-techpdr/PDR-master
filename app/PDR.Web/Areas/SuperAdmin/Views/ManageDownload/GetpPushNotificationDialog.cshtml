@@ -1,0 +1,17 @@
+﻿@model PDR.Web.Areas.SuperAdmin.Models.SendPushNotificationViewModel
+@using (Html.BeginForm(null, null, FormMethod.Post, new {id ="sendEmailForm" , style = "height: 325px;" })) 
+{
+    <fieldset>
+        <label>
+            <span>Message text:</span>
+        </label>
+        <br/>
+        <label>            
+            @Html.TextAreaFor(m => m.Message, new { id = "sendPushNotificationArea", style = "maxlength='250' " })
+            @Html.ValidationMessageFor(m => m.Message)
+        </label>
+    </fieldset>
+}
+<input type="hidden" id="urlEmail" value="@Url.Action("SendPushNotification", "ManageDownload")"/>
+
+@*id = "sendPushNotificationForm"*@

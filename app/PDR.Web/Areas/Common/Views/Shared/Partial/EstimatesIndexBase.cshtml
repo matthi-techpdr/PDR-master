@@ -1,0 +1,22 @@
+﻿@using PDR.Web.Areas.Common.Models
+@model FilterModel
+          
+@{
+    this.SetLayout();
+    ViewBag.Title = "Estimates"; 
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+    Bundles.Reference("Content/js/Pages/Common/Estimates/InitEstimatesGrid.js");
+}
+
+
+@RenderSection("links")
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="estimatesGrid">
+        </table>
+        <div id="pager">
+        </div>
+        <div id="estimatesInfo">
+        </div>
+    </div>
+</div>

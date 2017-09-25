@@ -1,0 +1,204 @@
+﻿@using EstimateController = PDR.Web.Areas.Estimator.Controllers.EstimatesController
+@model PDR.Web.Areas.Wholesaler.Models.WholesalerEstimateModel
+
+@{ Html.RenderPartial("Partial/NewOnlyEstimate"); }
+@{
+    var emailUrl = Html.BuildUrlFromExpression<EstimateController>(x => x.GetEmailDialog(Model.Id.ToString(), false));
+    var printUrl = Html.BuildUrlFromExpression<EstimateController>(x => x.PrintEstimates(Model.Id.ToString(), false));
+}
+<input type="hidden" value="@emailUrl" class="emailUrl"/>
+<input type="hidden" value="@printUrl" class="printUrl"/>
+<input type="hidden" value="@ViewBag.Title" class="title"/>
+<input type="hidden" value="@Model.Status.ToString()" class="statusEstimate" name="Status"/>
+
+<script type="text/javascript">
+    window.globals.UrlGetDentsCost = '@Url.Action("GetDentsCost", "Estimates")';
+    window.globals.UrlGetEffortHours = '@Url.Action("GetEffortHours", "Estimates")';
+    window.globals.UrlGetMatrixData = '@Url.Action("GetMatrixData", "Estimates")';
+    window.globals.UrlIndexEstimate = '@Url.Action("Index", "Estimates")';
+
+    window.globals.limit = '@ViewBag.LimitForBodyPart';
+    window.globals.defaultMatrix = '@ViewBag.DefaultMatrix';  
+    window.globals.defaultMaxCorProtect = '@ViewBag.DefaultMaxCorProtect';
+    window.globals.defaultLimit = '@ViewBag.DefaultLimit';
+    window.globals.defaultAluminium = '@ViewBag.DefaultAluminium';
+    window.globals.defaultDoubleMetall = '@ViewBag.DefaultDoubleMetall';
+    window.globals.defaultOversizedRoof = '@ViewBag.DefaultOversizedRoof';
+    window.globals.defaultOversizedDents = '@ViewBag.DefaultOversizedDents';
+    window.globals.defaultCorProtect = '@ViewBag.DefaultCorProtectPart';
+    window.globals.defaultMaxPercent = '@ViewBag.DefaultMaxPercentPart';
+    window.globals.defaultCar = '@ViewBag.DefaultCar';
+    
+    window.globals.currentCustomer =  @Html.Raw(Json.Encode(Model.WholesaleCustomer));
+    window.globals.estimateType = '@Model.Type';
+
+    function CheckApproveStatus() {
+        var status = $('.statusEstimate').val();
+        if (status == "Approved" || status == "Converted") {
+            jAlert(status + " estimates are not editable", "Warning!");
+            return false;
+        }
+        
+        if($('a').hasClass('edit'))
+        {
+            var path = $('.editUrl').val();
+            window.location.assign(path);
+        }
+        return true;
+    }
+    
+    
+    function DisabledCompanyName() {
+        var $input = $('input[name="Insurance.CompanyName"]');
+        if (window.globals.currentCustomer.Insurance == "False") {
+            $input.attr('disabled', 'disabled');
+        }
+        else {
+            $input.removeAttr('disabled');
+        }
+    }
+
+    $(document).ready(function() {
+        viewModel.vehicleType('@Model.CarInfo.Type');
+        viewModel.hasEstimateSignature('@Model.WholesaleCustomer.EstimateSignature');
+        viewModel.total( '@Model.TotalAmount' );
+        viewModel.totalEstimate('@Model.TotalAmount');
+        viewModel.amountStoredPhoto('@Model.StoredPhotos.Count()');
+
+        $('#0').addClass('active');
+
+        $('.save').focus();
+        $('.save').bind('focusout', function() {
+            $(this).css("color", "#444447");
+            $('.save').hover(
+                function() {
+                    $(this).css("color", "white");
+                },
+                function () {
+                    $(this).css("color", "#444447");
+                });
+        });
+        
+        $(".saveEstimate").bind("click", function(e) {
+            var form = $('.estimateForm');
+            $('input[type=submit]', form).attr('disabled', 'disabled');
+            $('.cancel', form).attr('disabled', 'disabled');
+            e.preventDefault();
+            e.stopPropagation();
+
+            var atleast = false;
+            var val = $('.atleast');
+            var matrix = $('#Customer_MatrixId').val();
+            var employee = $('#EmployeeId').val();
+
+            if(matrix == null || matrix == '0') {
+                jAlert('Please, select a matrix for estimation. If that is not possible, contact your administrator.', 'Warning!', function () {
+                    $('input[type=submit]', form).removeAttr('disabled');
+                    $('.cancel', form).removeAttr('disabled');
+                });
+                return false;
+            }
+
+            if (employee == null || employee == '0') {
+                jAlert('Please, select an employee. If that is not possible, contact your administrator.', 'Warning!', function () {
+                    $('input[type=submit]', form).removeAttr('disabled');
+                    $('.cancel', form).removeAttr('disabled');
+                });
+                return false;
+            }
+            var $statusEstimate = $('.statusEstimate');
+            var signature = $('#Signature').prop('checked');
+
+            var status = $statusEstimate.val();
+            $('#accordion').multiAccordion({active: 'all' });
+            
+            for(var i = 0, len = val.length; i < len; i++) {
+                if($(val[i]).val() == 'true') {
+                    atleast = true;
+                    break;
+                }
+            }
+
+            DisabledCompanyName();
+            
+            var sum = viewModel.carInspection().totalCarInspectionLines();
+            var value = parseFloat(sum);
+            var total = isNaN(value) ? 0 : value;
+           
+            $.validator.unobtrusive.parse(document);
+            form.validate();
+
+            var noLocation = false;
+            var location = $('.notSelectedLocation').val();
+            if (location == '0' || location == null) {
+                $('.notSelectedLocation').css("border-color", "red");
+                noLocation = true;
+            }
+
+            if(!form.valid()) {
+                $('input[type=submit]', form).removeAttr('disabled');
+                $('.cancel', form).removeAttr('disabled');
+                $('.footer input.save').css('color', '#ed1c24').focus();
+                return false; 
+            }
+            
+            if(total > 0 || atleast) {
+                $('.typeEstimate').val('Normal');
+            }
+
+            var isEditable = $('input[type=hidden].editable').val();
+
+            if (isEditable) {
+                form.submit();
+            }
+
+            if(status == "Open" ) {
+                if(total > 0 ||atleast) {
+                    jCustomConfirm("Estimate is completed?", null, function(r) {
+                        if(r) {
+                            $statusEstimate.val(signature ? 'Approved' : 'Completed');
+                        }
+                        else {
+                            $('#Signature').attr('checked', false);
+                        }
+                        form.submit();
+                    }, "Yes", "No");
+                }
+                else {
+                    $('#Signature').attr('checked', false);
+                    form.submit();
+                }
+            }
+            else if(status == "Completed") {
+                if(!(total > 0) && !atleast) {
+                    $statusEstimate.val('Open');
+                    $('#Signature').attr('checked', false);
+                }
+                else {
+                    if(signature) {
+                        $statusEstimate.val('Approved');
+                    }
+                }
+                form.submit();
+            }
+        });
+    });
+</script>
+<div class="footer">
+    @{
+        var url = Url.Action("Index", "Estimates");
+        var text = "Save estimate";
+    }
+    <input type="submit" class="save saveEstimate" value="@text"/>
+    <a href="@url" class="cancel near-save">Cancel</a>
+    
+    <div data-bind="visible: hasEstimateSignature() == 'True'">
+        <label class="@this.GetExecutingActionName().ToLower() == 'view' ? 'view': 'edit'">
+            @(Html.Inputs().CheckBoxFor(x => x.Signature))            
+            <span>Customer's signature is received on printed estimate</span>        
+        </label>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,15 @@
+﻿@using PDR.Resources.Web.Area.Superadmin.Company
+@model IEnumerable<SelectListItem>
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+           
+<div class="links">
+    <span class="gridFilter">
+                @if (ViewBag.Teams != null)
+                {
+                        <label>Filter by teams:</label>
+        @Html.DropDownList("team", ViewBag.Teams as IEnumerable<SelectListItem>, new { id = "team" })
+                }
+        <label>@Company.FilterCaption</label>
+        @Html.DropDownList("states", Model, new { id = "UsaStates" })
+    </span>
+</div>

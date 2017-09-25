@@ -1,0 +1,56 @@
+﻿.page {
+    width: 100% !important;
+    padding-bottom: 0px !important;
+    min-height: 0px !important;
+    overflow: hidden !important;
+}
+
+#dowloadButttonMobile {
+border: 1px solid silver;
+height: 78px !important;
+line-height: 20px !important;
+border-radius: 8px !important;
+background: #bbbbbf !important;
+font-size: 25px !important;
+margin: 20% 10px 0 10px;
+text-align:center;
+}
+
+#donloadLinkIdMobile 
+{
+   color: black;
+   display: inline-block; 
+   width: 98%;
+   height: 100%;
+   padding: 0 2px;
+}
+
+a:hover
+{ 
+    color: white;
+}
+
+a:default {
+    color: black;
+}
+
+#logOutDiv {
+border: 1px solid silver;
+height: 50px !important;
+line-height: 28px !important;
+border-radius: 8px 8px 0px 0px !important;
+background: #bbbbbf !important;
+font-size: 25px !important;
+padding-top: 5px;
+padding-right: 10px;
+margin: 35px 5px 0 5px;
+text-align:center;
+}
+
+#logOutLink {
+    color: black;
+    display: inline-block; 
+    width: 100%; 
+    height: 100%;
+    padding-left: 5px;
+}

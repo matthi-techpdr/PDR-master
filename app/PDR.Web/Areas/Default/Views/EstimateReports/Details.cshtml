@@ -1,0 +1,32 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Reports
+@model ReportModel
+@{
+    ViewBag.Title = "Estimate report details";
+    Bundles.Reference("Content/js/Pages/Default/Reports/InitEstimateReportDetailsGrid.js");
+}
+
+<div class="links">
+    @Html.Hidden("reportId", Model.Id)
+    <a href="javascript:void(0);" class="active">@Html.DisplayFor(x => x.Title)</a> <span
+        class="gridFilter">
+        <label>
+            Filter by customers:
+        </label>
+        @Html.TextBoxFor(x=>x.CustomerName, new { id = "Customers", @readonly = "readonly" })
+    </span>
+    <label style="margin-left: 10px;">
+        From:</label>
+    <input type="text" id="from" class="date-filter" value="@Model.StartDate" readonly="readonly" />
+    <label>
+        To:</label>
+    <input type="text" id="to" class="date-filter" value="@Model.EndDate" readonly="readonly" />
+</div>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="estimateReportInfoGrid">
+        </table>
+        <div id="pager">
+        </div>
+    </div>
+</div>
+

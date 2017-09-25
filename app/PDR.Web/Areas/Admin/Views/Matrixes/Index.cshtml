@@ -1,0 +1,18 @@
+﻿@using MvcContrib.Pagination
+@using PDR.Web.Areas.Admin.Models.Matrix
+@model IPagination<MatrixListModel>
+@{
+    ViewBag.CompanyIsActive = "ui-tabs-selected ui-state-active";
+    ViewBag.Title = "Price matrices";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    Bundles.Reference("Content/js/pages/Admin/Matrixes.js");
+    Bundles.Reference("Content/css/pages/admin/tht.css");
+    Bundles.Reference("Content/js/plugins/jqgrid/jquery.jqGrid.entity.js");
+    }
+
+
+<div class="links" style="margin-bottom: 16px;">
+    @{Html.RenderPartial("CompanyLinks");}
+</div>
+@Html.Partial("MatrixList",Model)
+<div class="main-tt"></div>

@@ -1,0 +1,17 @@
+﻿@model dynamic
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+<div class="links">
+    <span class="gridFilter">
+        <label>
+            Filter by roles:
+        </label>
+        @Html.DropDownList("roles", (IEnumerable<SelectListItem>)Model.Roles, new { id = "Roles" })
+    </span>
+        <span class="gridFilter">
+        <label>
+            Filter by teams:
+        </label>
+        @Html.DropDownList("teams", (IEnumerable<SelectListItem>)Model.Teams, new { id = "Teams", style="width: 137px;" })
+    </span>
+</div>

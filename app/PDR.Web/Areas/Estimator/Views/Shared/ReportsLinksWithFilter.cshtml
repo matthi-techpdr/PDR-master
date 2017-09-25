@@ -1,0 +1,17 @@
+﻿@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+<div class="links">
+    <a href="javascript:void(0);" class="active">Estimates</a>   
+    <span class="gridFilter gridFilterNoMargin">
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", (IEnumerable<SelectListItem>)ViewData["customers"], new { id = "Customers", style = "width:177px;" })
+    </span>
+    <label style="margin-left: 10px;">
+        From:</label>
+    <input type="text" id="from" class="date-filter" autocomplete="off" />
+    <label>
+        To:</label>
+    <input type="text" id="to" class="date-filter" autocomplete="off" />
+</div>

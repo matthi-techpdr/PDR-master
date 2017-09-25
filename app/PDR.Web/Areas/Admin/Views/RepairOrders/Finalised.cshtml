@@ -1,0 +1,11 @@
+﻿@{
+    Layout = "~/Areas/Common/Views/RepairOrders/Finalised.cshtml";
+}
+
+@section GridScript{
+    @{
+        Bundles.Reference("Content/js/Pages/Common/InitFinalisedWithDefPar.js");
+    }
+
+    <input type="hidden" value="@Url.Action("DefineParticipation", "RepairOrders")" class="defineParticipation"/>
+}

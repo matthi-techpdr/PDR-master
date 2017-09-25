@@ -1,0 +1,143 @@
+﻿@using PDR.Domain.Model.Enums
+@using PDR.Web.Areas.Accountant.Models.Employee
+
+@model EmployeeViewWithUserModel 
+@{ 
+    var isTeamEmployee = (UserRoles)Model.Role == UserRoles.Manager || (UserRoles)Model.Role == UserRoles.Technician || (UserRoles)Model.Role == UserRoles.RITechnician;
+    var isAdmin= (UserRoles)Model.Role == UserRoles.Admin;
+    var logins = (string)ViewData["employeesLogins"];
+    var isRI = (UserRoles)Model.Role == UserRoles.RITechnician;
+}
+<script src="@Url.Content("~/Content/js/pages/Common/InputMask.js")" type="text/javascript"></script>
+<script type="text/javascript">
+    var currentUserRole='@Model.CurrentUser.Role';
+    $(function() {
+        var isTeamEmployee = @isTeamEmployee.ToString().ToLower() ;
+        var logins = "@logins";
+        window.afterDialogSetup = function() {
+            var isRi = @isRI.ToString().ToLower() ;
+            if (isRi) {
+                $('.checkboxesLabel').hide();
+                var parent = $('#Commission').parent();
+                $(parent).children().hide();
+            }
+            if (!isTeamEmployee) {
+                $('.ui-multiselect').hide();
+            }
+            $('#Login').data("logins", logins.split(','));
+            $('#Login').addClass('uniqueLogin');
+             PhoneMask("#PhoneNumber");
+        };
+    });
+
+</script>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "employeeForm" }))
+{
+    <fieldset class="popupLeftColumn">
+        @Html.HiddenFor(m => m.Id)
+        <label>
+            <span>Name</span>
+            @Html.TextBoxFor(m => m.Name)
+        </label>
+                <label>
+            <span>Signature name</span>
+            @Html.TextBoxFor(m => m.SignatureName)
+        </label>
+        <label>
+            <span>Address</span>
+            @Html.TextBoxFor(m => m.Address)
+        </label>
+                <label>
+            <span>City</span>
+            @Html.TextBoxFor(m => m.City)
+        </label>
+        <label class="a-select editState">
+            <span>State</span>
+            @Html.DropDownList("stateUsa", Model.States)
+        </label>
+        <label class="a-select editZip">
+            <span>ZIP</span>
+            @Html.TextBoxFor(m => m.Zip, new { @class = "saeinput", style="margin-top:4.5px;" })
+            </label>
+        <label>
+            <span>Phone</span>
+            @Html.TextBoxFor(m => m.PhoneNumber)
+        </label>
+        <label>
+            <span>Email</span>
+            @Html.TextBoxFor(m => m.Email)
+        </label>
+        <label>
+            <span>Tax ID</span>
+            @Html.TextBoxFor(m => m.TaxId)
+        </label>
+        <label>
+            <span>Comments</span>
+            @Html.TextAreaFor(m => m.Comment)
+        </label>
+    </fieldset>
+    
+    <fieldset class="popupRightColumn popupRightColumnCustom">
+        <label class="a-select">
+            @Html.HiddenFor(m=>m.Active)
+            <input type="hidden" id="currentRole" value="@Model.Role"/>
+            <span>System role</span>
+            @Html.DropDownListFor(m => m.Role, Model.Roles, new { onchange = "Employee.DisableInputs();" })
+        </label>
+        <label>
+            <span>User name</span>
+            @Html.TextBoxFor(m => m.Login)
+        </label>
+                <label>
+            <span>Password</span>
+            @Html.TextBoxFor(m => m.Password)
+        </label>
+        <label>
+            <span>Commission</span>
+            @Html.TextBoxFor(m => m.Commission, isTeamEmployee || isAdmin ? null : new { disabled = "disabled" })
+        </label>
+
+        @{var display = Model.Role == 2  ? "none" : "block";}
+        <span class="checkboxesLabel" style="display:@display ; ">
+            <span>Allow estimates</span>
+            @Html.Inputs().CheckBoxFor(m => m.CanQuickEstimate)
+            <span>Quick</span>
+            @Html.Inputs().CheckBoxFor(m => m.CanExtraQuickEstimate)
+            <span>Extra quick</span>
+        </span>
+        @{
+            var disp = (Model.Role == 1) ? "block" : "none";
+        }
+        <span class="checkboxesForManager" style="display:@disp ; ">
+            <span>
+                @Html.Inputs().CheckBoxFor(m => m.IsShowAllTeams)
+                <span>Show All Teams</span>
+            </span>
+            <br/>
+             <span>
+                @{ var displayCanEditTeamMembers = Model.CurrentUser.Role == UserRoles.Admin ? "" : "none"; }
+                @Html.CheckBox("CanEditTeamMembers", @Model.CanEditTeamMembers.GetValueOrDefault(), Model.CurrentUser.Role == UserRoles.Admin ? null : new { hidden = "hidden" })
+             <span style="display:@displayCanEditTeamMembers;">Edit Team Members</span> @*@Html.HiddenFor(m => m.SecureOldCanEditTeamMembers)*@
+           </span>
+        </span>
+
+        @if (isTeamEmployee)
+            {
+        <p id="teamLabel" style="width:100px;font-size:14px;color:#555;margin-top:190px;">Teams</p>}
+                                                                                                   else
+                    {
+                       <p id="teamLabel" style="width:100px;font-size:14px;color:#555;margin-top:190px;display:none;">Teams</p> 
+                    }
+        <div class="multiselectDiv">
+            @{
+                    object attributes = new { @class = "multiselect", multiple = "multiple", id = "TeamsList" };
+                    if (!isTeamEmployee)
+                    {
+                        attributes = new { @class = "multiselect", multiple = "multiple", id = "TeamsList", disabled = "disabled" };
+                    }
+            }
+            @Html.DropDownList("TeamsList", Model.EmployeeTeams, attributes)
+        </div>
+    </fieldset>
+}

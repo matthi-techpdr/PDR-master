@@ -1,0 +1,23 @@
+﻿@using PDR.Web.Areas.Accountant.Models.Team
+@model TeamViewModel
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "teamForm" }))
+{
+    <fieldset class="popupLeftColumn">
+        @Html.HiddenFor(m => m.Id)
+        <label>
+            <span>Title</span>
+            @Html.Inputs().TextBoxFor(m => m.Title, new { disabled = "disabled" })
+        </label>
+        <label>
+            <span>Comments</span>
+            @Html.TextAreaFor(m => m.Comments, new { disabled = "disabled" })
+        </label>
+    </fieldset>
+
+    <fieldset class="popupRightColumn">    
+        <label>
+        <span style="color: #555;font-size:14px;">Employees</span>
+            @Html.DropDownList("EmployeesList", Model.Employees, new { @class = "multiselect", multiple = "multiple", id = "EmployeesList" })
+        </label>
+    </fieldset>
+}

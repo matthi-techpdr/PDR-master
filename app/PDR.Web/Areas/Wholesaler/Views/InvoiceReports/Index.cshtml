@@ -1,0 +1,37 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Reports
+@model IEnumerable<ReportModel>
+
+@{
+    ViewBag.ReportsIsActive = "ui-tabs-selected ui-state-active";
+    ViewBag.Title = "Invoice reports";
+    Layout = "~/Areas/Common/Views/Shared/Reports/ReportsIndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Default/Reports/InitInvoiceReportGrid.js");
+}
+           
+@section links
+{
+    @{Html.RenderPartial("ReportsLinksWithFilter");}
+    <input type="hidden" value="@ViewBag.CustomerId" id="Customers"/>
+}
+
+@section table
+{
+    <table id="invoiceReportsGrid">
+    </table>
+}
+
+@section reports
+{
+    <div>
+    @foreach (var estReport in Model)
+    {
+        <p>
+        @Html.RouteLink(estReport.Title, new RouteValueDictionary(new { area = "Wholesaler", action = "Details", controller = "InvoiceReports", id = estReport.Id }))
+            <a href="javascript:void(0);" class="deleteReport" id="@estReport.Id">
+                <img src="../../../../Content/css/images/delete-icon.png" />
+            </a>
+        </p>
+    }
+    </div>
+} 
+

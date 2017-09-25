@@ -1,0 +1,35 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Reports
+@model IEnumerable<ReportModel>
+@{
+    this.SetLayout();
+    ViewBag.ReportsIsActive = "ui-tabs-selected ui-state-active";
+}
+
+    <script type="text/javascript">
+    $(function() {
+        $('#ReportTitle').data('existNames', @Html.Raw(Json.Encode(ViewBag.ExistReportNames)) );
+    })
+    </script>
+    
+
+@RenderSection("links")
+
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        @RenderSection("table")
+        <div id="pager">
+        </div>
+        <div id="savedReports">
+            <label>
+                Report title:
+            </label>
+            @Html.TextBox("ReportTitle", string.Empty, new { maxlength = "30" })
+            <div id="accordione">
+                <h3>
+                    <a href="javascript:void(0);">Saved reports</a></h3>
+                    @RenderSection("reports") 
+            </div>
+        </div>
+    </div>
+</div>
+

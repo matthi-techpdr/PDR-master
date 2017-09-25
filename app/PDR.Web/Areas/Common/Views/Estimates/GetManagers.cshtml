@@ -1,0 +1,13 @@
+﻿@model List<SelectListItem>
+@{
+    var convert = (bool)ViewData["convert"];
+    var msg = string.Format("Choose the employee to whom you want to {0} chosen {1}(s):", convert ? "assign" : "re-assign", convert ? "repair order" : "estimate");
+}
+<div style="text-align: center;">
+    <p style="margin-bottom:15px;font-size:14px;color:#555; ">        
+        @msg</p>
+        <span>
+        @Html.DropDownList("managers", Model,new { style="width:60%;" })
+        </span>
+</div>
+

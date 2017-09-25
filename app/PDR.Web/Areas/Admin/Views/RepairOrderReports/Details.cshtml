@@ -1,0 +1,21 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Reports
+@model ReportModel
+
+@{
+    ViewBag.Title = "Repair order report details";
+    Layout = "~/Areas/Common/Views/Shared/Reports/ReportsDetailsIndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Default/Reports/InitRoReportDeatilsGrid.js");
+}
+           
+@section links
+{
+     @{Html.RenderPartial("~/Areas/Manager/Views/Shared/ReportsDetailsLinksWithFilter.cshtml");}
+     <input type="hidden" value="@Url.Action("SaveToPdf", "RepairOrderReports")" class="urlReport"/>
+}
+
+@section table
+{
+      <table id="roReportInfoGrid">
+      </table>
+      <input type="hidden" id="Manager" value="true" />
+}

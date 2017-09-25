@@ -1,0 +1,27 @@
+﻿@model PDR.Web.Areas.Common.Models.DefineParticipationViewModel
+@{
+    var height = 75 + (Model.TeamEmployeePercents.Count * 42)+"px;";
+    
+}
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "defineParticipationForm", style = "width: 300px;" }))
+{
+    <fieldset class="assignPercentTech">
+        @Html.HiddenFor(x => x.RepairOrderId)
+        <div style="margin-left: 30px;">
+            <label>Please, define percent of each technician's participation</label>
+        </div>
+        <ul class="technicians" style="height:@height">
+        @foreach (var item in Model.TeamEmployeePercents)
+        {
+            var percent = item.EmployeePart.ToString("#.##");
+            <li>
+                <div class="titleEmp">@item.TeamEmployee.Name</div>
+                @Html.HiddenFor(model => item.Id)
+                <input type="text" value="@percent" class="percentInput"/>
+                <span class="symb">%</span>
+             </li>
+        }       
+            
+        </ul>
+    </fieldset>
+}

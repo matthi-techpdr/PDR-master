@@ -1,0 +1,167 @@
+﻿#RiPayment {
+    margin: 0px 15px 15px 30px;
+    float: left !important;
+    
+    border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 16px !important;
+    font-family: Arial;
+    padding: 3px;
+}
+#RiPayment label, #RiPayment span {
+    font-size: 14px !important;
+    font-family: Arial;
+    color: black !important;
+}
+
+#RiPayment div {
+    margin-top: 7px;
+}
+
+#FieldFlatFee {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    bottom: 5px;
+    font-size: 14px !important;
+    font-family: Arial;
+    height: 16px !important;
+    padding: 2px;
+    position: relative;
+    width: 200px;
+}
+
+.assignTech label,
+.assignPercentTech label {
+    font-size: 15px;
+    font-style: normal;
+    color: #555555 !important;
+}
+
+.assignTech .technicians {
+    margin: 15px;
+    width: 300px;
+}
+
+.assignTech .technicians li{
+    margin: 0px 5px 15px 30px;
+    float: left;
+}
+
+.assignTech .technicians li div.remove,
+.assignTech .technicians li div.new {
+    margin: 1px 20px 0px 0px;
+    cursor: pointer;
+    border: 1px solid lightGrey;
+    background: #E6E6E6;
+}
+
+.assignTech .technicians li div {
+    margin: 2px 2px;
+    position: relative;
+    padding: 4px 0;
+    width: 16px;
+    float: left;
+    font-weight: normal;
+    color: #555;
+    padding: 3px;
+    border-radius: 8px;
+}
+
+.assignTech .technicians li div.remove:hover,
+.assignTech .technicians li div.new:hover {
+    background: #E25E53;
+    color: white;
+}
+
+.assignTech .technicians li a.selectBox {
+    width: 200px !important;
+}
+
+.readonlyInput{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    bottom: 5px;
+    font-size: 12px !important;
+    font-family: Arial;
+    height: 20px !important;
+    padding: 3px;
+    position: relative;
+    width: 200px;
+}
+
+.percentInput 
+{
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    bottom: 7px;
+    float: right;
+    font-family: Arial;
+    font-size: 12px !important;
+    height: 20px !important;
+    margin-right: 20px;
+    padding: 3px;
+    position: relative;
+    text-align: center;
+    width: 70px;
+}
+.titleEmp {
+    float: left;
+    font-size: 15px;
+    width: 100px !important;
+}
+
+.assignPercentTech .technicians {
+    margin: 15px;
+    width: 200px;
+}
+
+.assignPercentTech .technicians li {
+    margin: 0px 5px 10px 15px;
+    float: left;
+    width: 280px;
+}
+
+.symb {
+    font-size: 14px;
+    left: 185px;
+    position: relative;
+    top: -3px;
+}
+
+#RiPayment {
+    margin: 0px 15px 15px 30px;
+    float: left !important;
+    
+    border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 16px !important;
+    font-family: Arial;
+    padding: 3px;
+}
+#RiPayment label, #RiPayment span {
+    font-size: 14px !important;
+    font-family: Arial;
+    color: black !important;
+}
+
+#RiPayment div {
+    margin-top: 7px;
+}
+
+#FieldFlatFee {
+    background: none repeat scroll 0 0 #FFFFFF;
+    border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    bottom: 5px;
+    font-size: 14px !important;
+    font-family: Arial;
+    height: 16px !important;
+    padding: 2px;
+    position: relative;
+    width: 200px;
+}
+
+

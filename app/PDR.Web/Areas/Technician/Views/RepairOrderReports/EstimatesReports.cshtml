@@ -1,0 +1,46 @@
+﻿@using ReportsController = PDR.Web.Areas.Technician.Controllers.ReportsController
+@model IList<SelectListItem>
+@{
+    ViewBag.ReportsIsActive = "ui-tabs-selected ui-state-active";
+    ViewBag.Title = "Reports";
+    Bundles.Reference("Content/js/Pages/Estimator/InitEstimateReportsGrid.js");
+}
+
+<div class="links">
+    <a href="javascript:void();" class="active">Estimates</a> 
+    @(Html.ActionLink<ReportsController>(x => x.Index(), "Repair orders"))
+    @(Html.ActionLink<ReportsController>(x => x.InvoicesReports(), "Invoices")) 
+    <span class="gridFilter">
+        <label>
+            Filter by customers:
+        </label>
+        @Html.DropDownList("customers", Model, new { id = "Customers" })
+    </span>
+    <label style="margin-left: 10px;">
+        From:</label>
+    <input type="text" id="from" class="date-filter" />
+    <label>
+        To:</label>
+    <input type="text" id="to" class="date-filter" />
+</div>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="estimateReportsGrid">
+        </table>
+        <div id="pager">
+        </div>
+        <div id="savedReports">
+            <label>
+                Report title:
+            </label>
+            @Html.TextBox("ReportTitle")
+            <div id="accordione">
+                <h3>
+                    <a href="javascript:void();">List of saved reports</a></h3>
+                <div>
+                    @{ Html.RenderAction("GetEmployeesReports", "Reports"); }                       
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

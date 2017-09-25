@@ -1,0 +1,10 @@
+﻿@{
+    Layout = "~/Areas/Common/Views/Shared/Partial/RepairOrderViewBase.cshtml";
+}
+           
+@section links
+{
+    @{Html.RenderPartial("~/Areas/Wholesaler/Views/RepairOrders/OperationLinks.cshtml");}
+    @Html.Hidden("basicDocument","1")
+    @Html.Hidden("viewOnly")
+}

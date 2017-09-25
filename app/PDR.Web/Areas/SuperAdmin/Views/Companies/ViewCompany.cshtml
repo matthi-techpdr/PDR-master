@@ -1,0 +1,37 @@
+﻿@using PDR.Resources.Web.Area.Superadmin.Company
+@using PDR.Web.Areas.SuperAdmin.Models
+@using PDR.Domain.Model.Enums
+@model CompanyViewModel           
+@{
+    var state = ((StatesOfUSA)Model.State).ToString();
+}
+<div class="view-s-a">
+    <ul>
+        <li>
+            <p title="@Html.DisplayFor(m => m.Name)">@Html.DisplayFor(m => m.Name)</p>
+            <p title="@Html.DisplayFor(m => m.AdminName)"><span>@Company.ContactPerson:</span>&nbsp;@Html.DisplayFor(m => m.AdminName)</p>
+            <p title="@Html.DisplayFor(m => m.AdminLogin)"><span>@Company.AdminUsername:</span>&nbsp;@Html.DisplayFor(m => m.AdminLogin)</p>
+        </li>
+        <li>
+            <p title="@Html.DisplayFor(m => m.Address1)">@Html.DisplayFor(m => m.Address1)</p>
+            <p title="@Html.DisplayFor(m => m.PhoneNumber)"><span>@Company.Phone:</span>&nbsp;@Html.DisplayFor(m => m.PhoneNumber)</p>
+            <p title=""><span>@Company.City:</span>&nbsp;@Html.DisplayFor(m => m.City)</p>
+        </li>
+        <li>
+            <p title="@Html.DisplayFor(m => m.Address2)">@Html.DisplayFor(m => m.Address2)</p>
+            <p title="@Html.DisplayFor(m => m.Email)"><span>@Company.Email:</span>&nbsp;@Html.DisplayFor(m => m.Email)</p>
+            <p title="@Html.DisplayFor(m => m.MobileLicensesNumber)"><span>@Company.MobileLicensesNumber:</span>&nbsp;@Html.DisplayFor(m => m.MobileLicensesNumber)</p>
+        </li>
+        <li>
+            <p title="@Html.DisplayFor(m => state),@Html.DisplayFor(m => m.Zip)">
+            <span>@Company.State:</span> @Html.DisplayFor(m => state)
+            <span>&nbsp;&nbsp;&nbsp; @Company.ZIP:</span>&nbsp;@Html.DisplayFor(m => m.Zip)</p>
+            <p title="@Html.DisplayFor(m => m.Url)"><span>@Company.Url:</span>&nbsp;@Html.DisplayFor(m => m.Url)</p>
+            <p title="@Html.DisplayFor(m => m.ActiveUsersNumber)"><span>@Company.ActiveEmployeesNumber:</span>&nbsp;@Html.DisplayFor(m => m.ActiveUsersNumber)</p>
+        </li>
+        <li>
+            <p class="comments">
+            <span>@Company.Comments:</span> @Html.TextAreaFor(m => m.Comment, new { @readonly = "readonly", resize = "none" })</p>
+        </li>
+    </ul>
+</div>

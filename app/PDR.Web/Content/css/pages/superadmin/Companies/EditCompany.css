@@ -1,0 +1,30 @@
+#companyForm fieldset label.company-state span:first-child {
+    margin-left: 0;
+}
+
+#companyForm fieldset label.company-city span:first-child {
+    width: 30px;
+    margin-left: 10px;
+}
+
+#companyForm fieldset label.company-city input {
+    width: 88px;
+}
+
+#companyForm fieldset label.company-zip span:first-child {
+    margin-left: 10px;
+}
+
+#companyForm fieldset label.company-zip input[type="text"] {
+    width: 41px;
+}
+
+#companyForm fieldset label.company-zip,
+#companyForm fieldset label.company-state,
+#companyForm fieldset label.company-city {
+    margin-bottom: 4px;
+}
+
+#companyForm fieldset label.company-comments textarea {
+    height: 170px;
+}

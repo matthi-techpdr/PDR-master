@@ -1,0 +1,67 @@
+﻿
+@using PDR.Web.Areas.Accountant.Models.Employee
+@using PDR.Domain.Model.Enums
+@model EmployeeViewModel
+@{ var isTeamEmployee = (UserRoles)Model.Role == UserRoles.Manager || (UserRoles)Model.Role == UserRoles.Technician; }
+<div class="info-accou">
+    <div class="fau">
+        <strong>Employee's info</strong>
+        <p>@Html.DisplayFor(m => m.Name)</p>
+        <p>@Html.DisplayForWithLabel(m => m.Address, "Address: ")</p>
+        <p>@Html.DisplayFor(x => x.FullLocation)</p>        
+        <p>@Html.DisplayForWithLabel(m => m.PhoneNumber, "Phone: ")</p>
+        <p>@Html.DisplayForWithLabel(m => m.Email, "E-mail: ")</p>
+        <p>@Html.DisplayForWithLabel(m => m.SignatureName, "Signature name: ")</p>
+        <p>
+            @Html.DisplayForWithLabel(m => m.TaxId, "Tax ID: ")</p>
+        <p>
+            @Html.DisplayForWithLabel(m => m.Login, "Username: ")</p>
+        <p>
+            Role: @((UserRoles)Model.Role)</p>
+        @if (isTeamEmployee)
+        {
+            <p>
+                Commission: @Html.DisplayFor(x => x.Commission)%</p>
+        }
+        @if ((UserRoles)Model.Role != UserRoles.Accountant)
+        {
+            <p>@Html.CheckBoxFor(m => m.CanQuickEstimate, new { @onclick = "return false;" })
+                <span>Quick estimates</span></p>
+            <p>@Html.CheckBoxFor(m => m.CanExtraQuickEstimate, new { @onclick = "return false;" })
+                <span>Extra quick estimates</span></p>}
+         @if ((UserRoles)Model.Role == UserRoles.Manager)
+         {
+            <p>@Html.CheckBoxFor(m => m.IsShowAllTeams, new { @onclick = "return false;" })
+                <span>Show All Teams</span></p>
+         }                                              
+
+    </div>
+    @if (isTeamEmployee)
+    {
+        <div class="ttw">
+            <strong>Assign Teams</strong>
+            <div>
+            @foreach (var t in Model.EmployeeTeams.Where(x => x.Selected))
+            {
+                <p>@t.Text</p>
+            }
+            </div>
+        </div>
+    }
+    @if ((UserRoles)Model.Role != UserRoles.Accountant)
+    {
+    <div class="ehu">
+        <strong>Empoyee's history</strong>
+        <div style="padding: 10px;">
+       @foreach (var log in Model.LogMessages)
+       {
+           <span style="display: block;margin-bottom: 10px;">@log</span>
+       }
+        </div>
+    </div>
+    }
+    <div>    
+    <span style="display: block;padding-top:320px;">Comments:</span>
+    @Html.TextAreaFor(x => x.Comment, new { id = "empComment", @readonly = "readonly" })
+    </div>
+</div>

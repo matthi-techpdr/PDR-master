@@ -1,0 +1,90 @@
+﻿@using PDR.Domain.Model.Enums
+@using PDR.Resources.PDR.Domain.Model.Customers
+@using PDR.Web.Areas.Estimator.Models.Estimates
+@using PDR.Web.Core.Helpers.Html
+@model RetailCustomerModel
+@{
+    var emails = (string)TempData["customersEmails"];
+}
+@{
+    Bundles.Reference("Content/css/pages/estimator/estimates/partial/retail-customer.css");
+    Bundles.Reference("Content/js/pages/Common/InputMask.js");
+    if (this.Request.Browser.Browser == "IE")
+    {
+        Bundles.Reference("Content/js/pages/estimator/estimates/partial/retail-customer-ie-fix.js");
+    }
+    //Bundles.Reference("Content/js/Pages/Accountant/Customer/InitCustomerGrid.js");
+}
+@*<script type="text/javascript">
+    alert("Hello2");
+    $(function () {
+        alert('Hello1');
+        var logins = "@emails";
+        alert('Hello');
+        //window.afterDialogSetup = function () {
+            $('#Customer_Retail_Email').data("emails", logins.split(','));
+            $('#Customer_Retail_Email').addClass('uniqueEmail');
+            //PhoneMask("#Phone");
+        //};
+    });
+</script>*@
+<ul id="retail-customer" data-bind="@string.Format("visible: customerType() == '{0}'", EstimateCustomerType.Retail)">
+    <li>
+        @Html.LabelFor(x => x.FirstName, RetailCustomerRes.FirstName, new { style = "width: 61px;" })
+        @Html.Inputs().TextBoxFor(x => x.FirstName, new { style = "margin: 0 8px 0 0; width: 150px;overflow:hidden;", data_bind = "value: $root.customerRetailInfo().firstName, valueUpdate: 'afterkeyup'" })
+        @Html.Inputs().TextBoxFor(x => x.LastName, new { style = "margin: 0 8px 0 0; width: 228px;overflow:hidden;", data_bind = "value: $root.customerRetailInfo().lastName, valueUpdate: 'afterkeyup'" })
+    </li>
+    <li>
+        @Html.LabelFor(x => x.Address1, RetailCustomerRes.Address1, new { style = "width: 61px;" })
+        @Html.Inputs().TextBoxFor(x => x.Address1, new { style = "width: 150px; margin: 0 10px 0 0;overflow:hidden;" })
+    </li>
+    <li>
+        @Html.LabelFor(x => x.Address2, RetailCustomerRes.Address2, new { style = "width: 71px;" })
+        @Html.Inputs().TextBoxFor(x => x.Address2, new { @class = "big1", style = "width: 155px; margin: 0 10px 0 0;overflow:hidden;" })
+    </li>
+    <li>
+        @Html.LabelFor(x => x.City, RetailCustomerRes.City, new { style = "width:53px; margin: 4px 8px 0 0;" })
+        @Html.Inputs().TextBoxFor(x => x.City, new { style = "width:150px; margin:0 12px 0 0;overflow:hidden;" })
+    </li>
+    <li style="width: 125px;height: 26px;">
+        @Html.LabelFor(x => x.State, RetailCustomerRes.State, new { style = "margin: 4px 8px 0 0;" })
+        @(Html.IsReadOnlyMode() 
+        ? Html.DropDownList("State", Model.States, new {style = "width: 44px; margin: 0 16px 0 0;", disabled = "disabled"})
+        : Html.DropDownList("State", Model.States, new {style = "width: 44px; margin: 0 16px 0 0;"}))
+    </li>
+    <li>
+        @Html.LabelFor(x => x.Zip, RetailCustomerRes.ZIP, new { style = "margin: 4px 8px 0 0;" })
+        @Html.Inputs().TextBoxFor(x => x.Zip, new { style = "width:71px; margin:0;overflow:hidden;" })
+    </li>
+    <li>
+        @Html.LabelFor(x => x.Phone, RetailCustomerRes.PhoneNumber, new { style = "width:61px;" })
+        @Html.Inputs().TextBoxFor(x => x.Phone, new { id="PhoneNumber", style = "width:150px; margin: 0;overflow:hidden;" })
+    </li>
+    <li>
+        @Html.LabelFor(x => x.Fax, RetailCustomerRes.FaxNumber, new { style = "width: 30px; padding: 0 0 0 14px;" })
+        @Html.Inputs().TextBoxFor(x => x.Fax, new { style = "width:192px; margin: 0 10px 0 0;overflow:hidden;" })
+    </li>
+    <li>
+        @Html.LabelFor(x => x.Email, RetailCustomerRes.Email, new { style = "width: 61px;" })
+        @Html.Inputs().TextBoxFor(x => x.Email, new { style = "width:402px;overflow:hidden;" })
+    </li>
+    <li id="Locations" style="width: 300px;height: 26px;">
+        @Html.LabelFor(x => x.AffiliateId, RetailCustomerRes.Location, new { style = "margin: 4px 8px 0 0;" })
+            @(Html.IsReadOnlyMode()
+                        ? Html.DropDownList("AffiliateId", Model.Affiliates, new { style = "width: 200px !important; margin: 0 16px 0 0; ", disabled = "disabled", @class = "notSelectedLocation" })
+                                : Html.DropDownList("AffiliateId", Model.Affiliates, new { style = "width: 200px !important; margin: 0 16px 0 0;", @class = "notSelectedLocation" }))
+    </li>
+</ul>
+<script type="text/javascript">
+        //alert("Hello2");
+        //$(function () {
+            //alert('Hello1');
+            var logins = "@emails";
+            //alert('Hello');
+            //window.afterDialogSetup = function () {
+                $('#Customer_Retail_Email').data("emails", logins.split(','));
+                $('#Customer_Retail_Email').addClass('uniqueEmail');
+                //PhoneMask("#Phone");
+            //};
+        //});
+    </script>

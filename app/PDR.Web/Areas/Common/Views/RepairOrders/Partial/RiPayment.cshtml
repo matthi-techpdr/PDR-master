@@ -1,0 +1,33 @@
+﻿
+@using Microsoft.Ajax.Utilities
+@using PDR.Domain.Model.Enums
+@model PDR.Web.Areas.Common.Models.RiTechnicianModel
+@{
+    var visible = "visibility:" + (@Model.IsVisible ? "visible" : "hidden");
+    if(Model.IsFlatFee != null){}
+    var flatFeeCheked = Model.IsFlatFee.HasValue ? Model.IsFlatFee.Value ? "checked" : "": "";
+    var riOperationsCheked = Model.IsFlatFee.HasValue ? Model.IsFlatFee.Value ? "" : "checked":"";
+    var flatFeeSum = Model.IsFlatFee.HasValue ? Model.PaymentFlatFee : 0;
+    var Sum = Model.PaymentRiOperations.HasValue ? Model.PaymentRiOperations : 0;
+    var riOperationsSum = Model.IsFlatFee.HasValue ? Model.IsFlatFee.Value ? 0 : Model.PaymentRiOperations.HasValue ? Model.PaymentRiOperations : 0 : 0;
+    var disable = Model.IsFlatFee.HasValue ? Model.IsFlatFee.Value ? "" : "disabled=\"disabled\"" : "";
+}
+
+<input id ="riOperationsSum" type="hidden" value="@Sum"/>
+<div id="RiPayment" class="RiPaymentFlatFee" style="float: left; @visible ">
+    <p style="margin-bottom: 3px; padding-left: 10px;" > R&I Payment</p>
+    <div style="width: 100%; padding: 0; float: left; margin-bottom: 5px">
+        <input class="@RiPayment.RiOperations" style="width: 10%; float: left;" type="radio" name="RiPaymentFlatFeeType" value="@RiPayment.RiOperations" @riOperationsCheked/>
+        <label style="width: 50%; float: left" for="@RiPayment.RiOperations">R&I Operations:</label>
+        <span style="width: 10%; float: left">$</span>
+        <span id ="sum" style="float: left; width: 20%;">@riOperationsSum</span>
+    </div>
+    <div style="width: 100%; padding:0; float: left; margin-bottom: 5px">
+        <input class="@RiPayment.FlatFee" style="width: 10%; float: left" type="radio" name="RiPaymentFlatFeeType" value="@RiPayment.FlatFee" @flatFeeCheked/>
+        <label style="width: 50%; float: left" for="@RiPayment.FlatFee">Flat Fee:</label>
+        <span style="width: 10%; float: left">$</span>
+        <input id="FieldFlatFee" type="text" style="float: left; width: 20%;" value ="@flatFeeSum" @disable/>
+    </div>
+</div>
+
+

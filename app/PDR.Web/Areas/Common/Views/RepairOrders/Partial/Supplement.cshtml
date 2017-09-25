@@ -1,0 +1,18 @@
+﻿@model PDR.Web.Areas.Technician.Models.RepairOrderModel
+@{
+    var isReadOnly = Html.IsReadOnlyMode();
+    var buttonCss = isReadOnly ? string.Empty : "remove";
+    var buttonTitle = isReadOnly ? "" : "Remove supplement";
+    var iconCss = isReadOnly ? "ui-icon-radio-on" : "ui-icon-minusthick";
+    var index = (int)this.ViewData["index"];
+}
+<li>
+    <div class="@buttonCss" title="@buttonTitle">
+        <span class="ui-icon @iconCss"></span>
+    </div>
+    @Html.HiddenFor(x => x.SupplementModels[index].Id)
+    <input type="hidden" value="@index" class="indexSupplements"/>
+    @Html.Inputs().TextBoxFor(x => x.SupplementModels[index].Description, new { @class = "description notEmptyFieldSupplement maxLengthDescription" })
+    <span class="dollarSupplements symb">$</span>
+    @Html.Inputs().TextBoxFor(x => x.SupplementModels[index].Sum, new { @class = "sum changeSum" })
+</li>

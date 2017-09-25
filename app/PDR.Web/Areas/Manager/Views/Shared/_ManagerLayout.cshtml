@@ -1,0 +1,36 @@
+﻿@using PDR.Domain.Wrappers
+@{
+    Layout = "~/Areas/Default/Views/Shared/_DefaultLayout.cshtml";
+    
+    //css
+    Bundles.Reference("Content/css/tabs.css");
+    Bundles.Reference("Content/css/admin_orders.css");
+    Bundles.Reference("Content/css/select.css");
+    Bundles.Reference("Content/css/accountant.css");
+    
+    //js
+    Bundles.Reference("Content/js/plugins/jquery.form.js");
+    Bundles.Reference("Content/js/Pages/ValidateAjaxForm.js");
+    Bundles.Reference("Content/js/plugins/gmaps/gmaps.js");
+
+    Bundles.Reference("Content/js/plugins/jqgrid/jquery.jqGrid.entity.js");
+    Bundles.Reference("Content/js/plugins/jqgrid/jquery.jqGrid.initializer.js");
+}
+<div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
+    <ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all">
+        <li class="ui-state-default ui-corner-top @ViewBag.OperationsIsActive">@(Html.ActionLink<PDR.Web.Areas.Manager.Controllers.EstimatesController>(x => x.Index(null, null, null, true), "Operations"))</li>
+        <li class="ui-state-default ui-corner-top @ViewBag.CustomersIsActive">@(Html.ActionLink<PDR.Web.Areas.Manager.Controllers.CustomersController>(x => x.Index(), "Customers"))</li>
+        <li class="ui-state-default ui-corner-top @ViewBag.SettingsIsActive">@(Html.ActionLink<PDR.Web.Areas.Common.Controllers.SettingsController>(x => x.Index(), "Settings"))</li>
+        <li class="ui-state-default ui-corner-top @ViewBag.TeamsIsActive">@(Html.ActionLink<PDR.Web.Areas.Manager.Controllers.TeamMembersController>(x => x.Index(), "Team members"))</li>
+        <li class="ui-state-default ui-corner-top @ViewBag.ReportsIsActive" >@(Html.ActionLink<PDR.Web.Areas.Manager.Controllers.EstimateReportsController>(x => x.Index(), "Reports"))</li>
+        @if (ManagerTabWrapper.IsCompanyTabAvaliable)
+        {
+            <li class="ui-state-default ui-corner-top @ViewBag.CompanyIsActive" >@(Html.ActionLink<PDR.Web.Areas.Manager.Controllers.TeamsController>(x => x.Index(), "Company"))</li>
+        }
+        <li class="ui-state-default ui-corner-top"><a href="@(Url.RouteUrl(new { area = "Default", controller = "Account", action = "LogOut" }))">Logout</a></li>
+    </ul>
+    <div class="ui-tabs-panel ui-widget-content ui-corner-bottom">
+        @RenderBody()
+    </div>
+</div>
+<input type="hidden" id="Manager" value="true"/>

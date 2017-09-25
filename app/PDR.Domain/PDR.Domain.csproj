@@ -1,0 +1,408 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{74801410-F690-490C-91EA-CD94E520A465}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PDR.Domain</RootNamespace>
+    <AssemblyName>PDR.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Live|AnyCPU'">
+    <OutputPath>bin\Live\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <CodeAnalysisLogFile>bin\Release\PDR.Domain.dll.CodeAnalysisLog.xml</CodeAnalysisLogFile>
+    <CodeAnalysisUseTypeNameInSuppression>true</CodeAnalysisUseTypeNameInSuppression>
+    <CodeAnalysisModuleSuppressionsFile>GlobalSuppressions.cs</CodeAnalysisModuleSuppressionsFile>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSetDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\\Rule Sets</CodeAnalysisRuleSetDirectories>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisRuleDirectories>;C:\Program Files (x86)\Microsoft Visual Studio 10.0\Team Tools\Static Analysis Tools\FxCop\\Rules</CodeAnalysisRuleDirectories>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper">
+      <HintPath>..\..\packages\AutoMapper.2.1.267\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML">
+      <HintPath>..\..\packages\ClosedXML.0.65.2\lib\net40-client\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>..\..\packages\DocumentFormat.OpenXml.1.0\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections, Version=1.0.1.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\..\packages\CommonServiceLocator.1.0\lib\NET35\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.DocumentObjectModel">
+      <HintPath>..\..\packages\PDFsharp-MigraDoc-GDI.1.32.3879.0\lib\net20\MigraDoc.DocumentObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.Rendering">
+      <HintPath>..\..\packages\PDFsharp-MigraDoc-GDI.1.32.3879.0\lib\net20\MigraDoc.Rendering.dll</HintPath>
+    </Reference>
+    <Reference Include="MigraDoc.RtfRendering">
+      <HintPath>..\..\packages\PDFsharp-MigraDoc-GDI.1.32.3879.0\lib\net20\MigraDoc.RtfRendering.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate, Version=3.3.1.4000, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\NHibernate.3.3.2.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\..\packages\NLog.2.0.0.2000\lib\net40\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp">
+      <HintPath>..\..\packages\PDFsharp-MigraDoc-GDI.1.32.3879.0\lib\net20\PdfSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="PdfSharp.Charting">
+      <HintPath>..\..\packages\PDFsharp-MigraDoc-GDI.1.32.3879.0\lib\net20\PdfSharp.Charting.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="StructureMap, Version=2.6.3.0, Culture=neutral, PublicKeyToken=e60ad81abae3c223, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\structuremap.2.6.3\lib\StructureMap.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StructureMapAdapter, Version=1.1.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\CommonServiceLocator.StructureMapAdapter.1.1.0.3\lib\StructureMapAdapter.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Mvc, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\lib\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Twilio.Api">
+      <HintPath>..\..\packages\Twilio.3.5.5\lib\3.5\Twilio.Api.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.Mvc">
+      <HintPath>..\..\packages\Twilio.Mvc.3.1.9\lib\3.5\Twilio.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="Twilio.Twiml">
+      <HintPath>..\..\packages\Twilio.TwiML.3.2.0\lib\3.5\Twilio.Twiml.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Helpers\DocumentHistoryManager.cs" />
+    <Compile Include="Helpers\InvoiceHelper.cs" />
+    <Compile Include="Model\Attributes\AverageSizeStringAttribute.cs" />
+    <Compile Include="Model\Attributes\BasePartImageAttribute.cs" />
+    <Compile Include="Contracts\Repositories\CompanyMemoryRepository.cs" />
+    <Compile Include="Contracts\Repositories\ICompanyRepository.cs" />
+    <Compile Include="Contracts\Repositories\IRepositoryFactory.cs" />
+    <Compile Include="Helpers\CustomerNameResolver.cs" />
+    <Compile Include="Helpers\Maybe.cs" />
+    <Compile Include="Helpers\QueryHelper.cs" />
+    <Compile Include="Helpers\ReassignHelper.cs" />
+    <Compile Include="Model\Attributes\CarPartImageAttribute.cs" />
+    <Compile Include="Model\Attributes\TotalDentsStringAttribute.cs" />
+    <Compile Include="Model\Attributes\TruckPartImageAttribute.cs" />
+    <Compile Include="Model\Base\IReportable.cs" />
+    <Compile Include="Model\Base\IReportableInvoice.cs" />
+    <Compile Include="Model\Enums\Attributes\DescriptionAttribute.cs" />
+    <Compile Include="Model\Enums\Extensions\EnumExtensions.cs" />
+    <Compile Include="Model\InsuranceCompany.cs" />
+    <Compile Include="Model\Customers\Affiliate.cs" />
+    <Compile Include="Model\Effort\CarModel.cs" />
+    <Compile Include="Model\Effort\CarSectionsPrice.cs" />
+    <Compile Include="Model\Enums\ChosenEffortType.cs" />
+    <Compile Include="Model\Enums\EstimateType.cs" />
+    <Compile Include="Model\Enums\InvoiceStatus.cs" />
+    <Compile Include="Model\Enums\LogActions\RepairOrderLogActions.cs" />
+    <Compile Include="Model\Enums\LogActions\EstimateLogActions.cs" />
+    <Compile Include="Model\Enums\LogActions\InvoiceLogActions.cs" />
+    <Compile Include="Model\Enums\Operations.cs" />
+    <Compile Include="Model\Enums\PartColor.cs" />
+    <Compile Include="Model\Enums\RepairOrderEditedStatuses.cs" />
+    <Compile Include="Model\Enums\RepairOrderStatuses.cs" />
+    <Compile Include="Model\Enums\ReportType.cs" />
+    <Compile Include="Model\Enums\RiPayment.cs" />
+    <Compile Include="Model\Enums\VehicleTypes.cs" />
+    <Compile Include="Model\EstimateUpdatedSum.cs" />
+    <Compile Include="Model\Invoice.cs" />
+    <Compile Include="Model\Logging\ActionLog.cs" />
+    <Compile Include="Model\Logging\AddAdditionalDiscountLog.cs" />
+    <Compile Include="Model\Logging\ChangeLaborRateLog.cs" />
+    <Compile Include="Model\Logging\ChangeValueLog.cs" />
+    <Compile Include="Model\Logging\ConvertEstimateLog.cs" />
+    <Compile Include="Model\Logging\DefinePercentsLog.cs" />
+    <Compile Include="Model\Logging\EditApprovalRepairOrderLog.cs" />
+    <Compile Include="Model\Logging\EntityLog.cs" />
+    <Compile Include="Model\Logging\EstimateLog.cs" />
+    <Compile Include="Model\Logging\InvoiceLog.cs" />
+    <Compile Include="Model\Logging\Location.cs" />
+    <Compile Include="Model\Logging\Log.cs" />
+    <Compile Include="Model\Logging\LogJson.cs" />
+    <Compile Include="Model\Logging\PaidInvoiceLog.cs" />
+    <Compile Include="Model\Logging\ReassignEstimateLog.cs" />
+    <Compile Include="Model\Logging\AssignRepairOrderLog.cs" />
+    <Compile Include="Model\Logging\RepairOrderLog.cs" />
+    <Compile Include="Model\Logging\RequestEditRepairOrderLog.cs" />
+    <Compile Include="Model\Matrixes\PriceMatrix.cs" />
+    <Compile Include="Model\Photos\AdditionalCarPhoto.cs" />
+    <Compile Include="Model\Base\CompanyEntity.cs" />
+    <Compile Include="Model\Base\ICompanyEntity.cs" />
+    <Compile Include="Model\Base\IEntityWithStatus.cs" />
+    <Compile Include="Model\CarInspection.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\CustomLines\CustomCarInspectionLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\CustomLines\CustomLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\CustomLines\EffortLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\CustomLines\EstimateCustomLine.cs" />
+    <Compile Include="Model\CustomLines\OversizedDentsLine.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Effort\ChosenEffortItem.cs" />
+    <Compile Include="Model\Effort\EffortItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Enums\AverageSize.cs" />
+    <Compile Include="Model\Enums\DeviceTypes.cs" />
+    <Compile Include="Model\Enums\EstimateStatus.cs" />
+    <Compile Include="Model\Enums\LicenseStatuses.cs" />
+    <Compile Include="Model\Enums\PartOfBody.cs" />
+    <Compile Include="Model\Enums\Statuses.cs" />
+    <Compile Include="Model\Enums\TotalDents.cs" />
+    <Compile Include="Model\Enums\UserRoles.cs" />
+    <Compile Include="Model\Car.cs" />
+    <Compile Include="Model\Customers\Customer.cs" />
+    <Compile Include="Model\Enums\CustomerType.cs" />
+    <Compile Include="Model\Estimate.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Insurance.cs" />
+    <Compile Include="Model\Customers\RetailCustomer.cs" />
+    <Compile Include="Model\Customers\WholesaleCustomer.cs" />
+    <Compile Include="Model\License.cs" />
+    <Compile Include="Model\Photos\CarImage.cs" />
+    <Compile Include="Model\Photos\CarPhoto.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Photos\CompanyLogo.cs" />
+    <Compile Include="Model\Photos\RoCustomerSignature.cs" />
+    <Compile Include="Model\Photos\CustomerSignature.cs" />
+    <Compile Include="Model\Photos\Photo.cs" />
+    <Compile Include="Model\Matrixes\DefaultMatrix.cs" />
+    <Compile Include="Model\Matrixes\Price.cs" />
+    <Compile Include="Model\Matrixes\Matrix.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Model\Matrixes\MatrixPrice.cs" />
+    <Compile Include="Model\Matrixes\EstimatePrice.cs" />
+    <Compile Include="Model\RepairOrder.cs" />
+    <Compile Include="Model\Reports\EstimateReport.cs" />
+    <Compile Include="Model\Reports\InvoiceReport.cs" />
+    <Compile Include="Model\Reports\RepairOrderReport.cs" />
+    <Compile Include="Model\Reports\Report.cs" />
+    <Compile Include="Model\Supplement.cs" />
+    <Compile Include="Model\Team.cs" />
+    <Compile Include="Model\TeamEmployeePercent.cs" />
+    <Compile Include="Model\Users\FormerRI.cs" />
+    <Compile Include="Model\Users\RITechnician.cs" />
+    <Compile Include="Model\Users\TeamEmployee.cs" />
+    <Compile Include="Model\Users\Wholesaler.cs" />
+    <Compile Include="Model\Users\Worker.cs" />
+    <Compile Include="Model\VersioniPhoneApp.cs" />
+    <Compile Include="Model\CustomerModel.cs" />
+    <Compile Include="RepositoryExtenssions\RepositoryExtenssions.cs" />
+    <Compile Include="Resources\EmailTemplatesRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EmailTemplatesRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\SmsTemplatesRes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>SmsTemplatesRes.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Services\Account\AuthorizationProvider.cs" />
+    <Compile Include="Services\Account\AuthorizationResult.cs" />
+    <Compile Include="Services\Account\HashGenerator.cs" />
+    <Compile Include="Services\Account\IAuthorizationProvider.cs" />
+    <Compile Include="Services\Automapper\CustomAutomapper.cs" />
+    <Compile Include="Services\GeneratePassword\GeneratePassword.cs" />
+    <Compile Include="Services\Grid\BaseGridMaster.cs" />
+    <Compile Include="Services\Grid\BaseGridMasterForStoredProcedure.cs" />
+    <Compile Include="Services\Grid\GridMasterNew.cs" />
+    <Compile Include="Services\Grid\GridMaster.cs" />
+    <Compile Include="Services\Grid\GridModel.cs" />
+    <Compile Include="Services\Grid\Interfaces\IGridMasterForStoredProcedure.cs" />
+    <Compile Include="Services\Grid\Interfaces\IGridMaster.cs" />
+    <Compile Include="Services\Grid\Interfaces\IJsonModel.cs" />
+    <Compile Include="Services\Grid\Interfaces\IViewModel.cs" />
+    <Compile Include="Services\Grid\SqlQueryForGrid.cs" />
+    <Compile Include="Services\ImageManagement\Coordinates.cs" />
+    <Compile Include="Services\ImageManagement\ImageManager.cs" />
+    <Compile Include="Services\ObjectsComparer\LogHelper.cs" />
+    <Compile Include="Services\PDFConverters\PdfFormatters.cs" />
+    <Compile Include="Services\PushNotification\IPushNotification.cs" />
+    <Compile Include="Services\PushNotification\IPushSettings.cs" />
+    <Compile Include="Services\Logging\ILogger.cs" />
+    <Compile Include="Services\Logging\Logger.cs" />
+    <Compile Include="Services\Mailing\EmailMessageTemplates.cs" />
+    <Compile Include="Services\PDFConverters\DataForReports.cs" />
+    <Compile Include="Services\PDFConverters\EstimateToPdfConverter.cs" />
+    <Compile Include="Services\PDFConverters\IPdfConverter.cs" />
+    <Compile Include="Services\Mailing\IMailService.cs" />
+    <Compile Include="Services\Mailing\MailService.cs" />
+    <Compile Include="Services\GeneratePassword\PasswordGenerator.cs" />
+    <Compile Include="Services\PDFConverters\PdfConverter.cs" />
+    <Compile Include="Services\PDFConverters\RepairOrderToPdfConverter.cs" />
+    <Compile Include="Services\PDFConverters\ReportToPdfConverter.cs" />
+    <Compile Include="Services\Sheduler\ISheduler.cs" />
+    <Compile Include="Services\Sheduler\Sheduler.cs" />
+    <Compile Include="Services\SMSSending\ISMSSending.cs" />
+    <Compile Include="Services\SMSSending\SMSSending.cs" />
+    <Compile Include="Services\TempImageStorage\ITempImageManager.cs" />
+    <Compile Include="Services\TempImageStorage\ImageInfo.cs" />
+    <Compile Include="Services\TempImageStorage\TempImageManager.cs" />
+    <Compile Include="Services\VersionStorage\IVersionStorage.cs" />
+    <Compile Include="Services\VersionStorage\VersionStorage.cs" />
+    <Compile Include="Services\VINDecoding\CheckerVinModel.cs" />
+    <Compile Include="Services\VINDecoding\IVINDecode.cs" />
+    <Compile Include="Services\VINDecoding\VINInfo.cs" />
+    <Compile Include="Services\VINDecoding\VINDecode.cs" />
+    <Compile Include="Services\VINDecoding\VinModel.cs" />
+    <Compile Include="Services\WebStorage\CurrentWebStorage.cs" />
+    <Compile Include="Services\WebStorage\ICurrentWebStorage.cs" />
+    <Compile Include="Services\Grid\Interfaces\ISuperadminGridMaster.cs" />
+    <Compile Include="Services\Grid\SuperadminGridMaster.cs" />
+    <Compile Include="Services\XLS\InvoiceToXLSConverter.cs" />
+    <Compile Include="Services\XLS\IXLSGenerator.cs" />
+    <Compile Include="Services\XLS\MatrixToXLSConverter.cs" />
+    <Compile Include="Services\XLS\PriceMatrixGenerator.cs" />
+    <Compile Include="Services\XLS\OrderHelper.cs" />
+    <Compile Include="Services\XLS\XLSGenerator.cs" />
+    <Compile Include="Services\XLS\XLSToMatrixConverter.cs" />
+    <Compile Include="Specifications\RepairOrdersForTeamEmployee.cs" />
+    <Compile Include="Specifications\RepairOrderSpecifications.cs" />
+    <Compile Include="Specifications\TeamsRepairOrders.cs" />
+    <Compile Include="StaticCollections\ProjectsAssemblies.cs" />
+    <Compile Include="Contracts\Repositories\INativeRepository.cs" />
+    <Compile Include="Model\Base\Entity.cs" />
+    <Compile Include="Model\Company.cs" />
+    <Compile Include="Model\Users\Accountant.cs" />
+    <Compile Include="Model\Users\Admin.cs" />
+    <Compile Include="Model\Users\Employee.cs" />
+    <Compile Include="Model\Enums\StatesOfUSA.cs" />
+    <Compile Include="Model\Users\Estimator.cs" />
+    <Compile Include="Model\Users\Manager.cs" />
+    <Compile Include="Model\Users\Superadmin.cs" />
+    <Compile Include="Model\Users\Technician.cs" />
+    <Compile Include="Model\Users\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Model\Enums\EnumExtenssions.cs" />
+    <Compile Include="StoredProcedureHelpers\CustomerStoredProcedureHelper.cs" />
+    <Compile Include="StoredProcedureHelpers\CustomersLightStoredProcedureHelper.cs" />
+    <Compile Include="StoredProcedureHelpers\CustomersStoredProcedureHelper.cs" />
+    <Compile Include="StoredProcedureHelpers\EstimatesStoredProcedureHelper.cs" />
+    <Compile Include="StoredProcedureHelpers\RepairOrdersStoredProcedureHelper.cs" />
+    <Compile Include="StoredProcedureHelpers\InvoicesStoredProcedureHelper.cs" />
+    <Compile Include="StoredProcedureHelpers\IStoredProcedureHelper.cs" />
+    <Compile Include="Wrappers\ManagerTabWrapper.cs" />
+    <Compile Include="Wrappers\WholesalerTabWrapper.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Contracts\Queries\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PDR.Resources\PDR.Resources.csproj">
+      <Project>{5AE6DE6B-F4A6-46BC-8428-0252A8A82C21}</Project>
+      <Name>PDR.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartArch.Data.NH\SmartArch.Data.NH.csproj">
+      <Project>{14548A37-F001-4046-B919-D7DC9EFB46F7}</Project>
+      <Name>SmartArch.Data.NH</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartArch\SmartArch.csproj">
+      <Project>{930BE28B-5D2D-40B6-9EB7-43F8C0F89E54}</Project>
+      <Name>SmartArch %28Infrastructure\SmartArch\SmartArch%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\EmailTemplatesRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>EmailTemplatesRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\SmsTemplatesRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>SmsTemplatesRes.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
+  <Import Project="..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

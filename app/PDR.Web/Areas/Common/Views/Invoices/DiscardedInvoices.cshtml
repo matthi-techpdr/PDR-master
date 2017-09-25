@@ -1,0 +1,84 @@
+﻿@using PDR.Web.Areas.Common.Models
+@using InvoicesController = PDR.Web.Areas.Common.Controllers.InvoicesController 
+@model FilterModel
+@{
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+    ViewBag.Title = "Discarded";
+    if (ViewBag.currenUserRole == "Admin")
+    {
+        Bundles.Reference("Content/js/Pages/Admin/InitDiscardedInvoicesGrid.js");
+    }
+    else
+    {
+        Bundles.Reference("Content/js/Pages/Accountant/Invoice/InitDiscardedInvoicesGrid.js");
+    }
+}
+<div class="links">
+    @(Html.ActionLink<InvoicesController>(x => x.Index(null, null, null, true), "Invoices"))
+    @(Html.ActionLink<InvoicesController>(x => x.DiscardedInvoices(null, null, null), "Discarded"))
+    
+     @if (ViewBag.currenUserRole == "Admin")
+     {
+        @(Html.ActionLink<InvoicesController>(x => x.ArchiveInvoices(null, null, null), "View archive", new { @class = "viewArchive" }))
+     }
+
+    @{
+        Html.RenderPartial("~/Areas/Common/Views/Shared/Partial/Search.cshtml");
+    }
+    @if (ViewBag.currenUserRole == "Accountant")
+    {
+        <div class="dateFilterAccountant">
+            <label style="margin-left: 10px;">
+                From:</label>
+            <input type="text" id="from" class="date-filter" autocomplete="off" />
+            <label>
+                To:</label>
+            <input type="text" id="to" class="date-filter" autocomplete="off" />
+        </div>
+        <span class="gridFilter filterAccountant">
+            <label>
+                Customer:
+            </label>
+            @Html.DropDownList("customers", (IEnumerable<SelectListItem>)ViewData["customers"], new { id = "Customers", style = "width:177px;" })
+        </span>
+        <span class="gridFilterTeams ">
+            <label style="text-align: right; width: 110px;">
+                Team:
+            </label>
+            @Html.DropDownList("teams", (IEnumerable<SelectListItem>)ViewData["teams"], new { id = "Teams", style = "width:177px;" })
+        </span>
+        <span class="gridFilter filterStatus">
+            <label>
+                Status:
+            </label>
+            @Html.DropDownList("status", (IEnumerable<SelectListItem>)ViewData["statuses"], new { id = "Statuses", style = "width:100px;" })
+        </span>
+    }
+    <input id ="ArchiveInvoiceUrl" type="hidden" value="@Url.Action("ArchiveInvoices", "Invoices")"/>
+    <input id ="InvoiceUrl" type="hidden" value="@Url.Action("Index", "Invoices")"/>
+    <input id="curentUserRole" type="hidden" value="@ViewBag.currenUserRole"/>
+    @{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+
+     @if (ViewBag.currenUserRole == "Admin")
+     {
+        <span class="gridFilter">
+            <label>
+                Filter by teams:
+            </label>
+            @Html.DropDownList("teams", Model.Teams, new { id = "Teams", style = "width:141px;" })
+            <label>
+                Filter by customers:
+            </label>
+            @Html.DropDownList("customers", Model.Customers, new { id = "Customers", style = "width:177px;" })
+        </span>
+     }
+</div>
+<div id="tabs-1" class="ui-tabs-panel">
+    <div class="repair-orders-content">
+        <table id="discardedInvoicesGrid">
+        </table>
+        <div id="pager">
+        </div>
+    </div>
+</div>
+

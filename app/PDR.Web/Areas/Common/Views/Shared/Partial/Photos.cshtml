@@ -1,0 +1,48 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Estimates
+@using SmartArch.Core.Helpers
+@model IPhotoContainer
+           
+@{
+    var isEditMode = !Html.IsReadOnlyMode();
+
+    Bundles.Reference("Content/css/prettyPhoto.css");
+    Bundles.Reference("Content/css/pages/estimator/estimates/partial/photo.css");
+
+    Bundles.Reference("Content/js/pages/estimator/estimates/partial/photo.js");
+    if (isEditMode)
+    {
+        Bundles.Reference("Content/js/pages/estimator/estimates/partial/photo-uploader.js");
+    }
+}
+
+<div id="storedfiles" class="images gallery">
+    @{ string collectionName = Reflector.Property<EstimateModel>(x => x.StoredPhotos).Name; }
+    @for (int i = 0; i < Model.StoredPhotos.Count(); i++)
+    {
+        Html.RenderPartial("Partial/Photo", new { Index = i, Image = Model.StoredPhotos[i], IsEditMode = isEditMode, CollectionName = collectionName });
+    }
+    
+</div>
+
+@if (isEditMode)
+{
+    <div id="uploaded-files" class="images">
+        @{collectionName = Reflector.Property<EstimateModel>(x => x.UploadPhotos).Name;}
+        @for (int i = 0; i < Model.UploadPhotos.Count(); i++)
+        {
+            Html.RenderPartial("Partial/Photo", new { Index = i, Image = Model.UploadPhotos[i], IsEditMode = true, CollectionName = collectionName });
+        }
+    </div>
+
+    <div id="filelist">No found runtime for upload files.</div>
+    <div id="filelist1" style="display: none;">Your version iOS not supported upload files</div>
+    <br />
+   
+    <a id="pickfiles" href="javascript:void(0);" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false">
+        <span style="padding: 0 10px;" class="ui-button-text">Select</span>
+    </a>
+    <a id="uploadfiles" href="javascript:void(0);" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" role="button" aria-disabled="false">
+        <span style="padding: 0 10px;" class="ui-button-text">Upload</span>
+    </a>
+    <span class="photo-uploader-message"></span>
+}

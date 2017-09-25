@@ -1,0 +1,1233 @@
+/*
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: the WordPress team
+Version: 1.0
+Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, theme-options, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style
+*/
+
+
+/* Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
+-------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	font-family:Arial;
+}
+body {
+	background:#dcdbdb url('images/bg.png') repeat-x 0 0;
+	position: relative !important;
+	background-position-x: 0px;
+	background-position-y: 0 !important;
+}
+ul,ol {
+	list-style-type:none;
+}
+a {
+	text-decoration: none;
+}
+.page {
+	/*margin: 0 auto;
+    overflow: hidden;
+    padding: 0 34px;
+    position: relative;
+    width: 960px;
+	min-height:810px;
+	background:#dcdbdb url('images/body.png') no-repeat 0 29px;*/
+}
+.links {
+	margin:0;
+	float:left;
+	width:960px;
+}
+.links a {
+  background: none repeat scroll 0 0 #C1C1C4;
+  border-radius: 9px 9px 9px 9px;
+  color: #444447;
+  float: left;
+  font-size: 15px;
+  margin: 0 3px 0 0;
+  padding: 12px 18px 11px;
+  /*behavior: url(/1PIE.htc);*/
+}
+.links span.item-number {
+    float: right;
+    padding: 12px 18px 11px;
+    font-size: 15px;
+    color: #E25E53;
+}
+.archive-add {
+	float:right;
+}
+.archive-add {
+	float:right;
+}
+.archive-add label {
+  color: #444447;
+  float: left;
+  font-size: 15px;
+  margin: 11px 5px 0 10px;
+}
+.archive-add select {
+  color: #444447;
+  float: left;
+  font-size: 15px;
+  height: 30px;
+  margin: 5px 0 0 !important;
+  width: 100px;
+}
+.archive-add a{
+	float:right;
+	margin:0 0 0 10px;
+}
+.ui-tabs-panel {
+	float:left;
+	margin: 22px 0 0 2px;
+}
+.ui-tabs-panel .ui-tabs-panel{
+	float:left;
+	margin: 16px 0 0 2px;
+}
+.ui-tabs-panel .links a.active,
+.ui-tabs-panel .links a:hover {
+	background:#e25e53;
+	color:#fff;
+}
+/*End: Tabs*/
+.ui-widget-header {
+    color: #FFFFFF;
+    font-weight: bold;
+	width:100%;
+}
+.ui-datepicker {
+    border-radius: 5px;
+    font-size: 13px!important;
+    z-index: 999999999999 !important;
+    /*behavior: url(/1PIE.htc);*/
+}
+
+.ui-datepicker .ui-datepicker-header {
+    background:#e25e53;
+    border-radius: 5px;
+    border: 1px solid #E78F08;
+    /*behavior: url(/1PIE.htc);*/
+}
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+    border: 1px solid #e25e53;
+    border-radius: 5px;
+    /*behavior: url(/1PIE.htc);*/
+    background: #fff !important;
+    
+}
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {
+    border: none;
+    border-radius: 5px;
+    /*behavior: url(/1PIE.htc);*/   
+}
+.fieldset3 .ui-state-active, .fieldset3 .ui-widget-content .ui-state-active, .fieldset3 .ui-widget-header .ui-state-active {
+    border: none;
+    border-left: none;
+    border-radius: 0;
+    background: #fff !important;
+    /*behavior: url(/1PIE.htc);*/ 
+}
+.ui-datepicker .ui-datepicker-prev {
+    left: 3px;
+}
+.ui-datepicker .ui-datepicker-next {
+    right: 3px;
+}
+.ui-state-hover {
+    background: none;
+}
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next {
+    top: 5px;
+}
+.ui-datepicker-div .ui-widget-header 
+{    
+    color: #FFFFFF;
+    font-weight: bold;
+}
+#accordion,
+#accordione {
+	float:left;
+	width:960px;
+	margin:16px 0 0;
+	min-height:100px;
+}
+#accordion h3,
+#accordione h3 {
+	background:#F3F3F6 !important;
+	background-image: linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%) !important;
+	background-image: -o-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%) !important;
+	background-image: -moz-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%) !important;
+	background-image: -webkit-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%) !important;
+	background-image: -ms-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%) !important;
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(216,216,218)),
+		color-stop(1, rgb(243,243,246))
+	) !important;
+	filter: progid:DXImageTransform.Microsoft.Gradient(StartColorStr=#FFF3F3F6, EndColorStr=#FFD8D8DA, GradientType=0);
+	border:1px solid #cdcdcd;
+	border-radius:5px;
+	margin: 0;
+	padding:13px 20px;	
+	font-weight:normal;
+	float:left;
+	width:918px;
+	position:relative;
+	z-index:1;
+}
+#accordion h3 a,
+#accordione h3 a {
+	font-size:15px;
+	font-weight:bold;
+	padding:0 0 0 15px;
+	color:#555555;
+}
+#accordione div p {
+	width:293px;
+	margin:0 0 10px;
+}
+#accordione div p a {
+	font-size:13px;
+	color:#555;
+	text-decoration:none;
+}
+.ui-accordion-content {
+	float:left;
+	width:938px;
+	position:relative;
+	z-index:0;
+	background:#f9f9fa;
+	border:1px solid #d7d7d7;
+	padding:31px 0 15px 20px!important;
+	margin:-10px 0 3px;
+	border-radius:0 0 5px 5px;
+}
+.fieldset1 p,
+.fieldset11 p,
+.fieldset1 label span{
+	color:#555555;
+	font-size:16px;
+	margin:0 11px 0 0;
+	float:left;
+}
+.fieldset1 p,
+.fieldset11 p {
+	float:none;
+}
+.fieldset2 label a,
+.fieldset2 label,
+.fieldset2 input{
+	float:left;
+	color:#000;
+	font-size:14px;
+	margin: 0 10px 9px 0;
+}
+.fieldset1 {
+	float:left;
+	width:510px;
+	text-align:center;
+}
+.fieldset11 {
+	float:left;
+	width:415px;
+	text-align:center;
+}
+.fieldset2 {
+	border: 1px dotted #CCCCCC;
+    float: left;
+    margin: 19px 18px 0 0;
+    padding: 10px 0 0 10px;
+    width: 490px;
+}
+.fieldset2 ul {
+	clear:both;
+}
+.fieldset2 li {
+	float:left;
+	margin:0 0 8px;
+	position:relative;
+}
+.fieldset4{
+    border: 1px dotted #CCCCCC;
+    padding: 10px 0 3px;
+    width: 915px;
+}
+
+.vechicleInfo {
+    height: 40px;
+}
+
+.fieldset2 li label,
+.fieldset4 label{
+	float:left;
+	font-size:14px;
+	margin:4px 0 0;
+}
+
+.fieldset4 label{
+	margin:4px 0 0 10px;
+}
+
+.big1 {
+	width:61px;
+}
+.big2 {
+	width:71px;
+}
+.fieldset2 li input,
+.fieldset4 input{
+	height:24px;
+	border-radius:3px;
+	border:1px solid #dddddd;
+	padding:0 7px;
+	color:#555555;
+	font-size:12px;
+	float:left;
+	margin:0;
+}
+input.bigi1 {
+	margin:0;
+}
+input.big {
+	width:151px;
+	margin:0 8px 0 0;
+}
+input.bigg {
+	width:228px;
+	margin:0 8px 0 0;
+}
+.bigi1 {
+	width:156px;
+}
+.fieldset2 li label.otp {
+	margin:4px 8px 0 0;
+}
+.fieldset3 {
+	border: 1px dotted #CCCCCC;
+    float: left;
+    margin: 19px 0 0;
+    padding: 10px 5px 0 10px;
+    width: 380px;
+}
+.fieldset3 label{
+	float:left;
+	width:115px;
+	font-size:14px;
+	margin:7px 0 0;
+}
+.fieldset3 ul li {
+	margin:0 0 8px;
+	float:left;
+	position:relative;
+}
+.fieldset3 input{
+	height:24px;	
+	border:1px solid #dddddd;
+	padding:0 7px;
+	font-size:12px;
+	float:left;
+	width:245px;
+	border-radius:3px;
+}
+.fieldset4 li {
+	margin:0 0 8px;
+	float:left;
+}
+
+/*Tabs CarInfo Start*/
+
+.fieldset5 .l-col {
+    width: 450px;
+    float: left;
+}
+
+.fieldset5 .l-col ul li {
+    margin-left: 0;
+}
+.fieldset5 .r-col {
+    width: 420px;
+    float: right;
+}
+
+.fieldset5 .r-col .state {
+    margin-left: 35px;
+    width: 67px;
+    padding-left: 13px;
+}
+
+.fieldset5 {
+   border: 1px dotted #CCCCCC;    
+    padding: 10px 0 0 10px;
+    width: 902px; 
+}
+
+.fieldset5 li {
+    height: 26px;
+	position:relative;
+    margin: 10px 10px;
+}
+.fieldset5 li label {
+    float: left;
+	font-size:14px;
+    vertical-align: sub;	
+    width: 80px;
+    color:#555555;
+    padding-top: 5px;
+    margin-left: 0;
+}
+.fieldset5 li input {
+	height:24px;
+	border-radius:3px;
+	border:1px solid #dddddd;
+	color:#555555;
+	font-size:12px;
+    float: left;
+    width: 300px;
+    padding: 0 7px;
+    margin-top: 0;
+      
+}
+.fieldset5 .selectBox-dropdown {
+    width: 51px !important;
+}
+
+.fieldset5 .l-col li input {
+    margin-right: 15px;
+}
+.fieldset5 .r-col li input 
+{
+    float: right;
+}
+.fieldset5 .alert, .fieldset5 .check{
+    position: relative;
+    top: 5px;
+    left: -5px;
+}
+.fieldset5 .alert {
+    background-image: url("/Content/themes/pdr/images/ui-icons_cd0a0a_256x240.png");
+}
+.fieldset5 .check {
+    background-image: url("/Content/themes/pdr/images/ui-icons_15cd0a_256x240.png");
+}
+/*Tabs CarInfo End*/
+
+.car_part {
+	float:left;
+	width:196px;
+	margin:0 0 0 -20px;
+}
+.car_part li{
+	height:31px;
+	line-height:31px;
+	background-image: linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+    background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(216,216,218)),
+		color-stop(1, rgb(243,243,246))
+	);
+    width: 196px;
+    display: block;
+}
+.car_part li .price {
+	width:75px;
+	float:left;
+	height:31px;
+	margin:0 15px 0 0;
+	text-align:right;
+	font-size:15px;
+    font-weight: bold;
+}
+.car_part li .part {
+	color:#555555;
+	font-size:14px;
+    width: 121px;
+}
+.car_part li.now {
+	height:29px;
+	line-height:29px;
+	/*background:#fff;*/
+	border-bottom:2px solid #ed1c24 !important;
+}
+.car_part li.now span{
+	color:#ed1c24;
+	font-size:14px;
+}
+
+.car_part li:hover {
+    cursor: pointer;
+}
+
+.car_part li.already {
+	height:29px;
+	line-height:29px;
+	/*background:#fff;*/
+	border-bottom:2px solid #05a520 !important;
+}
+.car_part li.already span{
+	color:#05a520;
+	font-size:14px;
+}
+.car_part li:hover{
+    background-image: linear-gradient(bottom, rgb(243,243,246) 100%, rgb(216,216,218) 0%);
+	background-image: -o-linear-gradient(bottom, rgb(243,243,246) 100%, rgb(216,216,218) 0%);
+	background-image: -moz-linear-gradient(bottom, rgb(243,243,246) 100%, rgb(216,216,218) 0%);
+	background-image: -webkit-linear-gradient(bottom, rgb(243,243,246) 100%, rgb(216,216,218) 0%);
+	background-image: -ms-linear-gradient(bottom, rgb(243,243,246) 100%, rgb(216,216,218) 0%);
+    background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(1, rgb(216,216,218)),
+		color-stop(0, rgb(243,243,246))
+	);
+    border-bottom: 2px solid silver;
+    height: 29px;
+}
+
+.car_part li.active {
+    background: whitesmoke;
+    border-bottom: 2px solid silver;
+    height: 29px;
+}
+
+.car_p {
+	margin:0 0 0 38px;
+	float:left;
+	width:370px;
+	height:400px;
+	position:relative;
+}
+.car_p .f {
+  height: 124px;
+  left: 2px;
+  position: absolute;
+  top: 10px;
+  width: 81px;
+}
+.car_p .s {
+  height: 133px;
+  left: 2px;
+  position: absolute;
+  top: 121px;
+  width: 109px;
+}
+.car_p .t {
+  height: 122px;
+  left: 2px;
+  position: absolute;
+  top: 236px;
+  width: 107px;
+}
+.car_p .fo {
+  height: 134px;
+  left: 2px;
+  position: absolute;
+  top: 314px;
+  width: 97px;
+}
+.car_p .fi {
+  height: 81px;
+  left: 82px;
+  position: absolute;
+  top: 0;
+  width: 204px;
+}
+.car_p .si {
+  height: 148px;
+  left: 99px;
+  position: absolute;
+  top: 24px;
+  width: 174px;
+}
+.car_p .se {
+  height: 170px;
+  left: 100px;
+  position: absolute;
+  top: 166px;
+  width: 31px;
+}
+.car_p .e {
+  height: 170px;
+  left: 126px;
+  position: absolute;
+  top: 173px;
+  width: 117px;
+}
+.car_p .n {
+  height: 165px;
+  left: 236px;
+  position: absolute;
+  top: 168px;
+  width: 32px;
+}
+.car_p .te {
+  height: 68px;
+  left: 116px;
+  position: absolute;
+  top: 341px;
+  width: 137px;
+}
+.car_p .el {
+  height: 99px;
+  left: 96px;
+  position: absolute;
+  top: 349px;
+  width: 177px;
+}
+.car_p .tw {
+  height: 128px;
+  left: 282px;
+  position: absolute;
+  top: 8px;
+  width: 86px;
+}
+.car_p .tt {
+  height: 137px;
+  left: 257px;
+  position: absolute;
+  top: 120px;
+  width: 111px;
+}
+.car_p .ft {
+  height: 134px;
+  left: 257px;
+  position: absolute;
+  top: 237px;
+  width: 101px;
+}
+.car_p .st {
+  height: 134px;
+  left: 267px;
+  position: absolute;
+  top: 314px;
+  width: 101px;
+}
+.right_f {
+	float:left;
+	width:353px;
+}
+.right_f select{
+	float:left;
+	width:80px;
+}
+.right_f p,
+.right_f label{
+	float:left;
+	font-size:14px;
+	margin:4px 7px 0 0;
+}
+li:first-child .right_f_l {
+	float:left;
+	width:225px;
+	margin:0 15px 0 10px;
+}
+.right_f_l {
+	float:left;
+	width:225px;
+	margin:0 15px 0 10px;
+}
+.right_f_r {
+	width:0px;
+	float:left;
+	text-align:center;
+}
+.right_f li{
+	margin:0 0 20px;
+	float:left;
+}
+.right_f li input{
+	width:56px;
+	float:left;
+	height:24px;
+	line-height:24px;
+	color:#555;
+	font-size:14px;
+	text-align:center;
+	padding:0;
+	/*border:1px solid #d3d3d3;
+	border-radius:3px;*/
+}
+.right_f li input[type="checkbox"] {
+	width:auto;
+	margin:1px 7px 0 0;
+	padding:0;
+	height:auto;
+}
+
+.right_f li input[type="radio"] {
+	margin:1px 7px 0 0;
+	padding:0;
+    /*border: none;*/
+    width:13px;
+    height:13px;
+    overflow:hidden;
+    display: inline-block;
+}
+.right_f li .right_f_r input{
+	width:68px;
+	float:left;
+	height:24px;
+	line-height:24px;
+	color:#ed1c24;
+	font-size:14px;
+	text-align:center;
+	padding:0;
+	border:1px solid #d3d3d3;
+	border-radius:3px;
+}
+.right_f_l span,
+.right_f_r span {
+    font-size: 14px;
+	float:left;
+	height:auto;
+}
+
+.right_f_r span.effortTitle {
+    float:left;
+    margin-top: 10px;
+}
+
+.right_f_r span.effortHours {
+    float:left;
+    margin: 10px 0 0 31px;
+}
+
+.right_f_r input.effortCost {
+    float:left;
+    margin: 4px 0 0 60px;
+}
+
+.right_f_l span span{
+	width:102px;
+	float:left;
+}
+.right_f_l label {
+	float:left;
+	margin:-2px 5px 9px 1px;
+}
+
+ul.options {
+    font-size: 14px;
+    width: 225px;
+    margin:0 15px 0 10px;
+    
+}
+ul.options li {
+    float: none;
+    margin: 0 0 15px 0;
+    height: 20px;
+    width: 330px;
+}
+
+ul.options li span {
+    width: 200px;
+    margin-top: -2px;
+}
+ul.options li:last-child{
+    margin: 0;
+}
+
+.right_f_l label.sumps {
+	float:left;
+	margin:20px 0 9px;
+}
+.right_f_r span {
+	margin:14px 0 0 -3px;
+}
+.right_f li textarea {
+	width:281px;
+	height:55px;
+	border:1px solid #d3d3d3;
+	border-radius:3px;
+	resize:none;
+	overflow:auto;	 
+}
+.right_f li:last-child {
+	margin:0px 0 20px 0;
+}
+
+.efforts .right_f_l {
+    width: 340px;
+}
+.effortItem li div#radio .right_f_l input#radio1,
+.effortItem li div#radio .right_f_l input #radio2 {
+    width: 10px;
+}
+
+
+.effortLine li:last-child,
+.effortItem li:last-child {
+    margin: 0;
+}
+
+.customLines li input {    
+    text-align: left;
+    padding-left: 5px;
+}
+
+/*Start: footer*/
+.footer {
+	float:left;
+	margin:16px 0 41px;
+	width:960px;
+}
+
+.footer #addSupplements {
+	width:300px;
+    margin-right: 10px;
+}
+.footer a.save {
+	color:#ed1c24;
+	font-size:15px;
+	width:105px;
+	height:32px;
+	line-height:32px;
+	border-radius:8px;
+	float:left;
+	background:#bbbbbf;
+	text-align:center;
+}
+.footer input.save {
+	color:#ed1c24;
+	font-size:15px;
+	width:145px;
+	height:37px !important;
+	/*height:40px;
+	line-height:23px;*/
+	border-radius:8px;
+	float:left;
+	background:#bbbbbf;
+	text-align:center;
+	margin: 4px 0 0 0 !important;
+}
+.footer label{
+	margin:15px 0 0 15px;
+	padding:0;
+	float:left;
+}
+.footer label.view{
+	margin:10px 0 0 15px;
+	padding:0;
+	float:left;
+}
+.footer input[type="checkbox"] {
+	margin:0;
+	padding:0;
+}
+.footer label span {
+	font-size:14px;
+	color:#555;
+	float:left;
+	margin:-1px 0 0 5px;
+}
+.footer a.print,
+.footer a.email,
+.footer a.cancel {
+	float:right;
+	color:#444447;
+	font-size:15px;
+	width:60px;
+	/*height:22px;
+	line-height:24px;*/
+	background:#bbbbbf;
+	text-align:center;
+	border-radius:8px;
+	margin:3px 0 0 8px;	
+}
+.footer a.email {
+	margin:3px 0 0 8px;	
+}
+.footer a.cancel.near-save {
+    float: left;
+    margin-top: 4px;
+    padding: 11px 8px 9px;
+    width: 80px;}
+
+.footer a.active,
+.footer a:hover,
+.footer input.active,
+.footer input:hover {
+	background:#bbbbbf;
+	color:#fff;
+}
+/*End: footer*/
+/*Start: selected wholesale*/
+.select-wholesale, .select-employee {
+	width:286px;
+	height:24px;
+	border:1px solid #d3d3d3;
+	font-family:Arial;
+	color:#555555;
+}
+.all {
+	border-top: 1px solid #CCCCCC;
+    float: left;
+    margin: 0 0 0 -20px;
+    width: 958px;
+}
+.total {
+	float: left;
+    margin: 19px 0px 0 22px;
+    width: 200px;
+}
+.total span{
+	color:#05a520;
+	font-size:38px;
+	font-family:Arial;
+}
+.total span span {
+	color:#555555;
+	font-size:14px;
+	margin:14px 10px 0 0;
+	float:left;
+}
+
+.total .totalEstimate {
+    font-size: 18px;
+    font-weight: bold;
+    color: #555555;
+    position: relative;
+    bottom: 10px;        
+}
+
+.quickTotal, .extraQuickTotal {
+    font-weight: bold;
+    font-size: 15px !important;
+}
+
+.quickTotal span, 
+.extraQuickTotal span {
+    font-weight: normal;
+}
+
+.damages {
+	float: left;
+    width: 300px;
+	margin:0 0 0 35px;
+}
+
+.priordamages {
+	float: left;
+    width: 355px;
+	margin:-23px 18px 0 -570px;
+}
+
+.right_f li .priordamages textarea{
+	width:350px;
+	height:89px;
+	border:1px solid #d3d3d3;
+	border-radius:3px;
+	resize: none;
+	overflow:auto;
+}
+.car_customline ul li {
+    width: 370px;
+    margin-bottom: 10px;
+    height: 40px;
+}
+
+.damages p,
+.total-fields p{
+	color:#555555;
+	font-size:14px;
+	margin: 10px 0 6px;
+	font-family:Arial;
+}
+.total-fields p {
+    margin: 10px 0 6px 0px;
+}
+
+.damages textarea{
+	width:281px;
+	height:89px;
+	border:1px solid #d3d3d3;
+	border-radius:3px;
+	margin-bottom: 20px;
+    resize: none;
+}
+.total-fields {
+	float:left;
+}
+
+.total-fields ul li {
+    width: 400px;
+    margin: 0 0 10px 0;
+    height: 40px;
+}
+
+.total-fields .customLinesBut {
+    margin: 5px 4px 0 0px;
+}
+
+.total-fields div.left {
+    float: right;
+}
+.total-fields div.right {
+    float: right;
+    
+}
+.total-fields input 
+{
+	padding:3px;
+	width:153px;
+	height:18px;
+	line-height:18px;
+	border:1px solid #d3d3d3;
+	border-radius:3px;
+	color:#555555;
+}
+.total-fields input.small {
+	width:62px;
+	margin: 4px 0 0 30px;
+	color:#ed1c24;
+	text-align:center;
+}
+
+
+
+/*Start: selected wholesale*/
+.car-photo-div img{
+	float:left;
+	margin:0 9px 0 0;
+}
+.uploadfile {
+	position:relative;
+	margin:0 0 11px;
+	float:left;
+}
+.uploadfile input {
+	opacity:0;
+	cursor: pointer;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 589px;
+	height: 32px;
+    z-index: 3;
+}
+.uploadfile a {
+	background: url("../../images/upload-car.png") no-repeat 0 0;
+	border: medium none;
+    color: #A12F7E;
+    cursor: pointer;
+    float: left;
+    height: 32px;
+    overflow: hidden;
+    padding: 0 0 0 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 589px;
+}
+/*Start: Footer pag*/
+.right-f-s{
+	float:right;
+}
+/*End: Footer pag*/
+.links p,
+.links select {
+	margin:10px 5px 0 15px;
+}
+.links select {
+	margin:10px 5px 0 5px;
+}
+#tabs-3 p {
+	color: #555555;
+    float: left;
+    font-size: 13px;
+}
+#tabs-3 select {
+	color: #555555;
+    float: left;
+    font-size: 13px;
+	width:100px;
+}
+
+/*start estimate-part*/
+.estimate-part {
+    float: left;
+    margin: 16px 0 41px;
+    width: 100%;
+}
+
+.estimate-part label span {
+    font-size: 14px;
+    color: #555;
+    float: left;
+    margin: -1px 0 0 5px;
+}
+
+.estimate-part label {
+    margin: 13px 0 0 15px;
+    padding: 0;
+    float: left;
+}
+/*end estimate-part*/
+
+.loading {
+    position: absolute;
+    top: 35%;
+    left: 45%;
+    width: auto;
+    z-index:101;
+    padding: 6px;
+    margin: 5px;
+    text-align: center;
+    font-weight: bold;
+    display: none;
+    border-width: 2px !important;
+}
+
+#matrixError {
+    color: red;
+    font-size: 14px;
+}
+
+div.sob-info #Comment{
+    width: 200px;
+    resize: none;
+    font-size: 12px;
+    height: 71px;
+}
+.ui-jqgrid tr.jqgfirstrow td {
+	border:none !important;
+	padding:0 !important;
+}
+.ui-jqgrid .ui-jqgrid-htable th {
+	padding:0 !important;
+}
+.dt_d.otr span span input[type="text"] {
+	background:none;
+	padding:0;
+}
+.wrapperBlock {
+	position:relative;
+    float: left;
+}
+span.selectBox-arrow {
+	top:0;
+	right:0;
+}
+#pager .ui-pg-selbox {
+width: 47px !important;
+height: 28px ;
+right: 0 !important;
+/*position: relative !important;*/
+top: 0 !important;
+}
+.ui-jqgrid-htable tr {
+	width:958px;
+}
+
+#accordion h3 a,
+.fieldset2 li label, .fieldset4 label,
+.fieldset3 label,
+.fieldset3 input,
+.right_f p,
+.right_f label,
+.right_f_l span,
+.right_f_r span {
+  color: #555555;
+}
+
+#gbox_teamGrid #jqgh_OpenWorkOrdersAmount {
+    position: relative;
+    top: -9px;    
+}
+
+.user {
+    cursor: pointer;
+}
+
+#customerInfo h4{
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 5px;
+    margin-left: 3px;
+}
+
+.markerinfo p {
+    word-wrap: normal !important;
+    font-size: 14px !important;
+    color: #555 !important;
+}
+.ui-dialog-buttonpane {
+	float:left !important;
+	clear:left !important;
+}
+#Locations a {
+	width:200px !important;
+}
+td[aria-describedby="gpsReportsGrid_cb"] input,
+td[aria-describedby="vehiclesGrid_cb"] input,
+td[aria-describedby="licensesGrid_cb"] input,
+td[aria-describedby="teamGrid_cb"] input,
+td[aria-describedby="employeeGrid_cb"] input,
+td[aria-describedby="customerGrid_cb"] input,
+td[aria-describedby="repairOrdersGrid_cb"] input,
+td[aria-describedby="estimatesGrid_cb"] input,
+td[aria-describedby="invoicesGrid_cb"] input,
+td[aria-describedby="archiveEstimatesGrid_cb"]  input{
+	margin-left:-1px !important;
+}
+#repairOrdersGrid_cb input,
+#archiveEstimatesGrid_cb input,
+#invoicesGrid_cb input,
+#estimatesGrid_cb input,
+#customerGrid_cb input,
+#employeeGrid_cb input,
+#teamGrid_cb input,
+#licensesGrid_cb input,
+#vehiclesGrid_cb input,
+#gpsReportsGrid_cb input {
+	margin: 0 !important;/*margin-left:-3px !important;*/
+	height:13px;
+	width:13px;
+	padding:0 !important;
+}
+.ui-dialog-buttonset {
+    float: left;
+    height: 32px;
+    margin: -20px 0 0 20px;
+}
+.ui-dialog {
+	padding: 0 0 20px !important;
+}
+
+.greyFilter {
+    background:#eaeaea;
+}
+.selectBox-label.greyFilter {
+background:#ffffff;
+}
+
+.showLabel {
+    left: 0;
+    margin: 10px 0 0 -112px;
+    position: absolute;
+    top: 0;
+}

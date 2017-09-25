@@ -1,0 +1,83 @@
+﻿@using PDR.Web.Areas.Admin.Controllers
+@model PDR.Web.Areas.Admin.Models.Vehicle.VehicleModel
+
+@*@{ Html.RenderPartial("Partial/OnlyVehicleLayout", Model); }*@
+
+@{
+    //Bundles.AddPageData("globals", new { isReadOnlyMode = @Html.IsReadOnlyMode().ToString().ToLower() });
+    Bundles.Reference("Content/js/pages/admin/vehicles/vehicle.js");
+    Bundles.Reference("Content/css/pages/admin/vehicle.css");
+}
+          
+<div id="accordion">
+    <h3><a href="#">Vehicle Info@*<span data-bind="text: carName"></span>*@</a></h3>
+    <div>
+        @{ Html.RenderPartialWithPrefixAndState("Partial/VehicleInfo", model => model.Info); }
+    </div>
+    <h3><a href="#">Vehicle Sections@*<span data-bind="text: totalView"></span>*@</a></h3>
+    <div>
+       @{
+           Html.RenderPartialWithPrefixAndState("Partial/VehicleSections", model => model.SectionsModel);
+        }
+    </div>
+</div>
+<script type="text/javascript">
+    window.globals.uniqueVehicle = false;
+    $(document).ready(function () {
+        $('.save').focus();
+
+        $('.save').bind('focusout', function () {
+            $(this).css("color", "#444447");
+            $('.save').hover(
+            function () {
+                $(this).css("color", "white");
+            },
+            function () {
+                $(this).css("color", "#444447");
+            });
+        });
+
+        $(".saveVehicle").bind("click", function (e) {
+            var form = $('.vehicleForm');
+            $('input[type=submit]', form).attr('disabled', 'disabled');
+            $('.cancel', form).attr('disabled', 'disabled');
+
+            e.preventDefault();
+            e.stopPropagation();
+            UniqueVehicle(function () {
+                if (window.globals.uniqueVehicle) {
+                    jAlert("This vehicle is already exists in the database", "Warning!", function () {
+                        $('input[type=submit]', form).removeAttr('disabled');
+                        $('.cancel', form).removeAttr('disabled');
+                    });
+                    return false;
+                }
+
+                $.validator.unobtrusive.parse(document);
+                form.validate();
+
+                if (!form.valid()) {
+                    $('input[type=submit]', form).removeAttr('disabled');
+                    $('.cancel', form).removeAttr('disabled');
+                    return false;
+                }
+
+                form.submit();
+            });
+        });
+    });
+</script>
+<div class="footer">
+    @if (Html.IsReadOnlyMode())
+    {
+        long id = Convert.ToInt64(Model.Info.Id);
+        var editUrl = Html.BuildUrlFromExpression<VehiclesController>(x => x.Edit(id));
+        <a href="@editUrl" class="save edit">Edit</a>
+        <input type="hidden" value="@editUrl" class="editUrl"/>
+    }
+    else
+    {
+         <input type="submit" class="save saveVehicle" value="Save vehicle"/>
+         <a href="@Url.Action("Index", "Vehicles")" class="cancel near-save">Cancel</a>
+    }
+</div>

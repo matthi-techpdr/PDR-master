@@ -1,0 +1,100 @@
+﻿@using PDR.Web.Areas.Estimator.Models.Customers
+@model WholesaleCustomerViewModel
+@{
+    var addressForGmap = string.Format("{0},{1},{2}", Model.State, Model.City, Model.Address1);
+}
+<script type="text/javascript">
+    $(function () {
+        var map = new GMaps({
+            div: '#map',
+            lat: 0,
+            lng: 0
+        });
+
+        GMaps.geocode({
+            address: "@addressForGmap",
+            callback: function (results, status) {
+                if (status == 'OK') {
+                    var latlng = results[0].geometry.location;
+                    map.setCenter(latlng.lat(), latlng.lng());
+                    map.addMarker({
+                        lat: latlng.lat(),
+                        lng: latlng.lng()
+                    });
+                }
+            }
+        });
+        new TablesRenderer(window.role).Render();
+    });
+</script>
+<div class="customer-info">
+    <div class="sob-info ">
+        @Html.HiddenFor(x => x.Id)
+        <h4>
+            Customer info</h4>
+        <p>@Html.DisplayFor(m => m.Name)</p>
+        <p>@Html.DisplayFor(m => m.Address1)</p>
+        <p>@Html.DisplayFor(m => m.Address2)</p>
+        <p>@Html.DisplayFor(m => m.City), @Html.DisplayFor(m => m.State) @Html.DisplayFor(m => m.Zip)</p>
+        <p class="phone">@Html.DisplayForWithLabel(m => m.Phone, "Phone: ")</p>
+        <p>@Html.DisplayForWithLabel(m => m.Fax, "Fax: ")</p>
+        <p>@Html.DisplayForWithLabel(m => m.Email, "E-mail 1: ")</p>
+        <p>@Html.DisplayForWithLabel(m => m.Email2, "E-mail 2: ")</p>
+        <p>@Html.DisplayForWithLabel(m => m.Email3, "E-mail 3: ")</p>
+        <p>@Html.DisplayForWithLabel(m => m.Email4, "E-mail 4: ")</p>
+        <p>@Html.DisplayForWithLabel(m => m.ContactName, "Contact name: ")</p>
+        <p class="phone comments">
+            Comments</p>
+        @Html.TextAreaFor(m => m.Comment, new { @readonly = "readonly" })
+    </div>
+    <div class="maps" id="map">
+    </div>
+    <div class="sums">
+        <div class="sums_left">
+            <p>
+                Open Estimates: @Html.DisplayFor(x => x.AmountOfOpenEstimates)</p>
+        </div>
+        <div class="sums_center">
+            <p>
+                Sum of open estimates: @Html.DisplayFor(x => x.SumOfOpenEstimates)</p>
+            <p>
+                Sum of open work orders: @Html.DisplayFor(x => x.SumOfOpenWorkOrders)</p>
+        </div>
+        <div class="sums_right">
+            <p>
+                Sum of paid invoices: @Html.DisplayFor(x => x.SumOfPaidInvoices)</p>
+            <p>
+                Sum of unpaid invoices: @Html.DisplayFor(x => x.SumOfUnpaidInvoices)</p>
+        </div>
+    </div>
+</div>
+@*@if (ViewBag.Teams != null)
+{
+<div id="teamFilter" style="text-align: right;">
+    <span style="font-size:14px;position:relative;top:-9px;color:#555" class="teamActivity">Filter by teams</span>
+    @Html.DropDownList("team", ViewBag.Teams as IEnumerable<SelectListItem>, new { id = "Teams", style="width:137px;" })
+</div>}*@
+<h4>
+    Customer's estimates</h4>
+<div class="acc-view-table accountant1">
+    <table id="estimates">
+    </table>
+    <div id="pager1">
+    </div>
+</div>
+<h4>
+    Customer's repair orders</h4>
+<div class="acc-view-table accountant1">
+    <table id="repairOrders">
+    </table>
+    <div id="pager2">
+    </div>
+</div>
+<h4>
+    Customer's invoices</h4>
+<div class="acc-view-table accountant1">
+    <table id="invoices">
+    </table>
+    <div id="pager3">
+    </div>
+</div>

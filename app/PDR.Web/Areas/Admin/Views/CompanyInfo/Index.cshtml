@@ -1,0 +1,98 @@
+﻿
+@using PDR.Web.Areas.Admin.Models.ComapnyInfo
+@model CompanyInfoModel
+@{
+    ViewBag.Title = "Company info";
+    ViewBag.CompanyIsActive = "ui-tabs-selected ui-state-active";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    Bundles.Reference("Content/css/pages/superadmin/companies/EditCompany.css");
+    Bundles.Reference("Content/css/pages/admin/company-info.css");
+    Bundles.Reference("Content/js/pages/Admin/CompanyInfo.js");
+    Bundles.Reference("Content/js/pages/Common/InputMask.js");
+}
+
+<div class="links" style="margin-bottom: 16px;">
+    @{Html.RenderPartial("CompanyLinks");}
+</div>
+
+@using (Html.BeginForm("Index", "CompanyInfo", FormMethod.Post, new { id = "companyForm", style = "width:100% !important;padding-left:0;" }))
+{
+    <fieldset class="popupLeftColumn">
+        @Html.HiddenFor(x => x.Id)
+        <label>
+            <span>Company name</span>
+            @Html.TextBoxFor(m => m.Name)
+            @Html.ValidationMessageFor(m => m.Name)
+        </label>
+        <label>
+            <span>Address 1</span>
+            @Html.TextBoxFor(m => m.Address1)
+            @Html.ValidationMessageFor(m => m.Address1)
+        </label>
+        <label>
+            <span>Address 2</span>
+            @Html.TextBoxFor(m => m.Address2)
+            @Html.ValidationMessageFor(m => m.Address2)
+        </label>
+        <label class="a-select editState company-state">
+            <span>State</span>
+            @Html.DropDownListFor(m => m.State, Model.States)
+        </label>
+        <label class="company-city">
+            <span>City</span>
+            @Html.TextBoxFor(m => m.City)
+            @Html.ValidationMessageFor(m => m.City)
+        </label>
+        <label class="a-select editZip company-zip">
+            <span>ZIP</span>
+            @Html.TextBoxFor(m => m.Zip, new { @class = "saeinput" })
+            @Html.ValidationMessageFor(m => m.Zip)</label>
+        <label>
+            <span>E-mail</span>
+            @Html.TextBoxFor(m => m.Email)
+            @Html.ValidationMessageFor(m => m.Email)
+        </label>
+        <label>
+            <span>Phone</span>
+            @Html.TextBoxFor(m => m.PhoneNumber)
+            @Html.ValidationMessageFor(m => m.PhoneNumber)
+        </label>
+        <label class="above">
+            <span>Estimates e-mail subject</span>
+            @Html.TextBoxFor(m => m.EstimateEmailSubject)
+            @Html.ValidationMessageFor(m => m.EstimateEmailSubject)</label>
+        <label class="above">
+            <span>Repair orders e-mail subject</span>
+            @Html.TextBoxFor(m => m.RepairOrderEmailSubject)
+            @Html.ValidationMessageFor(m => m.RepairOrderEmailSubject)</label>
+        <label class="above">
+            <span>Invoices e-mail subject</span>
+            @Html.TextBoxFor(m => m.InvoiceEmailSubject)
+            @Html.ValidationMessageFor(m => m.InvoiceEmailSubject)</label>
+@*        <label class="above">
+            <span>Default hourly rate for R&amp;R and R&amp;I work </span>
+            @Html.TextBoxFor(m => m.DefaultHourlyRate)
+            @Html.ValidationMessageFor(m => m.DefaultHourlyRate)</label>
+*@        <label class="above">
+            <span>Percent limit for the body part estimate </span>
+            @Html.TextBoxFor(m => m.LimitForBodyPartEstimate)
+            @Html.ValidationMessageFor(m => m.LimitForBodyPartEstimate)</label>
+        <label>
+            <span>Notes</span>
+            @Html.TextAreaFor(x => x.Notes, new {style="width:710px;outline:none;padding:5px;overflow:auto;"})
+            @Html.ValidationMessageFor(x => x.Notes)
+        </label>
+        <label>
+            <button id="save" type="submit" style="cursor: pointer">Save</button>
+            <label class="m">@ViewBag.Success</label>
+        </label>
+    </fieldset>
+    
+    <fieldset id="logoSection">
+        <div style="color: #555; font-size: 14px; margin-bottom: 10px;">
+            <span style="padding-right: 15px">Logo</span>                
+            <button style="cursor: pointer" id="upload" type="button">Upload</button>
+        </div>
+        <img src="@Url.Action("RenderLogo")" alt="" style="width: 350px;height: 350px;" id="logo" />
+    </fieldset>
+}

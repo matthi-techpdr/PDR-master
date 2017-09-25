@@ -1,0 +1,14 @@
+﻿@{
+    Layout = "~/Areas/Common/Views/RepairOrders/Partial/IndexBase.cshtml";
+    Bundles.Reference("Content/js/Pages/Wholesaler/InitRepairOrderGrid.js");
+    Bundles.Reference("Content/js/Pages/Wholesaler/OperationsGridFormation.js");
+    Bundles.Reference("Content/js/pages/manager/RepairOrders/assignTechnicians.js");
+    Bundles.Reference("Content/css/pages/manager/repairorders/assigntechnicians.css");
+}
+       
+@section links
+{
+    @{Html.RenderPartial("~/Areas/Wholesaler/Views/Shared/OperationLinksWithSearch.cshtml");}
+
+    <input type="hidden" value="@Url.Action("DefineParticipation", "RepairOrders")" class="defineParticipation"/>
+}

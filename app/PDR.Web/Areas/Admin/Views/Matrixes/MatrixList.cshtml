@@ -1,0 +1,27 @@
+﻿@using MvcContrib.Pagination
+@using MvcContrib.UI.Pager
+@using PDR.Web.Areas.Admin.Controllers
+@using PDR.Web.Areas.Admin.Models.Matrix
+@model IPagination<MatrixListModel>          
+<div class="tht-top">
+ <h3>List of Price matrices</h3> 
+ <ul>
+ @foreach (var matrix in Model) 
+ { 
+         <li>
+             <p class="ft-tt"><span>@matrix.Title&nbsp;&nbsp;&nbsp;</span>@matrix.Description</p>
+             <a href="javascript:void(0);"  matrixId="@matrix.Id" class="m-edit ft-edit">Edit</a>             
+             @(Html.ActionLink<MatrixesController>(x=>x.Duplicate(Convert.ToInt64(matrix.Id)),"Duplicate"))
+             <a href="@Url.Action("ExportToXLS","Matrixes", new { id = matrix.Id })" class="m-export ft-ex">
+                 Export to XLS</a> <a href="#" matrixId="@matrix.Id" class="m-status ft-sd">@matrix.StatusAction</a>
+         </li>
+ }
+ </ul>
+    <div class="repair-orders-button">
+        <a href="javascript:void(0);" id="create" style="background: #C1C1C4;">Add New Price Matrix</a>
+        @Html.Raw(@Html.Pager((IPagination)Model).ToString())
+    </div>
+</div>
+                
+
+		

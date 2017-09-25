@@ -1,0 +1,23 @@
+﻿
+@using PDR.Web.Areas.Admin.Controllers
+@model dynamic
+
+<script type="text/javascript">
+$(function () {
+    if (window.navigator.userAgent.toLowerCase().match('chrome') != null) {
+                    $('#companyForm select').next().css('width', '48px');
+                }
+})
+</script>
+
+@{
+    var selectionTypeMarker = Model as Type;
+    Bundles.Reference("Content/js/Pages/select-link.js");
+}
+
+@(Html.ActionLink<PDR.Web.Areas.Admin.Controllers.EmployeesController>(x => x.Index(), "Employees", new { @class = selectionTypeMarker == typeof(PDR.Web.Areas.Admin.Controllers.EmployeesController) ? "active" : string.Empty }))
+@(Html.ActionLink<PDR.Web.Areas.Admin.Controllers.TeamsController>(x => x.Index(), "Teams", new { @class = selectionTypeMarker == typeof(PDR.Web.Areas.Admin.Controllers.TeamsController) ? "active" : string.Empty }))
+@(Html.ActionLink<MobileLicenseController>(x => x.Index(), "Mobile Licenses", new { @class = selectionTypeMarker == typeof(MobileLicenseController) ? "active" : string.Empty }))
+@(Html.ActionLink<MatrixesController>(x => x.Index(null), "Price Matrices", new { @class = selectionTypeMarker == typeof(MatrixesController) ? "active" : string.Empty }))
+@(Html.ActionLink<VehiclesController>(x => x.Index(), "Vehicles", new { @class = selectionTypeMarker == typeof(VehiclesController) ? "active" : string.Empty }))
+@(Html.ActionLink<CompanyInfoController>(x => x.Index(), "Company Info", new { @class = selectionTypeMarker == typeof(CompanyInfoController) ? "active" : string.Empty }))

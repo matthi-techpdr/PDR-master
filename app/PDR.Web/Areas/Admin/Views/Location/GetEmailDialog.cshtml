@@ -1,0 +1,29 @@
+﻿@model PDR.Web.Areas.Estimator.Models.Estimates.SendEmailViewModel
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "sendEmailForm", style="height: 315px;" }))
+{
+    <fieldset>
+        <label>
+            <span>To:</span>
+            @Html.TextBoxFor(m => m.To)
+            @Html.ValidationMessageFor(m => m.To)
+        </label>
+        <br/>
+        <label>
+            <span>Subject:</span>
+            @Html.TextBoxFor(m => m.Subject)
+            @Html.ValidationMessageFor(m => m.Subject)
+        </label>
+        <br/>
+        <label>
+            <span>Message text:</span>
+        </label>
+        <br/>
+        <label>            
+            @Html.TextAreaFor(m => m.Message)
+            @Html.ValidationMessageFor(m => m.Message)
+        </label>
+    </fieldset>
+}
+<input type="hidden" id="ids" value="@Model.IDs" />
+<input type="hidden" id="urlEmail" value="@Url.Action("SendEmail", "Location")"/>
+

@@ -1,0 +1,26 @@
+﻿@model PDR.Web.Areas.Estimator.Models.Estimates.EstimateModel
+@*<script type="text/javascript">
+    //$(function () {
+        var wcWithInsurance = "@ViewBag.WCustomersWithInsurance";
+        //window.globals.insurances = "@ViewBag.WCustomersWithInsurance";
+        $('#Customer_Wholesale_CustomerId').data("checkInsuranse", wcWithInsurance.split(','));
+    //});
+</script>*@
+@{
+    this.SetLayout();
+    ViewBag.Title = "Edit Estimate";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+    Html.ReadOnlyModeOffIgnoreDeep();
+    Html.BeginForm<PDR.Web.Areas.Estimator.Controllers.EstimatesController>(x => x.Edit(Model.Id), FormMethod.Post, new { @class = "estimateForm"});
+}
+<div class="links">
+    @RenderSection("links")
+    @{
+        var editText = "Edit " + (Model.IsRoEditable ? "Repair Order # "+ Model.RoId : "Estimate # " + Model.Id);
+    }
+    <span class="item-number">@editText</span>
+</div>
+@{   
+    Html.RenderPartial("Partial/Estimate", Model);
+    Html.EndForm();
+}

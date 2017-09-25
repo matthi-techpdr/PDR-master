@@ -1,0 +1,1656 @@
+﻿/*
+Theme Name: Twenty Ten
+Theme URI: http://wordpress.org/
+Description: The 2010 default theme for WordPress.
+Author: the WordPress team
+Version: 1.0
+Tags: black, blue, white, two-columns, fixed-width, custom-header, custom-background, theme-options, threaded-comments, sticky-post, translation-ready, microformats, rtl-language-support, editor-style
+*/
+
+/* Reset default browser CSS. Based on work by Eric Meyer: http://meyerweb.com/eric/tools/css/reset/index.html
+-------------------------------------------------------------- */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
+	font-family:Arial;
+}
+
+body {
+	background:#dcdbdb url('images/bg.png') repeat-x 0 0 !important;
+	width:100%;
+}
+ul,ol {
+	list-style-type:none;
+}
+a {
+	text-decoration: none;
+    outline: 0;
+}
+
+button {
+    outline: 0;
+}
+
+input[type="checkbox"] {
+    outline: 0;
+}
+
+input[type="checkbox"]#cb_iPhoneAppGrid {
+    margin:1px 0 0 -1px;
+}
+
+.sums {
+    font-weight: bold; 
+	width:100%;
+	float:left;
+}
+.sums div{
+    float: left;
+    margin: 20px 14px 0 0;
+    width: 200px;
+}
+.sums .sums_center,
+.sums .sums_right {
+	float: left;
+    margin: 20px 0 0;
+    width: 294px;
+}
+.sums div p{
+    color: #555555;
+    font-size: 13px;
+}
+
+input[type="checkbox"].cbox {
+margin:1px 0 0 -1px;
+}
+
+input[type="text"]:focus,
+input[type="submit"]:focus {
+    outline: none;
+}
+
+.page {
+	margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    width: 1069px;
+	min-height:810px;
+    padding-bottom: 80px;
+}
+.links {
+    /*margin-left: 3px !important;*/
+	float:left;
+	width:960px;
+}
+
+.links a {
+  background: none repeat scroll 0 0 #C1C1C4;
+  border-radius: 9px 9px 9px 9px;
+  color: #444447;
+  float: left;
+  font-size: 15px;
+  margin: 0 3px 0 0;
+  padding: 12px 18px 11px;
+}
+.invoicesAccountant, .links.linksAccountant {
+    width: 1050px;
+}
+.archive-add {
+	float:right;
+}
+.archive-add {
+	float:right;
+}
+.archive-add label {
+  color: #444447;
+  float: left;
+  font-size: 15px;
+  margin: 11px 5px 0 10px;
+}
+.archive-add select {
+  color: #444447;
+  float: left;
+  font-size: 15px;
+  height: 30px;
+  margin: 5px 0 0 !important;
+  width: 100px;
+}
+.archive-add a{
+	float:right;
+	margin:0 0 0 10px;
+}
+.ui-tabs-panel {
+	float:left;
+	margin: 22px 0 0 2px;
+}
+.ui-tabs-panel .links a.active,
+.ui-tabs-panel .links a:hover {
+	background:#e25e53;
+	color:#fff;
+}
+/*End: Tabs*/
+#accordion,
+#accordione {
+	float:left;
+	width:960px;
+	min-height:100px;
+    margin-bottom: 16px !important;
+}
+#accordion h3,
+#accordione h3 {
+	background-image: linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(216,216,218)),
+		color-stop(1, rgb(243,243,246))
+	);
+	border:1px solid #cdcdcd;
+	border-radius:5px;
+	padding:13px 20px;	
+	font-weight:normal;
+	float:left;
+	width:918px;
+	position:relative;
+	z-index:1;
+}
+#accordion h3 a,
+#accordione h3 a {
+	font-size:14px;
+	color:#555555;
+}
+
+#accordione div p a {
+	font-size:13px;
+	color:#555;
+	text-decoration:none;
+}
+.ui-accordion-content {
+	float:left;
+	width:938px;
+	position:relative;
+	z-index:0;
+	background:#f9f9fa;
+	border:1px solid #d7d7d7;
+	padding:31px 0 15px 20px!important;
+
+	border-radius:0 0 5px 5px;    
+}
+div.ui-accordion .ui-accordion-content {
+    overflow: hidden;
+}
+.fieldset1 p,
+.fieldset1 label span{
+	color:#555555;
+	font-size:16px;
+	margin:0 11px 0 0;
+	float:left;
+}
+.fieldset1 label,
+.fieldset1 input{
+	float:left;
+}
+.fieldset2 {
+	float:left;
+	width:490px;
+	margin:19px 0 0;
+}
+.fieldset2 li {
+	float:left;
+	margin:0 0 8px;
+}
+.fieldset2 li label,
+.fieldset4 label{
+	float:left;
+	font-size:14px;
+	margin:4px 0 0;
+}
+.big1 {
+	width:61px;
+}
+.big2 {
+	width:71px;
+}
+.fieldset2 li input,
+.fieldset4 input{
+	height:24px;
+	line-height:24px;
+	border-radius:3px;
+	border:1px solid #dddddd;
+	padding:0 7px;
+	color:#555555;
+	font-size:12px;
+	float:left;
+}
+input.big {
+	width:151px;
+	margin:0 8px 0 0;
+}
+input.bigg {
+	width:228px;
+	margin:0 8px 0 0;
+}
+.bigi1 {
+	width:156px;
+}
+.fieldset2 li label.otp {
+	margin:4px 8px 0 0;
+}
+.fieldset3 {
+	float:left;
+	width:380px;
+}
+.fieldset3 label{
+	float:left;
+	width:115px;
+	font-size:14px;
+	margin:4px 0 0;
+}
+.fieldset3 ul li {
+	margin:0 0 8px;
+	float:left;
+}
+.fieldset3 input{
+	height:24px;
+	line-height:24px;
+	border-radius:3px;
+	border:1px solid #dddddd;
+	padding:0 7px;
+	font-size:14px;
+	float:left;
+	width:245px;
+}
+.fieldset4 li {
+	margin:0 0 8px;
+	float:left;
+}
+.car_part {
+	float:left;
+	width:196px;
+	margin:0 0 0 -20px;
+}
+.car_part li{
+	height:31px;
+	line-height:31px;
+	background-image: linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(216,216,218) 0%, rgb(243,243,246) 100%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(216,216,218)),
+		color-stop(1, rgb(243,243,246))
+	);
+}
+.car_part li .price {
+	width:55px;
+	float:left;
+	height:31px;
+	margin:0 15px 0 0;
+	text-align:right;
+}
+.car_part li .part {
+	color:#555555;
+	font-size:14px;
+}
+.car_part li.now {
+	height:29px;
+	line-height:29px;
+	/*background:#fff;*/
+	border-bottom:2px solid #f28a8f;
+}
+.car_part li.now span{
+	color:#ed1c24;
+	font-size:14px;
+}
+.car_part li.already span{
+	color:#05a520;
+	font-size:14px;
+}
+/*============== Car Start ====================*/
+.car_p {
+	margin:0 0 0 38px;
+	float:left;
+	width:370px;
+	height:400px;
+	position:relative;
+}
+.car_p .f {
+  height: 124px;
+  left: 2px;
+  position: absolute;
+  top: 10px;
+  width: 81px;
+}
+.car_p .s {
+  height: 133px;
+  left: 2px;
+  position: absolute;
+  top: 121px;
+  width: 109px;
+}
+.car_p .t {
+  height: 122px;
+  left: 2px;
+  position: absolute;
+  top: 236px;
+  width: 107px;
+}
+.car_p .fo {
+  height: 134px;
+  left: 2px;
+  position: absolute;
+  top: 314px;
+  width: 97px;
+}
+.car_p .fi {
+  height: 81px;
+  left: 82px;
+  position: absolute;
+  top: 0;
+  width: 204px;
+}
+.car_p .si {
+  height: 148px;
+  left: 99px;
+  position: absolute;
+  top: 24px;
+  width: 174px;
+}
+.car_p .se {
+  height: 170px;
+  left: 100px;
+  position: absolute;
+  top: 166px;
+  width: 31px;
+}
+.car_p .e {
+  height: 170px;
+  left: 126px;
+  position: absolute;
+  top: 173px;
+  width: 117px;
+}
+.car_p .n {
+  height: 165px;
+  left: 236px;
+  position: absolute;
+  top: 168px;
+  width: 32px;
+}
+.car_p .te {
+  height: 68px;
+  left: 116px;
+  position: absolute;
+  top: 341px;
+  width: 137px;
+}
+.car_p .el {
+  height: 99px;
+  left: 96px;
+  position: absolute;
+  top: 349px;
+  width: 177px;
+}
+.car_p .tw {
+  height: 128px;
+  left: 282px;
+  position: absolute;
+  top: 8px;
+  width: 86px;
+}
+.car_p .tt {
+  height: 137px;
+  left: 257px;
+  position: absolute;
+  top: 120px;
+  width: 111px;
+}
+.car_p .ft {
+  height: 134px;
+  left: 257px;
+  position: absolute;
+  top: 237px;
+  width: 101px;
+}
+.car_p .st {
+  height: 134px;
+  left: 267px;
+  position: absolute;
+  top: 314px;
+  width: 101px;
+}
+
+/*============== Car End ====================*/
+
+/*============== Truck Start ====================*/
+.car_truck {
+    width: 379px;
+	margin:0 0 0 30px;
+	float:left;
+    height: 485px;
+    margin: 0 10px 0 20px;
+	position:relative;
+}
+.car_truck .f {
+    height: 72px;
+    left: 102px;
+    position: absolute;
+    top: 10px;
+    width: 185px;
+}
+.car_truck .s {
+  height: 133px;
+  left: 2px;
+  position: absolute;
+  top: 20px;
+  width: 109px;
+}
+.car_truck .t {
+    height: 139px;
+    left: 110px;
+    position: absolute;
+    top: 42px;
+    width: 161px;
+}
+.car_truck .fo {
+    height: 143px;
+    left: 288px;
+    position: absolute;
+    top: 12px;
+    width: 98px;
+}
+.car_truck .fi {
+    height: 122px;
+    left: 3px;
+    position: absolute;
+    top: 120px;
+    width: 132px;
+}
+.car_truck .si {
+    height: 103px;
+    left: 3px;
+    position: absolute;
+    top: 224px;
+    width: 127px;
+}
+.car_truck .se {
+    height: 53px;
+    left: 3px;
+    position: absolute;
+    top: 300px;
+    width: 131px;
+}
+.car_truck .e {
+    height: 183px;
+    left: 106px;
+    position: absolute;
+    top: 150px;
+    width: 54px;
+}
+.car_truck .n {
+    height: 164px;
+    left: 128px;
+    position: absolute;
+    top: 180px;
+    width: 133px;
+}
+.car_truck .te {
+    height: 171px;
+    left: 235px;
+    position: absolute;
+    top: 150px;
+    width: 55px;
+}
+.car_truck .el {
+    height: 126px;
+    left: 258px;
+    position: absolute;
+    top: 122px;
+    width: 123px;
+}
+.car_truck .tw {
+    height: 107px;
+    left: 258px;
+    position: absolute;
+    top: 225px;
+    width: 123px;
+}
+.car_truck .tt {
+    height: 58px;
+    left: 258px;
+    position: absolute;
+    top: 300px;
+    width: 127px;
+}
+.car_truck .ft {
+    height: 91px;
+    left: 124px;
+    position: absolute;
+    top: 340px;
+    width: 154px;
+}
+.car_truck .st {
+    height: 161px;
+    left: 3px;
+    position: absolute;
+    top: 330px;
+    width: 95px;
+}
+.car_truck .at {
+    height: 62px;
+    left: 110px;
+    position: absolute;
+    top: 417px;
+    width: 169px;
+}
+.car_truck .bt {
+    height: 164px;
+    left: 293px;
+    position: absolute;
+    top: 328px;
+    width: 89px;
+}
+
+/*============== Truck End ====================*/
+.right_f {
+	float:left;
+	width:353px;
+}
+.right_f select{
+	float:left;
+	width:80px;
+}
+.right_f p,
+.right_f label{
+	float:left;
+	font-size:14px;
+	margin:4px 7px 0;
+}
+li:first-child .right_f_l {
+	float:left;
+	width:226px;
+	margin:0 39px 0 0;
+}
+.right_f_l {
+	float:left;
+	width:174px;
+	margin:0 39px 0 52px;
+}
+.right_f_r {
+	width:70px;
+	float:left;
+	text-align:center;
+}
+.right_f li{
+	margin:0 0 20px;
+	float:left;
+}
+.right_f li input{
+	width:56px;
+	float:left;
+	height:24px;
+	line-height:24px;
+	color:#555;
+	font-size:14px;
+	text-align:center;
+	padding:0;
+	/*border:1px solid #d3d3d3;
+	border-radius:3px;*/
+}
+
+.right_f li input[type="text"] 
+{
+    border:1px solid #d3d3d3;
+	border-radius:3px !important;
+}
+
+.right_f li input[type="checkbox"] {
+	width:auto;
+	margin:1px 7px 0 0;
+	padding:0;
+	height:auto;
+}
+.right_f li .right_f_r input{
+	width:68px;
+	float:left;
+	height:24px;
+	line-height:24px;
+	color:#ed1c24;
+	font-size:14px;
+	text-align:center;
+	padding:0;
+	border:1px solid #d3d3d3;
+	border-radius:3px;
+}
+.right_f_l span,
+.right_f_r span {
+	font-size:14px;
+	float:left;
+	height:auto;
+}
+
+.right_f_l span span{
+	width:102px;
+	float:left;
+}
+.right_f_l label {
+	float:left;
+	margin:0 0 9px;
+}
+.right_f_r span {
+	margin:14px 0 0;
+}
+.right_f li textarea {
+	width:281px;
+	height:55px;
+	border:1px solid #d3d3d3;
+	border-radius:3px;
+	resize:none;
+}
+.right_f li:last-child {
+	margin:0 0 0 52px;
+}
+/*Start: footer*/
+.footer {
+	float:left;
+	margin:38px 0 41px;
+	width:100%;
+}
+.footer a.save {
+	color:#ed1c24;
+	font-size:20px;
+	width:195px;
+	height:40px;
+	line-height:40px;
+	border-radius:8px;
+	float:left;
+	background:#bbbbbf;
+	text-align:center;
+}
+.footer label{
+	margin:13px 0 0 15px;
+	padding:0;
+	float:left;
+}
+.footer input[type="checkbox"] {
+	margin:0;
+	padding:0;
+}
+.footer label span {
+	font-size:14px;
+	color:#555;
+}
+.footer a.print,
+.footer a.email {
+	float:right;
+	color:#444447;
+	font-size:15px;
+	width:60px;
+	height:32px;
+	line-height:32px;
+	background:#bbbbbf;
+	text-align:center;
+	border-radius:8px;
+	margin:3px 0 0 8px;
+}
+/*End: footer*/
+/*Start: selected wholesale*/
+.select-wholesale, .select-employee {
+	width:286px;
+	height:24px;
+	border:1px solid #d3d3d3;
+	font-family:Arial;
+	color:#555555;
+}
+.all {
+	border-top: 1px solid #CCCCCC;
+    float: left;
+    margin: 0 0 0 -20px;
+    width: 958px;
+}
+.total {
+	float: left;
+    margin: 19px 33px 0 22px;
+    width: 300px;
+}
+.total span{
+	color:#05a520;
+	font-size:38px;
+	font-family:Arial;
+}
+.total span span {
+	color:#555555;
+	font-size:14px;
+	margin:14px 10px 0 0;
+	float:left;
+}
+.damages {
+	float: left;
+    width: 283px;
+	margin:0 18px 0 0;
+}
+.damages p,
+.total-fields p{
+	color:#555555;
+	font-size:14px;
+	margin: 10px 0 6px;
+	font-family:Arial;
+}
+.damages textarea{
+	width:281px;
+	height:89px;
+	border:1px solid #d3d3d3;
+	border-radius:3px;
+}
+.total-fields {
+	float:left;
+}
+.total-fields input {
+	padding:3px;
+	width:153px;
+	height:18px;
+	line-height:18px;
+	border:1px solid #d3d3d3;
+	border-radius:3px;
+	color:#555555;
+}
+.total-fields input.small {
+	width:62px;
+	margin: 0 0 0 44px;
+	color:#ed1c24;
+	text-align:center;
+}
+/*Start: selected wholesale*/
+.car-photo-div img{
+	float:left;
+	margin:0 9px 0 0;
+}
+.uploadfile {
+	position:relative;
+	margin:0 0 11px;
+	float:left;
+}
+.uploadfile input {
+	opacity:0;
+	cursor: pointer;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 0;
+    width: 589px;
+	height: 32px;
+	line-height: 32px;
+    z-index: 3;
+}
+.uploadfile a {
+	background: url("../../images/upload-car.png") no-repeat 0 0;
+	border: medium none;
+    color: #A12F7E;
+    cursor: pointer;
+    float: left;
+    height: 32px;
+    overflow: hidden;
+    padding: 0 0 0 15px;
+    text-align: center;
+    text-decoration: none;
+    width: 589px;
+}
+/*Start: Footer pag*/
+.right-f-s{
+	float:right;
+}
+/*End: Footer pag*/
+.links p,
+.links select {
+	margin:10px 5px 0 15px;
+}
+.links select {
+	margin:10px 5px 0 5px;
+}
+#tabs-3 p,#tabs-1 #accordione p {
+	color: #555555;
+    float: left;
+    font-size: 13px;
+}
+
+#savedReports p{
+    background: #eae6e6;
+    margin-right: 5px !important;
+    border-radius: 7px;
+    padding: 5px;
+}
+
+#tabs-3 select {
+	color: #555555;
+    float: left;
+    font-size: 13px;
+	width:100px;
+}
+.pgn {
+	float:right;
+}
+
+.view-s-a {
+	background: none repeat scroll 0 0 #F9F9FA;
+    border: 1px solid #D7D7D7;
+    border-radius: 5px 5px 5px 5px;
+    color: #767067;
+    float: left;
+    margin: 10px 0 0 0;
+    padding: 10px 118px 0 10px !important;
+    position: relative;
+    width: 828px;
+    z-index: 0;
+}
+.view-s-a li {
+    float: left;
+    width: 100%;
+}
+.view-s-a p {
+	float: left;
+	word-wrap: break-word;
+	overflow:hidden;
+    font-size: 12px;
+    margin: 0 10px 15px 0;
+    padding: 0;
+    width: 220px;
+}
+.view-s-a p.comments {
+	margin: 10px 11px 0 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+.view-s-a p.comments textarea {
+	border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 12px;
+    height: 74px;
+    margin: 8px 0 0;
+    padding: 3px;
+    resize: none;
+    width: 212px;
+}
+.view-s-a p span{
+	font-weight:bold;
+}
+.input-validation-error {
+    border: 1px solid red !important;
+}
+
+#manageForm,
+#companyForm,
+#teamForm,
+#employeeForm,
+#customerForm,
+#sendEmailForm,
+#sendPushNotificationForm,
+.paidInvoiceForm,
+#licenseForm{
+    padding: 0 0 20px 20px;
+	float:left;
+}
+
+#companyForm {
+   width: 700px !important; 
+}
+
+#teamForm{
+    width: 780px !important;
+}
+
+#employeeForm {
+    width: 800px !important;
+    height: 550px;
+}
+
+#customerForm {
+    width:920px !important;
+   
+}
+
+#licenseForm {
+    width: 320px !important;
+}
+.ui-dialog-buttonset {
+	float: left;
+    height: 32px;
+    margin: -37px 0 20px 20px;
+}
+
+.paidDialog {
+    width: 300px;
+}
+
+#manageForm fieldset,
+#companyForm fieldset,
+#teamForm fieldset,
+#employeeForm fieldset,
+#customerForm fieldset,
+#sendEmailForm fieldset
+#sendPushNotificationForm fieldset
+.paidInvoiceForm fieldset
+#licenseForm fieldset{
+    float: left;
+    /*height: 310px;*/
+    padding: 0 44px 0 0;
+    width: 318px;
+}
+#sendEmailForm fieldset {
+    height: auto ;
+    padding: 0;
+    width: 406px;
+}
+
+#sendEmailForm {
+    height:auto !important;
+}
+.paidInvoiceForm {
+    height: 150px;
+    padding: 0 0 0 40px;    
+}
+
+#licenseForm fieldset {
+    height: 250px;
+    font-size: 14px;
+}
+
+#companyForm fieldset.popupRightColumn,
+#teamForm fieldset.popupRightColumn,
+#employeeForm fieldset.popupRightColumn,
+#customerForm fieldset.popupRightColumn {
+	padding: 0;
+}
+#manageForm fieldset label,
+#companyForm fieldset label,
+#teamForm fieldset label,
+#employeeForm fieldset label,
+#customerForm fieldset label,
+#sendEmailForm fieldset label,
+.paidInvoiceForm fieldset label,
+#licenseForm fieldset label
+{
+    float: left;
+    margin: 0 0 8px;
+    position: relative;
+}
+
+#sendEmailForm fieldset label {
+    width: 470px;
+}
+
+.ui-dialog-button {
+    color: black !important;
+    background: #c4bfbf ;
+    border: 1px solid #a6a2a2;
+}
+
+.ui-button {
+    border-radius: 8px;
+}
+
+.ui-dialog-button:hover {
+    color: white !important;
+    background: #c4bfbf;
+    border: 1px solid #a6a2a2;
+}
+
+.ui-dialog-button:active {
+    color: red !important;
+    background: #c4bfbf;
+    border: 1px solid #a6a2a2;
+}
+
+#employeeForm fieldset span.checkboxesLabel span , #employeeForm fieldset span.checkboxesForManager span{
+    float: left;
+    margin: 8px 0 0;
+    width: 110px;
+	color: #555555;
+    font-size: 14px;
+}
+
+#manageForm fieldset label span,
+#companyForm fieldset label span,
+#teamForm fieldset.popupLeftColumn label span,
+#employeeForm .popupLeftColumn label span,
+#employeeForm .popupRightColumn label span,
+#customerForm fieldset label span,
+#sendEmailForm fieldset label span,
+#sendEmailForm fieldset label p,
+.paidInvoiceForm fieldset label span
+{
+    float: left;
+    margin: 8px 0 0;
+    width: 110px;
+	color: #555555;
+    font-size: 14px;
+}
+#sendEmailForm fieldset label span,
+#sendEmailForm fieldset label p {
+    width: 95px;
+}
+.paidInvoiceForm fieldset label p
+{
+    color: #555555;
+    font-size: 16px;
+    float: none;
+    width: 400px;
+    margin: 0 0 0 15px;
+}
+
+.emailDialog {
+    height: 340px !important;
+}
+
+div.multiselectDiv {
+    float: left;
+    margin-bottom: 10px;
+}
+
+#employeeForm .popupRightColumn {
+    height: 370px;
+}
+
+
+#customerForm .popupRightColumn {
+    height: 714px;
+}
+
+#customerForm #popupRightColumnAffiliates {
+    height: 514px;
+}
+
+#employeeForm .popupRightColumn label.a-select .selectBox {
+   border: 1px solid silver; 
+}
+
+#teamForm .popupRightColumn {
+    height: 270px;
+}
+
+#companyForm fieldset label.editState .selectBox,
+#employeeForm fieldset label.editState .selectBox,
+#customerForm fieldset label.editState .selectBox{
+	margin:0;
+	border: 1px solid silver;
+}
+#employeeForm fieldset label.editState .selectBox{
+	margin:4px 0 0;
+}
+
+#customerForm fieldset label.editState .selectBox {
+    margin:1px 0 0;
+}
+
+#companyForm fieldset label.editZip span,
+#customerForm fieldset label.editZip span,
+#employeeForm fieldset label.editZip span
+{
+    margin-left: 12px;
+    width: 26px;
+}
+#companyForm fieldset label.editZip input,
+#customerForm fieldset label.editZip input,
+#employeeForm fieldset label.editZip input {
+    width: 102px;
+}
+#companyForm fieldset label.editState span,
+#customerForm fieldset label.editState span,
+#employeeForm fieldset label.editState span
+ {
+	margin: 8px 0 0 71px;
+    width: 39px;
+}
+
+#companyForm fieldset label.editState input,
+#customerForm fieldset label.editState input,
+#employeeForm fieldset label.editState input {
+    width: 120px;
+}
+#companyForm fieldset label.withLongName span {
+    width: 190px;
+}
+#companyForm fieldset label.withLongName input {
+    width: 120px;
+}
+
+#timeFilter {
+    font-size: 14px;
+    color: #535960;
+    padding-bottom: 15px;
+}
+
+#manageForm fieldset input[type='text'],
+#companyForm fieldset input[type='text'],
+.ui-pg-input,
+#teamForm fieldset input,
+#employeeForm fieldset input,
+#customerForm fieldset input,
+.date-filter,
+#teamForm fieldset input,
+#employeeForm fieldset input,
+#customerForm fieldset input,
+.date-filter,
+#sendEmailForm fieldset input,
+#savedReports input[type='text'],
+.paidInvoiceForm fieldset input,
+#licenseForm fieldset input,
+.gridFilterDetailsTeams input[type='text'],
+.gridFilter #Customer
+{
+    border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    height: 20px;
+	line-height: 20px;
+    padding: 3px;
+    width: 200px;
+	font-size:12px !important;
+}
+
+#employeeForm fieldset input[type="checkbox"] {
+    margin: 2px 6px 0 14px !important;
+    float: left !important;
+}
+
+.checkboxesLabel {
+    float:left;
+}
+
+.checkboxesForManager {
+    float:left;
+}
+.popupRightColumnCustom .checkboxesForManager {
+    margin:0 0 0 97px;
+}   
+.gridFilter #Customer {
+    margin: 0;
+}
+
+#licenseForm fieldset p {
+    margin-bottom: 20px;
+    height: 26px;
+}
+
+#licenseForm fieldset p a.selectBox{
+    margin-bottom: 20px;
+    float: right;
+    height: 26px;
+}
+
+#licenseForm fieldset p label
+{
+    height: 20px;
+    margin-top: 4px;
+    vertical-align: baseline;
+}
+
+#licenseForm fieldset p input
+{
+    float: right;
+    margin: 0;
+}
+
+#sendEmailForm fieldset input {
+    width: 353px;
+}
+
+.paidInvoiceForm fieldset input {
+    width: 230px;
+}
+
+.date-filter {
+    width: 100px!important;
+    margin: 7px 4px 0 4px!important;
+}
+
+.links label,#savedReports label {
+font-size: 14px;
+color: #535960;
+}
+
+#savedReports {
+    margin-top: 60px;
+}
+
+#savedReports img {
+    position: absolute;
+    margin-left: 6px;
+    display: none;    
+}
+
+.ui-pg-input {
+	width:50px;
+	height: 20px !important;
+	line-height: 20px !important;
+}
+#companyForm fieldset textarea,
+#teamForm fieldset textarea,
+#employeeForm fieldset textarea,
+#customerForm fieldset textarea,
+#sendEmailForm fieldset textarea,
+#empComment{
+	border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 12px;
+    height: 152px;
+    margin: 8px 0 0;
+    padding: 3px;
+    resize: none;
+    width: 310px;
+}
+
+#empComment {
+    height: 60px !important;
+    width: 906px !important;
+}
+
+#customerForm fieldset textarea {
+    height: 170px;
+    margin-top: 5px;
+    width: 533px;
+}
+
+#sendEmailForm fieldset textarea {
+    width: 450px;
+}
+
+.field-validation-valid {
+	display:none;
+}
+
+.field-validation-error {
+    display: none;
+}
+
+.ui-autocomplete {
+    max-height: 180px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+	background:#fff;
+}
+
+.ui-autocomplete-input,.ui-menu-item a {
+    background: #fff;
+    font-size: 12px !important;
+}
+.ui-autocomplete-input{
+    border-radius: 5px !important;
+    height: 26px !important;
+}
+
+.ui-menu-item a {
+    border-radius: 0px !important;
+}
+
+.ui-menu-item a:hover {
+    background: #c4bfbf;
+    border: 1px solid #a6a2a2;
+}
+
+#ui-active-menuitem {
+    margin: 0 !important;
+}
+
+.buttonForCombobox {
+    width: 16px !important;
+    height: 16px !important;
+    background: #fff !important;
+    border: none;
+    position: absolute;
+    top: 6px;
+    right: 2px;
+}
+.buttonForCombobox.ui-state-hover {
+    background: #fff !important;
+}
+.buttonForCombobox .ui-icon {
+    background: url("images/cuselFrameRight.png") no-repeat scroll center center transparent !important;
+    left: 37%;
+    margin-top: -7px;
+}
+
+#gbox_customersGrid th > span, #gbox_employeeGrid th > span
+{
+    display: none;
+}
+
+#jqgh_AmountOfOpenEstimates, 
+#jqgh_SumOfOpenEstimates,
+#jqgh_SumOfOpenWorkOrders,
+#jqgh_SumOfUnpaidInvoices,
+#jqgh_SumOfPaidInvoices,
+ #gbox_employeeGrid #jqgh_OpenEstimatesAmount,
+ #gbox_employeeGrid #jqgh_OpenWorkOrdersAmount,
+ #gbox_employeeGrid #jqgh_Status
+ {
+    height: 40px;
+    }
+
+.checkboxesLabel input[type='checkbox'] , .checkboxesForManager input[type='checkbox'] {
+    width: 13px !important;
+    float: left !important;
+    margin-left: 14px ;
+    margin-right: 6px ;
+}
+
+.checkboxesLabel span , .checkboxesForManager span {
+    width: auto !important;
+    margin-top: 6px !important;
+    line-height: 13px;
+}
+
+/*=================Show Filters for Manager ================*/
+
+#com {
+    position: relative;
+    top: 32px;
+    left: 40px;
+    margin: 20px 10px 0px 12px;
+}
+
+#commission {
+    position: relative;
+    top: 5px;
+    left: 710px;    
+}
+
+#comTech {
+    float: left;
+    margin: 49px 0 0 11px;  
+    }
+    
+#comTech.comTechMargin{
+    margin: 10px 0 0 11px;
+} 
+
+#comTech input {
+    margin: 0 0 0 0;
+    left: 0;
+    top: 0;
+}
+#comTech label {
+    margin: 0 0 0 0;
+    left: 0;
+    top: 0;
+}
+.links .gridFilterTeams a, .links .gridFilterTeamsAccountant a {
+	border: 1px solid #C0C0C0;
+    border-radius: 5px 5px 5px 5px;
+    font-size: 12px;
+    height: 20px !important;
+    padding: 3px;
+    width: 200px;
+	background:#fff;
+	position:relative;
+}
+
+.gridFilterTeams {
+    margin: 10px 0px 0px 76px;  
+}
+
+.gridFilterTeams, .gridFilterTeamsAccountant {
+    float: right;  
+}
+
+.gridFilterTeams label, .gridFilterTeamsAccountant label{
+	float: left;
+    font-size: 14px;
+	color:#535960;
+    margin: 6px 8px 0 0;
+}
+
+.gridFilterTeamsAccountant {
+    margin-top: 10px;
+}
+
+.multiselectTitle {
+    font-size: 14px;
+	color:#535960; 
+}
+
+
+.pagination {
+    font-size: 14px;   
+    float: right;  
+}
+
+.pagination a {
+    float: none;
+    background: none;
+    color: #E25E53 !important;
+}
+
+.pagination a:hover {
+    background: none;
+    color: #fff !important;
+}
+
+
+.important-row > td,
+.important-row > td > a {
+    font-weight: bold !important;    
+}
+
+#Comments {
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+#create:hover {
+    color: #fff !important;
+}
+
+.gridFilterDetailsTeams{
+float: right;
+margin: 38px -231px 0px 60px;
+}
+
+.selectBox-dropdown {
+    border: 1px solid silver;
+}
+
+#team{
+    width: 140px;
+}
+
+#finalisedGrid_cb {
+    width:24px !important;
+}
+
+.ui-jqgrid tr.jqgrow td[aria-describedby="finalisedGrid_cb"] {
+    width:24px !important;
+}
+
+#archiveInvoicesGrid_cb {
+    width:24px !important;
+}
+
+.ui-jqgrid tr.jqgrow td[aria-describedby="archiveInvoicesGrid_cb"] {
+    width:24px !important;
+}
+
+.jqgfirstrow td:first-child {
+    width:32px !important;
+}
+
+.gridFilterFullWidth{
+   clear: right;
+}
+#comTech.comTechClear {
+     float: left;
+    margin: 10px 0 0;
+}
+.infoWrapperMaps {
+    float:left; width:100%;
+}
+#HistoryLogs span {
+   float:left;
+   color: #555555;
+   font-size: 13px;
+   font-family: Arial;
+   width:96%;
+   padding:0 2% 10px;  
+}
+.HistoryWrapper {
+    background: none repeat scroll 0 0 #fff;
+    float: left;
+    margin: 0 15px 35px;
+    width:320px;
+}
+
+#HistoryLogs {
+    border: 1px solid #eee;
+    border-radius: 6px 0 0 6px;
+    float: left;
+    height: 180px;
+    margin: 10px;
+    min-width: 200px;
+   width:300px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    }
+    
+#HistoryLogs span {
+    border-bottom: 1px dotted #aeaeae;
+    color: #555555;
+    float: left;
+    font-family: Arial;
+    font-size: 13px;
+    padding: 10px 4%;
+    width: 92%;
+    word-wrap: break-word;
+}
+
+#pager_left {
+    float: left;
+    width: 525px !important;
+}
+.ui-pg-table.navtable {
+    width: 515px;
+	overflow:hidden;
+	float:left;
+	height:100px;
+}
+.ui-pg-table.navtable td {
+	display:block;
+	padding:0;
+    height: auto !important;
+}
+
+#AttachedFile #IsBasic_true {width:auto !important; margin: 6px 8px 0 0; float:left;}
+
+#AttachedFile #IsBasic_false {width:auto !important; margin: 6px 8px 0 20px; float:left;}
+
+#AttachedFile label {width:auto !important; color: #555; font-size: 14px; margin: 8px 0 0 !important;  width: auto;}
+
+
+
+/*Start: employee Form*/
+#employeeForm button{
+	background:none;
+	border:none;
+	margin:0 8px 0 0;
+}
+#employeeForm button span{
+	width:140px;
+	margin:0;
+}
+#employeeForm button:hover span{
+	color:#fff !important;
+}
+.multiselectDivWrapper {
+    background: none repeat scroll 0 0 #fff;
+    border: 1px solid #c0c0c0;
+    border-radius: 0 0 5px 5px;
+    float: right;
+    height: 190px;
+    padding: 0 10px;
+    width: 186px;
+	height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.multiselectDiv p {
+	color: #555555;
+    float: left;
+    font-size: 14px;
+    margin: 8px 0 0;
+	float:left;
+	clear:both;
+}
+p.SelectItems {
+	font-size: 14px;
+    margin: 3px 0 0;
+    padding: 10px;
+    float: right;
+    width: 186px;
+	border: 1px solid #c0c0c0;
+	border-bottom:none;
+}
+#CanQuickEstimate,
+#CanExtraQuickEstimate {
+	float: left;
+    margin: 11px 4px 0 0;
+    width: auto !important;
+}
+span.AllowEstimates {
+	margin: 12px 26px 0 0 !important;
+    width: auto !important;
+}
+#teamLabel {
+	float:left;
+}
+.popupRightColumnCustom #teamLabel {
+	margin: 30px 0 0 !important;
+    width: 100% !important;
+}
+/*End: employee Form*/
+.laborRates label{
+	float: left;
+    margin: 3px 12px 0 0 !important;
+	
+}
+#CurrentHourlyRate,
+#NewHourlyRate {
+	color: #555;
+    font-size: 14px;
+	border-radius: 3px;
+	border: 1px solid lightGrey;
+	line-height: 24px;
+    height: 24px;
+	padding: 0;
+}
+#customerInfo h4 {
+	float:left;
+}
+.acc-view-table {
+	float:left;
+	width:100%;
+}
+.fau #CanQuickEstimate, .fau #CanExtraQuickEstimate {
+    float: left;
+    margin: 0 4px 0 0;
+    width: auto !important;
+}

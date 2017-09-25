@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" assembly="PDR.Domain" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="PDR.Domain.Model.Users.User" table="Users" abstract="true">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <discriminator />
+    <property name="Name" />
+    <property name="Login" />
+    <property name="Password" />
+  </class>
+  <class name="PDR.Domain.Model.Base.CompanyEntity" table="CompanyEntities" abstract="true">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.CustomLines.CustomLine" table="CustomLines">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <discriminator />
+    <property name="Name" />
+    <property name="Cost" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Photos.Photo" table="Photos" abstract="true">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <discriminator />
+    <property name="ContentType" />
+    <property name="PhotoFull" length="2147483647" />
+    <property name="PhotoThumbnail" length="2147483647" />
+    <property name="Name" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Logging.Log" table="Logs" abstract="true">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <discriminator />
+    <property name="Date" />
+    <many-to-one name="Employee" column="EmployeeFk" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Reports.EstimateReportItem" table="EstimateReportItems">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="EstimateID" />
+    <property name="CreationDate" />
+    <property name="CustomerName" />
+    <property name="CalculatedSum" />
+    <property name="UpdatedSum" />
+    <property name="Status" />
+    <many-to-one name="EstimateReport" column="EstimateReportFk" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.RepairOrder" table="RepairOrders">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="CreationDate" />
+    <property name="New" />
+    <property name="IsConfirmed" />
+    <property name="IsInvoice" />
+    <property name="SupplementsApproved" />
+    <property name="RepairOrderStatus" />
+    <many-to-one name="Estimate" column="EstimateFk" />
+    <many-to-one name="TeamEmployee" column="TeamEmployeeFk" />
+    <many-to-one name="Customer" column="CustomerFk" />
+    <set name="Supplements" inverse="true" cascade="save-update, persist">
+      <key column="RepairOrderFk" />
+      <one-to-many class="PDR.Domain.Model.Supplement" />
+    </set>
+    <set name="AdditionalPhotos" inverse="true" cascade="save-update, persist">
+      <key column="RepairOrderFk" />
+      <one-to-many class="PDR.Domain.Model.Photos.AdditionalCarPhoto" />
+    </set>
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Matrixes.Matrix" table="Matrices" abstract="true">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <discriminator />
+    <property name="Name" />
+    <property name="Description" />
+    <property name="AluminiumPanel" />
+    <property name="DoubleLayeredPanels" />
+    <property name="OversizedRoof" />
+    <property name="Maximum" />
+    <property name="CorrosionProtectionPart" />
+    <property name="MaxCorrosionProtection" />
+    <set name="MatrixPrices" inverse="true" cascade="save-update, persist">
+      <key column="MatrixFk" />
+      <one-to-many class="PDR.Domain.Model.Matrixes.MatrixPrice" />
+    </set>
+    <property name="OversizedDents" />
+    <property name="Status" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Car" table="Cars">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="VIN" />
+    <property name="Model" />
+    <property name="Make" />
+    <property name="Year" />
+    <property name="Trim" />
+    <property name="Mileage" />
+    <property name="Color" />
+    <property name="LicensePlate" />
+    <property name="State" />
+    <property name="CustRO" />
+    <property name="Stock" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.CarInspection" table="CarInspections">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Name" />
+    <property name="DentsAmount" />
+    <property name="AverageSize" />
+    <property name="DentsCost" />
+    <property name="OversizedRoof" />
+    <property name="Aluminium" />
+    <property name="DoubleMetal" />
+    <property name="CorrosionProtection" />
+    <property name="CorrosionProtectionCost" />
+    <property name="OptionsPercent" />
+    <set name="EffortItems" inverse="true" cascade="save-update, persist">
+      <key column="CarInspectionFk" />
+      <one-to-many class="PDR.Domain.Model.Effort.EffortItem" />
+    </set>
+    <set name="ChosenEffortItems" inverse="true" cascade="save-update, persist">
+      <key column="CarInspectionFk" />
+      <one-to-many class="PDR.Domain.Model.Effort.ChosenEffortItem" />
+    </set>
+    <set name="CustomLines" inverse="true" cascade="save-update, persist">
+      <key column="CarInspectionFk" />
+      <one-to-many class="PDR.Domain.Model.CustomLines.CustomLine" />
+    </set>
+    <many-to-one name="Estimate" column="EstimateFk" />
+    <property name="PartsTotal" />
+    <property name="PriorDamage" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Reports.InvoiceReportItem" table="InvoiceReportItems">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="InvoiceID" />
+    <property name="CreationDate" />
+    <property name="CustomerName" />
+    <property name="InvoiceSum" />
+    <property name="PaidSum" />
+    <property name="Status" />
+    <many-to-one name="InvoiceReport" column="InvoiceReportFk" />
+    <property name="Commission" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Company" table="Companies">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Name" />
+    <property name="Address1" />
+    <property name="Address2" />
+    <property name="State" />
+    <property name="Zip" />
+    <property name="Email" />
+    <property name="PhoneNumber" />
+    <property name="Url" />
+    <set name="Employees" inverse="true" cascade="save-update, persist">
+      <key column="CompanyFk" />
+      <one-to-many class="PDR.Domain.Model.Users.Employee" />
+    </set>
+    <property name="Comment" />
+    <property name="MobileLicensesNumber" />
+    <property name="ActiveUsersNumber" />
+    <property name="CreationDate" />
+    <property name="Status" />
+    <property name="City" />
+    <property name="DefaultHourlyRate" />
+    <property name="LimitForBodyPartEstimate" />
+    <many-to-one name="Logo" column="LogoFk" unique="true" cascade="all" />
+    <many-to-one name="DefaultMatrix" column="DefaultMatrixFk" unique="true" cascade="all" />
+    <property name="EstimatesEmailSubject" />
+    <property name="InvoicesEmailSubject" />
+  </class>
+  <class name="PDR.Domain.Model.Supplement" table="Supplements">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Description" />
+    <property name="Sum" />
+    <many-to-one name="RepairOrder" column="RepairOrderFk" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Reports.InvoiceReport" table="InvoiceReports">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Date" />
+    <property name="Title" />
+    <set name="InvoiceReportItems" inverse="true" cascade="save-update, persist">
+      <key column="InvoiceReportFk" />
+      <one-to-many class="PDR.Domain.Model.Reports.InvoiceReportItem" />
+    </set>
+    <many-to-one name="TeamEmployee" column="TeamEmployeeFk" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Customers.Customer" table="Customers" abstract="true">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <discriminator />
+    <property name="Address1" />
+    <property name="Address2" />
+    <property name="Phone" />
+    <property name="Fax" />
+    <property name="State" />
+    <property name="Zip" />
+    <property name="City" />
+    <property name="Email" />
+    <property name="CreatingDate" />
+    <set name="Estimates" inverse="true" cascade="save-update, persist">
+      <key column="CustomerFk" />
+      <one-to-many class="PDR.Domain.Model.Estimate" />
+    </set>
+    <set name="Teams" table="Customers_Teams" inverse="true" cascade="all">
+      <key column="CustomerFk" />
+      <many-to-many class="PDR.Domain.Model.Team" column="TeamFk" />
+    </set>
+    <set name="Invoices" inverse="true" cascade="save-update, persist">
+      <key column="CustomerFk" />
+      <one-to-many class="PDR.Domain.Model.Invoice" />
+    </set>
+    <set name="RepairOrders" inverse="true" cascade="save-update, persist">
+      <key column="CustomerFk" />
+      <one-to-many class="PDR.Domain.Model.RepairOrder" />
+    </set>
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Effort.EffortItem" table="EffortItems">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Name" />
+    <property name="HoursR_R" />
+    <property name="HoursR_I" />
+    <many-to-one name="CarSectionsPrices" column="CarSectionsPricesFk" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Reports.RepairOrderReportItem" table="RepairOrderReportItems">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="RepairOrderID" />
+    <property name="CreationDate" />
+    <property name="CustomerName" />
+    <property name="TotalSum" />
+    <property name="Status" />
+    <many-to-one name="RepairOrderReport" column="RepairOrderReportFk" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Effort.CarSectionsPrice" table="CarSectionsPrices">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Name" />
+    <many-to-one name="CarModel" column="CarModelFk" />
+    <property name="NewSectionPrice" />
+    <set name="EffortItems" inverse="true" cascade="save-update, persist">
+      <key column="CarSectionsPricesFk" />
+      <one-to-many class="PDR.Domain.Model.Effort.EffortItem" />
+    </set>
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Invoice" table="Invoices">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="New" />
+    <property name="CreationDate" />
+    <many-to-one name="RepairOrder" column="RepairOrderFk" />
+    <property name="Status" />
+    <property name="InvoiceSum" />
+    <property name="PaidSum" />
+    <property name="Archived" />
+    <many-to-one name="TeamEmployee" column="TeamEmployeeFk" />
+    <property name="Commission" />
+    <many-to-one name="Customer" column="CustomerFk" />
+    <property name="PaidDate" />
+    <property name="IsImported" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Matrixes.Price" table="Prices" abstract="true">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <discriminator />
+    <property name="PartOfBody" />
+    <property name="AverageSize" />
+    <property name="TotalDents" />
+    <property name="Cost" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Reports.RepairOrderReport" table="RepairOrderReports">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Date" />
+    <property name="Title" />
+    <set name="RepairOrderReportItems" inverse="true" cascade="save-update, persist">
+      <key column="RepairOrderReportFk" />
+      <one-to-many class="PDR.Domain.Model.Reports.RepairOrderReportItem" />
+    </set>
+    <many-to-one name="TeamEmployee" column="TeamEmployeeFk" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Insurance" table="Insurances">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="InsuredName" />
+    <property name="CompanyName" />
+    <property name="Policy" />
+    <property name="Claim" />
+    <property name="ClaimDate" />
+    <property name="AccidentDate" />
+    <property name="Phone" />
+    <property name="ContactName" />
+    <one-to-one name="Estimate" cascade="save-update, persist" property-ref="Insurance" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Team" table="Teams">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Title" />
+    <property name="Comment" />
+    <property name="CreationDate" />
+    <property name="Status" />
+    <set name="Employees" table="TeamEmployees_Teams" cascade="all">
+      <key column="TeamFk" />
+      <many-to-many class="PDR.Domain.Model.Users.TeamEmployee" column="TeamEmployeeFk" />
+    </set>
+    <set name="Customers" table="Customers_Teams" cascade="all">
+      <key column="TeamFk" />
+      <many-to-many class="PDR.Domain.Model.Customers.Customer" column="CustomerFk" />
+    </set>
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Effort.ChosenEffortItem" table="ChosenEffortItems">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <many-to-one name="EffortItem" column="EffortItemFk" />
+    <property name="Choosed" />
+    <property name="Hours" />
+    <property name="Operations" />
+    <many-to-one name="CarInspection" column="CarInspectionFk" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.License" table="Licenses">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="LicenseNumber" />
+    <property name="CreationDate" />
+    <property name="Status" />
+    <property name="GpsReportFrequency" />
+    <property name="DeviceId" />
+    <property name="DeviceType" />
+    <property name="DeviceName" />
+    <property name="PhoneNumber" />
+    <set name="Locations" inverse="true" cascade="save-update, persist">
+      <key column="LicenseFk" />
+      <one-to-many class="PDR.Domain.Model.Logging.Location" />
+    </set>
+    <many-to-one name="Employee" column="EmployeeFk" unique="true" cascade="save-update, persist" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Estimate" table="Estimates">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="New" />
+    <property name="CreationDate" />
+    <many-to-one name="Employee" column="EmployeeFk" />
+    <many-to-one name="Customer" column="CustomerFk" unique="true" cascade="all" />
+    <many-to-one name="Insurance" column="InsuranceFk" unique="true" cascade="all" />
+    <many-to-one name="Car" column="CarFk" unique="true" cascade="all" />
+    <many-to-one name="Matrix" column="MatrixFk" />
+    <set name="EstimatePrices" inverse="true" cascade="save-update, persist">
+      <key column="EstimateFk" />
+      <one-to-many class="PDR.Domain.Model.Matrixes.EstimatePrice" />
+    </set>
+    <set name="CarInspections" inverse="true" cascade="save-update, persist">
+      <key column="EstimateFk" />
+      <one-to-many class="PDR.Domain.Model.CarInspection" />
+    </set>
+    <set name="CustomEstimateLines" inverse="true" cascade="save-update, persist">
+      <key column="EstimateFk" />
+      <one-to-many class="PDR.Domain.Model.CustomLines.EstimateCustomLine" />
+    </set>
+    <set name="Photos" inverse="true" cascade="save-update, persist">
+      <key column="EstimateFk" />
+      <one-to-many class="PDR.Domain.Model.Photos.CarPhoto" />
+    </set>
+    <property name="PriorDamages" />
+    <property name="EstimateStatus" />
+    <property name="Signature" />
+    <property name="Archived" />
+    <property name="SignatureImage" />
+    <property name="UpdatedSum" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Reports.EstimateReport" table="EstimateReports">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Date" />
+    <property name="Title" />
+    <set name="EstimateReportItems" inverse="true" cascade="save-update, persist">
+      <key column="EstimateReportFk" />
+      <one-to-many class="PDR.Domain.Model.Reports.EstimateReportItem" />
+    </set>
+    <many-to-one name="Employee" column="EmployeeFk" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Effort.CarModel" table="CarModels">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Make" />
+    <property name="Model" />
+    <property name="Year" />
+    <set name="CarParts" inverse="true" cascade="save-update, persist">
+      <key column="CarModelFk" />
+      <one-to-many class="PDR.Domain.Model.Effort.CarSectionsPrice" />
+    </set>
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <class name="PDR.Domain.Model.Logging.Location" table="Locations">
+    <id name="Id" column="Id" type="Int64">
+      <generator class="hilo" />
+    </id>
+    <property name="Date" />
+    <many-to-one name="License" column="LicenseFk" />
+    <property name="Lat" />
+    <property name="Lng" />
+    <many-to-one name="Company" column="CompanyFk" />
+  </class>
+  <subclass name="PDR.Domain.Model.Users.Employee" discriminator-value="Employee" extends="PDR.Domain.Model.Users.User">
+    <property name="Address" />
+    <property name="PhoneNumber" />
+    <property name="Email" />
+    <property name="TaxId" />
+    <property name="Comment" />
+    <property name="CanQuickEstimate" />
+    <property name="CanExtraQuickEstimate" />
+    <property name="Status" />
+    <property name="HiringDate" />
+    <set name="Estimates" inverse="true" cascade="save-update, persist">
+      <key column="EmployeeFk" />
+      <one-to-many class="PDR.Domain.Model.Estimate" />
+    </set>
+    <set name="Logs" inverse="true" cascade="save-update, persist">
+      <key column="EmployeeFk" />
+      <one-to-many class="PDR.Domain.Model.Logging.Log" />
+    </set>
+    <many-to-one name="Company" column="CompanyFk" />
+    <one-to-one name="License" cascade="save-update, persist" property-ref="Employee" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Users.Wholesaler" discriminator-value="Wholesaler" extends="PDR.Domain.Model.Users.Employee" />
+  <subclass name="PDR.Domain.Model.CustomLines.EstimateCustomLine" discriminator-value="EstimateCustomLine" extends="PDR.Domain.Model.CustomLines.CustomLine">
+    <many-to-one name="Estimate" column="EstimateFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Photos.AdditionalCarPhoto" discriminator-value="AdditionalCarPhoto" extends="PDR.Domain.Model.Photos.Photo">
+    <many-to-one name="RepairOrder" column="RepairOrderFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Users.Admin" discriminator-value="Admin" extends="PDR.Domain.Model.Users.Employee" />
+  <subclass name="PDR.Domain.Model.CustomLines.CustomCarInspectionLine" discriminator-value="CustomCarInspectionLine" extends="PDR.Domain.Model.CustomLines.CustomLine">
+    <many-to-one name="CarInspection" column="CarInspectionFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Logging.RepairOrderLog" discriminator-value="RepairOrderLog" extends="PDR.Domain.Model.Logging.Log">
+    <property name="Action" />
+    <many-to-one name="Entity" column="EntityFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Photos.CarPhoto" discriminator-value="CarPhoto" extends="PDR.Domain.Model.Photos.Photo">
+    <many-to-one name="Estimate" column="EstimateFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.CustomLines.EffortLine" discriminator-value="EffortLine" extends="PDR.Domain.Model.CustomLines.CustomLine">
+    <many-to-one name="CarInspection" column="CarInspectionFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Logging.InvoiceLog" discriminator-value="InvoiceLog" extends="PDR.Domain.Model.Logging.Log">
+    <property name="Action" />
+    <many-to-one name="Entity" column="EntityFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Users.TeamEmployee" discriminator-value="TeamEmployee" extends="PDR.Domain.Model.Users.Employee">
+    <property name="Commission" />
+    <set name="Teams" table="TeamEmployees_Teams" inverse="true" cascade="all">
+      <key column="TeamEmployeeFk" />
+      <many-to-many class="PDR.Domain.Model.Team" column="TeamFk" />
+    </set>
+    <set name="RepairOrders" inverse="true" cascade="save-update, persist">
+      <key column="TeamEmployeeFk" />
+      <one-to-many class="PDR.Domain.Model.RepairOrder" />
+    </set>
+    <set name="Invoices" inverse="true" cascade="save-update, persist">
+      <key column="TeamEmployeeFk" />
+      <one-to-many class="PDR.Domain.Model.Invoice" />
+    </set>
+  </subclass>
+  <subclass name="PDR.Domain.Model.Users.Estimator" discriminator-value="Estimator" extends="PDR.Domain.Model.Users.TeamEmployee" />
+  <subclass name="PDR.Domain.Model.Photos.CompanyLogo" discriminator-value="CompanyLogo" extends="PDR.Domain.Model.Photos.Photo" />
+  <subclass name="PDR.Domain.Model.Logging.EstimateLog" discriminator-value="EstimateLog" extends="PDR.Domain.Model.Logging.Log">
+    <property name="Action" />
+    <many-to-one name="Entity" column="EntityFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Users.Superadmin" discriminator-value="Superadmin" extends="PDR.Domain.Model.Users.User" />
+  <subclass name="PDR.Domain.Model.Customers.WholesaleCustomer" discriminator-value="WholesaleCustomer" extends="PDR.Domain.Model.Customers.Customer">
+    <property name="Name" />
+    <property name="Discount" />
+    <property name="HourlyRate" />
+    <property name="LaborRate" />
+    <property name="PartRate" />
+    <property name="Insurance" />
+    <property name="EstimateSignature" />
+    <property name="OrderSignature" />
+    <property name="WorkByThemselve" />
+    <property name="Phone2" />
+    <property name="Password" />
+    <property name="ContactName" />
+    <property name="ContactTitle" />
+    <property name="Comment" />
+    <property name="Status" />
+    <set name="Matrices" table="PriceMatrices_WholesaleCustomers" cascade="all">
+      <key column="WholesaleCustomerFk" />
+      <many-to-many class="PDR.Domain.Model.Matrixes.PriceMatrix" column="PriceMatrixFk" />
+    </set>
+  </subclass>
+  <subclass name="PDR.Domain.Model.Customers.RetailCustomer" discriminator-value="RetailCustomer" extends="PDR.Domain.Model.Customers.Customer">
+    <property name="FirstName" />
+    <property name="LastName" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Matrixes.MatrixPrice" discriminator-value="MatrixPrice" extends="PDR.Domain.Model.Matrixes.Price">
+    <many-to-one name="Matrix" column="MatrixFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Users.Technician" discriminator-value="Technician" extends="PDR.Domain.Model.Users.TeamEmployee" />
+  <subclass name="PDR.Domain.Model.Users.Accountant" discriminator-value="Accountant" extends="PDR.Domain.Model.Users.Employee" />
+  <subclass name="PDR.Domain.Model.Matrixes.EstimatePrice" discriminator-value="EstimatePrice" extends="PDR.Domain.Model.Matrixes.Price">
+    <many-to-one name="Estimate" column="EstimateFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Matrixes.DefaultMatrix" discriminator-value="DefaultMatrix" extends="PDR.Domain.Model.Matrixes.Matrix" />
+  <subclass name="PDR.Domain.Model.Logging.ReassignRepairOrderLog" discriminator-value="ReassignRepairOrderLog" extends="PDR.Domain.Model.Logging.Log">
+    <many-to-one name="NewOwner" column="NewOwnerFk" />
+    <many-to-one name="Entity" column="EntityFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Users.Manager" discriminator-value="Manager" extends="PDR.Domain.Model.Users.TeamEmployee" />
+  <subclass name="PDR.Domain.Model.CustomLines.OversizedDentsLine" discriminator-value="OversizedDentsLine" extends="PDR.Domain.Model.CustomLines.CustomLine">
+    <many-to-one name="CarInspection" column="CarInspectionFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Logging.ReassignEstimateLog" discriminator-value="ReassignEstimateLog" extends="PDR.Domain.Model.Logging.Log">
+    <many-to-one name="NewOwner" column="NewOwnerFk" />
+    <many-to-one name="Entity" column="EntityFk" />
+  </subclass>
+  <subclass name="PDR.Domain.Model.Matrixes.PriceMatrix" discriminator-value="PriceMatrix" extends="PDR.Domain.Model.Matrixes.Matrix">
+    <set name="Customers" table="PriceMatrices_WholesaleCustomers" inverse="true" cascade="all">
+      <key column="PriceMatrixFk" />
+      <many-to-many class="PDR.Domain.Model.Customers.WholesaleCustomer" column="WholesaleCustomerFk" />
+    </set>
+  </subclass>
+</hibernate-mapping>

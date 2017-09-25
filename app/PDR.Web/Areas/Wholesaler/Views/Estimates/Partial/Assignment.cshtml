@@ -1,0 +1,13 @@
+﻿@model PDR.Web.Areas.Wholesaler.Models.WholesalerEstimateModel
+
+<fieldset id="estimate-customer" class="fieldset2">
+<ul>
+	<li>
+       @{ Html.RenderPartialWithPrefixAndState("Partial/Employee", x => x.Employee); }
+	</li>
+	<li data-bind="visible: ($root.carInspection().typeEstimate() != 'ExtraQuick')">
+		@Html.LabelFor(x => x.MatrixId, "Price matrix", new { style="width:150px;"})
+        @Html.DropDownListFor(x => x.MatrixId, new SelectList(Model.Matrices, "Value", "Text", Model.MatrixId), new { id = "Customer_MatrixId", @class = "combobox select-employee customerandMatrixRequire" })
+	</li>
+</ul>
+</fieldset>

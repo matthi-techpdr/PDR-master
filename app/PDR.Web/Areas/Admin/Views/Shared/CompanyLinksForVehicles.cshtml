@@ -1,0 +1,14 @@
+﻿@model IEnumerable<SelectListItem>
+
+@{Bundles.Reference("Content/js/Pages/select-link.js");}
+@{Bundles.Reference("Content/js/Pages/Common/InitStyleFilters.js");}
+<div class="links" style="margin-bottom: 16px;">
+    @{Html.RenderPartial("CompanyLinks");}
+    
+    <span class="gridFilter">
+        <label>
+            Filter by cars make:
+        </label>
+        @Html.DropDownList("makes", Model, new { id = "CarMake" })        
+    </span>
+</div>

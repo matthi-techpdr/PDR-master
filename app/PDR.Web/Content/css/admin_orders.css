@@ -1,0 +1,521 @@
+.repair-orders-content {
+	width:958px;
+	position:relative;
+	float:left;
+}
+.repair-orders-content .gridCaption{
+	font-size:16px;
+	margin:0 0 10px;
+}
+.links a.viewArchive {
+    float: right;
+}
+
+.filterWrapper 
+{
+    margin: 16px 0 0;
+    float: left;
+    width: 100%;    
+}
+
+.filterWrapper .gridFilter {
+    float: right;
+    margin: 6px 0 3px;
+}
+.dataWrapper {
+    float: left;
+    margin: 0 0 0 -141px;
+    }
+.gridFilter {
+	float: right;
+    margin: 27px 0 3px;
+}
+.gridFilterNoMargin {
+    margin: 7px 0 3px;
+}
+
+.dateFilterAccountant {
+    float:left;
+    margin: 16px 0 0 0 !important; 
+}
+
+.dateFilter {
+float:left;
+}
+
+.filterAccountant {
+    margin: 23px 0 3px !important;
+}
+
+.filterStatus, .filterStatusAccountant {
+    /*margin: 10px -80px 3px !important;*/
+	margin: 10px 62px 3px 10px !important;
+}
+.filterStatus label, .filterStatusAccountant label{
+	margin: 6px 1px 0 0 !important;
+}
+
+.filterStatusAccountant {
+    margin-right: 155px !important;
+}
+
+.gridFilter label{
+	float: left;
+    font-size: 14px;
+	color:#535960;
+    margin: 6px 8px 0 0;
+}
+.gridFilter label {
+	float:left !important;
+}
+#gbox_companyGrid {
+	float:left;
+	width:958px !important;
+}
+.ui-widget-content {
+	background:none;
+	border:none;	
+}
+.ui-state-hover {
+	background:#f0f0f0;
+}
+.ui-jqgrid .ui-jqgrid-view {
+	background: none repeat scroll 0 0 #F9F9FA !important;
+    border: 1px solid #CCCCCC !important;
+    border-radius: 7px 7px 7px 7px !important;
+}
+/*
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {
+	background:none !important;
+}*/
+
+.ui-slider-handle {
+    border: 1px solid #E25E53;
+    border-radius: 3px;
+    background: #E25E53 !important;
+}
+
+.ui-slider
+{
+    border: 1px solid #E25E53;
+    background: #fff;
+    border-radius: 3px;
+    }
+    
+    .ui-timepicker-div {
+        border-bottom: 1px solid gray;
+    }
+
+#tabs-2 .repair-orders-content {
+	margin:0 0 10px;
+}
+.ui-jqgrid .ui-jqgrid-htable th div 
+{
+    white-space: pre-wrap;
+    position:relative;
+	color:#555;
+	font-size:13px;
+	padding: 26px 0 17px 8px !important;/*padding: 26px 2px 17px 7px !important;*/
+	float:left;
+}
+
+.ui-jqgrid .ui-jqgrid-htable th div#jqgh_cb {
+	padding: 5px 0 0 5px;
+}
+.ui-jqgrid tr.jqgrow td {
+	color:#555;
+	font-size:13px;
+}
+.repair-orders-content a:hover {
+	color:#E25E53;
+}
+.repair-orders-content li:first-child {
+	border-top:none;
+	padding:26px 0 17px;	
+}
+.repair-orders-content li {
+	border-top:1px solid #d7d7d8;
+	float:left;
+	padding:7px 0;
+	width:958px;
+}
+.ch {
+	margin:0 0 0 17px;
+	width:13px;
+	height:13px;
+}
+.ch input{
+	margin:0;
+}
+.cd {
+	margin:0 0 0 20px;
+	width:90px;
+}
+.roid {
+	margin:0 0 0 32px;
+	width:90px;
+}
+.cn {
+	margin:0 0 0 25px;
+	width:190px;
+}
+.mmy {
+	margin:0 0 0 37px;
+	width:250px;
+}
+.cost {
+	margin:0 0 0 41px;
+	width:50px;
+}
+.status {
+	margin:0 0 0 43px;
+	width: 60px;
+}
+.my-persent .cd {
+	width:80px;
+}
+.my-persent .cn {
+	width:150px;
+}
+.my-persent .mmy {
+	width:230px;
+}
+.my-persent .my-persent-span {
+	width:70px;
+}
+.assign-repair-order,
+.ui-dialog {
+	border:1px solid #d8d8d8 !important;
+	float:left !important;
+	background:#e5e5e5 !important;
+	border-radius:5px !important;
+	padding:0 !important;
+}
+.ui-dialog-titlebar {
+	background-image: linear-gradient(bottom, rgb(210,210,212) 0%, rgb(243,243,246) 100%) !important;
+	background-image: -o-linear-gradient(bottom, rgb(210,210,212) 0%, rgb(243,243,246) 100%) !important;
+	background-image: -moz-linear-gradient(bottom, rgb(210,210,212) 0%, rgb(243,243,246) 100%) !important;
+	background-image: -webkit-linear-gradient(bottom, rgb(210,210,212) 0%, rgb(243,243,246) 100%) !important;
+	background-image: -ms-linear-gradient(bottom, rgb(210,210,212) 0%, rgb(243,243,246) 100%) !important;
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(210,210,212)),
+		color-stop(1, rgb(243,243,246))
+	) !important;
+	border:1px solid #d8d8d8 !important;
+	border-radius:5px !important;
+	margin:-1px 0 16px -23px !important;
+	color:#555555 !important;
+	font-size:16px !important;
+	font-weight:normal !important;
+	padding:12px 0 14px 22px !important;
+}
+.assign-repair-order p {
+	font-size:14px !important;
+	color:#555 !important;
+	margin:0 0 22px !important;
+	float:left !important;
+}
+.assign-repair-order span {
+	font-size:14px !important;
+	color:#555 !important;
+	margin:0 0 11px !important;
+	float:left !important;
+}
+.assign-repair-order select {
+	width:282px !important;
+	height:25px !important;
+	line-height:25px !important;
+	margin:0 0 9px !important;
+}
+.ui-button-text-only .ui-button-text {
+	height:32px !important;
+	line-height:32px !important;
+	background:#B4B4B9;
+	background-image: linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%) !important;
+	background-image: -o-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%) !important;
+	background-image: -moz-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%) !important;
+	background-image: -webkit-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%) !important;
+	background-image: -ms-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%) !important;
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(180,180,185)),
+		color-stop(1, rgb(197,197,200))
+	) !important;
+	border-radius:9px !important;
+	border:none !important;
+	color:#444447 !important;
+	margin:0 5px 0 0;
+    width: inherit;
+	font-size:14px !important;
+	cursor:pointer !important;
+}
+.assign-repair-order .ok:hover {
+	color:#ed1c24 !important;
+}
+.assign-repair-order .cancel {
+	width:82px !important;
+	height:32px !important;
+	line-height:32px !important;
+	background-image: linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%) !important;
+	background-image: -o-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%) !important;
+	background-image: -moz-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%) !important;
+	background-image: -webkit-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%) !important;
+	background-image: -ms-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%) !important;
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(180,180,185)),
+		color-stop(1, rgb(197,197,200))
+	) !important;
+	border-radius:9px !important;
+	border:none !important;
+	color:#444447 !important;
+	font-size:14px !important;
+	cursor:pointer !important;
+}
+.assign-repair-order .cancel:hover,
+.ui-jqgrid .ui-pg-button:hover div {
+	color:#fff !important;
+}
+
+#active-form-button>span {
+    color: #ff0f00 !important;
+}
+
+#active-grid-button {
+  color: #ff0f00 !important;  
+}
+
+.dpp label{
+	width:247px;
+	float:left;
+	color:#444447;
+	font-size:14px;
+	margin:6px 0 0;
+}
+.dpp input {
+	height:18px;
+	width:51px;
+	line-height:18px;
+	border-radius:3px;
+	padding:3px;
+	border:1px solid #d8d8d8;
+	margin:0 0 8px;
+}
+.dpp {
+	left:516px;
+}
+.ui-jqgrid .ui-jqgrid-pager .ui-pg-div,
+#first,
+#prev,
+#next,
+#last,
+.footer input{
+	background:#B4B4B9;
+	white-space:nowrap;
+	background-image: linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(180,180,185)),
+		color-stop(1, rgb(197,197,200))
+	);
+	border-radius:9px;
+	border:none;
+	padding:9px 8px;
+	color:#444447;
+	font-size:15px;
+	float:left;
+	margin:0 4px 4px 0;
+	cursor:pointer;
+	/*behavior: url(/1PIE.htc) !important;*/
+	min-height:10px;
+}
+#first,
+#prev,
+#next,
+#last {
+	background:#B4B4B9 !important;
+}
+.ui-pg-button.ui-state-disabled .ui-separator {
+	display:none;
+}
+.ui-jqgrid .ui-jqgrid-pager .ui-pg-div span {
+	display:none;
+}
+.repair-orders-button a.archive {
+	margin:0 266px 0 0;
+}
+.repair-orders-button {
+	float: left;
+	margin: 15px 0 0;
+	padding: 0 0 100px;
+	width: 960px;
+}
+.repair-orders-button a.active {
+	color:#ed1c24;
+}
+.ui-pg-div:hover {
+	background: none repeat scroll 0 0 #E25E53;
+    color: #FFFFFF;
+}
+.repair-orders-button p {
+	float:left;
+	font-size:14px;
+	color:#555555;
+	margin:9px 0 0 11px
+}
+.repair-orders-button select {
+	float:left;
+	height:32px;
+	line-height:32px;
+	width:70px;
+}
+.wp-pagenavi {
+	float:left;
+}
+.wp-pagenavi a.prev {
+	margin:0 0 0 10px;
+}
+.wp-pagenavi a.last,
+.wp-pagenavi a.prev,
+span.current{
+	float:left;
+	background-image: linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -o-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -moz-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -webkit-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -ms-linear-gradient(bottom, rgb(180,180,185) 0%, rgb(197,197,200) 100%);
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0, rgb(180,180,185)),
+		color-stop(1, rgb(197,197,200))
+	);
+	border-radius:9px;
+}
+.wp-pagenavi a {
+	background:none;
+	width:auto;
+}
+.extend {
+	float:left;
+}
+.re-assign p{
+	text-align:center;
+	width:100%;
+}
+.re-assign select{
+	width:258px;
+	height:24px;		
+}
+.re-assign .selectBox{
+	background:#fff;
+	border:1px solid #ccc;
+	border-radius:3px;	
+	margin:0 0 0 25px;
+}
+.re-assign .selectBox .selectBox-label{
+	margin:0;	
+}
+.assign-repair-order.re-assign .ok {
+    border-radius: 10px 10px 10px 10px;
+    height: 32px;
+    margin: 23px 5px 0 55px;
+    padding: 0;
+    text-align: center;
+    width: 97px;
+}
+.assign-repair-order.re-assign .cancel {
+    border-radius: 10px 10px 10px 10px;
+    height: 32px;
+    margin: 23px 0 0;
+    padding: 0;
+    text-align: center;
+    width: 97px;
+}
+.customer-info {
+  background: none repeat scroll 0 0 #F0F0F0;
+  border: 1px solid #DADADA;
+  border-radius: 10px 10px 10px 10px;
+  float: left;
+  margin: 0 0 10px;
+  padding: 10px;
+  width: 940px;
+  margin-top: 15px;
+}
+.sob-info  
+{
+    word-wrap: break-word; 
+	float:left;
+	width:200px;
+	margin:0 20px 0 0;
+}
+.sob-info  h4 {
+	color: #555555;
+    float: left;
+	width:200px;
+    font-size: 13px;
+	margin:0 0 10px;
+}
+.sob-info  p {
+	color: #555555;
+    float: left;
+	width:200px;
+    font-size: 13px;
+}
+.sob-info  p.phone {
+	margin:10px 0 0;
+}
+.maps {
+	height: 250px;
+    width: 700px;
+    border: 1px solid #555;
+}
+#pager, #pager1, #pager2, #pager3 {
+	margin:10px 0 0 !important;
+	float:left;
+	border:none;
+    /*height: 45px !important; */
+}
+
+#pager_right {
+    vertical-align: top;
+}
+
+.repair-orders-button a, span.current 
+{
+    background-image: linear-gradient(bottom, #B4B4B9 0%, #C5C5C8 100%);
+background-image: -o-linear-gradient(bottom, #B4B4B9 0%, #C5C5C8 100%);
+background-image: -moz-linear-gradient(bottom, #B4B4B9 0%, #C5C5C8 100%);
+background-image: -webkit-linear-gradient(bottom, #B4B4B9 0%, #C5C5C8 100%);
+background-image: -ms-linear-gradient(bottom, #B4B4B9 0%, #C5C5C8 100%);
+background-image: -webkit-gradient(
+ linear,
+ left bottom,
+ left top,
+ color-stop(0, #B4B4B9),
+ color-stop(1, #C5C5C8)
+ );
+    border: medium none;
+    border-radius: 9px 9px 9px 9px;
+    color: #444447;
+    cursor: pointer;
+    float: left;
+    font-size: 14px;
+    margin: 0 4px 0 0;
+    min-height: 10px;
+    padding: 9px 8px;
+}

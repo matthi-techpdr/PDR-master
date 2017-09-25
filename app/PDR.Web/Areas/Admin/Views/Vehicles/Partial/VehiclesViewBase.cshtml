@@ -1,0 +1,21 @@
+﻿@model PDR.Web.Areas.Admin.Models.Vehicle.VehicleModel
+@{
+    this.SetLayout();
+    ViewBag.Title = "View Vehicle";
+    ViewBag.OperationsIsActive = "ui-tabs-selected ui-state-active";
+}
+
+<div class="links">
+    @RenderSection("links")
+    @{
+        string text = Model.Info.Make.ToLower() == "DefaultCar".ToLower()
+                          ? "(" + @Model.Info.Make + ")"
+                          : "(" + @Model.Info.Make + " " + @Model.Info.Model + " " + @Model.Info.YearFrom + " - " + @Model.Info.YearTo + ")";
+    }
+    <span class="item-number" style="-webkit-appearance: none;">View Vehicle #@Model.Info.Id @text</span>
+</div> 
+@{   
+    Html.ReadOnlyModeOn();
+    Html.RenderPartial("Partial/Vehicle", Model);
+    Html.ReadOnlyModeOff();
+}

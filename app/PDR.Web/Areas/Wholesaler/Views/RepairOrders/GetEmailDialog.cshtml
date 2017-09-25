@@ -1,0 +1,48 @@
+﻿@model PDR.Web.Areas.Estimator.Models.Estimates.SendEmailViewModel
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "sendEmailForm", style="height:325px;" }))
+{
+    <fieldset>
+        <label>
+            <span>To:</span>
+            @Html.TextBoxFor(m => m.To)
+            @Html.ValidationMessageFor(m => m.To)
+        </label>
+        @if (Model.IsWholesale)
+        {
+            <label>
+                <span>Email 2:</span>
+                @Html.TextBoxFor(m => m.To2)
+                @Html.ValidationMessageFor(m => m.To2)
+            </label>
+            <label>
+            <span>Email 3:</span>
+            @Html.TextBoxFor(m => m.To3)
+            @Html.ValidationMessageFor(m => m.To3)
+            </label>
+            <label>
+                <span>Email 4:</span>
+                @Html.TextBoxFor(m => m.To4)
+                @Html.ValidationMessageFor(m => m.To4)
+            </label>
+        }
+        <br/>
+        <label>
+            <span>Subject:</span>
+            @Html.TextBoxFor(m => m.Subject)
+            @Html.ValidationMessageFor(m => m.Subject)
+        </label>
+        @Html.Hidden("WholesalerRole")
+        <br/>
+        <label>
+            <span>Message text:</span>
+        </label>
+        <br/>
+        <label>            
+            @Html.TextAreaFor(m => m.Message)
+            @Html.ValidationMessageFor(m => m.Message)
+        </label>
+    </fieldset>
+}
+<input type="hidden" id="ids" value="@Model.IDs" />
+<input type="hidden" id="urlEmail" value="@Url.Action("SendEmail", "RepairOrders")"/>
+
