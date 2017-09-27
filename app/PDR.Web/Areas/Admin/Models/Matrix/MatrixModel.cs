@@ -11,7 +11,7 @@ namespace PDR.Web.Areas.Admin.Models.Matrix
     {
         private static TotalDents[] exceptTotalDentses = {TotalDents.NoDamage, TotalDents.Conventional};
 
-        public MatrixModel()
+        public MatrixModel() 
         {
         }
 

@@ -163,7 +163,7 @@ namespace PDR.Domain.StoredProcedureHelpers
              //if (isForCustomerFilter.HasValue)
              //{
              //    Parameters.Add(new SqlParameter("@IsForCustomerFilter", SqlDbType.Bit) { Value = isForCustomerFilter.Value });
-             //}
+             //} 
 
              #endregion
              ExecutStoredProcedure();

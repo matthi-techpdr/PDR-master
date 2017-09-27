@@ -45,7 +45,7 @@ namespace PDR.Web.Areas.Estimator.Validators.Customers
                 .Length(0, 255);
 		        //.When(model => model.CustomerType == EstimateCustomerType.Retail);
 
-		    this.RuleFor(x => x.AffiliateId).NotEmpty().NotEqual("0");
+		    this.RuleFor(x => x.AffiliateId).NotEmpty().NotEqual("0"); 
 		}
 	}
 }

@@ -86,7 +86,7 @@ namespace PDR.Web.Areas.Admin.Controllers
 
         #endregion
 
-        public ActionResult Index()
+        public ActionResult Index() 
         {
             var stateCookie = HttpContext.Request.Cookies.Get("state");
             var teamCookie = HttpContext.Request.Cookies.Get("team");

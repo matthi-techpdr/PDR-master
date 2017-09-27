@@ -9,7 +9,7 @@ namespace PDR.Web.Areas.Accountant.Validators
 {
     public class EmployeeViewModelValidator : AbstractValidator<EmployeeViewModel>
     {
-        public EmployeeViewModelValidator()
+        public EmployeeViewModelValidator() 
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage("Please specify name").LettersAndSpaces().Length(1, 50);
             RuleFor(x => x.Address).Length(0, 25);

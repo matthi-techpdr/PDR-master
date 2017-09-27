@@ -9,7 +9,7 @@ namespace PDR.Web.Areas.Accountant.Validators
 {
     public class AffiliatesViewModelValidator : AbstractValidator<AffiliatesViewModel>
     {
-        public AffiliatesViewModelValidator()
+        public AffiliatesViewModelValidator() 
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage("Please specify name").Length(1, 50);
             RuleFor(x => x.Address1).NotEmpty().WithMessage("Please specify address1 name").Length(1, 40);

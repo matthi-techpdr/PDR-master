@@ -43,7 +43,7 @@ namespace PDR.Web.Areas.Common.Controllers
     using SmartArch.Data.Proxy;
 
     [PDRAuthorize]
-    public class CustomerManagementController : Controller
+    public class CustomerManagementController : Controller 
     {
         #region private fields
 

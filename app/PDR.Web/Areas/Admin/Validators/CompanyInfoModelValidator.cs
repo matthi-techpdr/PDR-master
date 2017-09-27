@@ -9,7 +9,7 @@ namespace PDR.Web.Areas.Admin.Validators
 {
     public class CompanyInfoModelValidator : AbstractValidator<CompanyInfoModel>
     {
-        public CompanyInfoModelValidator()
+        public CompanyInfoModelValidator() 
         {
             RuleFor(x => x.Name).NotEmpty().Length(1, 50).Must(NameBeUnique).WithMessage("The company already exists.");
             RuleFor(x => x.Address1).Length(0, 40);

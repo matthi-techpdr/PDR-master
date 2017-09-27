@@ -7,7 +7,7 @@ namespace PDR.Web.Areas.Common.Validators
 {
     public class SettingsViewModelValidator : AbstractValidator<SettingsViewModel>
     {
-        public SettingsViewModelValidator()
+        public SettingsViewModelValidator() 
         {
             RuleFor(x => x.Name).NotEmpty().WithMessage("Please specify name").LettersAndSpaces().Length(1, 50);
             RuleFor(x => x.Address).Length(0, 25);

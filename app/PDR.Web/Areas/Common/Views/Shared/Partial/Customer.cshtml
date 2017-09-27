@@ -2,7 +2,7 @@
 @using PDR.Web.Core.Helpers.Html
 @model EstimateCustomerModel
 <fieldset id="estimate-customer" class="fieldset2">
-    <label>
+    <label> 
         @Html.Inputs().RadioButtonFor(x => x.CustomerType, EstimateCustomerType.Retail, new { data_bind = "checked: customerType", id = "CustomerType_Retail" })
         <a href="javascript:void(0);"><span>Retail</span></a>
     </label>
