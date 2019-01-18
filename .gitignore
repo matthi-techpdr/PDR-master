@@ -28,6 +28,8 @@ app/PDR.Web/logs/*.*
 app/PDR.Web/logs/archive/*.txt
 app/PDR.Web/Content/Builds/*.*
 PDR.TastkCheckEmployeeActivity/Mappings/pdr.nh.mappings.xml
+app/PDR.Web/Web.config
+app/PDR.Web/Web.config.bak
 
 
 syntax: regexp
